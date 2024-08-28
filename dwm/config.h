@@ -45,7 +45,7 @@ static const char *colors[][3]      = {
 static const char *tags[] = {
 	"", // terminal
 	"󰖟", // browser
-	"", // general
+	"󰉋", // general
 	"", // code
 	"󰝚", // spotify
 	"", // github desktop
