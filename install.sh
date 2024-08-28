@@ -13,6 +13,7 @@ yay -S --needed\
     dunst\
     feh\
     firefox\
+    gnome-disk-utility\
     gvfs\
     htop\
     inkscape\
@@ -20,6 +21,7 @@ yay -S --needed\
     libxinerama\
     nano\
     neofetch\
+    ntfs-3g\
     obs-studio\
     papirus-icon-theme\
     picom\
