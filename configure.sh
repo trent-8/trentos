@@ -1,13 +1,14 @@
 #!/bin/bash
 set -x
 set +v
+cd ~
 sudo mkdir -p\
     ~/.config/gtk-3.0\
     ~/.config/rofi\
     ~/.config/terminator\
     ~/.icons\
     ~/.icons/default
-cd ~/ultimate-system
+cd ~/trentos
 sudo cp .xinitrc ~/
 sudo cp .config/terminator/config ~/.config/terminator
 sudo cp .config/gtk-3.0/settings.ini ~/.config/gtk-3.0

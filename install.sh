@@ -42,10 +42,9 @@ yay -S --needed\
     xorg-xinit\
     xorg-xrandr\
     xorg-xsetroot
-cd ~/ultimate-system/dwm
+cd ~/trentos/dwm
 sudo make install
 sudo make clean
-~/ultimate-system/configure.sh
 sudo systemctl enable --now bluetooth.service
 sudo systemctl enable --now NetworkManager.service
-~/ultimate-system/configure.sh
+~/trentos/configure.sh

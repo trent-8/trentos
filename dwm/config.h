@@ -95,7 +95,7 @@ static const char *dmenucmd[] = { "rofi", "-show", "drun", NULL };
 static const char *termcmd[]  = { "terminator", NULL };
 static const char *spotifycmd[]= { "spotify-launcher", NULL };
 static const char *codecmd[]= { "code", NULL };
-static const char *startup[]= { "./ultimate-system/startup.sh", NULL };
+static const char *startup[]= { "./trentos/startup.sh", NULL };
 static const Arg autostartarg= {.v = startup };
 
 static const Key keys[] = {
