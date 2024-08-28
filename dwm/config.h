@@ -61,8 +61,8 @@ static const Rule rules[] = {
 	{ "firefox",        NULL,     NULL,      1 << 1,         0,           -1 },
 	{ "Thunar",         NULL,     NULL,      1 << 2,         0,           -1 },
 	{ "code-oss",       NULL,     NULL,      1 << 3,         0,           -1 },
-	{ "GitHub Desktop", NULL,     NULL,      1 << 4,         0,            0 }
-	{ "Spotify",        NULL,     NULL,      1 << 5,         0,            0 },
+	{ "GitHub Desktop", NULL,     NULL,      1 << 4,         0,            0 },
+	{ "Spotify",        NULL,     NULL,      1 << 5,         0,            0 }
 };
 
 /* layout(s) */
