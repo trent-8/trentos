@@ -5,6 +5,15 @@ from datetime import datetime, timedelta
 import subprocess
 import shutil
 
+base_directory = os.path.join(os.path.expanduser("~"), "personal", "notes")
+# choose an appropriate file manager and text editor
+file_manager = None
+if platform == "linux": file_manager = 'thunar'
+elif platform == "win32": file_manager = 'explorer'
+text_editor = None
+if platform == "linux": text_editor = 'nano'
+elif platform == "win32": text_editor = 'notepad'
+
 def find_last_existing_file():
     current_date = datetime.now()
     # Start searching from the previous day
@@ -15,7 +24,7 @@ def find_last_existing_file():
         month = search_date.month
         day = search_date.day
 
-        last_file_path = os.path.join(os.path.expanduser("~"), "personal", "notes", str(year), str(month), f"{day}.txt")
+        last_file_path = os.path.join(base_directory, str(year), str(month), f"{day}.txt")
         if os.path.exists(last_file_path):
             return last_file_path
         
@@ -35,7 +44,6 @@ def open_todays_notes():
     day = current_date.day
 
     # Create the directory structure based on the current date
-    base_directory = os.path.join(os.path.expanduser("~"), "personal", "notes")
     directory = os.path.join(base_directory, str(year), str(month))
 
     # abort if the base directory does not exist
@@ -68,9 +76,6 @@ def open_todays_notes():
     
     # Open the file with nano
     try:
-        text_editor = None
-        if platform == "linux": text_editor = 'nano'
-        elif platform == "win32": text_editor = 'notepad'
         subprocess.run([text_editor, file_path])
         print(f"Opening '{file_path}' in {text_editor}.")
     except FileNotFoundError:
@@ -78,19 +83,12 @@ def open_todays_notes():
     return "opened daily notes"
 
 def open_notes_path():
-    # Create the directory structure based on the current date
-    directory = os.path.join(os.path.expanduser("~"), "personal", "notes")
-    
     # Ensure the directory exists
-    if not os.path.exists(directory):
+    if not os.path.exists(base_directory):
         return 'a "notes" folder does not exist in your onedrive'
 
-
-    # Attempt to open the notes directory in explorer
+    # Attempt to open the notes directory
     try:
-        file_manager = None
-        if platform == "linux": file_manager = 'thunar'
-        elif platform == "win32": file_manager = 'explorer'
         subprocess.run([file_manager, directory])
         print(f"Opening '{directory}' in {file_manager}.")
     except FileNotFoundError:
