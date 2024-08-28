@@ -89,8 +89,8 @@ def open_notes_path():
 
     # Attempt to open the notes directory
     try:
-        subprocess.run([file_manager, directory])
-        print(f"Opening '{directory}' in {file_manager}.")
+        subprocess.run([file_manager, base_directory])
+        print(f"Opening '{base_directory}' in {file_manager}.")
     except FileNotFoundError:
         return f"{file_manager} could not be opened or filepath does not exist"
     return "opened notes path"
