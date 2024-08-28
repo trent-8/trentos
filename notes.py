@@ -15,7 +15,7 @@ def find_last_existing_file():
         month = search_date.month
         day = search_date.day
 
-        last_file_path = os.path.join(os.path.expanduser("~"), "personal", "notes", f"{year}-{month}-{day}.txt")
+        last_file_path = os.path.join(os.path.expanduser("~"), "personal", "notes", str(year), str(month), f"{day}.txt")
         if os.path.exists(last_file_path):
             return last_file_path
         
@@ -35,14 +35,23 @@ def open_todays_notes():
     day = current_date.day
 
     # Create the directory structure based on the current date
-    directory = os.path.join(os.path.expanduser("~"), "personal", "notes")
-    
-    # Ensure the directory exists
-    if not os.path.exists(directory):
+    base_directory = os.path.join(os.path.expanduser("~"), "personal", "notes")
+    directory = os.path.join(base_directory, str(year), str(month))
+
+    # abort if the base directory does not exist
+    if not os.path.exists(base_directory):
         return 'a "notes" folder does not exist in your onedrive'
     
+    # Ensure that the directory exists
+    if not os.path.exists(directory):
+        os.makedirs(directory)
+        print(f"Directory '{directory}' created.")
+    else:
+        print(f"Directory '{directory}' already exists.")
+
+
     # File name based on the current day
-    filename = f"{year}-{month}-{day}.txt"
+    filename = f"{day}.txt"
     file_path = os.path.join(directory, filename)
     
     # Check if the file already exists
@@ -75,6 +84,7 @@ def open_notes_path():
     # Ensure the directory exists
     if not os.path.exists(directory):
         return 'a "notes" folder does not exist in your onedrive'
+
 
     # Attempt to open the notes directory in explorer
     try:
