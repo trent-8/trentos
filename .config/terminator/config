@@ -2,17 +2,17 @@
 [keybindings]
 [profiles]
   [[default]]
-    background_color = "#040704"
+    background_color = "#050505"
     cursor_shape = block
     font = Source Code Pro 12
-    foreground_color = "#d2ddd2"
+    foreground_color = "#d8d8d8"
     use_system_font = False
     use_theme_colors = False
     title_hide_sizetext = True
-    title_transmit_fg_color = "#d2ddd2"
-    title_transmit_bg_color = "#1a241a"
-    title_inactive_fg_color = "#a7bba7"
-    title_inactive_bg_color = "#0e150e"
+    title_transmit_fg_color = "#d8d8d8"
+    title_transmit_bg_color = "#202020"
+    title_inactive_fg_color = "#b0b0b0"
+    title_inactive_bg_color = "#121212"
 [layouts]
   [[default]]
     [[[child0]]]
