@@ -48,6 +48,7 @@ static const char *tags[] = {
 	"", // general
 	"", // code
 	"󰝚", // spotify
+	"", // github desktop
 };
 
 static const Rule rules[] = {
@@ -55,12 +56,13 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class          instance  title      tags mask       isfloating   monitor */
-	{ "Terminator",   NULL,     NULL,           1,         0,           -1 },
-	{ "firefox",      NULL,     NULL,      1 << 1,         0,           -1 },
-	{ "Thunar",       NULL,     NULL,      1 << 2,         0,           -1 },
-	{ "code-oss",     NULL,     NULL,      1 << 3,         0,           -1 },
-	{ "Spotify",      NULL,     NULL,      1 << 4,         0,            0 },
+	/* class            instance  title      tags mask       isfloating   monitor */
+	{ "Terminator",     NULL,     NULL,           1,         0,           -1 },
+	{ "firefox",        NULL,     NULL,      1 << 1,         0,           -1 },
+	{ "Thunar",         NULL,     NULL,      1 << 2,         0,           -1 },
+	{ "code-oss",       NULL,     NULL,      1 << 3,         0,           -1 },
+	{ "Spotify",        NULL,     NULL,      1 << 4,         0,            0 },
+	{ "GitHub Desktop", NULL,     NULL,      1 << 5,         0,            0 }
 };
 
 /* layout(s) */
