@@ -98,7 +98,7 @@ static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_r,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_t,      spawn,          {.v = termcmd } },
-	{ MODKEY,                       XK_s,      spawn,          SHCMD ("spotify-launcer")},
+	{ MODKEY,                       XK_s,      spawn,          SHCMD ("spotify-launcher")},
 	{ MODKEY,                       XK_c,      spawn,          SHCMD ("code")},
 	{ MODKEY,                       XK_b,      spawn,          SHCMD ("firefox")},
 	{ MODKEY,                       XK_a,      spawn,          SHCMD ("arandr")},
