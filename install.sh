@@ -9,7 +9,6 @@ yay -S --needed\
     bluetuith\
     breeze-gtk\
     brightnessctl\
-    code\
     dunst\
     feh\
     firefox\
@@ -38,6 +37,7 @@ yay -S --needed\
     tumbler\
     unzip\
     usbimager\
+    visual-studio-code-bin\
     vlc\
     xarchiver\
     xcursor-breeze\
