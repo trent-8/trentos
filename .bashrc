@@ -1,0 +1,1 @@
+alias notes="python ~/trentos/notes.py"
