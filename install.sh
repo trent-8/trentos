@@ -17,6 +17,7 @@ yay -S --needed\
     gvfs\
     htop\
     inkscape\
+    less\
     libxft\
     libxinerama\
     nano\
