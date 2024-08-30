@@ -5,9 +5,9 @@ git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
 yay -S --needed\
+    adapta-gtk-theme\
     arandr\
     bluetuith\
-    breeze-gtk\
     brightnessctl\
     dunst\
     feh\
