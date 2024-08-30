@@ -17,7 +17,10 @@ cp ~/trentos/.icons/default/index.theme ~/.icons/default
 cp ~/trentos/.Xresources ~/
 cp ~/trentos/.bashrc ~/
 cp ~/trentos/.gtkrc-2.0 ~/
+sudo mkdir /usr/share/xsessions
 sudo cp ~/trentos/.config/gtk-3.0/settings.ini /etc/gtk-3.0
+sudo cp ~/trentos/lightdm.conf /etc/lightdm
+sudo cp ~/trentos/dwm.desktop /usr/share/xsessions
 if [[ "$USER" == "trent" ]]; then
     mkdir -p\
         ~/school\
