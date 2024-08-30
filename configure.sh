@@ -25,8 +25,9 @@ if [[ "$USER" == "trent" ]]; then
     mkdir -p\
         ~/school\
         ~/personal\
+        ~/Downloads\
         ~/.config/rclone
-    cp /run/media/trent/storage/rclone/rclone.conf ~/.config/rclone
+    cp ~/Downloads/rclone/rclone.conf ~/.config/rclone
     git config --global user.email "trenthek@gmail.com"
     git config --global user.name "trent-8"
     git config --global pull.rebase false
