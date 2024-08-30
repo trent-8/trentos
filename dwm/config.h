@@ -103,7 +103,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_b,      spawn,          SHCMD ("firefox")},
 	{ MODKEY,                       XK_a,      spawn,          SHCMD ("arandr")},
 	{ MODKEY,                       XK_e,      spawn,          SHCMD ("thunar")},
-	{ MODKEY,                       XK_n,      spawn,          SHCMD ("terminator -e 'notes'")},
+	{ MODKEY,                       XK_n,      spawn,          SHCMD ("terminator -e 'python ~/trentos/notes.py'")},
 	{ MODKEY,                       XK_z,      spawn,          SHCMD ("terminator -e 'bluetuith'")},
 	{ MODKEY,                       0xfd1d,    spawn,          SHCMD ("shotgun -s")},
 	{ MODKEY,                       XK_x,      spawn,          SHCMD ("~/.screenlayout/apply-layout.sh")},
