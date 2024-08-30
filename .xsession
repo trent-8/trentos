@@ -15,4 +15,6 @@ get_battery_info() {
 while true; do
   xsetroot -name "Volume: $(awk -F"[/]" '/front-left:/ { print $2 }' <(pactl get-sink-volume @DEFAULT_SINK@))$(get_battery_info)    $( date +"%-m/%-d/%Y   %-I:%M %P" )"
   sleep 0.1
-done
+done &
+
+exec dwm
