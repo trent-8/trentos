@@ -82,23 +82,4 @@ def open_todays_notes():
         return text_editor + " not found. Make sure it is installed."
     return "opened daily notes"
 
-def open_notes_path():
-    # Ensure the directory exists
-    if not os.path.exists(base_directory):
-        return 'a "notes" folder does not exist in your onedrive'
-
-    # Attempt to open the notes directory
-    try:
-        subprocess.run([file_manager, base_directory])
-        print(f"Opening '{base_directory}' in {file_manager}.")
-    except FileNotFoundError:
-        return f"{file_manager} could not be opened or filepath does not exist"
-    return "opened notes path"
-
-while True:
-    user_selection = input("\nenter to take notes\n"
-                           "f then enter to see note files\n"
-                           "q then enter to quit\n")
-    if user_selection == "": print(open_todays_notes())
-    elif user_selection == "f": print(open_notes_path())
-    elif user_selection == "q": break
+print(open_todays_notes())
