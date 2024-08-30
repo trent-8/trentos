@@ -8,6 +8,7 @@ mkdir -p\
     ~/.icons\
     ~/.icons/default
 cp ~/trentos/.xinitrc ~/
+cp ~/trentos/.xsession ~/
 cp ~/trentos/.config/terminator/config ~/.config/terminator
 cp ~/trentos/.config/gtk-3.0/settings.ini ~/.config/gtk-3.0
 cp ~/trentos/.config/rofi/config.rasi ~/.config/rofi

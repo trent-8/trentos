@@ -20,6 +20,8 @@ yay -S --needed\
     less\
     libxft\
     libxinerama\
+    lightdm\
+    lightdm-gtk-greeter\
     nano\
     neofetch\
     noto-fonts\
