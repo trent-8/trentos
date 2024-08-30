@@ -59,7 +59,7 @@ static const Rule rules[] = {
 	{ "Terminator",     NULL,     NULL,           1,         0,           -1 },
 	{ "firefox",        NULL,     NULL,      1 << 1,         0,           -1 },
 	{ "Thunar",         NULL,     NULL,      1 << 2,         0,           -1 },
-	{ "code-oss",       NULL,     NULL,      1 << 3,         0,           -1 },
+	{ "Code",       NULL,     NULL,      1 << 3,         0,           -1 },
 	{ "Spotify",        NULL,     NULL,      1 << 4,         0,            0 }
 };
 
