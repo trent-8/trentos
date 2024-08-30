@@ -4,6 +4,7 @@ mkdir -p\
     ~/.config/gtk-3.0\
     ~/.config/rofi\
     ~/.config/terminator\
+    ~/.config/picom\
     ~/.icons\
     ~/.icons/default
 cp ~/trentos/.xinitrc ~/
