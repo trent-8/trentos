@@ -8,6 +8,7 @@ yay -S --needed\
     adapta-gtk-theme\
     arandr\
     bluetuith\
+    bluez-obex\
     brightnessctl\
     dunst\
     feh\
