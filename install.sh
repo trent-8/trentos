@@ -21,6 +21,7 @@ yay -S --needed\
     libxinerama\
     nano\
     neofetch\
+    noto-fonts\
     ntfs-3g\
     obs-studio\
     papirus-icon-theme\
@@ -34,6 +35,7 @@ yay -S --needed\
     terminator\
     thunar\
     ttf-nerd-fonts-symbols-mono\
+    ttf-roboto\
     tumbler\
     unzip\
     usbimager\

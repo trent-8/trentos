@@ -5,17 +5,17 @@ mkdir -p\
     ~/.config/rofi\
     ~/.config/terminator\
     ~/.icons\
-    ~/.icons/default\
-cd ~/trentos
-cp .xinitrc ~/
-cp .config/terminator/config ~/.config/terminator
-cp .config/gtk-3.0/settings.ini ~/.config/gtk-3.0
-cp .config/rofi/config.rasi ~/.config/rofi
-cp .icons/default/index.theme ~/.icons/default
-cp .Xresources ~/
-cp .bashrc ~/
-cp .gtkrc-2.0 ~/
-sudo cp .config/gtk-3.0/settings.ini /etc/gtk-3.0
+    ~/.icons/default
+cp ~/trentos/.xinitrc ~/
+cp ~/trentos/.config/terminator/config ~/.config/terminator
+cp ~/trentos/.config/gtk-3.0/settings.ini ~/.config/gtk-3.0
+cp ~/trentos/.config/rofi/config.rasi ~/.config/rofi
+cp ~/trentos/.config/picom/picom.conf ~/.config/picom
+cp ~/trentos/.icons/default/index.theme ~/.icons/default
+cp ~/trentos/.Xresources ~/
+cp ~/trentos/.bashrc ~/
+cp ~/trentos/.gtkrc-2.0 ~/
+sudo cp ~/trentos/.config/gtk-3.0/settings.ini /etc/gtk-3.0
 if [[ "$USER" == "trent" ]]; then
     mkdir -p\
         ~/school\
