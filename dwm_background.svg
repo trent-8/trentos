@@ -27,11 +27,11 @@
      inkscape:deskcolor="#d1d1d1"
      inkscape:document-units="px"
      showgrid="true"
-     inkscape:zoom="0.24591343"
-     inkscape:cx="6240.0009"
-     inkscape:cy="943.42145"
-     inkscape:window-width="1406"
-     inkscape:window-height="1410"
+     inkscape:zoom="0.17388705"
+     inkscape:cx="4131.9925"
+     inkscape:cy="1236.4348"
+     inkscape:window-width="2558"
+     inkscape:window-height="1407"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="1"
@@ -64,12 +64,12 @@
      y="0" />
   <text
      xml:space="preserve"
-     style="font-size:96px;fill:#545454;fill-opacity:1;-inkscape-font-specification:Sans;font-family:Sans;font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal"
-     x="6476.4341"
-     y="145.57455"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:96px;font-family:Sans;-inkscape-font-specification:Sans;fill:#545454;fill-opacity:1"
+     x="3229.2002"
+     y="148.55055"
      id="text1"><tspan
        sodipodi:role="line"
        id="tspan1"
-       x="6476.4341"
-       y="145.57455">Dynamic Window Manager</tspan></text>
+       x="3229.2002"
+       y="148.55055">Dynamic Window Manager</tspan></text>
 </svg>
