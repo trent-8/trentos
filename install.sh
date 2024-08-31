@@ -56,4 +56,3 @@ sudo make clean
 sudo systemctl enable --now bluetooth.service
 sudo systemctl enable --now NetworkManager.service
 sudo systemctl enable lightdm
-~/trentos/configure.sh
