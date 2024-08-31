@@ -746,26 +746,31 @@ make clean
 systemctl enable lightdm
 
 mkdir -p\
-    /home/$username/.config
     /home/$username/.config/gtk-3.0\
     /home/$username/.config/rofi\
     /home/$username/.config/terminator\
     /home/$username/.config/picom\
-    /home/$username/.icons\
-    /home/$username/.icons/default
+    /home/$username/.icons/default\
+    /usr/share/xsessions\
+    /etc/gtk-3.0
+# xorg config
 cp /home/$username/trentos/.xinitrc /home/$username/
 cp /home/$username/trentos/.xsession /home/$username/
-cp /home/$username/trentos/.config/terminator/config /home/$username/.config/terminator
-cp /home/$username/trentos/.config/gtk-3.0/settings.ini /home/$username/.config/gtk-3.0
-cp /home/$username/trentos/.config/rofi/config.rasi /home/$username/.config/rofi
-cp /home/$username/trentos/.config/picom/picom.conf /home/$username/.config/picom
-cp /home/$username/trentos/.icons/default/index.theme /home/$username/.icons/default
 cp /home/$username/trentos/.Xresources /home/$username/
+# apply other configs
+cp /home/$username/trentos/.config/terminator/config /home/$username/.config/terminator
+cp /home/$username/trentos/.config/gtk-3.0/settings.ini /home/$username/.config/gtk-3.0/
+cp /home/$username/trentos/.config/gtk-3.0/settings.ini /etc/gtk-3.0/
+cp /home/$username/trentos/.config/rofi/config.rasi /home/$username/.config/rofi/
+cp /home/$username/trentos/.config/picom/picom.conf /home/$username/.config/picom/
+# apply cursor theme globally
+cp /home/$username/trentos/.icons/default/index.theme /home/$username/.icons/default/
+# apply bash config
 cp /home/$username/trentos/.bashrc /home/$username/
 cp /home/$username/trentos/.gtkrc-2.0 /home/$username/
-mkdir -p /usr/share/xsessions
-cp /home/$username/trentos/.config/gtk-3.0/settings.ini /etc/gtk-3.0
-cp /home/$username/trentos/lightdm.conf /etc/lightdm
-cp /home/$username/trentos/dwm.desktop /usr/share/xsessions
+# setup LightDM to run dwm
+cp /home/$username/trentos/lightdm.conf /etc/lightdm/
+cp /home/$username/trentos/dwm.desktop /usr/share/xsessions/
+# give the user read/write access
 setfacl -R -m u:$username:rwx /home/$username
 EOF
