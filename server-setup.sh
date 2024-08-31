@@ -737,10 +737,43 @@ echo -ne "
                     Installing DWM
 -------------------------------------------------------------------------
 "
-
+cd /home/$username
 git clone https://github.com/trent-8/trentos
-cd ~/trentos/dwm
+cd /home/$username/trentos/dwm
 make install
 make clean
 systemctl enable lightdm
+
+mkdir -p\
+    /home/$username/.config/gtk-3.0\
+    /home/$username/.config/rofi\
+    /home/$username/.config/terminator\
+    /home/$username/.config/picom\
+    /home/$username/.icons\
+    /home/$username/.icons/default
+cp /home/$username/trentos/.xinitrc ~/
+cp /home/$username/trentos/.xsession ~/
+cp /home/$username/trentos/.config/terminator/config ~/.config/terminator
+cp /home/$username/trentos/.config/gtk-3.0/settings.ini ~/.config/gtk-3.0
+cp /home/$username/trentos/.config/rofi/config.rasi ~/.config/rofi
+cp /home/$username/trentos/.config/picom/picom.conf ~/.config/picom
+cp /home/$username/trentos/.icons/default/index.theme ~/.icons/default
+cp /home/$username/trentos/.Xresources ~/
+cp /home/$username/trentos/.bashrc ~/
+cp /home/$username/trentos/.gtkrc-2.0 ~/
+sudo mkdir /usr/share/xsessions
+sudo cp /home/$username/trentos/.config/gtk-3.0/settings.ini /etc/gtk-3.0
+sudo cp /home/$username/trentos/lightdm.conf /etc/lightdm
+sudo cp /home/$username/trentos/dwm.desktop /usr/share/xsessions
+if [[ "$username" == "trent" ]]; then
+    mkdir -p\
+        /home/$username/school\
+        /home/$username/personal\
+        /home/$username/Downloads\
+        /home/$username/.config/rclone
+    cp /home/$username/Downloads/rclone/rclone.conf /home/$username/.config/rclone
+    git config --global user.email "trenthek@gmail.com"
+    git config --global user.name "trent-8"
+    git config --global pull.rebase false
+fi
 EOF
