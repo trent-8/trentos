@@ -753,16 +753,16 @@ mkdir -p\
     /home/$username/.config/picom\
     /home/$username/.icons\
     /home/$username/.icons/default
-cp /home/$username/trentos/.xinitrc ~/
-cp /home/$username/trentos/.xsession ~/
-cp /home/$username/trentos/.config/terminator/config ~/.config/terminator
-cp /home/$username/trentos/.config/gtk-3.0/settings.ini ~/.config/gtk-3.0
-cp /home/$username/trentos/.config/rofi/config.rasi ~/.config/rofi
-cp /home/$username/trentos/.config/picom/picom.conf ~/.config/picom
-cp /home/$username/trentos/.icons/default/index.theme ~/.icons/default
-cp /home/$username/trentos/.Xresources ~/
-cp /home/$username/trentos/.bashrc ~/
-cp /home/$username/trentos/.gtkrc-2.0 ~/
+cp /home/$username/trentos/.xinitrc /home/$username/
+cp /home/$username/trentos/.xsession /home/$username/
+cp /home/$username/trentos/.config/terminator/config /home/$username/.config/terminator
+cp /home/$username/trentos/.config/gtk-3.0/settings.ini /home/$username/.config/gtk-3.0
+cp /home/$username/trentos/.config/rofi/config.rasi /home/$username/.config/rofi
+cp /home/$username/trentos/.config/picom/picom.conf /home/$username/.config/picom
+cp /home/$username/trentos/.icons/default/index.theme /home/$username/.icons/default
+cp /home/$username/trentos/.Xresources /home/$username/
+cp /home/$username/trentos/.bashrc /home/$username/
+cp /home/$username/trentos/.gtkrc-2.0 /home/$username/
 mkdir -p /usr/share/xsessions
 cp /home/$username/trentos/.config/gtk-3.0/settings.ini /etc/gtk-3.0
 cp /home/$username/trentos/lightdm.conf /etc/lightdm
