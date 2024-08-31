@@ -431,11 +431,7 @@ echo -ne "
 -------------------------------------------------------------------------
 "
 if [[ ! -d "/sys/firmware/efi" ]]; then
-    pacstrap /mnt\
-        base\
-        base-devel\
-        linux-lts\
-        linux-firmware\
+    pacstrap /mnt base base-devel linux-lts linux-firmware\
         adapta-gtk-theme\
         arandr\
         bluez-obex\
@@ -474,19 +470,13 @@ if [[ ! -d "/sys/firmware/efi" ]]; then
         unzip\
         vlc\
         xarchiver\
-        xcursor-breeze\
         xorg-server\
         xorg-xinit\
         xorg-xrandr\
         xorg-xsetroot\
         --noconfirm --needed
 else
-    pacstrap /mnt\
-        base\
-        base-devel\
-        linux-lts\
-        linux-firmware\
-        efibootmgr\
+    pacstrap /mnt base base-devel linux-lts linux-firmware efibootmgr\
         adapta-gtk-theme\
         arandr\
         bluez-obex\
@@ -525,7 +515,6 @@ else
         unzip\
         vlc\
         xarchiver\
-        xcursor-breeze\
         xorg-server\
         xorg-xinit\
         xorg-xrandr\
