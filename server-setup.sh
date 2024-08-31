@@ -431,9 +431,106 @@ echo -ne "
 -------------------------------------------------------------------------
 "
 if [[ ! -d "/sys/firmware/efi" ]]; then
-    pacstrap /mnt base base-devel linux-lts linux-firmware --noconfirm --needed
+    pacstrap /mnt\
+        base\
+        base-devel\
+        linux-lts\
+        linux-firmware\
+        adapta-gtk-theme\
+        arandr\
+        bluez-obex\
+        brightnessctl\
+        dunst\
+        feh\
+        firefox\
+        git\
+        gnome-disk-utility\
+        gvfs\
+        htop\
+        inkscape\
+        less\
+        libxft\
+        libxinerama\
+        lightdm\
+        lightdm-gtk-greeter\
+        nano\
+        neofetch\
+        noto-fonts\
+        ntfs-3g\
+        obs-studio\
+        papirus-icon-theme\
+        picom\
+        playerctl\
+        prusa-slicer\
+        rclone\
+        rofi\
+        shotgun\
+        spotify-launcher\
+        terminator\
+        thunar\
+        ttf-nerd-fonts-symbols-mono\
+        ttf-roboto\
+        tumbler\
+        unzip\
+        vlc\
+        xarchiver\
+        xcursor-breeze\
+        xorg-server\
+        xorg-xinit\
+        xorg-xrandr\
+        xorg-xsetroot\
+        --noconfirm --needed
 else
-    pacstrap /mnt base base-devel linux-lts linux-firmware efibootmgr --noconfirm --needed
+    pacstrap /mnt\
+        base\
+        base-devel\
+        linux-lts\
+        linux-firmware\
+        efibootmgr\
+        adapta-gtk-theme\
+        arandr\
+        bluez-obex\
+        brightnessctl\
+        dunst\
+        feh\
+        firefox\
+        git\
+        gnome-disk-utility\
+        gvfs\
+        htop\
+        inkscape\
+        less\
+        libxft\
+        libxinerama\
+        lightdm\
+        lightdm-gtk-greeter\
+        nano\
+        neofetch\
+        noto-fonts\
+        ntfs-3g\
+        obs-studio\
+        papirus-icon-theme\
+        picom\
+        playerctl\
+        prusa-slicer\
+        rclone\
+        rofi\
+        shotgun\
+        spotify-launcher\
+        terminator\
+        thunar\
+        ttf-nerd-fonts-symbols-mono\
+        ttf-roboto\
+        tumbler\
+        unzip\
+        vlc\
+        xarchiver\
+        xcursor-breeze\
+        xorg-server\
+        xorg-xinit\
+        xorg-xrandr\
+        xorg-xsetroot\
+        --noconfirm --needed
 fi
 echo "keyserver hkp://keyserver.ubuntu.com" >> /mnt/etc/pacman.d/gnupg/gpg.conf
 cp /etc/pacman.d/mirrorlist /mnt/etc/pacman.d/mirrorlist
@@ -648,71 +745,11 @@ sed -i 's/^# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/' /etc/sudoers
 
 echo -ne "
 -------------------------------------------------------------------------
-                    Installing my system
+                    Installing DWM
 -------------------------------------------------------------------------
 "
-pacman -S --needed\
-    adapta-gtk-theme\
-    arandr\
-    bluez-obex\
-    brightnessctl\
-    dunst\
-    feh\
-    firefox\
-    gnome-disk-utility\
-    gvfs\
-    htop\
-    inkscape\
-    less\
-    libxft\
-    libxinerama\
-    lightdm\
-    lightdm-gtk-greeter\
-    nano\
-    neofetch\
-    noto-fonts\
-    ntfs-3g\
-    obs-studio\
-    papirus-icon-theme\
-    picom\
-    playerctl\
-    prusa-slicer\
-    rclone\
-    rofi\
-    shotgun\
-    spotify-launcher\
-    terminator\
-    thunar\
-    ttf-nerd-fonts-symbols-mono\
-    ttf-roboto\
-    tumbler\
-    unzip\
-    vlc\
-    xarchiver\
-    xcursor-breeze\
-    xorg-server\
-    xorg-xinit\
-    xorg-xrandr\
-    xorg-xsetroot
-cd ~
-git clone https://aur.archlinux.org/yay.git
-cd yay
-makepkg --noconfirm -si
-cd ~
-git clone https://aur.archlinux.org/bluetuith.git
-cd bluetuith
-makepkg --noconfirm -si
-cd ~
-git clone https://aur.archlinux.org/usbimager.git
-cd usbimager
-makepkg --noconfirm -si
-git clone https://aur.archlinux.org/visual-studio-code-bin.git
-cd visual-studio-code-bin
-makepkg --noconfirm -si
-git clone https://aur.archlinux.org/xcursor-breeze.git
-cd xcursor-breeze
-makepkg --noconfirm -si
 
+git clone https://github.com/trent-8/trentos
 cd ~/trentos/dwm
 make install
 make clean
