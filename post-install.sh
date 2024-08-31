@@ -3,7 +3,7 @@ cd ~
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
-yay -S --needed\
+yay -S --needed --noconfirm\
     bluetuith\
     usbimager\
     visual-studio-code-bin\

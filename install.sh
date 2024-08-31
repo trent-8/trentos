@@ -434,6 +434,7 @@ if [[ ! -d "/sys/firmware/efi" ]]; then
     pacstrap /mnt base base-devel linux-lts linux-firmware\
         adapta-gtk-theme\
         arandr\
+        bluez\
         bluez-obex\
         brightnessctl\
         dunst\
@@ -456,6 +457,11 @@ if [[ ! -d "/sys/firmware/efi" ]]; then
         obs-studio\
         papirus-icon-theme\
         picom\
+        pipewire\
+        pipewire-audio\
+        pipewire-alsa\
+        pipewire-pulse\
+        pipewire-jack\
         playerctl\
         prusa-slicer\
         rclone\
@@ -474,11 +480,13 @@ if [[ ! -d "/sys/firmware/efi" ]]; then
         xorg-xinit\
         xorg-xrandr\
         xorg-xsetroot\
+        wireplumber\
         --noconfirm --needed
 else
     pacstrap /mnt base base-devel linux-lts linux-firmware efibootmgr\
         adapta-gtk-theme\
         arandr\
+        bluez\
         bluez-obex\
         brightnessctl\
         dunst\
@@ -501,6 +509,11 @@ else
         obs-studio\
         papirus-icon-theme\
         picom\
+        pipewire\
+        pipewire-audio\
+        pipewire-alsa\
+        pipewire-pulse\
+        pipewire-jack\
         playerctl\
         prusa-slicer\
         rclone\
@@ -519,6 +532,7 @@ else
         xorg-xinit\
         xorg-xrandr\
         xorg-xsetroot\
+        wireplumber\
         --noconfirm --needed
 fi
 echo "keyserver hkp://keyserver.ubuntu.com" >> /mnt/etc/pacman.d/gnupg/gpg.conf
