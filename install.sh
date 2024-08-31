@@ -444,7 +444,6 @@ if [[ ! -d "/sys/firmware/efi" ]]; then
         gnome-disk-utility\
         gvfs\
         htop\
-        inkscape\
         less\
         libxft\
         libxinerama\
@@ -463,7 +462,6 @@ if [[ ! -d "/sys/firmware/efi" ]]; then
         pipewire-pulse\
         pipewire-jack\
         playerctl\
-        prusa-slicer\
         rclone\
         rofi\
         shotgun\
@@ -496,7 +494,6 @@ else
         gnome-disk-utility\
         gvfs\
         htop\
-        inkscape\
         less\
         libxft\
         libxinerama\
@@ -515,7 +512,6 @@ else
         pipewire-pulse\
         pipewire-jack\
         playerctl\
-        prusa-slicer\
         rclone\
         rofi\
         shotgun\
