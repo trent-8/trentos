@@ -783,6 +783,7 @@ cp /home/$username/trentos/.config/gtk-3.0/settings.ini /home/$username/.config/
 cp /home/$username/trentos/.config/gtk-3.0/settings.ini /etc/gtk-3.0/
 cp /home/$username/trentos/.config/rofi/config.rasi /home/$username/.config/rofi/
 cp /home/$username/trentos/.config/picom/picom.conf /home/$username/.config/picom/
+cp -r /home/$username/trentos/Breeze_Light /usr/share/icons/
 # apply cursor theme globally
 cp /home/$username/trentos/.icons/default/index.theme /home/$username/.icons/default/
 # apply bash config
@@ -806,8 +807,8 @@ if [[ "$username" == "trent" ]]; then
         /home/$username/personal\
         /home/$username/Downloads\
         /home/$username/.config/rclone
-    git config --global user.email "trenthek@gmail.com"
     git config --global user.name "trent-8"
+    git config --global user.email "trenthek@gmail.com"
     git config --global pull.rebase false
 fi
 setfacl -R -m u:$username:rwx /home/$username
