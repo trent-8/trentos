@@ -795,8 +795,8 @@ echo -ne "
                     Make AUR Packages
 -------------------------------------------------------------------------
 "
-
 cd /home/$username/trentos
+echo $PWD
 runuser -u $username -- ./makeaurpackages.sh
 
 echo -ne "

@@ -181,3 +181,333 @@ warning: grub-2:2.12-2 is up to date -- skipping
 -------------------------------------------------------------------------
 [2024-08-31 22:26:00] WARNING: failed to rate http(s) download (http://us.arch.niranjan.co/extra/os/x86_64/extra.db): timed out
 [2024-08-31 22:26:10] WARNING: failed to rate http(s) download (https://us.arch.niranjan.co/extra/os/x86_64/extra.db): Download timed out after 5 second(s).
+[2024-08-31 22:26:33] WARNING: failed to rate rsync download (rsync://arch.mirror.constant.com/archlinux/extra/os/x86_64/extra.db): Download timed out after 5 second(s).
+[2024-08-31 22:26:38] WARNING: failed to rate rsync download (rsync://arlm.tyzoid.com/archlinux/extra/os/x86_64/extra.db): Download timed out after 5 second(s).
+[2024-08-31 22:26:43] WARNING: failed to rate http(s) download (http://mirrors.bjg.at/arch/extra/os/x86_64/extra.db): HTTP Error 403: Forbidden
+[2024-08-31 22:27:15] WARNING: failed to rate rsync download (rsync://mirrors.lug.mtu.edu/archlinux/extra/os/x86_64/extra.db): Download timed out after 5 second(s).
+[2024-08-31 22:27:44] WARNING: failed to rate rsync download (rsync://mirrors.rit.edu/archlinux/extra/os/x86_64/extra.db): Download timed out after 5 second(s).
+./install.sh: line 339: ursive: command not found
+Warning: The kernel is still using the old partition table.
+The new table will be used at the next reboot or after you
+run partprobe(8) or kpartx(8)
+GPT data structures destroyed! You may now partition the disk using fdisk or
+other utilities.
+Creating new GPT entries in memory.
+Warning: The kernel is still using the old partition table.
+The new table will be used at the next reboot or after you
+run partprobe(8) or kpartx(8)
+The operation has completed successfully.
+Warning: The kernel is still using the old partition table.
+The new table will be used at the next reboot or after you
+run partprobe(8) or kpartx(8)
+The operation has completed successfully.
+Warning: The kernel is still using the old partition table.
+The new table will be used at the next reboot or after you
+run partprobe(8) or kpartx(8)
+The operation has completed successfully.
+Warning: The kernel is still using the old partition table.
+The new table will be used at the next reboot or after you
+run partprobe(8) or kpartx(8)
+The operation has completed successfully.
+
+-------------------------------------------------------------------------
+                    Creating Filesystems
+-------------------------------------------------------------------------
+./install.sh: line 404: mkfs.vfat: command not found
+mke2fs 1.47.1 (20-May-2024)
+/dev/sda3 is mounted; will not make a filesystem here!
+
+-------------------------------------------------------------------------
+                    Arch Install on Main Drive
+-------------------------------------------------------------------------
+==> Creating install root at /mnt
+==> Installing packages to /mnt
+:: Synchronizing package databases...
+ core downloading...
+ extra downloading...
+warning: base-3-2 is up to date -- skipping
+warning: base-devel-1-1 is up to date -- skipping
+warning: linux-lts-6.6.48-1 is up to date -- skipping
+warning: linux-firmware-20240809.59460076-1 is up to date -- skipping
+warning: efibootmgr-18-3 is up to date -- skipping
+warning: adapta-gtk-theme-3.95.0.11-3 is up to date -- skipping
+warning: arandr-0.1.11-3 is up to date -- skipping
+warning: bluez-5.77-1 is up to date -- skipping
+warning: bluez-obex-5.77-1 is up to date -- skipping
+warning: brightnessctl-0.5.1-3 is up to date -- skipping
+warning: dunst-1.11.0-1 is up to date -- skipping
+warning: feh-3.10.3-1 is up to date -- skipping
+warning: firefox-129.0.2-1 is up to date -- skipping
+warning: git-2.46.0-2 is up to date -- skipping
+warning: gnome-disk-utility-46.0-1 is up to date -- skipping
+warning: gvfs-1.54.2-1 is up to date -- skipping
+warning: htop-3.3.0-3 is up to date -- skipping
+warning: less-1:661-1 is up to date -- skipping
+warning: libxft-2.3.8-2 is up to date -- skipping
+warning: libxinerama-1.1.5-2 is up to date -- skipping
+warning: lightdm-1:1.32.0-6 is up to date -- skipping
+warning: lightdm-gtk-greeter-1:2.0.9-1 is up to date -- skipping
+warning: nano-8.1-1 is up to date -- skipping
+warning: neofetch-7.1.0-2 is up to date -- skipping
+warning: noto-fonts-1:24.8.1-1 is up to date -- skipping
+warning: ntfs-3g-2022.10.3-1 is up to date -- skipping
+warning: obs-studio-30.2.1-1 is up to date -- skipping
+warning: papirus-icon-theme-20240501-1 is up to date -- skipping
+warning: picom-11.2-1 is up to date -- skipping
+warning: pipewire-1:1.2.3-1 is up to date -- skipping
+warning: pipewire-audio-1:1.2.3-1 is up to date -- skipping
+warning: pipewire-alsa-1:1.2.3-1 is up to date -- skipping
+warning: pipewire-pulse-1:1.2.3-1 is up to date -- skipping
+warning: pipewire-jack-1:1.2.3-1 is up to date -- skipping
+warning: playerctl-2.4.1-4 is up to date -- skipping
+warning: rclone-1.67.0-1 is up to date -- skipping
+warning: rofi-1.7.5-3 is up to date -- skipping
+warning: shotgun-2.5.1-2 is up to date -- skipping
+warning: spotify-launcher-0.5.4-1 is up to date -- skipping
+warning: terminator-2.1.4-1 is up to date -- skipping
+warning: thunar-4.18.11-1 is up to date -- skipping
+warning: ttf-nerd-fonts-symbols-mono-3.2.1-1 is up to date -- skipping
+warning: ttf-roboto-2.138-5 is up to date -- skipping
+warning: tumbler-4.18.2-1 is up to date -- skipping
+warning: unzip-6.0-21 is up to date -- skipping
+warning: vlc-3.0.21-2 is up to date -- skipping
+warning: xarchiver-0.5.4.23-1 is up to date -- skipping
+warning: xorg-server-21.1.13-1 is up to date -- skipping
+warning: xorg-xinit-1.4.2-2 is up to date -- skipping
+warning: xorg-xrandr-1.5.2-2 is up to date -- skipping
+warning: xorg-xsetroot-1.1.3-2 is up to date -- skipping
+warning: wireplumber-0.5.5-1 is up to date -- skipping
+ there is nothing to do
+ 
+  Generated /etc/fstab:
+
+# Static information about the filesystems.
+# See fstab(5) for details.
+
+# <file system> <dir> <type> <options> <dump> <pass>
+# /dev/sda3 UUID=3ef09893-9ef6-4e9e-a6e3-d9cd52ca525b
+LABEL=ROOT          	/         	ext4      	rw,relatime	0 1
+
+# /dev/sda2 UUID=D8D8-B4BA
+LABEL=EFIBOOT       	/boot     	vfat      	rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro	0 2
+
+# /dev/sda3 UUID=3ef09893-9ef6-4e9e-a6e3-d9cd52ca525b
+LABEL=ROOT          	/         	ext4      	rw,relatime	0 1
+
+# /dev/sda2 UUID=D8D8-B4BA
+LABEL=EFIBOOT       	/boot     	vfat      	rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro	0 2
+
+# /dev/sda3 UUID=3ef09893-9ef6-4e9e-a6e3-d9cd52ca525b
+LABEL=ROOT          	/         	ext4      	rw,relatime	0 2
+
+# /dev/sda2 UUID=D8D8-B4BA
+LABEL=EFIBOOT       	/boot     	vfat      	rw,relatime,fmask=0022,dmask=0022,codepage=437,iocharset=ascii,shortname=mixed,utf8,errors=remount-ro	0 2
+
+
+-------------------------------------------------------------------------
+                    GRUB BIOS Bootloader Install & Check
+-------------------------------------------------------------------------
+
+-------------------------------------------------------------------------
+                    Checking for low memory systems <8G
+-------------------------------------------------------------------------
+
+-------------------------------------------------------------------------
+                    Network Setup 
+-------------------------------------------------------------------------
+warning: networkmanager-1.48.10-1 is up to date -- skipping
+warning: dhclient-4.4.3.P1-3 is up to date -- skipping
+ there is nothing to do
+--now cannot be used when systemd is not running or in conjunction with --root=/--global, refusing.
+--now cannot be used when systemd is not running or in conjunction with --root=/--global, refusing.
+
+-------------------------------------------------------------------------
+                    Setting up mirrors for optimal download 
+-------------------------------------------------------------------------
+warning: pacman-contrib-1.10.6-1 is up to date -- skipping
+warning: curl-8.9.1-2 is up to date -- skipping
+ there is nothing to do
+warning: reflector-2023-2 is up to date -- skipping
+warning: rsync-3.3.0-2 is up to date -- skipping
+warning: grub-2:2.12-2 is up to date -- skipping
+warning: arch-install-scripts-28-2 is up to date -- skipping
+warning: git-2.46.0-2 is up to date -- skipping
+warning: ntp-4.2.8.p18-1 is up to date -- skipping
+warning: wget-1.24.5-3 is up to date -- skipping
+ there is nothing to do
+
+-------------------------------------------------------------------------
+                    You have   cores. And
+			changing the makeflags for   cores. Aswell as
+				changing the compression settings.
+-------------------------------------------------------------------------
+
+-------------------------------------------------------------------------
+                    Setup Language to US and set locale  
+-------------------------------------------------------------------------
+Generating locales...
+  en_US.UTF-8... done
+Generation complete.
+System has not been booted with systemd as init system (PID 1). Can't operate.
+Failed to connect to bus: Host is down
+System has not been booted with systemd as init system (PID 1). Can't operate.
+Failed to connect to bus: Host is down
+System has not been booted with systemd as init system (PID 1). Can't operate.
+Failed to connect to bus: Host is down
+ln: failed to create symbolic link '/etc/localtime': File exists
+System has not been booted with systemd as init system (PID 1). Can't operate.
+Failed to connect to bus: Host is down
+:: Synchronizing package databases...
+ core downloading...
+ extra downloading...
+ multilib downloading...
+
+-------------------------------------------------------------------------
+                    Installing Microcode
+-------------------------------------------------------------------------
+Installing Intel microcode
+resolving dependencies...
+looking for conflicting packages...
+
+Packages (1) intel-ucode-20240813-2
+
+Total Installed Size:  20.10 MiB
+
+:: Proceed with installation? [Y/n] 
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+error: failed to commit transaction (conflicting files)
+intel-ucode: /boot/intel-ucode.img exists in filesystem
+Errors occurred, no packages were upgraded.
+
+-------------------------------------------------------------------------
+                    Installing Graphics Drivers
+-------------------------------------------------------------------------
+00:02.0 VGA compatible controller: Intel Corporation Xeon E3-1200 v3/4th Gen Core Processor Integrated Graphics Controller (rev 06)
+Installing Intel drivers:
+warning: libva-intel-driver-2.4.1-3 is up to date -- skipping
+warning: libvdpau-va-gl-0.4.2-4 is up to date -- skipping
+warning: lib32-vulkan-intel-1:24.2.1-1 is up to date -- skipping
+warning: vulkan-intel-1:24.2.1-1 is up to date -- skipping
+warning: libva-intel-driver-2.4.1-3 is up to date -- skipping
+warning: libva-utils-2.22.0-1 is up to date -- skipping
+warning: lib32-mesa-1:24.2.1-1 is up to date -- skipping
+ there is nothing to do
+
+-------------------------------------------------------------------------
+                    Adding User
+-------------------------------------------------------------------------
+groupadd: group 'libvirt' already exists
+useradd: user 'trent' already exists
+trent created, home directory created, added to wheel and libvirt group, default shell set to /bin/bash
+trent password set
+
+-------------------------------------------------------------------------
+ █████╗ ██████╗  ██████╗██╗  ██╗████████╗██╗████████╗██╗   ██╗███████╗
+██╔══██╗██╔══██╗██╔════╝██║  ██║╚══██╔══╝██║╚══██╔══╝██║   ██║██╔════╝
+███████║██████╔╝██║     ███████║   ██║   ██║   ██║   ██║   ██║███████╗
+██╔══██║██╔══██╗██║     ██╔══██║   ██║   ██║   ██║   ██║   ██║╚════██║
+██║  ██║██║  ██║╚██████╗██║  ██║   ██║   ██║   ██║   ╚██████╔╝███████║
+╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝   ╚═╝   ╚═╝   ╚═╝    ╚═════╝ ╚══════╝
+-------------------------------------------------------------------------
+                    Automated Arch Linux Installer
+-------------------------------------------------------------------------
+
+Final Setup and Configurations
+GRUB EFI Bootloader Install & Check
+Installing for x86_64-efi platform.
+Installation finished. No error reported.
+
+-------------------------------------------------------------------------
+               Creating (and Theming) Grub Boot Menu
+-------------------------------------------------------------------------
+Generating grub configuration file ...
+Found linux image: /boot/vmlinuz-linux-lts
+Found initrd image: /boot/intel-ucode.img /boot/initramfs-linux-lts.img
+Found fallback initrd image(s) in /boot:  intel-ucode.img initramfs-linux-lts-fallback.img
+Warning: os-prober will not be executed to detect other bootable partitions.
+Systems on them will not be added to the GRUB boot configuration.
+Check GRUB_DISABLE_OS_PROBER documentation entry.
+Adding boot menu entry for UEFI Firmware Settings ...
+done
+All set!
+
+-------------------------------------------------------------------------
+                    Enabling Essential Services
+-------------------------------------------------------------------------
+31 Aug 22:28:17 ntpd[327]: ntpd 4.2.8p18@1.4062-o Thu May 30 16:14:20 UTC 2024 (1): Starting
+31 Aug 22:28:17 ntpd[327]: Command line: ntpd -qg
+31 Aug 22:28:17 ntpd[327]: ----------------------------------------------------
+31 Aug 22:28:17 ntpd[327]: ntp-4 is maintained by Network Time Foundation,
+31 Aug 22:28:17 ntpd[327]: Inc. (NTF), a non-profit 501(c)(3) public-benefit
+31 Aug 22:28:17 ntpd[327]: corporation.  Support and training for ntp-4 are
+31 Aug 22:28:17 ntpd[327]: available at https://www.nwtime.org/support
+31 Aug 22:28:17 ntpd[327]: ----------------------------------------------------
+31 Aug 22:28:17 ntpd[327]: DEBUG behavior is enabled - a violation of any diagnostic assertion will cause ntpd to abort
+31 Aug 22:28:17 ntpd[327]: proto: precision = 0.051 usec (-24)
+31 Aug 22:28:17 ntpd[327]: basedate set to 2024-05-18
+31 Aug 22:28:17 ntpd[327]: gps base set to 2024-05-19 (week 2315)
+31 Aug 22:28:17 ntpd[327]: Listen and drop on 0 v6wildcard [::]:123
+31 Aug 22:28:17 ntpd[327]: Listen and drop on 1 v4wildcard 0.0.0.0:123
+31 Aug 22:28:17 ntpd[327]: Listen normally on 2 lo 127.0.0.1:123
+31 Aug 22:28:17 ntpd[327]: Listen normally on 3 eno1 10.193.7.165:123
+31 Aug 22:28:17 ntpd[327]: Listen normally on 4 lo [::1]:123
+31 Aug 22:28:17 ntpd[327]: Listen normally on 5 eno1 [fe80::4249:b1c1:e111:5ff3%2]:123
+31 Aug 22:28:17 ntpd[327]: Listening on routing socket on fd #22 for interface updates
+31 Aug 22:28:35 ntpd[327]: ntpd: time slew +0.006759 s
+ntpd: time slew +0.006759s
+  NTP enabled
+Failed to disable unit: Unit dhcpcd.service does not exist
+Failed to disable unit: Unit dhcpcd.service does not exist
+The unit files have no installation config (WantedBy=, RequiredBy=, UpheldBy=,
+Also=, or Alias= settings in the [Install] section, and DefaultInstance= for
+template units). This means they are not meant to be enabled or disabled using systemctl.
+ 
+Possible reasons for having these kinds of units are:
+• A unit may be statically enabled by being symlinked from another unit's
+  .wants/, .requires/, or .upholds/ directory.
+• A unit's purpose may be to act as a helper for some other unit which has
+  a requirement dependency on it.
+• A unit may be started when needed via activation (socket, path, timer,
+  D-Bus, udev, scripted systemctl call, ...).
+• In case of template units, the unit is meant to be enabled with some
+  instance name specified.
+  DHCP disabled
+Running in chroot, ignoring command 'stop'
+  DHCP stopped
+  NetworkManager enabled
+
+-------------------------------------------------------------------------
+                    Cleaning
+-------------------------------------------------------------------------
+
+-------------------------------------------------------------------------
+                    Installing DWM
+-------------------------------------------------------------------------
+fatal: destination path 'trentos' already exists and is not an empty directory.
+cc -c -std=c99 -pedantic -Wall -Wno-deprecated-declarations -Os -I/usr/X11R6/include -I/usr/include/freetype2 -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_XOPEN_SOURCE=700L -DVERSION=\"6.5\" -DXINERAMA drw.c
+cc -c -std=c99 -pedantic -Wall -Wno-deprecated-declarations -Os -I/usr/X11R6/include -I/usr/include/freetype2 -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_XOPEN_SOURCE=700L -DVERSION=\"6.5\" -DXINERAMA dwm.c
+cc -c -std=c99 -pedantic -Wall -Wno-deprecated-declarations -Os -I/usr/X11R6/include -I/usr/include/freetype2 -D_DEFAULT_SOURCE -D_BSD_SOURCE -D_XOPEN_SOURCE=700L -DVERSION=\"6.5\" -DXINERAMA util.c
+cc -o dwm drw.o dwm.o util.o -L/usr/X11R6/lib -lX11 -lXinerama -lfontconfig -lXft
+mkdir -p /usr/local/bin
+cp -f dwm /usr/local/bin
+chmod 755 /usr/local/bin/dwm
+mkdir -p /usr/local/share/man/man1
+sed "s/VERSION/6.5/g" < dwm.1 > /usr/local/share/man/man1/dwm.1
+chmod 644 /usr/local/share/man/man1/dwm.1
+rm -f dwm drw.o dwm.o util.o dwm-6.5.tar.gz
+
+-------------------------------------------------------------------------
+                    Configuring Themes and Software
+-------------------------------------------------------------------------
+
+-------------------------------------------------------------------------
+                    Make AUR Packages
+-------------------------------------------------------------------------
+runuser: failed to execute ./makeaurpackages.sh: No such file or directory
+
+-------------------------------------------------------------------------
+                    Run My Personal Configs if username is trent
+-------------------------------------------------------------------------
