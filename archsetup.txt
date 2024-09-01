@@ -87,7 +87,7 @@ Please select an option using the arrow keys and Enter:
 ------------------------------------------------------------------------
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:03 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:04 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:05 --:--:--     0100    15  100    15    0     0      2      0  0:00:07  0:00:05  0:00:02     3
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:03 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:04 --:--:--     0100    15  100    15    0     0      2      0  0:00:07  0:00:05  0:00:02     3
 
     System detected your timezone to be 'America/Chicago' 
 Is this correct?
@@ -175,11 +175,13 @@ warning: grub-2:2.12-2 is up to date -- skipping
 -------------------------------------------------------------------------
                     Setting up US mirrors for faster downloads
 -------------------------------------------------------------------------
-[2024-08-31 23:05:58] WARNING: failed to rate rsync download (rsync://arch.mirror.constant.com/archlinux/extra/os/x86_64/extra.db): Download timed out after 5 second(s).
-[2024-08-31 23:06:03] WARNING: failed to rate rsync download (rsync://arlm.tyzoid.com/archlinux/extra/os/x86_64/extra.db): Download timed out after 5 second(s).
-[2024-08-31 23:06:08] WARNING: failed to rate http(s) download (http://mirrors.bjg.at/arch/extra/os/x86_64/extra.db): HTTP Error 403: Forbidden
-[2024-08-31 23:06:44] WARNING: failed to rate rsync download (rsync://mirrors.lug.mtu.edu/archlinux/extra/os/x86_64/extra.db): Download timed out after 5 second(s).
-[2024-08-31 23:07:12] WARNING: failed to rate rsync download (rsync://mirrors.sonic.net/archlinux/extra/os/x86_64/extra.db): Download timed out after 5 second(s).
+[2024-08-31 23:29:03] WARNING: failed to rate http(s) download (https://us.arch.niranjan.co/extra/os/x86_64/extra.db): Download timed out after 5 second(s).
+[2024-08-31 23:29:25] WARNING: failed to rate rsync download (rsync://arch.mirror.constant.com/archlinux/extra/os/x86_64/extra.db): Download timed out after 5 second(s).
+[2024-08-31 23:29:30] WARNING: failed to rate rsync download (rsync://arlm.tyzoid.com/archlinux/extra/os/x86_64/extra.db): Download timed out after 5 second(s).
+[2024-08-31 23:29:35] WARNING: failed to rate http(s) download (http://mirrors.bjg.at/arch/extra/os/x86_64/extra.db): HTTP Error 403: Forbidden
+[2024-08-31 23:29:53] WARNING: failed to rate http(s) download (https://mirrors.vectair.net/archlinux/extra/os/x86_64/extra.db): Download timed out after 5 second(s).
+[2024-08-31 23:30:14] WARNING: failed to rate rsync download (rsync://mirrors.lug.mtu.edu/archlinux/extra/os/x86_64/extra.db): Download timed out after 5 second(s).
+[2024-08-31 23:30:43] WARNING: failed to rate rsync download (rsync://mirrors.sonic.net/archlinux/extra/os/x86_64/extra.db): Download timed out after 5 second(s).
 
 -------------------------------------------------------------------------
                     Installing Prerequisites
@@ -215,7 +217,7 @@ NOTE: several default settings have changed in version 5.15, please make sure
       - enabled free-space-tree (-R free-space-tree)
 
 Label:              ROOT
-UUID:               5e8e1533-416a-48ca-8048-a766c0f3a46b
+UUID:               0153a53e-4288-4e39-8201-865b1d44c882
 Node size:          16384
 Sector size:        4096	(CPU page size: 4096)
 Filesystem size:    238.18GiB
@@ -797,6 +799,13 @@ Total Installed Size:  3234.06 MiB
  dbus-units-36-4-x86_64 downloading...
  ca-certificates-20240618-1-any downloading...
  base-devel-1-1-any downloading...
+error: failed retrieving file 'llvm-libs-18.1.8-4-x86_64.pkg.tar.zst' from mirrors.vectair.net : Operation too slow. Less than 1 bytes/sec transferred the last 10 seconds
+error: failed retrieving file 'noto-fonts-1:24.8.1-1-any.pkg.tar.zst' from mirrors.vectair.net : end of response with 6981993 bytes missing
+error: failed retrieving file 'perl-5.38.2-2-x86_64.pkg.tar.zst' from mirrors.vectair.net : Operation too slow. Less than 1 bytes/sec transferred the last 10 seconds
+warning: too many errors from mirrors.vectair.net, skipping for the remainder of this transaction
+error: failed retrieving file 'linux-firmware-20240809.59460076-1-any.pkg.tar.zst' from mirrors.vectair.net : end of response with 150435200 bytes missing
+error: failed retrieving file 'mesa-1:24.2.1-1-x86_64.pkg.tar.zst' from mirrors.vectair.net : Operation too slow. Less than 1 bytes/sec transferred the last 10 seconds
+error: failed retrieving file 'qt6-base-6.7.2-2-x86_64.pkg.tar.zst' from mirrors.vectair.net : Operation too slow. Less than 1 bytes/sec transferred the last 10 seconds
 checking keyring...
 checking package integrity...
 loading package files...
@@ -2102,19 +2111,19 @@ perl: warning: Falling back to the standard locale ("C").
 # See fstab(5) for details.
 
 # <file system> <dir> <type> <options> <dump> <pass>
-# /dev/sda3 UUID=5e8e1533-416a-48ca-8048-a766c0f3a46b
+# /dev/sda3 UUID=0153a53e-4288-4e39-8201-865b1d44c882
 LABEL=ROOT          	/         	btrfs     	rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,commit=120,subvolid=256,subvol=/@	0 0
 
-# /dev/sda3 UUID=5e8e1533-416a-48ca-8048-a766c0f3a46b
+# /dev/sda3 UUID=0153a53e-4288-4e39-8201-865b1d44c882
 LABEL=ROOT          	/home     	btrfs     	rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,commit=120,subvolid=257,subvol=/@home	0 0
 
-# /dev/sda3 UUID=5e8e1533-416a-48ca-8048-a766c0f3a46b
+# /dev/sda3 UUID=0153a53e-4288-4e39-8201-865b1d44c882
 LABEL=ROOT          	/tmp      	btrfs     	rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,commit=120,subvolid=259,subvol=/@tmp	0 0
 
-# /dev/sda3 UUID=5e8e1533-416a-48ca-8048-a766c0f3a46b
+# /dev/sda3 UUID=0153a53e-4288-4e39-8201-865b1d44c882
 LABEL=ROOT          	/var      	btrfs     	rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,commit=120,subvolid=258,subvol=/@var	0 0
 
-# /dev/sda3 UUID=5e8e1533-416a-48ca-8048-a766c0f3a46b
+# /dev/sda3 UUID=0153a53e-4288-4e39-8201-865b1d44c882
 LABEL=ROOT          	/.snapshots	btrfs     	rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,commit=120,subvolid=260,subvol=/@.snapshots	0 0
 
 # /dev/sda2 UUID=D8D8-B4BA
@@ -2548,27 +2557,27 @@ All set!
 -------------------------------------------------------------------------
                     Enabling Essential Services
 -------------------------------------------------------------------------
-31 Aug 23:10:47 ntpd[1022]: ntpd 4.2.8p18@1.4062-o Thu May 30 16:14:20 UTC 2024 (1): Starting
-31 Aug 23:10:47 ntpd[1022]: Command line: ntpd -qg
-31 Aug 23:10:47 ntpd[1022]: ----------------------------------------------------
-31 Aug 23:10:47 ntpd[1022]: ntp-4 is maintained by Network Time Foundation,
-31 Aug 23:10:47 ntpd[1022]: Inc. (NTF), a non-profit 501(c)(3) public-benefit
-31 Aug 23:10:47 ntpd[1022]: corporation.  Support and training for ntp-4 are
-31 Aug 23:10:47 ntpd[1022]: available at https://www.nwtime.org/support
-31 Aug 23:10:47 ntpd[1022]: ----------------------------------------------------
-31 Aug 23:10:47 ntpd[1022]: DEBUG behavior is enabled - a violation of any diagnostic assertion will cause ntpd to abort
-31 Aug 23:10:47 ntpd[1022]: proto: precision = 0.051 usec (-24)
-31 Aug 23:10:47 ntpd[1022]: basedate set to 2024-05-18
-31 Aug 23:10:47 ntpd[1022]: gps base set to 2024-05-19 (week 2315)
-31 Aug 23:10:47 ntpd[1022]: Listen and drop on 0 v6wildcard [::]:123
-31 Aug 23:10:47 ntpd[1022]: Listen and drop on 1 v4wildcard 0.0.0.0:123
-31 Aug 23:10:47 ntpd[1022]: Listen normally on 2 lo 127.0.0.1:123
-31 Aug 23:10:47 ntpd[1022]: Listen normally on 3 eno1 10.193.7.165:123
-31 Aug 23:10:47 ntpd[1022]: Listen normally on 4 lo [::1]:123
-31 Aug 23:10:47 ntpd[1022]: Listen normally on 5 eno1 [fe80::4249:b1c1:e111:5ff3%2]:123
-31 Aug 23:10:47 ntpd[1022]: Listening on routing socket on fd #22 for interface updates
-31 Aug 23:10:59 ntpd[1022]: ntpd: time slew +0.009594 s
-ntpd: time slew +0.009594s
+31 Aug 23:35:44 ntpd[1022]: ntpd 4.2.8p18@1.4062-o Thu May 30 16:14:20 UTC 2024 (1): Starting
+31 Aug 23:35:44 ntpd[1022]: Command line: ntpd -qg
+31 Aug 23:35:44 ntpd[1022]: ----------------------------------------------------
+31 Aug 23:35:44 ntpd[1022]: ntp-4 is maintained by Network Time Foundation,
+31 Aug 23:35:44 ntpd[1022]: Inc. (NTF), a non-profit 501(c)(3) public-benefit
+31 Aug 23:35:44 ntpd[1022]: corporation.  Support and training for ntp-4 are
+31 Aug 23:35:44 ntpd[1022]: available at https://www.nwtime.org/support
+31 Aug 23:35:44 ntpd[1022]: ----------------------------------------------------
+31 Aug 23:35:44 ntpd[1022]: DEBUG behavior is enabled - a violation of any diagnostic assertion will cause ntpd to abort
+31 Aug 23:35:44 ntpd[1022]: proto: precision = 0.051 usec (-24)
+31 Aug 23:35:44 ntpd[1022]: basedate set to 2024-05-18
+31 Aug 23:35:44 ntpd[1022]: gps base set to 2024-05-19 (week 2315)
+31 Aug 23:35:44 ntpd[1022]: Listen and drop on 0 v6wildcard [::]:123
+31 Aug 23:35:44 ntpd[1022]: Listen and drop on 1 v4wildcard 0.0.0.0:123
+31 Aug 23:35:44 ntpd[1022]: Listen normally on 2 lo 127.0.0.1:123
+31 Aug 23:35:44 ntpd[1022]: Listen normally on 3 eno1 10.193.7.165:123
+31 Aug 23:35:44 ntpd[1022]: Listen normally on 4 lo [::1]:123
+31 Aug 23:35:44 ntpd[1022]: Listen normally on 5 eno1 [fe80::4249:b1c1:e111:5ff3%2]:123
+31 Aug 23:35:44 ntpd[1022]: Listening on routing socket on fd #22 for interface updates
+31 Aug 23:35:56 ntpd[1022]: ntpd: time slew +0.029061 s
+ntpd: time slew +0.029061s
 Created symlink '/etc/systemd/system/multi-user.target.wants/ntpd.service' → '/usr/lib/systemd/system/ntpd.service'.
   NTP enabled
 Failed to disable unit: Unit dhcpcd.service does not exist
@@ -2620,7 +2629,7 @@ Created symlink '/etc/systemd/system/display-manager.service' → '/usr/lib/syst
                     Make AUR Packages
 -------------------------------------------------------------------------
 /home/trent/trentos
-/home/trent
+/home/trent/trentos
 Cloning into 'yay'...
 hint: Using 'master' as the name for the initial branch. This default branch name
 hint: is subject to change. To configure the initial branch name to use in all
@@ -2632,7 +2641,7 @@ hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
 hint: 'development'. The just-created branch can be renamed via this command:
 hint:
 hint: 	git branch -m <name>
-==> Making package: yay 12.3.5-1 (Sat 31 Aug 2024 11:11:15 PM CDT)
+==> Making package: yay 12.3.5-1 (Sat 31 Aug 2024 11:36:13 PM CDT)
 ==> Checking runtime dependencies...
 ==> Checking buildtime dependencies...
 ==> Installing missing dependencies...
@@ -2644,15 +2653,111 @@ Packages (1) go-2:1.23.0-1
 Total Download Size:    39.75 MiB
 Total Installed Size:  223.23 MiB
 
-:: Proceed with installation? [Y/n] 8
-==> ERROR: 'pacman' failed to install missing dependencies.
-==> Missing dependencies:
-  -> go>=1.21
-==> ERROR: Could not resolve all dependencies.
-/home/trent
-./makeaurpackages.sh: line 10: cd: bluetuith: No such file or directory
+:: Proceed with installation? [Y/n] :: Retrieving packages...
+ go-2:1.23.0-1-x86_64 downloading...
+checking keyring...
+checking package integrity...
+loading package files...
+checking for file conflicts...
+checking available disk space...
+:: Processing package changes...
+installing go...
+:: Running post-transaction hooks...
+(1/1) Arming ConditionNeedsUpdate...
+==> Retrieving sources...
+  -> Downloading yay-12.3.5.tar.gz...
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:03 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:04 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:05 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:05 --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:--  0:00:06 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:07 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:08 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:09 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:10 --:--:--     0100  444k  100  444k    0     0  42151      0  0:00:10  0:00:10 --:--:-- 99943
+==> Validating source files with sha256sums...
+    yay-12.3.5.tar.gz ... Passed
+==> Extracting sources...
+  -> Extracting yay-12.3.5.tar.gz with bsdtar
+==> Starting build()...
+go build -trimpath -mod=readonly -modcacherw -ldflags '-X "main.yayVersion=12.3.5" -X "main.localePath=/usr/share/locale/" -linkmode=external -compressdwarf=false' -buildmode=pie -o yay
+go: downloading github.com/Jguer/votar v1.0.0
+go: downloading github.com/Jguer/aur v1.2.3
+go: downloading github.com/Jguer/go-alpm/v2 v2.2.2
+go: downloading github.com/Morganamilo/go-srcinfo v1.0.0
+go: downloading github.com/deckarep/golang-set/v2 v2.6.0
+go: downloading github.com/leonelquinteros/gotext v1.5.2
+go: downloading golang.org/x/sys v0.18.0
+go: downloading github.com/Morganamilo/go-pacmanconf v0.0.0-20210502114700-cff030e927a5
+go: downloading github.com/adrg/strutil v0.3.1
+go: downloading github.com/hashicorp/go-multierror v1.1.1
+go: downloading golang.org/x/term v0.18.0
+go: downloading golang.org/x/text v0.14.0
+go: downloading github.com/itchyny/gojq v0.12.14
+go: downloading github.com/mitchellh/mapstructure v1.5.0
+go: downloading github.com/ohler55/ojg v1.21.4
+go: downloading github.com/hashicorp/errwrap v1.1.0
+go: downloading github.com/itchyny/timefmt-go v0.1.5
+==> Entering fakeroot environment...
+==> Starting package()...
+msgfmt po/ca.po -o po/ca.mo
+msgfmt po/cs.po -o po/cs.mo
+msgfmt po/de.po -o po/de.mo
+msgfmt po/en.po -o po/en.mo
+msgfmt po/es.po -o po/es.mo
+msgfmt po/eu.po -o po/eu.mo
+msgfmt po/fr_FR.po -o po/fr_FR.mo
+msgfmt po/he.po -o po/he.mo
+msgfmt po/id.po -o po/id.mo
+msgfmt po/it_IT.po -o po/it_IT.mo
+msgfmt po/ja.po -o po/ja.mo
+msgfmt po/ko.po -o po/ko.mo
+msgfmt po/pl_PL.po -o po/pl_PL.mo
+msgfmt po/pt_BR.po -o po/pt_BR.mo
+msgfmt po/pt.po -o po/pt.mo
+msgfmt po/ru_RU.po -o po/ru_RU.mo
+msgfmt po/ru.po -o po/ru.mo
+msgfmt po/sv.po -o po/sv.mo
+msgfmt po/tr.po -o po/tr.mo
+msgfmt po/uk.po -o po/uk.mo
+msgfmt po/zh_CN.po -o po/zh_CN.mo
+msgfmt po/zh_TW.po -o po/zh_TW.mo
+install -Dm755 yay /home/trent/yay/pkg/yay/usr/bin/yay
+install -Dm644 doc/yay.8 /home/trent/yay/pkg/yay/usr/share/man/man8/yay.8
+install -Dm644 completions/bash /home/trent/yay/pkg/yay/usr/share/bash-completion/completions/yay
+install -Dm644 completions/zsh /home/trent/yay/pkg/yay/usr/share/zsh/site-functions/_yay
+install -Dm644 completions/fish /home/trent/yay/pkg/yay/usr/share/fish/vendor_completions.d/yay.fish
+for lang in ca cs de en es eu fr_FR he id it_IT ja ko pl_PL pt_BR pt ru_RU ru sv tr uk zh_CN zh_TW; do \
+	install -Dm644 po/${lang}.mo /home/trent/yay/pkg/yay/usr/share/locale/$lang/LC_MESSAGES/yay.mo; \
+done
+==> Tidying install...
+  -> Removing libtool files...
+  -> Purging unwanted files...
+  -> Removing static library files...
+  -> Stripping unneeded symbols from binaries and libraries...
+  -> Compressing man and info pages...
+==> Checking for packaging issues...
+==> Creating package "yay"...
+  -> Generating .PKGINFO file...
+  -> Generating .BUILDINFO file...
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Creating package "yay-debug"...
+  -> Generating .PKGINFO file...
+  -> Generating .BUILDINFO file...
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: yay 12.3.5-1 (Sat 31 Aug 2024 11:37:37 PM CDT)
+==> Installing package yay with pacman -U...
+loading packages...
+resolving dependencies...
+looking for conflicting packages...
+
+Packages (2) yay-12.3.5-1  yay-debug-12.3.5-1
+
+Total Installed Size:  21.24 MiB
+
+:: Proceed with installation? [Y/n] ==> WARNING: Failed to install built package(s).
+/home/trent/trentos
+bash: line 1: cd: bluetuith: No such file or directory
 ==> ERROR: PKGBUILD does not exist.
-/home/trent
+/home/trent/trentos
 Cloning into 'usbimager'...
 hint: Using 'master' as the name for the initial branch. This default branch name
 hint: is subject to change. To configure the initial branch name to use in all
@@ -2664,7 +2769,7 @@ hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
 hint: 'development'. The just-created branch can be renamed via this command:
 hint:
 hint: 	git branch -m <name>
-==> Making package: usbimager 1.0.10-1 (Sat 31 Aug 2024 11:11:29 PM CDT)
+==> Making package: usbimager 1.0.10-1 (Sat 31 Aug 2024 11:37:44 PM CDT)
 ==> Checking runtime dependencies...
 ==> Checking buildtime dependencies...
 ==> Installing missing dependencies...
@@ -2680,7 +2785,7 @@ Total Installed Size:  0.03 MiB
 ==> Missing dependencies:
   -> setconf
 ==> ERROR: Could not resolve all dependencies.
-/home/trent
+/home/trent/trentos
 Cloning into 'visual-studio-code-bin'...
 hint: Using 'master' as the name for the initial branch. This default branch name
 hint: is subject to change. To configure the initial branch name to use in all
@@ -2692,7 +2797,7 @@ hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
 hint: 'development'. The just-created branch can be renamed via this command:
 hint:
 hint: 	git branch -m <name>
-==> Making package: visual-studio-code-bin 1.92.2-2 (Sat 31 Aug 2024 11:12:05 PM CDT)
+==> Making package: visual-studio-code-bin 1.92.2-2 (Sat 31 Aug 2024 11:40:41 PM CDT)
 ==> Checking runtime dependencies...
 ==> Installing missing dependencies...
 resolving dependencies...
@@ -2708,7 +2813,7 @@ Total Installed Size:  0.35 MiB
   -> lsof
 ==> Checking buildtime dependencies...
 ==> ERROR: Could not resolve all dependencies.
-/home/trent
+/home/trent/trentos
 Cloning into 'xcursor-breeze'...
 hint: Using 'master' as the name for the initial branch. This default branch name
 hint: is subject to change. To configure the initial branch name to use in all
@@ -2720,16 +2825,16 @@ hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
 hint: 'development'. The just-created branch can be renamed via this command:
 hint:
 hint: 	git branch -m <name>
-==> Making package: xcursor-breeze 1:6.1.4-2 (Sat 31 Aug 2024 11:12:23 PM CDT)
+==> Making package: xcursor-breeze 1:6.1.4-2 (Sat 31 Aug 2024 11:40:56 PM CDT)
 ==> Checking runtime dependencies...
 ==> Checking buildtime dependencies...
 ==> Retrieving sources...
   -> Downloading breeze-6.1.4.tar.xz...
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:03 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:04 --:--:--     0100   354  100   354    0     0     65      0  0:00:05  0:00:05 --:--:--    76
-  0     0    0     0    0     0      0      0 --:--:--  0:00:05 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:06 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:07 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:08 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:09 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:10 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:11 --:--:--     0
-  0     0    0     0    0     0      0      0 --:--:--  0:00:11 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:12 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:13 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:14 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:15 --:--:--     0 34 55.3M   34 18.8M    0     0  1155k      0  0:00:49  0:00:16  0:00:33 3955k100 55.3M  100 55.3M    0     0  3234k      0  0:00:17  0:00:17 --:--:-- 11.7M
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:03 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:04 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:05 --:--:--     0100   354  100   354    0     0     66      0  0:00:05  0:00:05 --:--:--    86
+  0     0    0     0    0     0      0      0 --:--:--  0:00:06 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:07 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:08 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:09 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:10 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:10 --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:--  0:00:11 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:12 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:13 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:14 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:15 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:16 --:--:--     0 56 55.3M   56 30.9M    0     0  1866k      0  0:00:30  0:00:17  0:00:13 6659k100 55.3M  100 55.3M    0     0  3269k      0  0:00:17  0:00:17 --:--:-- 13.5M
 ==> Validating source files with b2sums...
     breeze-6.1.4.tar.xz ... Passed
 ==> Extracting sources...
@@ -2749,7 +2854,7 @@ hint: 	git branch -m <name>
   -> Generating .MTREE file...
   -> Compressing package...
 ==> Leaving fakeroot environment.
-==> Finished making: xcursor-breeze 1:6.1.4-2 (Sat 31 Aug 2024 11:12:50 PM CDT)
+==> Finished making: xcursor-breeze 1:6.1.4-2 (Sat 31 Aug 2024 11:41:23 PM CDT)
 ==> Installing package xcursor-breeze with pacman -U...
 loading packages...
 resolving dependencies...

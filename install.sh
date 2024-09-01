@@ -795,33 +795,34 @@ echo -ne "
                     Make AUR Packages
 -------------------------------------------------------------------------
 "
+su trent
 cd /home/$username/trentos
 echo $PWD
-runuser -u $username -- bash -c \
-"cd /home/$username ; \
-echo $PWD ; \
-git clone https://aur.archlinux.org/yay.git ; \
-cd yay ; \
-makepkg -si ; \
-cd /home/$username ; \
-echo $PWD ; \
-cd bluetuith ; \
-makepkg -si ; \
-cd /home/$username ; \
-echo $PWD ; \
-git clone https://aur.archlinux.org/usbimager.git ; \
-cd usbimager ; \
-makepkg -si ; \
-cd /home/$username ; \
-echo $PWD ; \
-git clone https://aur.archlinux.org/visual-studio-code-bin.git ; \
-cd visual-studio-code-bin ; \
-makepkg -si ; \
-cd /home/$username ; \
-echo $PWD ; \
-git clone https://aur.archlinux.org/xcursor-breeze.git ; \
-cd xcursor-breeze ; \
-makepkg -si"
+cd /home/$username
+echo $PWD
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+cd /home/$username
+echo $PWD
+git clone https://aur.archlinux.org/bluetuith.git
+cd bluetuith
+makepkg -si
+cd /home/$username
+echo $PWD
+git clone https://aur.archlinux.org/usbimager.git
+cd usbimager
+makepkg -si
+cd /home/$username
+echo $PWD
+git clone https://aur.archlinux.org/visual-studio-code-bin.git
+cd visual-studio-code-bin
+makepkg -si
+cd /home/$username
+echo $PWD
+git clone https://aur.archlinux.org/xcursor-breeze.git
+cd xcursor-breeze
+makepkg -si
 
 echo -ne "
 -------------------------------------------------------------------------
