@@ -434,7 +434,6 @@ if [[ ! -d "/sys/firmware/efi" ]]; then
     pacstrap /mnt base base-devel linux-lts linux-firmware\
         adapta-gtk-theme\
         arandr\
-        blueman\
         bluez\
         bluez-obex\
         brightnessctl\
@@ -445,6 +444,7 @@ if [[ ! -d "/sys/firmware/efi" ]]; then
         gnome-disk-utility\
         gvfs\
         htop\
+        inkscape\
         less\
         libxft\
         libxinerama\
@@ -486,7 +486,6 @@ else
     pacstrap /mnt base base-devel linux-lts linux-firmware efibootmgr\
         adapta-gtk-theme\
         arandr\
-        blueman\
         bluez\
         bluez-obex\
         brightnessctl\
@@ -497,6 +496,7 @@ else
         gnome-disk-utility\
         gvfs\
         htop\
+        inkscape\
         less\
         libxft\
         libxinerama\
@@ -785,7 +785,6 @@ cp /home/$username/trentos/.config/gtk-3.0/settings.ini /home/$username/.config/
 cp /home/$username/trentos/.config/gtk-3.0/settings.ini /etc/gtk-3.0/
 cp /home/$username/trentos/.config/rofi/config.rasi /home/$username/.config/rofi/
 cp /home/$username/trentos/.config/picom/picom.conf /home/$username/.config/picom/
-cp -r /home/$username/trentos/Breeze_Light /usr/share/icons/
 # apply cursor theme globally
 cp /home/$username/trentos/.icons/default/index.theme /home/$username/.icons/default/
 # apply bash config
@@ -794,31 +793,6 @@ cp /home/$username/trentos/.gtkrc-2.0 /home/$username/
 # setup LightDM to run dwm
 cp /home/$username/trentos/lightdm.conf /etc/lightdm/
 cp /home/$username/trentos/dwm.desktop /usr/share/xsessions/
-
-echo -ne "
--------------------------------------------------------------------------
-                    Run My Personal Configs if username is trent
--------------------------------------------------------------------------
-"
-if [[ "$username" == "trent" ]]; then
-    mkdir -p\
-        /home/$username/school\
-        /home/$username/personal\
-        /home/$username/Downloads\
-        /home/$username/.config/rclone
-    git config --global user.name "trent-8"
-    git config --global user.email "trenthek@gmail.com"
-    git config --global pull.rebase false
-fi
-
-echo -ne "
--------------------------------------------------------------------------
-                    Install Visual Studio Code
--------------------------------------------------------------------------
-"
-cd /home/$username/Downloads
-wget 'https://code.visualstudio.com/sha/download?build=stable&os=linux-x64'
-tar xf "download?build=stable&os=linux-x64" -C /home/$username/
-# give the user read/write access
+# give the user read/write permissions
 setfacl -R -m u:$username:rwx /home/$username
 EOF

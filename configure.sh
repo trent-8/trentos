@@ -1,4 +1,5 @@
 #!/bin/bash
+set -x
 cd ~
 mkdir -p\
     ~/.config/gtk-3.0\
@@ -20,7 +21,6 @@ sudo mkdir /usr/share/xsessions
 sudo cp ~/trentos/.config/gtk-3.0/settings.ini /etc/gtk-3.0/
 sudo cp ~/trentos/lightdm.conf /etc/lightdm/
 sudo cp ~/trentos/dwm.desktop /usr/share/xsessions/
-sudo cp -r /home/$username/trentos/Breeze_Light /usr/share/icons/
 if [[ "$USER" == "trent" ]]; then
     mkdir -p\
         ~/school\
@@ -34,3 +34,11 @@ if [[ "$USER" == "trent" ]]; then
     rclone mount --daemon school: ~/school
     rclone mount --daemon personal: ~/personal
 fi
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makepkg -si
+yay -S --noconfirm --needed\
+    visual-studio-code-bin\
+    bluetuith\
+    xcursor-breeze\
+    usb-imager
