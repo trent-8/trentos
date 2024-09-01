@@ -282,6 +282,27 @@ userinfo () {
     export NAME_OF_MACHINE=$name_of_machine
 }
 
+makepackages () {
+    git clone https://aur.archlinux.org/yay.git
+    cd yay
+    makepkg -si
+    cd /home/$username
+    cd bluetuith
+    makepkg -si
+    cd /home/$username
+    git clone https://aur.archlinux.org/usbimager.git
+    cd usbimager
+    makepkg -si
+    cd /home/$username
+    git clone https://aur.archlinux.org/visual-studio-code-bin.git
+    cd visual-studio-code-bin
+    makepkg -si
+    cd /home/$username
+    git clone https://aur.archlinux.org/xcursor-breeze.git
+    cd xcursor-breeze
+    makepkg -si
+}
+
 # Starting functions
 background_checks
 clear
@@ -795,30 +816,9 @@ echo -ne "
                     Make AUR Packages
 -------------------------------------------------------------------------
 "
-makepackages () {
-    git clone https://aur.archlinux.org/yay.git
-    cd yay
-    makepkg -si
-    cd /home/$username
-    cd bluetuith
-    makepkg -si
-    cd /home/$username
-    git clone https://aur.archlinux.org/usbimager.git
-    cd usbimager
-    makepkg -si
-    cd /home/$username
-    git clone https://aur.archlinux.org/visual-studio-code-bin.git
-    cd visual-studio-code-bin
-    makepkg -si
-    cd /home/$username
-    git clone https://aur.archlinux.org/xcursor-breeze.git
-    cd xcursor-breeze
-    makepkg -si
-}
 
-cd /home/$username
-runuser -u $username -- makepackages
-
+cd /home/$username/trentos
+runuser -u $username -- ./makeaurpackages.sh
 
 echo -ne "
 -------------------------------------------------------------------------
