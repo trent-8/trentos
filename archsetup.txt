@@ -144,7 +144,7 @@ Your key boards layout: us
 Setting up mirrors for optimal download
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:03 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:04 --:--:--     0100     3    0     3    0     0      0      0 --:--:--  0:00:05 --:--:--     0100     3    0     3    0     0      0      0 --:--:--  0:00:05 --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:03 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:04 --:--:--     0100     3    0     3    0     0      0      0 --:--:--  0:00:05 --:--:--     0
 warning: archlinux-keyring-20240709-1 is up to date -- reinstalling
 resolving dependencies...
 looking for conflicting packages...
@@ -179,12 +179,10 @@ warning: grub-2:2.12-2 is up to date -- skipping
 -------------------------------------------------------------------------
                     Setting up US mirrors for faster downloads
 -------------------------------------------------------------------------
-[2024-09-01 00:36:14] WARNING: failed to rate rsync download (rsync://arch.mirror.constant.com/archlinux/extra/os/x86_64/extra.db): Download timed out after 5 second(s).
-[2024-09-01 00:36:19] WARNING: failed to rate rsync download (rsync://arlm.tyzoid.com/archlinux/extra/os/x86_64/extra.db): Download timed out after 5 second(s).
-[2024-09-01 00:36:36] WARNING: failed to rate http(s) download (http://mirrors.bjg.at/arch/extra/os/x86_64/extra.db): HTTP Error 403: Forbidden
-[2024-09-01 00:36:52] WARNING: failed to rate rsync download (rsync://plug-mirror.rcac.purdue.edu/archlinux/extra/os/x86_64/extra.db): Download timed out after 5 second(s).
-[2024-09-01 00:37:10] WARNING: failed to rate rsync download (rsync://mirrors.rit.edu/archlinux/extra/os/x86_64/extra.db): Download timed out after 5 second(s).
-[2024-09-01 00:37:15] WARNING: failed to rate rsync download (rsync://arch.hu.fo/archlinux/extra/os/x86_64/extra.db): Download timed out after 5 second(s).
+[2024-09-01 00:47:47] WARNING: failed to rate rsync download (rsync://arch.mirror.constant.com/archlinux/extra/os/x86_64/extra.db): Download timed out after 5 second(s).
+[2024-09-01 00:47:52] WARNING: failed to rate rsync download (rsync://arlm.tyzoid.com/archlinux/extra/os/x86_64/extra.db): Download timed out after 5 second(s).
+[2024-09-01 00:47:57] WARNING: failed to rate http(s) download (http://mirrors.bjg.at/arch/extra/os/x86_64/extra.db): HTTP Error 403: Forbidden
+[2024-09-01 00:48:44] WARNING: failed to rate rsync download (rsync://mirrors.ocf.berkeley.edu/archlinux/extra/os/x86_64/extra.db): Download timed out after 5 second(s).
 
 -------------------------------------------------------------------------
                     Installing Prerequisites
@@ -197,7 +195,6 @@ warning: glibc-2.40+r16+gaa533d58ff-2 is up to date -- skipping
 -------------------------------------------------------------------------
                     Formating Disk
 -------------------------------------------------------------------------
-umount: /mnt: not mounted
 GPT data structures destroyed! You may now partition the disk using fdisk or
 other utilities.
 Creating new GPT entries in memory.
@@ -211,9 +208,9 @@ The operation has completed successfully.
 -------------------------------------------------------------------------
 ./install.sh: line 397: mkfs.vfat: command not found
 mke2fs 1.47.1 (20-May-2024)
-Discarding device blocks:        0/62437457 1048576/62437457 3670016/6243745717301504/6243745730932992/6243745744564480/6243745758195968/62437457                 done                            
+Discarding device blocks:        0/62437457 6815744/62437457 7864320/6243745715204352/6243745722020096/6243745731457280/6243745739845888/6243745750331648/6243745760817408/62437457                 done                            
 Creating filesystem with 62437457 4k blocks and 15613952 inodes
-Filesystem UUID: e80fbea7-1f62-4600-961a-fba4e763a878
+Filesystem UUID: a0f1275e-dd61-4d4a-baa2-4433510f542f
 Superblock backups stored on blocks: 
 	32768, 98304, 163840, 229376, 294912, 819200, 884736, 1605632, 2654208, 
 	4096000, 7962624, 11239424, 20480000, 23887872
@@ -2045,12 +2042,12 @@ Creating user 'polkitd' (User for polkitd) with UID 102 and GID 102.
   -> Running build hook: [consolefont]
 ==> WARNING: consolefont: no font found in configuration
   -> Running build hook: [block]
-==> WARNING: Possibly missing firmware for module: 'aic94xx'
-==> WARNING: Possibly missing firmware for module: 'bfa'
-==> WARNING: Possibly missing firmware for module: 'qla2xxx'
+==> WARNING: Possibly missing firmware for module: 'qla1280'
 ==> WARNING: Possibly missing firmware for module: 'qed'
 ==> WARNING: Possibly missing firmware for module: 'wd719x'
-==> WARNING: Possibly missing firmware for module: 'qla1280'
+==> WARNING: Possibly missing firmware for module: 'aic94xx'
+==> WARNING: Possibly missing firmware for module: 'qla2xxx'
+==> WARNING: Possibly missing firmware for module: 'bfa'
   -> Running build hook: [filesystems]
   -> Running build hook: [fsck]
 ==> Generating module dependencies
@@ -2087,7 +2084,7 @@ perl: warning: Falling back to the standard locale ("C").
 # See fstab(5) for details.
 
 # <file system> <dir> <type> <options> <dump> <pass>
-# /dev/sda3 UUID=e80fbea7-1f62-4600-961a-fba4e763a878
+# /dev/sda3 UUID=a0f1275e-dd61-4d4a-baa2-4433510f542f
 LABEL=ROOT          	/         	ext4      	rw,relatime	0 1
 
 # /dev/sda2 UUID=D8D8-B4BA
@@ -2521,27 +2518,27 @@ All set!
 -------------------------------------------------------------------------
                     Enabling Essential Services
 -------------------------------------------------------------------------
- 1 Sep 00:41:18 ntpd[1020]: ntpd 4.2.8p18@1.4062-o Thu May 30 16:14:20 UTC 2024 (1): Starting
- 1 Sep 00:41:18 ntpd[1020]: Command line: ntpd -qg
- 1 Sep 00:41:18 ntpd[1020]: ----------------------------------------------------
- 1 Sep 00:41:18 ntpd[1020]: ntp-4 is maintained by Network Time Foundation,
- 1 Sep 00:41:18 ntpd[1020]: Inc. (NTF), a non-profit 501(c)(3) public-benefit
- 1 Sep 00:41:18 ntpd[1020]: corporation.  Support and training for ntp-4 are
- 1 Sep 00:41:18 ntpd[1020]: available at https://www.nwtime.org/support
- 1 Sep 00:41:18 ntpd[1020]: ----------------------------------------------------
- 1 Sep 00:41:18 ntpd[1020]: DEBUG behavior is enabled - a violation of any diagnostic assertion will cause ntpd to abort
- 1 Sep 00:41:18 ntpd[1020]: proto: precision = 0.051 usec (-24)
- 1 Sep 00:41:18 ntpd[1020]: basedate set to 2024-05-18
- 1 Sep 00:41:18 ntpd[1020]: gps base set to 2024-05-19 (week 2315)
- 1 Sep 00:41:18 ntpd[1020]: Listen and drop on 0 v6wildcard [::]:123
- 1 Sep 00:41:18 ntpd[1020]: Listen and drop on 1 v4wildcard 0.0.0.0:123
- 1 Sep 00:41:18 ntpd[1020]: Listen normally on 2 lo 127.0.0.1:123
- 1 Sep 00:41:18 ntpd[1020]: Listen normally on 3 eno1 10.193.7.165:123
- 1 Sep 00:41:18 ntpd[1020]: Listen normally on 4 lo [::1]:123
- 1 Sep 00:41:18 ntpd[1020]: Listen normally on 5 eno1 [fe80::4249:b1c1:e111:5ff3%2]:123
- 1 Sep 00:41:18 ntpd[1020]: Listening on routing socket on fd #22 for interface updates
- 1 Sep 00:41:30 ntpd[1020]: ntpd: time slew -0.019214 s
-ntpd: time slew -0.019214s
+ 1 Sep 00:52:04 ntpd[1020]: ntpd 4.2.8p18@1.4062-o Thu May 30 16:14:20 UTC 2024 (1): Starting
+ 1 Sep 00:52:04 ntpd[1020]: Command line: ntpd -qg
+ 1 Sep 00:52:04 ntpd[1020]: ----------------------------------------------------
+ 1 Sep 00:52:04 ntpd[1020]: ntp-4 is maintained by Network Time Foundation,
+ 1 Sep 00:52:04 ntpd[1020]: Inc. (NTF), a non-profit 501(c)(3) public-benefit
+ 1 Sep 00:52:04 ntpd[1020]: corporation.  Support and training for ntp-4 are
+ 1 Sep 00:52:04 ntpd[1020]: available at https://www.nwtime.org/support
+ 1 Sep 00:52:04 ntpd[1020]: ----------------------------------------------------
+ 1 Sep 00:52:04 ntpd[1020]: DEBUG behavior is enabled - a violation of any diagnostic assertion will cause ntpd to abort
+ 1 Sep 00:52:04 ntpd[1020]: proto: precision = 0.051 usec (-24)
+ 1 Sep 00:52:04 ntpd[1020]: basedate set to 2024-05-18
+ 1 Sep 00:52:04 ntpd[1020]: gps base set to 2024-05-19 (week 2315)
+ 1 Sep 00:52:04 ntpd[1020]: Listen and drop on 0 v6wildcard [::]:123
+ 1 Sep 00:52:04 ntpd[1020]: Listen and drop on 1 v4wildcard 0.0.0.0:123
+ 1 Sep 00:52:04 ntpd[1020]: Listen normally on 2 lo 127.0.0.1:123
+ 1 Sep 00:52:04 ntpd[1020]: Listen normally on 3 eno1 10.193.7.165:123
+ 1 Sep 00:52:04 ntpd[1020]: Listen normally on 4 lo [::1]:123
+ 1 Sep 00:52:04 ntpd[1020]: Listen normally on 5 eno1 [fe80::4249:b1c1:e111:5ff3%2]:123
+ 1 Sep 00:52:04 ntpd[1020]: Listening on routing socket on fd #22 for interface updates
+ 1 Sep 00:52:16 ntpd[1020]: ntpd: time slew -0.013590 s
+ntpd: time slew -0.013590s
 Created symlink '/etc/systemd/system/multi-user.target.wants/ntpd.service' → '/usr/lib/systemd/system/ntpd.service'.
   NTP enabled
 Failed to disable unit: Unit dhcpcd.service does not exist
@@ -2592,4 +2589,4 @@ Created symlink '/etc/systemd/system/display-manager.service' → '/usr/lib/syst
 -------------------------------------------------------------------------
                     Run My Personal Configs if username is trent
 -------------------------------------------------------------------------
-==> ERROR: No chroot directory specified
+chroot: failed to run command ‘-u’: No such file or directory
