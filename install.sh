@@ -795,25 +795,30 @@ echo -ne "
                     Make AUR Packages
 -------------------------------------------------------------------------
 "
-runuser -u $username -- cd /home/$username
-runuser -u $username -- git clone https://aur.archlinux.org/yay.git
-runuser -u $username -- cd yay
-runuser -u $username -- makepkg -si
-runuser -u $username -- cd /home/$username
-runuser -u $username -- cd bluetuith
-runuser -u $username -- makepkg -si
-runuser -u $username -- cd /home/$username
-runuser -u $username -- git clone https://aur.archlinux.org/usbimager.git
-runuser -u $username -- cd usbimager
-runuser -u $username -- makepkg -si
-runuser -u $username -- cd /home/$username
-runuser -u $username -- git clone https://aur.archlinux.org/visual-studio-code-bin.git
-runuser -u $username -- cd visual-studio-code-bin
-runuser -u $username -- makepkg -si
-runuser -u $username -- cd /home/$username
-runuser -u $username -- git clone https://aur.archlinux.org/xcursor-breeze.git
-runuser -u $username -- cd xcursor-breeze
-runuser -u $username -- makepkg -si
+makepackages () {
+    git clone https://aur.archlinux.org/yay.git
+    cd yay
+    makepkg -si
+    cd /home/$username
+    cd bluetuith
+    makepkg -si
+    cd /home/$username
+    git clone https://aur.archlinux.org/usbimager.git
+    cd usbimager
+    makepkg -si
+    cd /home/$username
+    git clone https://aur.archlinux.org/visual-studio-code-bin.git
+    cd visual-studio-code-bin
+    makepkg -si
+    cd /home/$username
+    git clone https://aur.archlinux.org/xcursor-breeze.git
+    cd xcursor-breeze
+    makepkg -si
+}
+
+cd /home/$username
+runuser -u $username -- makepackages
+
 
 echo -ne "
 -------------------------------------------------------------------------
