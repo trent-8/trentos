@@ -755,6 +755,11 @@ make install
 make clean
 systemctl enable lightdm
 
+echo -ne "
+-------------------------------------------------------------------------
+                    Configuring Themes and Software
+-------------------------------------------------------------------------
+"
 mkdir -p\
     /home/$username/.config/gtk-3.0\
     /home/$username/.config/rofi\
@@ -783,4 +788,47 @@ cp /home/$username/trentos/lightdm.conf /etc/lightdm/
 cp /home/$username/trentos/dwm.desktop /usr/share/xsessions/
 # give the user read/write access
 setfacl -R -m u:$username:rwx /home/$username
+
+echo -ne "
+-------------------------------------------------------------------------
+                    Make AUR Packages
+-------------------------------------------------------------------------
+"
+# make aur packages
+cd /home/$username
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makechrootpkg -- -si
+cd /home/$username
+git clone https://aur.archlinux.org/bluetuith.git
+cd bluetuith
+makechrootpkg -- -si
+cd /home/$username
+git clone https://aur.archlinux.org/usbimager.git
+cd usbimager
+makechrootpkg -- -si
+cd /home/$username
+git clone https://aur.archlinux.org/visual-studio-code-bin.git
+cd visual-studio-code-bin
+makechrootpkg -- -si
+cd /home/$username
+git clone https://aur.archlinux.org/xcursor-breeze.git
+cd xcursor-breeze
+makechrootpkg -- -si
+
+echo -ne "
+-------------------------------------------------------------------------
+                    Run My Personal Configs if username is trent
+-------------------------------------------------------------------------
+"
+if [[ "$USER" == "trent" ]]; then
+    mkdir -p\
+        /home/$username/school\
+        /home/$username/personal\
+        /home/$username/Downloads\
+        /home/$username/.config/rclone
+    git config --global user.email "trenthek@gmail.com"
+    git config --global user.name "trent-8"
+    git config --global pull.rebase false
+fi
 EOF
