@@ -797,8 +797,8 @@ echo -ne "
 "
 cd /home/$username/trentos
 echo $PWD
-runuser -u $username -- ./makeaurpackages.sh
-
+runuser -u $username -- ./makeaurpackages.sh $username
+8
 echo -ne "
 -------------------------------------------------------------------------
                     Run My Personal Configs if username is trent
