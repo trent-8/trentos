@@ -5,7 +5,6 @@ mkdir -p\
     ~/.config/rofi\
     ~/.config/terminator\
     ~/.config/picom\
-    ~/.icons\
     ~/.icons/default
 cp ~/trentos/.xinitrc ~/
 cp ~/trentos/.xsession ~/
@@ -21,6 +20,7 @@ sudo mkdir /usr/share/xsessions
 sudo cp ~/trentos/.config/gtk-3.0/settings.ini /etc/gtk-3.0/
 sudo cp ~/trentos/lightdm.conf /etc/lightdm/
 sudo cp ~/trentos/dwm.desktop /usr/share/xsessions/
+sudo cp -r /home/$username/trentos/Breeze_Light /usr/share/icons/
 if [[ "$USER" == "trent" ]]; then
     mkdir -p\
         ~/school\
