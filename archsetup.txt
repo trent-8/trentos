@@ -87,7 +87,7 @@ Please select an option using the arrow keys and Enter:
 ------------------------------------------------------------------------
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:03 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:04 --:--:--     0100    15  100    15    0     0      2      0  0:00:07  0:00:05  0:00:02     3
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:03 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:04 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:05 --:--:--     0100    15  100    15    0     0      2      0  0:00:07  0:00:05  0:00:02     3
 
     System detected your timezone to be 'America/Chicago' 
 Is this correct?
@@ -140,7 +140,7 @@ Your key boards layout: us
 Setting up mirrors for optimal download
   % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
                                  Dload  Upload   Total   Spent    Left  Speed
-  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:03 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:04 --:--:--     0100     3    0     3    0     0      0      0 --:--:--  0:00:05 --:--:--     0100     3    0     3    0     0      0      0 --:--:--  0:00:05 --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:03 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:04 --:--:--     0100     3    0     3    0     0      0      0 --:--:--  0:00:05 --:--:--     0
 warning: archlinux-keyring-20240709-1 is up to date -- reinstalling
 resolving dependencies...
 looking for conflicting packages...
@@ -175,12 +175,11 @@ warning: grub-2:2.12-2 is up to date -- skipping
 -------------------------------------------------------------------------
                     Setting up US mirrors for faster downloads
 -------------------------------------------------------------------------
-[2024-08-31 22:54:55] WARNING: failed to rate rsync download (rsync://arch.mirror.constant.com/archlinux/extra/os/x86_64/extra.db): Download timed out after 5 second(s).
-[2024-08-31 22:55:00] WARNING: failed to rate rsync download (rsync://arlm.tyzoid.com/archlinux/extra/os/x86_64/extra.db): Download timed out after 5 second(s).
-[2024-08-31 22:55:21] WARNING: failed to rate rsync download (rsync://mirrors.lug.mtu.edu/archlinux/extra/os/x86_64/extra.db): Download timed out after 5 second(s).
-[2024-08-31 22:55:37] WARNING: failed to rate http(s) download (http://mirrors.bjg.at/arch/extra/os/x86_64/extra.db): HTTP Error 403: Forbidden
-[2024-08-31 22:55:54] WARNING: failed to rate rsync download (rsync://mirrors.sonic.net/archlinux/extra/os/x86_64/extra.db): Download timed out after 5 second(s).
-[2024-08-31 22:56:12] WARNING: failed to rate rsync download (rsync://mirrors.rit.edu/archlinux/extra/os/x86_64/extra.db): Download timed out after 5 second(s).
+[2024-08-31 23:05:58] WARNING: failed to rate rsync download (rsync://arch.mirror.constant.com/archlinux/extra/os/x86_64/extra.db): Download timed out after 5 second(s).
+[2024-08-31 23:06:03] WARNING: failed to rate rsync download (rsync://arlm.tyzoid.com/archlinux/extra/os/x86_64/extra.db): Download timed out after 5 second(s).
+[2024-08-31 23:06:08] WARNING: failed to rate http(s) download (http://mirrors.bjg.at/arch/extra/os/x86_64/extra.db): HTTP Error 403: Forbidden
+[2024-08-31 23:06:44] WARNING: failed to rate rsync download (rsync://mirrors.lug.mtu.edu/archlinux/extra/os/x86_64/extra.db): Download timed out after 5 second(s).
+[2024-08-31 23:07:12] WARNING: failed to rate rsync download (rsync://mirrors.sonic.net/archlinux/extra/os/x86_64/extra.db): Download timed out after 5 second(s).
 
 -------------------------------------------------------------------------
                     Installing Prerequisites
@@ -216,7 +215,7 @@ NOTE: several default settings have changed in version 5.15, please make sure
       - enabled free-space-tree (-R free-space-tree)
 
 Label:              ROOT
-UUID:               72fcbe9d-245f-4789-9e79-02787eccb201
+UUID:               5e8e1533-416a-48ca-8048-a766c0f3a46b
 Node size:          16384
 Sector size:        4096	(CPU page size: 4096)
 Filesystem size:    238.18GiB
@@ -2103,19 +2102,19 @@ perl: warning: Falling back to the standard locale ("C").
 # See fstab(5) for details.
 
 # <file system> <dir> <type> <options> <dump> <pass>
-# /dev/sda3 UUID=72fcbe9d-245f-4789-9e79-02787eccb201
+# /dev/sda3 UUID=5e8e1533-416a-48ca-8048-a766c0f3a46b
 LABEL=ROOT          	/         	btrfs     	rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,commit=120,subvolid=256,subvol=/@	0 0
 
-# /dev/sda3 UUID=72fcbe9d-245f-4789-9e79-02787eccb201
+# /dev/sda3 UUID=5e8e1533-416a-48ca-8048-a766c0f3a46b
 LABEL=ROOT          	/home     	btrfs     	rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,commit=120,subvolid=257,subvol=/@home	0 0
 
-# /dev/sda3 UUID=72fcbe9d-245f-4789-9e79-02787eccb201
+# /dev/sda3 UUID=5e8e1533-416a-48ca-8048-a766c0f3a46b
 LABEL=ROOT          	/tmp      	btrfs     	rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,commit=120,subvolid=259,subvol=/@tmp	0 0
 
-# /dev/sda3 UUID=72fcbe9d-245f-4789-9e79-02787eccb201
+# /dev/sda3 UUID=5e8e1533-416a-48ca-8048-a766c0f3a46b
 LABEL=ROOT          	/var      	btrfs     	rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,commit=120,subvolid=258,subvol=/@var	0 0
 
-# /dev/sda3 UUID=72fcbe9d-245f-4789-9e79-02787eccb201
+# /dev/sda3 UUID=5e8e1533-416a-48ca-8048-a766c0f3a46b
 LABEL=ROOT          	/.snapshots	btrfs     	rw,noatime,compress=zstd:3,ssd,discard=async,space_cache=v2,commit=120,subvolid=260,subvol=/@.snapshots	0 0
 
 # /dev/sda2 UUID=D8D8-B4BA
@@ -2549,27 +2548,27 @@ All set!
 -------------------------------------------------------------------------
                     Enabling Essential Services
 -------------------------------------------------------------------------
-31 Aug 22:59:02 ntpd[1022]: ntpd 4.2.8p18@1.4062-o Thu May 30 16:14:20 UTC 2024 (1): Starting
-31 Aug 22:59:02 ntpd[1022]: Command line: ntpd -qg
-31 Aug 22:59:02 ntpd[1022]: ----------------------------------------------------
-31 Aug 22:59:02 ntpd[1022]: ntp-4 is maintained by Network Time Foundation,
-31 Aug 22:59:02 ntpd[1022]: Inc. (NTF), a non-profit 501(c)(3) public-benefit
-31 Aug 22:59:02 ntpd[1022]: corporation.  Support and training for ntp-4 are
-31 Aug 22:59:02 ntpd[1022]: available at https://www.nwtime.org/support
-31 Aug 22:59:02 ntpd[1022]: ----------------------------------------------------
-31 Aug 22:59:02 ntpd[1022]: DEBUG behavior is enabled - a violation of any diagnostic assertion will cause ntpd to abort
-31 Aug 22:59:02 ntpd[1022]: proto: precision = 0.051 usec (-24)
-31 Aug 22:59:02 ntpd[1022]: basedate set to 2024-05-18
-31 Aug 22:59:02 ntpd[1022]: gps base set to 2024-05-19 (week 2315)
-31 Aug 22:59:02 ntpd[1022]: Listen and drop on 0 v6wildcard [::]:123
-31 Aug 22:59:02 ntpd[1022]: Listen and drop on 1 v4wildcard 0.0.0.0:123
-31 Aug 22:59:02 ntpd[1022]: Listen normally on 2 lo 127.0.0.1:123
-31 Aug 22:59:02 ntpd[1022]: Listen normally on 3 eno1 10.193.7.165:123
-31 Aug 22:59:02 ntpd[1022]: Listen normally on 4 lo [::1]:123
-31 Aug 22:59:02 ntpd[1022]: Listen normally on 5 eno1 [fe80::4249:b1c1:e111:5ff3%2]:123
-31 Aug 22:59:02 ntpd[1022]: Listening on routing socket on fd #22 for interface updates
-31 Aug 22:59:14 ntpd[1022]: ntpd: time slew -0.003819 s
-ntpd: time slew -0.003819s
+31 Aug 23:10:47 ntpd[1022]: ntpd 4.2.8p18@1.4062-o Thu May 30 16:14:20 UTC 2024 (1): Starting
+31 Aug 23:10:47 ntpd[1022]: Command line: ntpd -qg
+31 Aug 23:10:47 ntpd[1022]: ----------------------------------------------------
+31 Aug 23:10:47 ntpd[1022]: ntp-4 is maintained by Network Time Foundation,
+31 Aug 23:10:47 ntpd[1022]: Inc. (NTF), a non-profit 501(c)(3) public-benefit
+31 Aug 23:10:47 ntpd[1022]: corporation.  Support and training for ntp-4 are
+31 Aug 23:10:47 ntpd[1022]: available at https://www.nwtime.org/support
+31 Aug 23:10:47 ntpd[1022]: ----------------------------------------------------
+31 Aug 23:10:47 ntpd[1022]: DEBUG behavior is enabled - a violation of any diagnostic assertion will cause ntpd to abort
+31 Aug 23:10:47 ntpd[1022]: proto: precision = 0.051 usec (-24)
+31 Aug 23:10:47 ntpd[1022]: basedate set to 2024-05-18
+31 Aug 23:10:47 ntpd[1022]: gps base set to 2024-05-19 (week 2315)
+31 Aug 23:10:47 ntpd[1022]: Listen and drop on 0 v6wildcard [::]:123
+31 Aug 23:10:47 ntpd[1022]: Listen and drop on 1 v4wildcard 0.0.0.0:123
+31 Aug 23:10:47 ntpd[1022]: Listen normally on 2 lo 127.0.0.1:123
+31 Aug 23:10:47 ntpd[1022]: Listen normally on 3 eno1 10.193.7.165:123
+31 Aug 23:10:47 ntpd[1022]: Listen normally on 4 lo [::1]:123
+31 Aug 23:10:47 ntpd[1022]: Listen normally on 5 eno1 [fe80::4249:b1c1:e111:5ff3%2]:123
+31 Aug 23:10:47 ntpd[1022]: Listening on routing socket on fd #22 for interface updates
+31 Aug 23:10:59 ntpd[1022]: ntpd: time slew +0.009594 s
+ntpd: time slew +0.009594s
 Created symlink '/etc/systemd/system/multi-user.target.wants/ntpd.service' → '/usr/lib/systemd/system/ntpd.service'.
   NTP enabled
 Failed to disable unit: Unit dhcpcd.service does not exist
@@ -2621,33 +2620,143 @@ Created symlink '/etc/systemd/system/display-manager.service' → '/usr/lib/syst
                     Make AUR Packages
 -------------------------------------------------------------------------
 /home/trent/trentos
-./makeaurpackages.sh: line 2: =: command not found
-/home
-fatal: could not create work tree dir 'yay': Permission denied
-./makeaurpackages.sh: line 6: cd: yay: No such file or directory
-==> ERROR: You do not have write permission for the directory $BUILDDIR (/home).
-    Aborting...
-/home
-./makeaurpackages.sh: line 10: cd: bluetuith: No such file or directory
-==> ERROR: You do not have write permission for the directory $BUILDDIR (/home).
-    Aborting...
-/home
-fatal: could not create work tree dir 'usbimager': Permission denied
-./makeaurpackages.sh: line 15: cd: usbimager: No such file or directory
-==> ERROR: You do not have write permission for the directory $BUILDDIR (/home).
-    Aborting...
-/home
-fatal: could not create work tree dir 'visual-studio-code-bin': Permission denied
-./makeaurpackages.sh: line 20: cd: visual-studio-code-bin: No such file or directory
-==> ERROR: You do not have write permission for the directory $BUILDDIR (/home).
-    Aborting...
-/home
-fatal: could not create work tree dir 'xcursor-breeze': Permission denied
-./makeaurpackages.sh: line 25: cd: xcursor-breeze: No such file or directory
-==> ERROR: You do not have write permission for the directory $BUILDDIR (/home).
-    Aborting...
-/bin/bash: line 220: 8: command not found
+/home/trent
+Cloning into 'yay'...
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: is subject to change. To configure the initial branch name to use in all
+hint: of your new repositories, which will suppress this warning, call:
+hint:
+hint: 	git config --global init.defaultBranch <name>
+hint:
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint:
+hint: 	git branch -m <name>
+==> Making package: yay 12.3.5-1 (Sat 31 Aug 2024 11:11:15 PM CDT)
+==> Checking runtime dependencies...
+==> Checking buildtime dependencies...
+==> Installing missing dependencies...
+resolving dependencies...
+looking for conflicting packages...
 
--------------------------------------------------------------------------
-                    Run My Personal Configs if username is trent
--------------------------------------------------------------------------
+Packages (1) go-2:1.23.0-1
+
+Total Download Size:    39.75 MiB
+Total Installed Size:  223.23 MiB
+
+:: Proceed with installation? [Y/n] 8
+==> ERROR: 'pacman' failed to install missing dependencies.
+==> Missing dependencies:
+  -> go>=1.21
+==> ERROR: Could not resolve all dependencies.
+/home/trent
+./makeaurpackages.sh: line 10: cd: bluetuith: No such file or directory
+==> ERROR: PKGBUILD does not exist.
+/home/trent
+Cloning into 'usbimager'...
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: is subject to change. To configure the initial branch name to use in all
+hint: of your new repositories, which will suppress this warning, call:
+hint:
+hint: 	git config --global init.defaultBranch <name>
+hint:
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint:
+hint: 	git branch -m <name>
+==> Making package: usbimager 1.0.10-1 (Sat 31 Aug 2024 11:11:29 PM CDT)
+==> Checking runtime dependencies...
+==> Checking buildtime dependencies...
+==> Installing missing dependencies...
+resolving dependencies...
+looking for conflicting packages...
+
+Packages (1) setconf-0.7.7-3
+
+Total Download Size:   0.01 MiB
+Total Installed Size:  0.03 MiB
+
+:: Proceed with installation? [Y/n] ==> ERROR: 'pacman' failed to install missing dependencies.
+==> Missing dependencies:
+  -> setconf
+==> ERROR: Could not resolve all dependencies.
+/home/trent
+Cloning into 'visual-studio-code-bin'...
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: is subject to change. To configure the initial branch name to use in all
+hint: of your new repositories, which will suppress this warning, call:
+hint:
+hint: 	git config --global init.defaultBranch <name>
+hint:
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint:
+hint: 	git branch -m <name>
+==> Making package: visual-studio-code-bin 1.92.2-2 (Sat 31 Aug 2024 11:12:05 PM CDT)
+==> Checking runtime dependencies...
+==> Installing missing dependencies...
+resolving dependencies...
+looking for conflicting packages...
+
+Packages (1) lsof-4.99.3-2
+
+Total Download Size:   0.14 MiB
+Total Installed Size:  0.35 MiB
+
+:: Proceed with installation? [Y/n] ==> ERROR: 'pacman' failed to install missing dependencies.
+==> Missing dependencies:
+  -> lsof
+==> Checking buildtime dependencies...
+==> ERROR: Could not resolve all dependencies.
+/home/trent
+Cloning into 'xcursor-breeze'...
+hint: Using 'master' as the name for the initial branch. This default branch name
+hint: is subject to change. To configure the initial branch name to use in all
+hint: of your new repositories, which will suppress this warning, call:
+hint:
+hint: 	git config --global init.defaultBranch <name>
+hint:
+hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+hint: 'development'. The just-created branch can be renamed via this command:
+hint:
+hint: 	git branch -m <name>
+==> Making package: xcursor-breeze 1:6.1.4-2 (Sat 31 Aug 2024 11:12:23 PM CDT)
+==> Checking runtime dependencies...
+==> Checking buildtime dependencies...
+==> Retrieving sources...
+  -> Downloading breeze-6.1.4.tar.xz...
+  % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                 Dload  Upload   Total   Spent    Left  Speed
+  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:-- --:--:-- --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:01 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:02 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:03 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:04 --:--:--     0100   354  100   354    0     0     65      0  0:00:05  0:00:05 --:--:--    76
+  0     0    0     0    0     0      0      0 --:--:--  0:00:05 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:06 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:07 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:08 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:09 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:10 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:11 --:--:--     0
+  0     0    0     0    0     0      0      0 --:--:--  0:00:11 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:12 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:13 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:14 --:--:--     0  0     0    0     0    0     0      0      0 --:--:--  0:00:15 --:--:--     0 34 55.3M   34 18.8M    0     0  1155k      0  0:00:49  0:00:16  0:00:33 3955k100 55.3M  100 55.3M    0     0  3234k      0  0:00:17  0:00:17 --:--:-- 11.7M
+==> Validating source files with b2sums...
+    breeze-6.1.4.tar.xz ... Passed
+==> Extracting sources...
+  -> Extracting breeze-6.1.4.tar.xz with bsdtar
+==> Entering fakeroot environment...
+==> Starting package()...
+==> Tidying install...
+  -> Removing libtool files...
+  -> Purging unwanted files...
+  -> Removing static library files...
+  -> Stripping unneeded symbols from binaries and libraries...
+  -> Compressing man and info pages...
+==> Checking for packaging issues...
+==> Creating package "xcursor-breeze"...
+  -> Generating .PKGINFO file...
+  -> Generating .BUILDINFO file...
+  -> Generating .MTREE file...
+  -> Compressing package...
+==> Leaving fakeroot environment.
+==> Finished making: xcursor-breeze 1:6.1.4-2 (Sat 31 Aug 2024 11:12:50 PM CDT)
+==> Installing package xcursor-breeze with pacman -U...
+loading packages...
+resolving dependencies...
+looking for conflicting packages...
+
+Packages (1) xcursor-breeze-1:6.1.4-2
+
+Total Installed Size:  28.94 MiB
+
+:: Proceed with installation? [Y/n] ==> WARNING: Failed to install built package(s).
