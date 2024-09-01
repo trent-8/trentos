@@ -575,27 +575,26 @@ echo -ne "
                     Make AUR Packages
 -------------------------------------------------------------------------
 "
-mkarchroot /mnt/root base-devel
-cd /home/$username
-git clone https://aur.archlinux.org/yay.git
-cd yay
-makechrootpkg /mnt/root -- -si
-cd /home/$username
-git clone https://aur.archlinux.org/bluetuith.git
-cd bluetuith
-makechrootpkg /mnt/root -- -si
-cd /home/$username
-git clone https://aur.archlinux.org/usbimager.git
-cd usbimager
-makechrootpkg /mnt/root -- -si
-cd /home/$username
-git clone https://aur.archlinux.org/visual-studio-code-bin.git
-cd visual-studio-code-bin
-makechrootpkg /mnt/root -- -si
-cd /home/$username
-git clone https://aur.archlinux.org/xcursor-breeze.git
-cd xcursor-breeze
-makechrootpkg /mnt/root -- -si
+setfacl -R -m u:$username:rwx /home/$username
+runuser -u $username -- cd /home/$username
+runuser -u $username -- git clone https://aur.archlinux.org/yay.git
+runuser -u $username -- cd yay
+runuser -u $username -- makepkg -si
+runuser -u $username -- cd /home/$username
+runuser -u $username -- cd bluetuith
+runuser -u $username -- makepkg -si
+runuser -u $username -- cd /home/$username
+runuser -u $username -- git clone https://aur.archlinux.org/usbimager.git
+runuser -u $username -- cd usbimager
+runuser -u $username -- makepkg -si
+runuser -u $username -- cd /home/$username
+runuser -u $username -- git clone https://aur.archlinux.org/visual-studio-code-bin.git
+runuser -u $username -- cd visual-studio-code-bin
+runuser -u $username -- makepkg -si
+runuser -u $username -- cd /home/$username
+runuser -u $username -- git clone https://aur.archlinux.org/xcursor-breeze.git
+runuser -u $username -- cd xcursor-breeze
+runuser -u $username -- makepkg -si
 
 arch-chroot /mnt /bin/bash <<EOF
 
