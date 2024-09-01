@@ -790,12 +790,31 @@ cp /home/$username/trentos/dwm.desktop /usr/share/xsessions/
 # give the user read/write access
 setfacl -R -m u:$username:rwx /home/$username
 
+
+echo -ne "
+-------------------------------------------------------------------------
+                    Run My Personal Configs if username is trent
+-------------------------------------------------------------------------
+"
+if [[ "$username" == "trent" ]]; then
+    mkdir -p\
+        /home/$username/school\
+        /home/$username/personal\
+        /home/$username/Downloads\
+        /home/$username/.config/rclone
+    git config --global user.email "trenthek@gmail.com"
+    git config --global user.name "trent-8"
+    git config --global pull.rebase false
+fi
+setfacl -R -m u:$username:rwx /home/$username
+EOF
+
+arch-chroot -u $username <<EOF
 echo -ne "
 -------------------------------------------------------------------------
                     Make AUR Packages
 -------------------------------------------------------------------------
 "
-su trent
 cd /home/$username/trentos
 echo $PWD
 cd /home/$username
@@ -823,21 +842,4 @@ echo $PWD
 git clone https://aur.archlinux.org/xcursor-breeze.git
 cd xcursor-breeze
 makepkg -si
-
-echo -ne "
--------------------------------------------------------------------------
-                    Run My Personal Configs if username is trent
--------------------------------------------------------------------------
-"
-if [[ "$username" == "trent" ]]; then
-    mkdir -p\
-        /home/$username/school\
-        /home/$username/personal\
-        /home/$username/Downloads\
-        /home/$username/.config/rclone
-    git config --global user.email "trenthek@gmail.com"
-    git config --global user.name "trent-8"
-    git config --global pull.rebase false
-fi
-setfacl -R -m u:$username:rwx /home/$username
 EOF
