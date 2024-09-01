@@ -570,31 +570,6 @@ fi
 
 gpu_type=$(lspci | grep -E "VGA|3D|Display")
 
-echo -ne "
--------------------------------------------------------------------------
-                    Make AUR Packages
--------------------------------------------------------------------------
-"
-setfacl -R -m u:$username:rwx /home/$username
-runuser -u $username -- cd /home/$username
-runuser -u $username -- git clone https://aur.archlinux.org/yay.git
-runuser -u $username -- cd yay
-runuser -u $username -- makepkg -si
-runuser -u $username -- cd /home/$username
-runuser -u $username -- cd bluetuith
-runuser -u $username -- makepkg -si
-runuser -u $username -- cd /home/$username
-runuser -u $username -- git clone https://aur.archlinux.org/usbimager.git
-runuser -u $username -- cd usbimager
-runuser -u $username -- makepkg -si
-runuser -u $username -- cd /home/$username
-runuser -u $username -- git clone https://aur.archlinux.org/visual-studio-code-bin.git
-runuser -u $username -- cd visual-studio-code-bin
-runuser -u $username -- makepkg -si
-runuser -u $username -- cd /home/$username
-runuser -u $username -- git clone https://aur.archlinux.org/xcursor-breeze.git
-runuser -u $username -- cd xcursor-breeze
-runuser -u $username -- makepkg -si
 
 arch-chroot /mnt /bin/bash <<EOF
 
@@ -815,6 +790,30 @@ cp /home/$username/trentos/dwm.desktop /usr/share/xsessions/
 # give the user read/write access
 setfacl -R -m u:$username:rwx /home/$username
 
+echo -ne "
+-------------------------------------------------------------------------
+                    Make AUR Packages
+-------------------------------------------------------------------------
+"
+runuser -u $username -- cd /home/$username
+runuser -u $username -- git clone https://aur.archlinux.org/yay.git
+runuser -u $username -- cd yay
+runuser -u $username -- makepkg -si
+runuser -u $username -- cd /home/$username
+runuser -u $username -- cd bluetuith
+runuser -u $username -- makepkg -si
+runuser -u $username -- cd /home/$username
+runuser -u $username -- git clone https://aur.archlinux.org/usbimager.git
+runuser -u $username -- cd usbimager
+runuser -u $username -- makepkg -si
+runuser -u $username -- cd /home/$username
+runuser -u $username -- git clone https://aur.archlinux.org/visual-studio-code-bin.git
+runuser -u $username -- cd visual-studio-code-bin
+runuser -u $username -- makepkg -si
+runuser -u $username -- cd /home/$username
+runuser -u $username -- git clone https://aur.archlinux.org/xcursor-breeze.git
+runuser -u $username -- cd xcursor-breeze
+runuser -u $username -- makepkg -si
 
 echo -ne "
 -------------------------------------------------------------------------
