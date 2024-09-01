@@ -434,6 +434,7 @@ if [[ ! -d "/sys/firmware/efi" ]]; then
     pacstrap /mnt base base-devel linux-lts linux-firmware\
         adapta-gtk-theme\
         arandr\
+        blueman\
         bluez\
         bluez-obex\
         brightnessctl\
@@ -478,12 +479,14 @@ if [[ ! -d "/sys/firmware/efi" ]]; then
         xorg-xinit\
         xorg-xrandr\
         xorg-xsetroot\
+        wget\
         wireplumber\
         --noconfirm --needed
 else
     pacstrap /mnt base base-devel linux-lts linux-firmware efibootmgr\
         adapta-gtk-theme\
         arandr\
+        blueman\
         bluez\
         bluez-obex\
         brightnessctl\
@@ -528,6 +531,7 @@ else
         xorg-xinit\
         xorg-xrandr\
         xorg-xsetroot\
+        wget\
         wireplumber\
         --noconfirm --needed
 fi
@@ -813,16 +817,10 @@ arch-chroot -u $username /mnt <<EOF
 set -x
 echo -ne "
 -------------------------------------------------------------------------
-                    Make AUR Packages
+                    Install Visual Studio Code
 -------------------------------------------------------------------------
 "
-cd /home/$username
-git clone https://aur.archlinux.org/yay.git
-cd yay
-makepkg -si --noconfirm
-yay -S --noconfirm --needed\
-    bluetuith\
-    usbimager\
-    visual-studio-code-bin\
-    xcursor-breeze
+cd /home/$username/Downloads
+wget 'https://code.visualstudio.com/sha/download?build=stable&os=linux-x64'
+tar xf "download?build=stable&os=linux-x64" -C /home/$username/
 EOF
