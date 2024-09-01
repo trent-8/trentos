@@ -570,6 +570,33 @@ fi
 
 gpu_type=$(lspci | grep -E "VGA|3D|Display")
 
+echo -ne "
+-------------------------------------------------------------------------
+                    Make AUR Packages
+-------------------------------------------------------------------------
+"
+mkarchroot /mnt/root base-devel
+cd /home/$username
+git clone https://aur.archlinux.org/yay.git
+cd yay
+makechrootpkg /mnt/root -- -si
+cd /home/$username
+git clone https://aur.archlinux.org/bluetuith.git
+cd bluetuith
+makechrootpkg /mnt/root -- -si
+cd /home/$username
+git clone https://aur.archlinux.org/usbimager.git
+cd usbimager
+makechrootpkg /mnt/root -- -si
+cd /home/$username
+git clone https://aur.archlinux.org/visual-studio-code-bin.git
+cd visual-studio-code-bin
+makechrootpkg /mnt/root -- -si
+cd /home/$username
+git clone https://aur.archlinux.org/xcursor-breeze.git
+cd xcursor-breeze
+makechrootpkg /mnt/root -- -si
+
 arch-chroot /mnt /bin/bash <<EOF
 
 echo -ne "
@@ -789,32 +816,6 @@ cp /home/$username/trentos/dwm.desktop /usr/share/xsessions/
 # give the user read/write access
 setfacl -R -m u:$username:rwx /home/$username
 
-echo -ne "
--------------------------------------------------------------------------
-                    Make AUR Packages
--------------------------------------------------------------------------
-"
-# make aur packages
-cd /home/$username
-git clone https://aur.archlinux.org/yay.git
-cd yay
-makechrootpkg -- -si
-cd /home/$username
-git clone https://aur.archlinux.org/bluetuith.git
-cd bluetuith
-makechrootpkg -- -si
-cd /home/$username
-git clone https://aur.archlinux.org/usbimager.git
-cd usbimager
-makechrootpkg -- -si
-cd /home/$username
-git clone https://aur.archlinux.org/visual-studio-code-bin.git
-cd visual-studio-code-bin
-makechrootpkg -- -si
-cd /home/$username
-git clone https://aur.archlinux.org/xcursor-breeze.git
-cd xcursor-breeze
-makechrootpkg -- -si
 
 echo -ne "
 -------------------------------------------------------------------------
