@@ -104,7 +104,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_a,      spawn,          SHCMD ("arandr")},
 	{ MODKEY,                       XK_e,      spawn,          SHCMD ("thunar")},
 	{ MODKEY,                       XK_n,      spawn,          SHCMD ("terminator -e 'python ~/trentos/notes.py'")},
-	{ MODKEY,                       XK_z,      spawn,          SHCMD ("terminator -e 'bluetuith --adapter-states=\"scan:yes\"'")},
+	{ MODKEY,                       XK_z,      spawn,          SHCMD ("blueman-manager")},
 	{ MODKEY,                       0xfd1d,    spawn,          SHCMD ("shotgun -s")},
 	{ MODKEY,                       XK_x,      spawn,          SHCMD ("~/.screenlayout/apply-layout.sh")},
 	{ 0,                            0x1008ff02, spawn,         SHCMD ("brightnessctl set +2%")},
