@@ -748,6 +748,8 @@ sed -i 's/^%wheel ALL=(ALL:ALL) NOPASSWD: ALL/# %wheel ALL=(ALL:ALL) NOPASSWD: A
 sed -i 's/^# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/' /etc/sudoers
 sed -i 's/^# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/' /etc/sudoers
 
+set -x
+
 echo -ne "
 -------------------------------------------------------------------------
                     Installing DWM
@@ -792,9 +794,6 @@ cp /home/$username/trentos/.gtkrc-2.0 /home/$username/
 # setup LightDM to run dwm
 cp /home/$username/trentos/lightdm.conf /etc/lightdm/
 cp /home/$username/trentos/dwm.desktop /usr/share/xsessions/
-# give the user read/write access
-setfacl -R -m u:$username:rwx /home/$username
-
 
 echo -ne "
 -------------------------------------------------------------------------
@@ -811,11 +810,7 @@ if [[ "$username" == "trent" ]]; then
     git config --global user.email "trenthek@gmail.com"
     git config --global pull.rebase false
 fi
-setfacl -R -m u:$username:rwx /home/$username
-EOF
 
-arch-chroot -u $username /mnt <<EOF
-set -x
 echo -ne "
 -------------------------------------------------------------------------
                     Install Visual Studio Code
@@ -824,4 +819,6 @@ echo -ne "
 cd /home/$username/Downloads
 wget 'https://code.visualstudio.com/sha/download?build=stable&os=linux-x64'
 tar xf "download?build=stable&os=linux-x64" -C /home/$username/
+# give the user read/write access
+setfacl -R -m u:$username:rwx /home/$username
 EOF
