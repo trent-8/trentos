@@ -809,7 +809,7 @@ fi
 setfacl -R -m u:$username:rwx /home/$username
 EOF
 
-arch-chroot -u $username <<EOF
+arch-chroot /mnt -u $username <<EOF
 set -x
 echo -ne "
 -------------------------------------------------------------------------
