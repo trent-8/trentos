@@ -1,5 +1,5 @@
 #!/bin/bash
-$username = $1
+username=$1
 cd /home/$username
 echo $PWD
 git clone https://aur.archlinux.org/yay.git

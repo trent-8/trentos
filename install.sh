@@ -804,7 +804,7 @@ echo -ne "
                     Run My Personal Configs if username is trent
 -------------------------------------------------------------------------
 "
-if [[ "$USER" == "trent" ]]; then
+if [[ "$username" == "trent" ]]; then
     mkdir -p\
         /home/$username/school\
         /home/$username/personal\
@@ -814,4 +814,5 @@ if [[ "$USER" == "trent" ]]; then
     git config --global user.name "trent-8"
     git config --global pull.rebase false
 fi
+setfacl -R -m u:$username:rwx /home/$username
 EOF
