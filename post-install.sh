@@ -79,7 +79,7 @@ sudo cp ~/trentos/dwm.desktop /usr/share/xsessions/
 # install yay and packages
 git clone https://aur.archlinux.org/yay.git
 cd yay
-makepkg -si
+makepkg -si --noconfirm
 yay -S --noconfirm --needed\
     visual-studio-code-bin\
     bluetuith\
