@@ -1,5 +1,9 @@
 #!/bin/bash
 set -x
+# make dwm
+cd ~/trentos/dwm
+sudo make install
+sudo make clean
 # install all my pacman packages
 sudo pacman -S --noconfirm --needed\
     adapta-gtk-theme\
@@ -79,7 +83,7 @@ sudo cp ~/trentos/dwm.desktop /usr/share/xsessions/
 # install yay and packages
 git clone https://aur.archlinux.org/yay.git
 cd yay
-makepkg -si --noconfirm
+makepkg -si --noconfirm --needed
 yay -S --noconfirm --needed\
     visual-studio-code-bin\
     bluetuith\
