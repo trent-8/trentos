@@ -31,16 +31,10 @@ sudo pacman -S --noconfirm --needed\
     obs-studio\
     papirus-icon-theme\
     picom\
-    pipewire\
-    pipewire-audio\
-    pipewire-alsa\
-    pipewire-pulse\
-    pipewire-jack\
     playerctl\
     rclone\
     rofi\
     shotgun\
-    spotify-launcher\
     terminator\
     thunar\
     ttf-nerd-fonts-symbols-mono\
@@ -53,8 +47,8 @@ sudo pacman -S --noconfirm --needed\
     xorg-xinit\
     xorg-xrandr\
     xorg-xsetroot\
-    wget\
-    wireplumber
+    wget
+    
 
 # add all config files
 cd ~
@@ -65,17 +59,19 @@ mkdir -p\
     ~/.config/picom\
     ~/.icons/default\
     ~/Downloads
-cp ~/trentos/.xinitrc ~/
-cp ~/trentos/.xsession ~/
 cp ~/trentos/.config/terminator/config ~/.config/terminator/
 cp ~/trentos/.config/gtk-3.0/settings.ini ~/.config/gtk-3.0/
 cp ~/trentos/.config/rofi/config.rasi ~/.config/rofi/
 cp ~/trentos/.config/picom/picom.conf ~/.config/picom/
 cp ~/trentos/.icons/default/index.theme ~/.icons/default/
+cp ~/trentos/.xinitrc ~/
+cp ~/trentos/.xsession ~/
 cp ~/trentos/.Xresources ~/
 cp ~/trentos/.bashrc ~/
 cp ~/trentos/.gtkrc-2.0 ~/
-sudo mkdir /usr/share/xsessions
+sudo mkdir -p\
+    /usr/share/xsessions\
+    /etc/gtk-3.0
 sudo cp ~/trentos/.config/gtk-3.0/settings.ini /etc/gtk-3.0/
 sudo cp ~/trentos/lightdm.conf /etc/lightdm/
 sudo cp ~/trentos/dwm.desktop /usr/share/xsessions/
@@ -88,4 +84,4 @@ yay -S --noconfirm --needed\
     visual-studio-code-bin\
     bluetuith\
     xcursor-breeze\
-    usb-imager
+    usbimager
