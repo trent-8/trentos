@@ -85,3 +85,6 @@ yay -S --noconfirm --needed\
     bluetuith\
     xcursor-breeze\
     usbimager
+
+sudo systemctl enable lightdm
+sudo systemctl enable bluetooth
