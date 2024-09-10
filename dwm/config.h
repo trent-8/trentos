@@ -56,7 +56,7 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class        instance  title      tags mask       isfloating   monitor */
-	{ "Terminator", NULL,     NULL,           1,         0,           -1 },
+	{ "Alacritty",  NULL,     NULL,           1,         0,           -1 },
 	{ "firefox",    NULL,     NULL,      1 << 1,         0,           -1 },
 	{ "Thunar",     NULL,     NULL,      1 << 2,         0,           -1 },
 	{ "Code",       NULL,     NULL,      1 << 3,         0,           -1 },
@@ -90,7 +90,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "rofi", "-show", "drun", NULL };
-static const char *termcmd[]  = { "terminator", NULL };
+static const char *termcmd[]  = { "alacritty", NULL };
 static const char *startup[]= { "./trentos/startup.sh", NULL };
 static const Arg autostartarg= {.v = startup };
 
@@ -103,8 +103,8 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_b,      spawn,          SHCMD ("firefox")},
 	{ MODKEY,                       XK_a,      spawn,          SHCMD ("arandr")},
 	{ MODKEY,                       XK_e,      spawn,          SHCMD ("thunar")},
-	{ MODKEY,                       XK_n,      spawn,          SHCMD ("terminator -e 'python ~/trentos/notes.py'")},
-	{ MODKEY,                       XK_z,      spawn,          SHCMD ("terminator -e 'bluetuith --adapter-states=\"scan:yes\"'")},
+	{ MODKEY,                       XK_n,      spawn,          SHCMD ("alacritty -e 'python ~/trentos/notes.py'")},
+	{ MODKEY,                       XK_z,      spawn,          SHCMD ("alacritty -e 'bluetuith --adapter-states=\"scan:yes\"'")},
 	{ MODKEY,                       0xfd1d,    spawn,          SHCMD ("shotgun -s")},
 	{ MODKEY,                       XK_x,      spawn,          SHCMD ("~/.screenlayout/apply-layout.sh")},
 	{ 0,                            0x1008ff02, spawn,         SHCMD ("brightnessctl set +2%")},

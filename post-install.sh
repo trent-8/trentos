@@ -7,6 +7,7 @@ sudo make clean
 # install all my pacman packages
 sudo pacman -S --noconfirm --needed\
     adapta-gtk-theme\
+    alacritty\
     arandr\
     bluez\
     bluez-obex\
@@ -35,7 +36,6 @@ sudo pacman -S --noconfirm --needed\
     rclone\
     rofi\
     shotgun\
-    terminator\
     thunar\
     ttf-nerd-fonts-symbols-mono\
     ttf-roboto\
@@ -59,7 +59,6 @@ mkdir -p\
     ~/.config/picom\
     ~/.icons/default\
     ~/Downloads
-cp ~/trentos/.config/terminator/config ~/.config/terminator/
 cp ~/trentos/.config/gtk-3.0/settings.ini ~/.config/gtk-3.0/
 cp ~/trentos/.config/rofi/config.rasi ~/.config/rofi/
 cp ~/trentos/.config/picom/picom.conf ~/.config/picom/
@@ -67,7 +66,7 @@ cp ~/trentos/.icons/default/index.theme ~/.icons/default/
 cp ~/trentos/.xinitrc ~/
 cp ~/trentos/.xsession ~/
 cp ~/trentos/.Xresources ~/
-cp ~/trentos/.bashrc ~/
+cp ~/trentos/.zshrc ~/
 cp ~/trentos/.gtkrc-2.0 ~/
 sudo mkdir -p\
     /usr/share/xsessions\
