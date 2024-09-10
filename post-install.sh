@@ -1,9 +1,5 @@
 #!/bin/bash
 set -x
-# make dwm
-cd ~/trentos/dwm
-sudo make install
-sudo make clean
 # install all my pacman packages
 sudo pacman -S --noconfirm --needed\
     adapta-gtk-theme\
@@ -88,3 +84,8 @@ yay -S --noconfirm --needed\
 
 sudo systemctl enable lightdm
 sudo systemctl enable bluetooth
+
+# make dwm
+cd ~/trentos/dwm
+sudo make install
+sudo make clean
