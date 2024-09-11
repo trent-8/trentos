@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 set -x
 # install all my pacman packages
 sudo pacman -S --noconfirm --needed\
@@ -43,15 +43,16 @@ sudo pacman -S --noconfirm --needed\
     xorg-xinit\
     xorg-xrandr\
     xorg-xsetroot\
-    wget
-    
+    wget\
+    zsh-autosuggestions\
+    zsh-history-substring-search\
+    zsh-syntax-highlighting
 
 # add all config files
 cd ~
 mkdir -p\
     ~/.config/gtk-3.0\
     ~/.config/rofi\
-    ~/.config/terminator\
     ~/.config/picom\
     ~/.icons/default\
     ~/Downloads
@@ -79,7 +80,8 @@ yay -S --noconfirm --needed\
     visual-studio-code-bin\
     bluetuith\
     xcursor-breeze\
-    usbimager
+    usbimager\
+    zsh-theme-powerlevel10k
 
 sudo systemctl enable lightdm
 sudo systemctl enable bluetooth

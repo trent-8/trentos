@@ -60,7 +60,7 @@ static const Rule rules[] = {
 	{ "firefox",    NULL,     NULL,      1 << 1,         0,           -1 },
 	{ "Thunar",     NULL,     NULL,      1 << 2,         0,           -1 },
 	{ "Code",       NULL,     NULL,      1 << 3,         0,           -1 },
-	{ "Spotify",    NULL,     NULL,      1 << 4,         0,            0 }
+	{ "vlc",        NULL,     NULL,      1 << 4,         0,            0 }
 };
 
 /* layout(s) */
@@ -98,7 +98,7 @@ static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_r,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_t,      spawn,          {.v = termcmd } },
-	{ MODKEY,                       XK_s,      spawn,          SHCMD ("spotify-launcher")},
+	{ MODKEY,                       XK_s,      spawn,          SHCMD ("vlc ~/Music/Minecraft Volume Beta/*.mp3 --loop")},
 	{ MODKEY,                       XK_c,      spawn,          SHCMD ("code")},
 	{ MODKEY,                       XK_b,      spawn,          SHCMD ("firefox")},
 	{ MODKEY,                       XK_a,      spawn,          SHCMD ("arandr")},
