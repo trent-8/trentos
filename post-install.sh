@@ -64,6 +64,7 @@ cp ~/trentos/.xinitrc ~/
 cp ~/trentos/.xsession ~/
 cp ~/trentos/.Xresources ~/
 cp ~/trentos/.zshrc ~/
+cp ~/trentos/.p10k.zsh ~/
 cp ~/trentos/.gtkrc-2.0 ~/
 sudo mkdir -p\
     /usr/share/xsessions\
