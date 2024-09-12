@@ -50,6 +50,7 @@ sudo pacman -S --noconfirm --needed\
     zsh-syntax-highlighting
 
 # install yay and packages
+cd ~
 git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si --noconfirm --needed
@@ -65,7 +66,6 @@ sudo make install
 sudo make clean
 
 # add all config files
-cd ~
 mkdir -p\
     ~/.config/rofi\
     ~/Downloads
