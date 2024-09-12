@@ -22,6 +22,7 @@ sudo pacman -S --noconfirm --needed\
     lightdm\
     lightdm-gtk-greeter\
     nano\
+    nano-syntax-highlighting\
     neofetch\
     noto-fonts\
     ntfs-3g\
@@ -32,7 +33,6 @@ sudo pacman -S --noconfirm --needed\
     rclone\
     rofi\
     shotgun\
-    starship\
     thunar\
     ttf-nerd-fonts-symbols-mono\
     ttf-roboto\
@@ -49,30 +49,6 @@ sudo pacman -S --noconfirm --needed\
     zsh-history-substring-search\
     zsh-syntax-highlighting
 
-# add all config files
-cd ~
-mkdir -p\
-    ~/.config/gtk-3.0\
-    ~/.config/rofi\
-    ~/.config/picom\
-    ~/.icons/default\
-    ~/Downloads
-cp ~/trentos/.config/gtk-3.0/settings.ini ~/.config/gtk-3.0/
-cp ~/trentos/.config/rofi/config.rasi ~/.config/rofi/
-cp ~/trentos/.config/picom/picom.conf ~/.config/picom/
-cp ~/trentos/.icons/default/index.theme ~/.icons/default/
-cp ~/trentos/.xinitrc ~/
-cp ~/trentos/.xsession ~/
-cp ~/trentos/.Xresources ~/
-cp ~/trentos/.zshrc ~/
-cp ~/trentos/.gtkrc-2.0 ~/
-sudo mkdir -p\
-    /usr/share/xsessions\
-    /etc/gtk-3.0
-sudo cp ~/trentos/.config/gtk-3.0/settings.ini /etc/gtk-3.0/
-sudo cp ~/trentos/lightdm.conf /etc/lightdm/
-sudo cp ~/trentos/dwm.desktop /usr/share/xsessions/
-
 # install yay and packages
 git clone https://aur.archlinux.org/yay.git
 cd yay
@@ -81,13 +57,34 @@ yay -S --noconfirm --needed\
     visual-studio-code-bin\
     bluetuith\
     xcursor-breeze\
-    usbimager\
-    zsh-theme-powerlevel10k
-
-sudo systemctl enable lightdm
-sudo systemctl enable bluetooth
+    usbimager
 
 # make dwm
 cd ~/trentos/dwm
 sudo make install
 sudo make clean
+
+# add all config files
+cd ~
+mkdir -p\
+    ~/.config/rofi\
+    ~/Downloads
+cp ~/trentos/config/X11/xinitrc ~/
+cp ~/trentos/.xsession ~/
+sudo mkdir -p\
+    /usr/share/xsessions\
+    /etc/gtk-2.0\
+    /etc/gtk-3.0
+sudo cp ~/trentos/config/gtk-2.0/gtkrc /etc/gtk-2.0/
+sudo cp ~/trentos/config/gtk-3.0/settings.ini /etc/gtk-3.0/
+sudo cp ~/trentos/config/cursor/index.theme /usr/share/icons/default/
+sudo cp ~/trentos/config/X11/Xresources /etc/X11/
+sudo cp ~/trentos/config/zsh/zprofile /etc/zsh/
+sudo cp ~/trentos/config/zsh/zshrc /etc/zsh/
+sudo cp ~/trentos/config/picom/picom.conf /etc/xdg/
+sudo cp ~/trentos/config/X11/dwm.desktop /usr/share/xsessions/
+sudo cp ~/trentos/config/lightdm/lightdm.conf /etc/lightdm/
+sudo cp ~/trentos/config/nano nanorc /etc
+
+sudo systemctl enable lightdm
+sudo systemctl enable bluetooth

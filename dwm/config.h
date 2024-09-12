@@ -89,7 +89,7 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "rofi", "-show", "drun", NULL };
+static const char *dmenucmd[] = { "rofi", "-show", "drun", "-theme", "android_notification", "-font", "\"Roboto 11\"", "-icon-theme", "Papirus", "-show-icons", NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
 static const char *startup[]= { "./trentos/startup.sh", NULL };
 static const Arg autostartarg= {.v = startup };
