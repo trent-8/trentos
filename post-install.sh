@@ -45,6 +45,7 @@ sudo pacman -S --noconfirm --needed\
     xorg-xrandr\
     xorg-xsetroot\
     wget\
+    zsh\
     zsh-autosuggestions\
     zsh-history-substring-search\
     zsh-syntax-highlighting
@@ -86,5 +87,8 @@ sudo cp ~/trentos/config/X11/dwm.desktop /usr/share/xsessions/
 sudo cp ~/trentos/config/lightdm/lightdm.conf /etc/lightdm/
 sudo cp ~/trentos/config/nano nanorc /etc
 
+chsh -s /bin/zsh
+sudo chsh -s /bin/zsh
 sudo systemctl enable lightdm
 sudo systemctl enable bluetooth
+reboot
