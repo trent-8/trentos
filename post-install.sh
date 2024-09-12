@@ -70,8 +70,8 @@ sudo make clean
 mkdir -p\
     ~/.config/rofi\
     ~/Downloads
-cp ~/trentos/config/X11/xinitrc ~/
-cp ~/trentos/.xsession ~/
+cp ~/trentos/config/X11/.xinitrc ~/
+cp ~/trentos/config/X11/.xsession ~/
 sudo mkdir -p\
     /usr/share/xsessions\
     /etc/gtk-2.0\
