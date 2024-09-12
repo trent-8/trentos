@@ -91,7 +91,7 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "rofi", "-show", "drun", "-theme", "android_notification", "-font", "\"Roboto 11\"", "-icon-theme", "Papirus", "-show-icons", NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
-static const char *startup[]= { "./trentos/startup.sh", NULL };
+static const char *startup[]= { "./trentos/scripts/startup.sh", NULL };
 static const Arg autostartarg= {.v = startup };
 
 static const Key keys[] = {
@@ -106,7 +106,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_n,      spawn,          SHCMD ("alacritty -e zsh -c 'python ~/trentos/notes.py'")},
 	{ MODKEY,                       XK_z,      spawn,          SHCMD ("alacritty -e zsh -c 'bluetuith --adapter-states=\"scan:yes\"'")},
 	{ MODKEY,                       0xfd1d,    spawn,          SHCMD ("shotgun -s")},
-	{ MODKEY,                       XK_x,      spawn,          SHCMD ("~/.screenlayout/apply-layout.sh")},
+	{ MODKEY,                       XK_x,      spawn,          SHCMD ("~/trentos/scripts/monitor.sh")},
 	{ 0,                            0x1008ff02, spawn,         SHCMD ("brightnessctl set +2%")},
 	{ 0,                            0x1008ff03, spawn,         SHCMD ("brightnessctl set 2%-")},
 	{ 0,                            0x1008ff11, spawn,         SHCMD ("pactl set-sink-volume 0 -2%")},
