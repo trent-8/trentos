@@ -115,6 +115,7 @@ static const Key keys[] = {
 	{ 0,                            0x1008FF14, spawn,         SHCMD ("playerctl play-pause")},
 	{ 0,                            0x1008FF16, spawn,         SHCMD ("playerctl previous")},
 	{ 0,                            0x1008FF17, spawn,         SHCMD ("playerctl next")},
+	{ MODKEY,                       XK_Shift_L, spawn,         SHCMD ("xdg-open https://chatgpt.com/")},
 	{ MODKEY,                       XK_v,      spawn,          SHCMD ("qemu-system-x86_64 -m 12G -cdrom vm-install.iso -cpu host -smp $(nproc) -boot order=d -drive file=vm,format=raw -accel kvm")},
 	{ MODKEY|ShiftMask,             XK_b,      togglebar,      {0} },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
