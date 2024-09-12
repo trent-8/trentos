@@ -1,5 +1,5 @@
 # add items to autostart here
-~/trentos/scripts/monitor.sh &
+~/trentos/scripts/apply-screenlayout.sh normal &
 feh --bg-fill ~/trentos/bg.png &
 dunst &
 picom &
