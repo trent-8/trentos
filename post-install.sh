@@ -45,6 +45,7 @@ sudo pacman -S --noconfirm --needed\
     xorg-xrandr\
     xorg-xsetroot\
     wget\
+    zip\
     zsh\
     zsh-autosuggestions\
     zsh-history-substring-search\
