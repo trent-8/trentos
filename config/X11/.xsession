@@ -62,13 +62,13 @@ get_battery_info() {
 
   # Add 'p' if the laptop is plugged in (Charging or Full)
   if [ "$battery_status" = "Charging" ]; then
-    echo "   Battery: charging ${battery_level}%"
+    echo " | Battery: charging ${battery_level}%"
   elif [ "$battery_status" = "Not Charging" ]; then
-    echo "   Battery: not charging ${battery_level}%"
+    echo " | Battery: not charging ${battery_level}%"
   elif [ "$battery_status" = "Full" ]; then
-    echo "   Battery: full ${battery_level}%"
+    echo " | Battery: full ${battery_level}%"
   elif [ "$battery_status" = "Discharging" ]; then
-    echo "   Battery: ${battery_level}%"
+    echo " | Battery: ${battery_level}%"
   fi
 }
 
@@ -88,23 +88,18 @@ get_volume_info() {
 # Function to get current date and time
 get_date_time() {
   date_time=$(date +"%-m/%-d/%Y   %-I:%M %P")
-  echo "   ${date_time}"
+  echo " | ${date_time}"
 }
 
 # Display date, time, volume, and battery info
 while true; do
-  # Get the current volume level
-  volume_info=$(get_volume_info)
-  
   # Get the battery info
   battery_info=$(get_battery_info)
-  
   # Get the current date and time
   date_time=$(get_date_time)
-  
+  # Get the current volume level
+  volume_info=$(get_volume_info)
   # Update the status bar
   xsetroot -name "${volume_info}${battery_info}${date_time}"
-  
-  # Sleep for 1 second to reduce CPU usage
   sleep 0.1
 done &
