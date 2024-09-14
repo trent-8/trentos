@@ -105,7 +105,7 @@ static const Key keys[] = {
 	{ MODKEY,                       XK_e,      spawn,          SHCMD ("thunar")},
 	{ MODKEY,                       XK_n,      spawn,          SHCMD ("alacritty -e zsh -c 'python ~/trentos/notes.py'")},
 	{ MODKEY,                       XK_z,      spawn,          SHCMD ("alacritty -e zsh -c 'bluetuith --adapter-states=\"scan:yes\"'")},
-	{ MODKEY,                       0xfd1d,    spawn,          SHCMD ("shotgun -s")},
+	{ MODKEY,                       XK_p,    spawn,          SHCMD ("shotgun -s")},
 	{ MODKEY,                       XK_Up,     spawn,          SHCMD ("~/trentos/scripts/apply-screenlayout.sh normal")},
 	{ MODKEY,                       XK_Right,  spawn,          SHCMD ("~/trentos/scripts/apply-screenlayout.sh right")},
 	{ MODKEY,                       XK_Left,   spawn,          SHCMD ("~/trentos/scripts/apply-screenlayout.sh left")},
