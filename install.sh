@@ -13,9 +13,11 @@ sudo pacman -S --noconfirm --needed\
     firefox\
     git\
     gnome-disk-utility\
+    gtk4\
+    gtk3\
+    gtk2\
     gvfs\
     htop\
-    inkscape\
     less\
     libxft\
     libxinerama\
@@ -27,9 +29,12 @@ sudo pacman -S --noconfirm --needed\
     noto-fonts\
     ntfs-3g\
     obs-studio\
+    pamixer\
     papirus-icon-theme\
     picom\
     playerctl\
+    qt6-base\
+    qt5-base\
     rclone\
     rofi\
     shotgun\
