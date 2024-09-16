@@ -38,6 +38,7 @@ sudo pacman -Syu --noconfirm --needed\
     rclone\
     rofi\
     shotgun\
+    signal-desktop\
     spotify-launcher\
     thunar\
     ttf-nerd-fonts-symbols-mono\
