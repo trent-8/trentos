@@ -2,7 +2,6 @@
 ~/trentos/scripts/apply-screenlayout.sh normal &
 dunst &
 picom &
-feh --bg-fill ~/trentos/bg.jpg &
 if [[ "$USER" == "trent" ]]; then
     rclone mount --daemon school: ~/school
     rclone mount --daemon personal: ~/personal
