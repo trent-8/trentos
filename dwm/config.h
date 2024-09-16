@@ -2,6 +2,7 @@
 
 /* appearance */
 #include <X11/X.h>
+
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
@@ -95,58 +96,60 @@ static const char *startup[]= { "./trentos/scripts/startup.sh", NULL };
 static const Arg autostartarg= {.v = startup };
 
 static const Key keys[] = {
-	/* modifier                     key        function        argument */
-	{ MODKEY,                       XK_r,      spawn,          {.v = dmenucmd } },
-	{ MODKEY,                       XK_t,      spawn,          {.v = termcmd } },
-	{ MODKEY,                       XK_s,      spawn,          SHCMD ("spotify-launcher")},
-	{ MODKEY,                       XK_c,      spawn,          SHCMD ("code")},
-	{ MODKEY,                       XK_b,      spawn,          SHCMD ("firefox")},
-	{ MODKEY,                       XK_a,      spawn,          SHCMD ("arandr")},
-	{ MODKEY,                       XK_e,      spawn,          SHCMD ("thunar")},
-	{ MODKEY,                       XK_n,      spawn,          SHCMD ("alacritty -e zsh -c 'python ~/trentos/notes.py'")},
-	{ MODKEY,                       XK_z,      spawn,          SHCMD ("alacritty -e zsh -c 'bluetuith --adapter-states=\"scan:yes\"'")},
-	{ MODKEY,                       XK_p,      spawn,          SHCMD ("shotgun -s")},
-	{ MODKEY,                       XK_Up,     spawn,          SHCMD ("~/trentos/scripts/apply-screenlayout.sh normal")},
-	{ MODKEY,                       XK_Right,  spawn,          SHCMD ("~/trentos/scripts/apply-screenlayout.sh right")},
-	{ MODKEY,                       XK_Left,   spawn,          SHCMD ("~/trentos/scripts/apply-screenlayout.sh left")},
-	{ MODKEY,                       XK_Down,   spawn,          SHCMD ("~/trentos/scripts/apply-screenlayout.sh inverted")},
-	{ 0,                            0x1008ff02, spawn,         SHCMD ("brightnessctl set +2%")},
-	{ 0,                            0x1008ff03, spawn,         SHCMD ("brightnessctl set 2%-")},
-	{ 0,                            0x1008ff11, spawn,         SHCMD ("pactl set-sink-volume 0 -2%")},
-	{ 0,                            0x1008ff12, spawn,         SHCMD ("pactl set-sink-mute 0 toggle")},
-	{ 0,                            0x1008ff13, spawn,         SHCMD ("pactl set-sink-volume 0 +2%")},
-	{ 0,                            0x1008FF14, spawn,         SHCMD ("playerctl play-pause")},
-	{ 0,                            0x1008FF16, spawn,         SHCMD ("playerctl previous")},
-	{ 0,                            0x1008FF17, spawn,         SHCMD ("playerctl next")},
-	{ MODKEY,                       XK_g,      spawn,          SHCMD ("xdg-open https://chatgpt.com/")},
-	{ MODKEY,                       XK_v,      spawn,          SHCMD ("qemu-system-x86_64 -m 12G -cdrom vm-install.iso -cpu host -smp $(nproc) -boot order=d -drive file=vm,format=raw -accel kvm")},
-	{ MODKEY|ShiftMask,             XK_b,      togglebar,      {0} },
-	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
-	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_i,      incnmaster,     {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_d,      incnmaster,     {.i = -1 } },
-	{ MODKEY,                       XK_h,      setmfact,       {.f = -0.05} },
-	{ MODKEY,                       XK_l,      setmfact,       {.f = +0.05} },
-	{ MODKEY,                       XK_Return, zoom,           {0} },
-	{ MODKEY,                       XK_Tab,    view,           {0} },
-	{ MODKEY,                       XK_q,      killclient,     {0} },
-	{ MODKEY|ShiftMask,             XK_t,      setlayout,      {.v = &layouts[0]} },
-	{ MODKEY,                       XK_f,      setlayout,      {.v = &layouts[1]} },
-	{ MODKEY,                       XK_m,      setlayout,      {.v = &layouts[2]} },
-	{ MODKEY,                       XK_space,  setlayout,      {0} },
-	{ MODKEY|ShiftMask,             XK_space,  togglefloating, {0} },
-	{ MODKEY,                       XK_0,      view,           {.ui = ~0 } },
-	{ MODKEY|ShiftMask,             XK_0,      tag,            {.ui = ~0 } },
-	{ MODKEY,                       XK_comma,  focusmon,       {.i = -1 } },
-	{ MODKEY,                       XK_period, focusmon,       {.i = +1 } },
-	{ MODKEY|ShiftMask,             XK_comma,  tagmon,         {.i = -1 } },
-	{ MODKEY|ShiftMask,             XK_period, tagmon,         {.i = +1 } },
-	TAGKEYS(                        XK_1,                      0)
-	TAGKEYS(                        XK_2,                      1)
-	TAGKEYS(                        XK_3,                      2)
-	TAGKEYS(                        XK_4,                      3)
-	TAGKEYS(                        XK_5,                      4)
-	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+	/* modifier           key               function        argument */
+	{ MODKEY,             XK_r,       spawn,          {.v = dmenucmd } },
+	{ MODKEY,             XK_t,       spawn,          {.v = termcmd } },
+	{ MODKEY,             XK_s,       spawn,          SHCMD ("spotify-launcher")},
+	{ MODKEY,             XK_c,       spawn,          SHCMD ("code")},
+	{ MODKEY,             XK_b,       spawn,          SHCMD ("firefox")},
+	{ MODKEY,             XK_a,       spawn,          SHCMD ("arandr")},
+	{ MODKEY,             XK_e,       spawn,          SHCMD ("thunar")},
+	{ MODKEY,             XK_n,       spawn,          SHCMD ("alacritty -e zsh -c 'python ~/trentos/notes.py'")},
+	{ MODKEY,             XK_z,       spawn,          SHCMD ("alacritty -e zsh -c 'bluetuith --adapter-states=\"scan:yes\"'")},
+	{ MODKEY|ShiftMask,   XK_s,       spawn,          SHCMD ("shotgun -s ~/Pictures/$(date +'%F-%R')")},
+	{ 0,                  0x1008FF1D, spawn,          SHCMD ("mate-calc")},
+	{ MODKEY,             XK_Up,      spawn,          SHCMD ("~/trentos/scripts/apply-screenlayout.sh normal")},
+	{ MODKEY,             XK_Right,   spawn,          SHCMD ("~/trentos/scripts/apply-screenlayout.sh right")},
+	{ MODKEY,             XK_Left,    spawn,          SHCMD ("~/trentos/scripts/apply-screenlayout.sh left")},
+	{ MODKEY,             XK_Down,    spawn,          SHCMD ("~/trentos/scripts/apply-screenlayout.sh inverted")},
+	{ 0,                  0x1008ff02, spawn,          SHCMD ("brightnessctl set +2%")},
+	{ 0,                  0x1008ff03, spawn,          SHCMD ("brightnessctl set 2%-")},
+	{ 0,                  0x1008ff11, spawn,          SHCMD ("pactl set-sink-volume 0 -2%")},
+	{ 0,                  0x1008ff12, spawn,          SHCMD ("pactl set-sink-mute 0 toggle")},
+	{ 0,                  0x1008ff13, spawn,          SHCMD ("pactl set-sink-volume 0 +2%")},
+	{ 0,                  0x1008FF14, spawn,          SHCMD ("playerctl play-pause")},
+	{ MODKEY,             XK_p,       spawn,          SHCMD ("playerctl play-pause")},
+	{ 0,                  0x1008FF16, spawn,          SHCMD ("playerctl previous")},
+	{ 0,                  0x1008FF17, spawn,          SHCMD ("playerctl next")},
+	{ MODKEY,             XK_g,       spawn,          SHCMD ("xdg-open https://chatgpt.com/")},
+	{ MODKEY,             XK_v,       spawn,          SHCMD ("qemu-system-x86_64 -m 12G -cdrom vm-install.iso -cpu host -smp $(nproc) -boot order=d -drive file=vm,format=raw -accel kvm")},
+	{ MODKEY|ShiftMask,   XK_b,       togglebar,      {0} },
+	{ MODKEY,             XK_j,       focusstack,     {.i = +1 } },
+	{ MODKEY,             XK_k,       focusstack,     {.i = -1 } },
+	{ MODKEY|ShiftMask,   XK_i,       incnmaster,     {.i = +1 } },
+	{ MODKEY|ShiftMask,   XK_d,       incnmaster,     {.i = -1 } },
+	{ MODKEY,             XK_h,       setmfact,       {.f = -0.05} },
+	{ MODKEY,             XK_l,       setmfact,       {.f = +0.05} },
+	{ MODKEY,             XK_Return,  zoom,           {0} },
+	{ MODKEY,             XK_Tab,     view,           {0} },
+	{ MODKEY,             XK_q,       killclient,     {0} },
+	{ MODKEY|ShiftMask,   XK_t,       setlayout,      {.v = &layouts[0]} },
+	{ MODKEY,             XK_f,       setlayout,      {.v = &layouts[1]} },
+	{ MODKEY,             XK_m,       setlayout,      {.v = &layouts[2]} },
+	{ MODKEY,             XK_space,   setlayout,      {0} },
+	{ MODKEY|ShiftMask,   XK_space,   togglefloating, {0} },
+	{ MODKEY,             XK_0,       view,           {.ui = ~0 } },
+	{ MODKEY|ShiftMask,   XK_0,       tag,            {.ui = ~0 } },
+	{ MODKEY,             XK_comma,   focusmon,       {.i = -1 } },
+	{ MODKEY,             XK_period,  focusmon,       {.i = +1 } },
+	{ MODKEY|ShiftMask,   XK_comma,   tagmon,         {.i = -1 } },
+	{ MODKEY|ShiftMask,   XK_period,  tagmon,         {.i = +1 } },
+	TAGKEYS(              XK_1,                       0)
+	TAGKEYS(              XK_2,                       1)
+	TAGKEYS(              XK_3,                       2)
+	TAGKEYS(              XK_4,                       3)
+	TAGKEYS(              XK_5,                       4)
+	{ MODKEY|ShiftMask,   XK_q,       quit,           {0} },
 };
 
 

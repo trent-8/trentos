@@ -22,6 +22,7 @@ sudo pacman -Syu --noconfirm --needed\
     libxinerama\
     lightdm\
     lightdm-gtk-greeter\
+    mate-calc\
     materia-gtk-theme\
     nano\
     nano-syntax-highlighting\
@@ -79,7 +80,8 @@ sudo make clean
 # add all config files
 mkdir -p\
     ~/.config/rofi\
-    ~/Downloads
+    ~/Downloads\
+    ~/Pictures
 cp ~/trentos/config/X11/.xinitrc ~/
 cp ~/trentos/config/X11/.xsession ~/
 sudo mkdir -p\
