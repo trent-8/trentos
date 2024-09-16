@@ -55,3 +55,9 @@ while true; do
   xsetroot -name "${volume_info}${battery_info}${date_time}"
   sleep 0.1
 done &
+
+# periodically apply display config
+while true; do
+  ~/trentos/scripts/apply-screenlayout.sh
+  sleep 2
+done &
