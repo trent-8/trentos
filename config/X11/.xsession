@@ -32,8 +32,8 @@ get_volume_info() {
     echo "Volume muted"
   else
     # Get the volume level
-    volume=$(pactl get-sink-volume @DEFAULT_SINK@ | awk -F" / " '/front-left:/ { print $2 }')
-    echo "Volume ${volume}"
+    volume=$(pamixer --get-volume)
+    echo "Volume ${volume}%"
   fi
 }
 
