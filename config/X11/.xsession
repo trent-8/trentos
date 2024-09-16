@@ -14,11 +14,11 @@ get_battery_info() {
 
   # Add 'p' if the laptop is plugged in (Charging or Full)
   if [ "$battery_status" = "Charging" ]; then
-    echo "   Battery charging ${battery_level}"
+    echo "   Battery🗲${battery_level}"
   elif [ "$battery_status" = "Not Charging" ]; then
-    echo "   Battery full ${battery_level}"
+    echo "   Battery🗲${battery_level}"
   elif [ "$battery_status" = "Full" ]; then
-    echo "   Battery full ${battery_level}"
+    echo "   Battery🗲${battery_level}"
   elif [ "$battery_status" = "Discharging" ]; then
     echo "   Battery ${battery_level}"
   fi
