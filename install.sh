@@ -59,9 +59,11 @@ sudo pacman -Syu --noconfirm --needed\
 
 # install yay and packages
 cd ~
-git clone https://aur.archlinux.org/yay.git
-cd yay
-makepkg -si --noconfirm --needed
+if [ ! -d yay ]; then
+    git clone https://aur.archlinux.org/yay.git
+    cd yay
+    makepkg -si --noconfirm --needed
+fi
 yay -S --noconfirm --needed\
     visual-studio-code-bin\
     bluetuith\
