@@ -38,6 +38,7 @@ sudo pacman -S --noconfirm --needed\
     rclone\
     rofi\
     shotgun\
+    spotify-launcher\
     thunar\
     ttf-nerd-fonts-symbols-mono\
     ttf-roboto\
@@ -95,6 +96,5 @@ sudo cp ~/trentos/config/nano/nanorc /etc
 
 chsh -s /bin/zsh
 sudo chsh -s /bin/zsh
-sudo systemctl enable lightdm
-sudo systemctl enable bluetooth
-reboot
+sudo systemctl enable --now lightdm
+sudo systemctl enable --now bluetooth
