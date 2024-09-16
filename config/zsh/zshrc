@@ -8,7 +8,6 @@ bindkey -v
 
 # Configure the prompt with embedded Solarized color codes
 PROMPT='%F{#f7f7f7}%n%f%F{#f7f7f7}@%f%F{#f7f7f7}%m:%F{yellow}%~%f%F{#a0a0a0}$%f '
-RPROMPT='%F{15}(%F{yellow}%D{%H:%M}%F{15})%f'
 
 # zsh syntax highlighting
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
