@@ -2,7 +2,6 @@
 set -x
 # install all my pacman packages
 sudo pacman -Syu --noconfirm --needed\
-    adapta-gtk-theme\
     alacritty\
     arandr\
     bluez\
@@ -23,6 +22,7 @@ sudo pacman -Syu --noconfirm --needed\
     libxinerama\
     lightdm\
     lightdm-gtk-greeter\
+    materia-gtk-theme\
     nano\
     nano-syntax-highlighting\
     neofetch\
