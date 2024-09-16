@@ -1,7 +1,7 @@
 #!/bin/sh
 set -x
 # install all my pacman packages
-sudo pacman -S --noconfirm --needed\
+sudo pacman -Syu --noconfirm --needed\
     adapta-gtk-theme\
     alacritty\
     arandr\
