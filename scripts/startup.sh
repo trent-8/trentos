@@ -1,3 +1,4 @@
+#! /bin/sh
 # add items to autostart here
 ~/trentos/scripts/apply-screenlayout.sh normal
 if [[ "$USER" == "trent" ]]; then

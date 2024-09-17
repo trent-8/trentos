@@ -58,6 +58,8 @@ done &
 
 # periodically apply display config
 while true; do
-  ~/trentos/scripts/apply-screenlayout.sh
+  if xrandr | grep -q "^DP-1 connected"; then
+    ~/trentos/scripts/apply-screenlayout.sh
+  fi
   sleep 2
 done &
