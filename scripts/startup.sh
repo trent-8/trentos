@@ -7,4 +7,4 @@ if [[ "$USER" == "trent" ]]; then
 fi &
 dunst &
 picom &
-syncthing
+syncthing -no-browser
