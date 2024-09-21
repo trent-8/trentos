@@ -41,6 +41,7 @@ sudo pacman -Syu --noconfirm --needed\
     shotgun\
     signal-desktop\
     spotify-launcher\
+    syncthing\
     thunar\
     ttf-nerd-fonts-symbols-mono\
     ttf-roboto\

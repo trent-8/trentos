@@ -6,4 +6,5 @@ if [[ "$USER" == "trent" ]]; then
     rclone mount --daemon personal: ~/personal
 fi &
 dunst &
-picom
+picom &
+syncthing
