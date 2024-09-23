@@ -41,7 +41,6 @@ sudo pacman -Syu --noconfirm --needed\
     shotgun\
     signal-desktop\
     spotify-launcher\
-    syncthing\
     thunar\
     ttf-nerd-fonts-symbols-mono\
     ttf-roboto\
@@ -55,11 +54,7 @@ sudo pacman -Syu --noconfirm --needed\
     xorg-xsetroot\
     wget\
     zip\
-    zsh\
-    zsh-autosuggestions\
-    zsh-history-substring-search\
-    zsh-syntax-highlighting
-
+    
 # install yay and packages
 cd ~
 if [ ! -d yay ]; then
@@ -93,14 +88,10 @@ sudo cp ~/trentos/config/gtk-2.0/gtkrc /etc/gtk-2.0/
 sudo cp ~/trentos/config/gtk-3.0/settings.ini /etc/gtk-3.0/
 sudo cp ~/trentos/config/cursor/index.theme /usr/share/icons/default/
 sudo cp ~/trentos/config/X11/Xresources /etc/X11/
-sudo cp ~/trentos/config/zsh/zprofile /etc/zsh/
-sudo cp ~/trentos/config/zsh/zshrc /etc/zsh/
 sudo cp ~/trentos/config/picom/picom.conf /etc/xdg/
 sudo cp ~/trentos/config/X11/dwm.desktop /usr/share/xsessions/
 sudo cp ~/trentos/config/lightdm/lightdm.conf /etc/lightdm/
 sudo cp ~/trentos/config/nano/nanorc /etc
 
-chsh -s /bin/zsh
-sudo chsh -s /bin/zsh
 sudo systemctl enable --now lightdm
 sudo systemctl enable --now bluetooth
