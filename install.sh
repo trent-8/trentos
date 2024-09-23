@@ -18,6 +18,7 @@ sudo pacman -Syu --noconfirm --needed\
     gvfs\
     htop\
     less\
+    libreoffice-fresh\
     libxft\
     libxinerama\
     lightdm\
