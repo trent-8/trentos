@@ -13,7 +13,6 @@ sudo pacman -Syu --noconfirm --needed\
     gtk4\
     gtk3\
     gtk2\
-    gvfs\
     htop\
     less\
     libreoffice-fresh\
