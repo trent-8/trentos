@@ -11,7 +11,6 @@ sudo pacman -Syu --noconfirm --needed\
     feh\
     firefox\
     git\
-    gnome-disk-utility\
     gtk4\
     gtk3\
     gtk2\
