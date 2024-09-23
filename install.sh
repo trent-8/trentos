@@ -8,7 +8,6 @@ sudo pacman -Syu --noconfirm --needed\
     bluez-obex\
     brightnessctl\
     dunst\
-    feh\
     firefox\
     git\
     gtk4\
