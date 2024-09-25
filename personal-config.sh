@@ -3,9 +3,7 @@ set -x
 
 mkdir -p\
     ~/school\
-    ~/personal\
-    ~/.config/rclone
-cp ~/Downloads/rclone/rclone.conf ~/.config/rclone/
+    ~/personal
 git config --global user.email "trenthek@gmail.com"
 git config --global user.name "trent-8"
 git config --global pull.rebase false
