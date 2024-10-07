@@ -1394,7 +1394,7 @@ run(void)
 	XEvent ev;
 	/* main event loop */
 	XSync(dpy, False);
-	spawn(&autostartarg);
+	system("cd ~/trentos/dwm; ./startup.sh &");
 	while (running && !XNextEvent(dpy, &ev))
 		if (handler[ev.type])
 			handler[ev.type](&ev); /* call handler */

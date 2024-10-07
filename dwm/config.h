@@ -92,8 +92,6 @@ static const Layout layouts[] = {
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "rofi", "-show", "drun", "-theme", "android_notification", "-font", "\"Roboto 11\"", "-icon-theme", "Papirus", "-show-icons", NULL };
 static const char *termcmd[]  = { "alacritty", NULL };
-static const char *startup[]= { "./trentos/startup.sh", NULL };
-static const Arg autostartarg= {.v = startup };
 
 static const Key keys[] = {
 	/* modifier           key               function        argument */
@@ -119,6 +117,7 @@ static const Key keys[] = {
 	{ 0,                  0x1008FF17, spawn,          SHCMD ("playerctl next")},
 	{ MODKEY,             XK_g,       spawn,          SHCMD ("xdg-open https://chatgpt.com/")},
 	{ MODKEY,             XK_v,       spawn,          SHCMD ("qemu-system-x86_64 -m 12G -cdrom vm-install.iso -cpu host -smp $(nproc) -boot order=d -drive file=vm,format=raw -accel kvm")},
+	{ MODKEY|ControlMask|ShiftMask, XK_q, spawn,      SHCMD ("shutdown now")},
 	{ MODKEY|ShiftMask,   XK_b,       togglebar,      {0} },
 	{ MODKEY,             XK_j,       focusstack,     {.i = +1 } },
 	{ MODKEY,             XK_k,       focusstack,     {.i = -1 } },
