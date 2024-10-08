@@ -481,8 +481,8 @@ void
 applybounds(Client *c, struct wlr_box *bbox)
 {
 	/* set minimum possible */
-	c->geom.width = MAX(1 + 2 * (int)c->bw, c->geom.width);
-	c->geom.height = MAX(1 + 2 * (int)c->bw, c->geom.height);
+	c->geom.width = MAX(1 + (int)c->bw, c->geom.width);
+	c->geom.height = MAX(1 + (int)c->bw, c->geom.height);
 
 	if (c->geom.x >= bbox->x + bbox->width)
 		c->geom.x = bbox->x + bbox->width - c->geom.width;
@@ -1333,7 +1333,7 @@ cursorwarptohint(void)
 
 	toplevel_from_wlr_surface(active_constraint->surface, &c, NULL);
 	if (c && active_constraint->current.cursor_hint.enabled) {
-		wlr_cursor_warp(cursor, NULL, sx + c->geom.x + c->bw, sy + c->geom.y + c->bw);
+		wlr_cursor_warp(cursor, NULL, sx + c->geom.x, sy + c->geom.y);
 		wlr_seat_pointer_warp(active_constraint->seat, sx, sy);
 	}
 }
@@ -1961,8 +1961,8 @@ mapnotify(struct wl_listener *listener, void *data)
 
 	/* Initialize client geometry with room for border */
 	client_set_tiled(c, WLR_EDGE_TOP | WLR_EDGE_BOTTOM | WLR_EDGE_LEFT | WLR_EDGE_RIGHT);
-	c->geom.width += 2 * c->bw;
-	c->geom.height += 2 * c->bw;
+	c->geom.width += c->bw;
+	c->geom.height += c->bw;
 
 	/* Insert this client into client lists. */
 	wl_list_insert(&clients, &c->link);
@@ -2394,18 +2394,18 @@ resize(Client *c, struct wlr_box geo, int interact)
 
 	/* Update scene-graph, including borders */
 	wlr_scene_node_set_position(&c->scene->node, c->geom.x, c->geom.y);
-	wlr_scene_node_set_position(&c->scene_surface->node, c->bw, c->bw);
-	wlr_scene_rect_set_size(c->border[0], c->geom.width, c->bw);
+	wlr_scene_node_set_position(&c->scene_surface->node, 0, 0);
+	wlr_scene_rect_set_size(c->border[0], c->geom.width, 0);
 	wlr_scene_rect_set_size(c->border[1], c->geom.width, c->bw);
-	wlr_scene_rect_set_size(c->border[2], c->bw, c->geom.height - 2 * c->bw);
-	wlr_scene_rect_set_size(c->border[3], c->bw, c->geom.height - 2 * c->bw);
+	wlr_scene_rect_set_size(c->border[2], 0, c->geom.height - c->bw);
+	wlr_scene_rect_set_size(c->border[3], c->bw, c->geom.height - c->bw);
 	wlr_scene_node_set_position(&c->border[1]->node, 0, c->geom.height - c->bw);
-	wlr_scene_node_set_position(&c->border[2]->node, 0, c->bw);
-	wlr_scene_node_set_position(&c->border[3]->node, c->geom.width - c->bw, c->bw);
+	wlr_scene_node_set_position(&c->border[2]->node, 0, 0);
+	wlr_scene_node_set_position(&c->border[3]->node, c->geom.width - c->bw, 0);
 
 	/* this is a no-op if size hasn't changed */
-	c->resize = client_set_size(c, c->geom.width - 2 * c->bw,
-			c->geom.height - 2 * c->bw);
+	c->resize = client_set_size(c, c->geom.width,
+			c->geom.height);
 	client_get_clip(c, &clip);
 	wlr_scene_subsurface_tree_set_clip(&c->scene_surface->node, &clip);
 }
@@ -3357,7 +3357,7 @@ configurex11(struct wl_listener *listener, void *data)
 	}
 	if (c->isfloating || client_is_unmanaged(c))
 		resize(c, (struct wlr_box){.x = event->x, .y = event->y,
-				.width = event->width + c->bw * 2, .height = event->height + c->bw * 2}, 0);
+				.width = event->width + c->bw, .height = event->height + c->bw}, 0);
 	else
 		arrange(c->mon);
 }
