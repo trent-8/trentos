@@ -1,2 +1,0 @@
-#! /bin/bash
-dbus-run-session slstatus -s | dwl -s ~/trentos/dwl/startup.sh

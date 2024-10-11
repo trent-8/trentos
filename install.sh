@@ -3,7 +3,6 @@ set -x
 # install all my pacman packages
 sudo pacman -Syu --noconfirm --needed\
     alacritty\
-    arandr\
     bluez\
     bluez-obex\
     brightnessctl\
@@ -29,13 +28,10 @@ sudo pacman -Syu --noconfirm --needed\
     obs-studio\
     pamixer\
     papirus-icon-theme\
-    picom\
     playerctl\
     qt6-base\
     qt5-base\
     rclone\
-    rofi\
-    shotgun\
     signal-desktop\
     spotify-launcher\
     thunar\
@@ -70,30 +66,17 @@ mkdir -p\
     ~/.config/rofi\
     ~/Downloads\
     ~/Pictures
-cp ~/trentos/config/X11/.xinitrc ~/
-cp ~/trentos/config/X11/.xsession ~/
-sudo mkdir -p\
-    /usr/share/xsessions\
-    /etc/gtk-2.0\
-    /etc/gtk-3.0
+sudo mkdir -p /etc/gtk-2.0 /etc/gtk-3.0
 sudo cp ~/trentos/config/gtk-2.0/gtkrc /etc/gtk-2.0/
 sudo cp ~/trentos/config/gtk-3.0/settings.ini /etc/gtk-3.0/
 sudo cp ~/trentos/config/cursor/index.theme /usr/share/icons/default/
-sudo cp ~/trentos/config/wayland/startw /usr/local/bin/
-sudo cp ~/trentos/config/X11/Xresources /etc/X11/
-sudo cp ~/trentos/config/picom/picom.conf /etc/xdg/
-sudo cp ~/trentos/dwm/dwm.desktop /usr/share/xsessions/
+sudo cp ~/trentos/config/cursor/Xresources /etc/X11/
+sudo cp ~/trentos/start-dwl /usr/local/bin/
 sudo cp ~/trentos/config/nano/nanorc /etc
 
 sudo systemctl enable --now bluetooth
 
-# make dwm, dwl, and slstatus
-cd ~/trentos/dwm
-sudo make install
-sudo make clean
+# make dwl
 cd ~/trentos/dwl
-sudo make install
-sudo make clean
-cd ~/trentos/slstatus
 sudo make install
 sudo make clean
