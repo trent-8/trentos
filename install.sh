@@ -3,50 +3,64 @@ set -x
 # install all my pacman packages
 sudo pacman -Syu --noconfirm --needed\
     alacritty\
-    bluez\
+    aphototoollibre\
     bluez-obex\
     brightnessctl\
     dunst\
+    fcft\
     firefox\
-    git\
+    gparted\
+    grim\
     gtk4\
-    gtk3\
-    gtk2\
     gvfs\
     htop\
+    hunspell-en_us\
+    jdk-openjdk\
     less\
     libreoffice-fresh\
-    libxft\
-    libxinerama\
     mate-calc\
+    mate-polkit\
     materia-gtk-theme\
     nano\
     nano-syntax-highlighting\
     neofetch\
     noto-fonts\
     ntfs-3g\
-    obs-studio\
     pamixer\
     papirus-icon-theme\
     playerctl\
-    qt6-base\
+    python-keyboard\
+    python-libevdev\
+    python-matplotlib\
+    python-pipx\
+    python-pygame\
+    python-scipy\
     qt5-base\
+    qt5-wayland\
+    qt6-base\
+    qt6-wayland\
     rclone\
     signal-desktop\
     spotify-launcher\
     thunar\
+    tllist\
+    ttf-ms-win11-auto\
     ttf-nerd-fonts-symbols-mono\
     ttf-roboto\
     tumbler\
     unzip\
     vlc\
-    xarchiver\
-    xorg-server\
-    xorg-xinit\
-    xorg-xrandr\
-    xorg-xsetroot\
+    wayland-protocols\
+    wev\
     wget\
-    zip
+    wireplumber\
+    wireshark-qt\
+    wlroots\
+    wofi\
+    xorg-xwayland\
+    yay\
+    zip\
+    zram-generator
     
 # install yay and packages
 cd ~
@@ -80,3 +94,4 @@ sudo systemctl enable --now bluetooth
 cd ~/trentos/dwl
 sudo make install
 sudo make clean
+
