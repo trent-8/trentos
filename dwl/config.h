@@ -14,10 +14,12 @@ static const float rootcolor[]             = COLOR(0x111111ff);
 /* This conforms to the xdg-protocol. Set the alpha to zero to restore the old behavior */
 static const float fullscreen_bg[]         = {0.1f, 0.1f, 0.1f, 1.0f}; /* You can also use glsl colors */
 static uint32_t colors[][3]                = {
-	/*               fg          bg          border    */
-	[SchemeNorm] = { 0xbbbbbbff, 0x222222ff, 0x8090a0ff },
-	[SchemeSel]  = { 0xeeeeeeff, 0x444444ff, 0xa09080ff },
-	[SchemeUrg]  = { 0,          0,          0x770000ff },
+	[SchemeNorm] = { 0xcacacaff, 0x4d4d4dff, 0x708090ff },
+	[SchemeSel]  = { 0xf2f2f2ff, 0x808080ff, 0x908070ff },
+	[SchemeUrg]  = { 0xcacacaff,  0x4d4d4dff, 0x7070a0ff },
+
+	[SchemeInfoNorm]  = { 0xa4a4a4ff, 0x1f1f1fff, 0 },
+	[SchemeInfoSel]  =  { 0xf2f2f2ff, 0x303030ff, 0 },
 };
 
 /* tagging - TAGCOUNT must be no greater than 31 */
@@ -157,6 +159,7 @@ static const Key keys[] = {
     { 0,                         0x1008FF16,         spawn,          SHCMD ("playerctl previous")},
     { 0,                         0x1008FF17,         spawn,          SHCMD ("playerctl next")},
     { MODKEY,                    XKB_KEY_g,          spawn,          SHCMD ("xdg-open https://chatgpt.com/")},
+    { MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_S,          spawn,          SHCMD ("cd ~/Pictures ; grim")},
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_B,          togglebar,      {0} },
 	{ MODKEY,                    XKB_KEY_j,          focusstack,     {.i = +1} },
 	{ MODKEY,                    XKB_KEY_k,          focusstack,     {.i = -1} },

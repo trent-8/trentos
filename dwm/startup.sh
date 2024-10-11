@@ -3,5 +3,4 @@
 rclone mount --daemon school: ~/school &
 rclone mount --daemon personal: ~/personal &
 dunst &
-picom &
-slstatus
+picom

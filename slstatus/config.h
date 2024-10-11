@@ -1,3 +1,4 @@
+#include <locale.h>
 /* See LICENSE file for copyright and license details. */
 
 /* interval between updates (in ms) */
@@ -64,16 +65,12 @@ static const char unknown_str[] = "";
  * wifi_perc           WiFi signal in percent          interface name (wlan0)
  */
 
-static const char vol[] = "if [ \"$(pamixer --get-mute)\" = \"true\" ]; then \
-                            printf \"Volume muted\"; \
-							else volume=$(pamixer --get-volume); \
-							printf \"Volume ${volume}\"; \
-							fi";
+static const char bat[] = "battery_status=$(cat /sys/class/power_supply/BAT0/status) ; printf $(cat /sys/class/power_supply/BAT0/capacity) ; if [ $battery_status = Charging ] | [ $battery_status = \"Not Charging\" ] | [ $battery_status = Full ] ; then printf 🔌 ; fi ; printf \"\n\"";
+static const char vol[] = "printf $(pamixer --get-volume) ; if [ $(pamixer --get-mute) = true ] ; then printf 🔇 ; fi ; printf \"\n\"";
 
 static const struct arg args[] = {
 	/* function format          argument */
-	{ run_command, "%s", vol },
-	{ battery_perc, "   Battery %s", "BAT0" },
-	{ battery_state, " %s", "BAT0" },
+	{ run_command, "Volume %s", "/bin/sh volume" },
+	{ run_command, "   Battery %s", "/bin/sh battery" },
 	{ datetime, "   %s", "%-m/%-d/%Y   %-I:%M %P"},
 };

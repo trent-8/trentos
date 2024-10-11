@@ -1,0 +1,1 @@
+printf $(pamixer --get-volume) ; if [ $(pamixer --get-mute) = true ] ; then printf 🔇 ; fi ; printf "\n"
