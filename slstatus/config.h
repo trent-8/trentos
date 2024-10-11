@@ -1,4 +1,3 @@
-#include <locale.h>
 /* See LICENSE file for copyright and license details. */
 
 /* interval between updates (in ms) */
@@ -64,13 +63,7 @@ static const char unknown_str[] = "";
  * wifi_essid          WiFi ESSID                      interface name (wlan0)
  * wifi_perc           WiFi signal in percent          interface name (wlan0)
  */
-
-static const char bat[] = "battery_status=$(cat /sys/class/power_supply/BAT0/status) ; printf $(cat /sys/class/power_supply/BAT0/capacity) ; if [ $battery_status = Charging ] | [ $battery_status = \"Not Charging\" ] | [ $battery_status = Full ] ; then printf 🔌 ; fi ; printf \"\n\"";
-static const char vol[] = "printf $(pamixer --get-volume) ; if [ $(pamixer --get-mute) = true ] ; then printf 🔇 ; fi ; printf \"\n\"";
-
 static const struct arg args[] = {
 	/* function format          argument */
-	{ run_command, "Volume %s", "/bin/sh volume" },
-	{ run_command, "   Battery %s", "/bin/sh battery" },
-	{ datetime, "   %s", "%-m/%-d/%Y   %-I:%M %P"},
+	{ run_command, "%s",        "~/trentos/get-status" },
 };

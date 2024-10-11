@@ -80,8 +80,6 @@ sudo cp ~/trentos/config/gtk-2.0/gtkrc /etc/gtk-2.0/
 sudo cp ~/trentos/config/gtk-3.0/settings.ini /etc/gtk-3.0/
 sudo cp ~/trentos/config/cursor/index.theme /usr/share/icons/default/
 sudo cp ~/trentos/config/wayland/startw /usr/local/bin/
-sudo cp ~/trentos/scripts/volume /usr/local/bin/
-sudo cp ~/trentos/scripts/battery /usr/local/bin/
 sudo cp ~/trentos/config/X11/Xresources /etc/X11/
 sudo cp ~/trentos/config/picom/picom.conf /etc/xdg/
 sudo cp ~/trentos/dwm/dwm.desktop /usr/share/xsessions/
