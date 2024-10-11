@@ -29,7 +29,6 @@ sudo pacman -Syu --noconfirm --needed\
     pamixer\
     papirus-icon-theme\
     playerctl\
-    python-keyboard\
     python-libevdev\
     python-matplotlib\
     python-pipx\
@@ -44,7 +43,6 @@ sudo pacman -Syu --noconfirm --needed\
     spotify-launcher\
     thunar\
     tllist\
-    ttf-ms-win11-auto\
     ttf-nerd-fonts-symbols-mono\
     ttf-roboto\
     tumbler\
@@ -53,12 +51,10 @@ sudo pacman -Syu --noconfirm --needed\
     wayland-protocols\
     wev\
     wget\
-    wireplumber\
     wireshark-qt\
     wlroots\
     wofi\
     xorg-xwayland\
-    yay\
     zip\
     zram-generator
     
@@ -73,6 +69,7 @@ yay -S --noconfirm --needed\
     visual-studio-code-bin\
     bluetuith\
     xcursor-breeze\
+    ttf-ms-win11-auto\
     usbimager
 
 # add all config files
