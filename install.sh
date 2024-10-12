@@ -3,13 +3,11 @@ set -x
 # install all my pacman packages
 sudo pacman -Syu --noconfirm --needed\
     alacritty\
-    aphototoollibre\
     bluez-obex\
     brightnessctl\
     dunst\
     fcft\
     firefox\
-    gparted\
     grim\
     gtk4\
     gvfs\
@@ -26,6 +24,7 @@ sudo pacman -Syu --noconfirm --needed\
     neofetch\
     noto-fonts\
     ntfs-3g\
+    nwg-look\
     pamixer\
     papirus-icon-theme\
     playerctl\
@@ -69,19 +68,17 @@ yay -S --noconfirm --needed\
     visual-studio-code-bin\
     bluetuith\
     xcursor-breeze\
-    ttf-ms-win11-auto\
-    usbimager
+    ttf-ms-win11-auto
 
 # add all config files
 mkdir -p\
     ~/.config/rofi\
     ~/Downloads\
     ~/Pictures
-sudo mkdir -p /etc/gtk-2.0 /etc/gtk-3.0 /etc/xsettingsd
+sudo mkdir -p /etc/gtk-2.0 /etc/gtk-3.0
 
 # copy all the theme config files to their global locations
 cd ~/trentos/config/theme
-sudo cp xsettingsd.conf /etc/xsettingsd/
 sudo cp gtkrc /etc/gtk-2.0/
 sudo cp settings.ini /etc/gtk-3.0/
 sudo cp index.theme /usr/share/icons/default/
