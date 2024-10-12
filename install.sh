@@ -97,3 +97,50 @@ sudo systemctl enable --now bluetooth
 cd ~/trentos/dwl
 sudo make install
 sudo make clean
+
+
+# Function to present a menu and prompt for user input
+present_menu() {
+    echo "Please select the Vulkan package you want to install:"
+    echo "1. vulkan-nvidia (for NVIDIA GPUs)"
+    echo "2. vulkan-radeon (for AMD GPUs)"
+    echo "3. vulkan-intel (for Intel GPUs)"
+    echo "4. vulkan-nouveau (for Nouveau GPUs)"
+    echo "5. Exit"
+}
+
+# Function to install the selected Vulkan package
+install_package() {
+    case $1 in
+        1)
+            echo "Installing vulkan-nvidia..."
+            sudo pacman -S --noconfirm --needed vulkan-nvidia
+            ;;
+        2)
+            echo "Installing vulkan-radeon..."
+            sudo pacman -S --noconfirm --needed vulkan-radeon
+            ;;
+        3)
+            echo "Installing vulkan-intel..."
+            sudo pacman -S --noconfirm --needed vulkan-intel
+            ;;
+        4)
+            echo "Installing vulkan-nouveau..."
+            sudo pacman -S --noconfirm --needed vulkan-nouveau
+            ;;
+        5)
+            echo "Exiting..."
+            exit 0
+            ;;
+        *)
+            echo "Invalid selection. Please choose a number between 1 and 5."
+            ;;
+    esac
+}
+
+# Present the menu and get user selection
+present_menu
+read -p "Enter your choice (1-5): " choice
+
+# Install the selected package
+install_package $choice
