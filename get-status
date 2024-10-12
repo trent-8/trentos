@@ -16,5 +16,5 @@ get_status() {
 while true; do
     status_text=$(get_status)
     printf "$status_text\n"
-    sleep 0.05
+    sleep 0.1
 done
