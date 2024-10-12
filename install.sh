@@ -68,7 +68,7 @@ yay -S --noconfirm --needed\
     visual-studio-code-bin\
     bluetuith\
     xcursor-breeze\
-    ttf-ms-win11-auto
+    ttf-ms-win11
 
 # add all config files
 mkdir -p\
