@@ -77,7 +77,8 @@ mkdir -p\
     ~/.config/rofi\
     ~/Downloads\
     ~/Pictures
-sudo mkdir -p /etc/gtk-2.0 /etc/gtk-3.0
+sudo mkdir -p /etc/gtk-2.0 /etc/gtk-3.0 /etc/xsettingsd
+sudo cp ~/trentos/config/xsettingsd.conf /etc/xsettingsd/
 sudo cp ~/trentos/config/gtk-2.0/gtkrc /etc/gtk-2.0/
 sudo cp ~/trentos/config/gtk-3.0/settings.ini /etc/gtk-3.0/
 sudo cp ~/trentos/config/cursor/index.theme /usr/share/icons/default/
