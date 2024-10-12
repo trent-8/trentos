@@ -78,13 +78,18 @@ mkdir -p\
     ~/Downloads\
     ~/Pictures
 sudo mkdir -p /etc/gtk-2.0 /etc/gtk-3.0 /etc/xsettingsd
-sudo cp ~/trentos/config/xsettingsd.conf /etc/xsettingsd/
-sudo cp ~/trentos/config/gtk-2.0/gtkrc /etc/gtk-2.0/
-sudo cp ~/trentos/config/gtk-3.0/settings.ini /etc/gtk-3.0/
-sudo cp ~/trentos/config/cursor/index.theme /usr/share/icons/default/
-sudo cp ~/trentos/config/cursor/Xresources /etc/X11/
-sudo cp ~/trentos/start-dwl /usr/local/bin/
+
+# copy all the theme config files to their global locations
+cd ~/trentos/config/theme
+sudo cp xsettingsd.conf /etc/xsettingsd/
+sudo cp gtkrc /etc/gtk-2.0/
+sudo cp settings.ini /etc/gtk-3.0/
+sudo cp index.theme /usr/share/icons/default/
+sudo cp Xresources /etc/X11/
+# copy my nano config to its global location
 sudo cp ~/trentos/config/nano/nanorc /etc
+# copy the start-dwl script to a runnable location
+sudo cp ~/trentos/start-dwl /usr/local/bin/
 
 sudo systemctl enable --now bluetooth
 
@@ -92,4 +97,3 @@ sudo systemctl enable --now bluetooth
 cd ~/trentos/dwl
 sudo make install
 sudo make clean
-
