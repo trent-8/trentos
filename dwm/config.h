@@ -58,8 +58,6 @@ static const char *dmenucmd[] = { "rofi", "-show", "drun", "-theme", "android_no
 static const char *termcmd[]  = { "alacritty", NULL };
 
 static const Key keys[] = {
-	/* modifier                     key        function        argument */
-	
 	/* modifier           key               function        argument */
 	{ MODKEY,             XK_r,       spawn,          {.v = dmenucmd } },
 	{ MODKEY,             XK_t,       spawn,          {.v = termcmd } },
