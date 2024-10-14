@@ -14,7 +14,7 @@ get_status() {
 }
 
 while true; do
-    status_text=$(get_status)
-    printf "$status_text\n"
-    sleep 0.1
-done
+    xsetroot -name "$(get_status)"
+    sleep 0.05
+done &
+exec dwm

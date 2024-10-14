@@ -3,6 +3,7 @@ set -x
 # install all my pacman packages
 sudo pacman -Syu --noconfirm --needed\
     alacritty\
+    arandr\
     bluez-obex\
     brightnessctl\
     dunst\
@@ -47,6 +48,7 @@ sudo pacman -Syu --noconfirm --needed\
     tumbler\
     unzip\
     vlc\
+    xarchiver\
     wayland-protocols\
     wev\
     wget\
@@ -54,6 +56,10 @@ sudo pacman -Syu --noconfirm --needed\
     wlroots\
     wofi\
     xorg-xwayland\
+    xorg-server\
+    xorg-xinit\
+    xorg-xrandr\
+    xorg-xsetroot\
     zip\
     zram-generator
     
@@ -67,8 +73,7 @@ fi
 yay -S --noconfirm --needed\
     visual-studio-code-bin\
     bluetuith\
-    xcursor-breeze\
-    ttf-ms-win11
+    xcursor-breeze
 
 # add all config files
 mkdir -p\
@@ -78,6 +83,7 @@ mkdir -p\
 sudo mkdir -p /etc/gtk-2.0 /etc/gtk-3.0
 
 # copy all the theme config files to their global locations
+cp ~/trentos/config/X11/xinitrc ~/.xintitrc
 cd ~/trentos/config/theme
 sudo cp gtkrc /etc/gtk-2.0/
 sudo cp settings.ini /etc/gtk-3.0/
@@ -90,8 +96,11 @@ sudo cp ~/trentos/start-dwl /usr/local/bin/
 
 sudo systemctl enable --now bluetooth
 
-# make dwl
+# make dwl and dwm
 cd ~/trentos/dwl
+sudo make install
+sudo make clean
+cd ~/trentos/dwm
 sudo make install
 sudo make clean
 
