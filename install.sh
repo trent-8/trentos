@@ -39,6 +39,7 @@ sudo pacman -Syu --noconfirm --needed\
     qt6-base\
     qt6-wayland\
     rclone\
+    rofi\
     signal-desktop\
     spotify-launcher\
     thunar\

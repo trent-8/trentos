@@ -16,7 +16,7 @@ enum { ColFg, ColBg, ColBorder }; /* Clr scheme index */
 typedef XftColor Clr;
 
 typedef struct {
-	unsigned int w, h, maxth;
+	unsigned int w, h;
 	Display *dpy;
 	int screen;
 	Window root;

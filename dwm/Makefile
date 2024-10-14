@@ -8,6 +8,11 @@ OBJ = ${SRC:.c=.o}
 
 all: dwm
 
+.c.o:
+	${CC} -c ${CFLAGS} $<
+
+${OBJ}: config.h config.mk
+
 config.h:
 	cp config.def.h $@
 
@@ -32,11 +37,6 @@ install: all
 	mkdir -p ${DESTDIR}${MANPREFIX}/man1
 	sed "s/VERSION/${VERSION}/g" < dwm.1 > ${DESTDIR}${MANPREFIX}/man1/dwm.1
 	chmod 644 ${DESTDIR}${MANPREFIX}/man1/dwm.1
-
-.c.o:
-	${CC} -c ${CFLAGS} $<
-
-${OBJ}: config.h config.mk
 
 uninstall:
 	rm -f ${DESTDIR}${PREFIX}/bin/dwm\

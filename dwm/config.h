@@ -1,62 +1,27 @@
 /* See LICENSE file for copyright and license details. */
 
 /* appearance */
-#include <X11/X.h>
-
 static const unsigned int borderpx  = 1;        /* border pixel of windows */
 static const unsigned int snap      = 32;       /* snap pixel */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 0;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Symbols Nerd Font Mono:size=10","Roboto:size=16" };
-static const char grey1[]       = "#010101";
-static const char grey2[]       = "#1f1f1f";
-static const char grey3[]       = "#4d4d4d";
-static const char grey4[]       = "#808080";
-static const char grey5[]       = "#a4a4a4";
-static const char grey6[]       = "#cacaca";
-static const char grey7[]       = "#f2f2f2";
-static const char box_sel[]    = "#5d5d5d";
-static const char box_norm[]   = "#3d3d3d";
-static const char border_sel[]  = "#908070";
-static const char border_norm[] = "#708090";
+static const char *fonts[]          = { "monospace:size=15" };
+static const char dmenufont[]       = "monospace:size=15";
 static const char *colors[][3]      = {
-	/*                      forground   background  border   */
-	[SchemeIconBoxNorm] = { grey3,  NULL,  NULL },
-	[SchemeIconBoxSel]  = { grey4,  NULL,  NULL },
-	[SchemeIconBoxUrg]  = { grey3,  NULL,  NULL },
-
-	[SchemeIconNorm] = { grey6, NULL, NULL },
-	[SchemeIconSel]  = { grey7, NULL, NULL },
-	[SchemeIconUrg]  = { grey6,  NULL, NULL },
-
-	[SchemeLayoutNorm] = { grey6, NULL, NULL },
-	[SchemeLayoutSel]  = { grey5, NULL, NULL },
-
-	[SchemeClientNorm] = { grey5, NULL, border_norm },
-	[SchemeClientSel]  = { grey7, NULL, border_sel },
-
-	[SchemeStatusNorm] = { grey5, NULL, NULL },
-	[SchemeStatusSel]  = { grey7, NULL, NULL },
-
-	[SchemeBarNorm]  = { grey2, NULL, NULL },
-	[SchemeBarSel]  =  { grey2, NULL, NULL },
+	/*               fg         bg         border   */
+	[SchemeNorm] = { "#cacaca", "#4d4d4d", "#708090" },
+	[SchemeSel]  = { "#f2f2f2", "#808080", "#908070" },
 };
 
 /* tagging */
-static const char *tags[] = {
-	"", // terminal
-	"󰖟", // browser
-	"󰉋", // general
-	"", // code
-	"󰝚", // spotify
-};
+static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
 
 static const Rule rules[] = {
 	/* xprop(1):
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class        instance  title      tags mask       isfloating   monitor */
+	/* class      instance    title       tags mask     isfloating   monitor */
 	{ "Alacritty",  NULL,     NULL,           1,         0,           -1 },
 	{ "firefox",    NULL,     NULL,      1 << 1,         0,           -1 },
 	{ "Thunar",     NULL,     NULL,      1 << 2,         0,           -1 },
@@ -72,8 +37,8 @@ static const int lockfullscreen = 1; /* 1 will force focus on the fullscreen win
 
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "tiling",   tile },    /* first entry is default */
-	{ "floating", NULL },    /* no layout function means floating behavior */
+	{ "tile",     tile },    /* first entry is default */
+	{ "float",    NULL },    /* no layout function means floating behavior */
 	{ "monocle",  monocle },
 };
 
@@ -94,6 +59,8 @@ static const char *dmenucmd[] = { "rofi", "-show", "drun", "-theme", "android_no
 static const char *termcmd[]  = { "alacritty", NULL };
 
 static const Key keys[] = {
+	/* modifier                     key        function        argument */
+	
 	/* modifier           key               function        argument */
 	{ MODKEY,             XK_r,       spawn,          {.v = dmenucmd } },
 	{ MODKEY,             XK_t,       spawn,          {.v = termcmd } },
@@ -106,11 +73,11 @@ static const Key keys[] = {
 	{ MODKEY,             XK_z,       spawn,          SHCMD ("alacritty -e bash -c 'bluetuith --adapter-states=\"scan:yes\"'")},
 	{ MODKEY|ShiftMask,   XK_s,       spawn,          SHCMD ("shotgun -s ~/Pictures/$(date +'%F-%R')")},
 	{ 0,                  0x1008FF1D, spawn,          SHCMD ("mate-calc")},
-	{ 0,                  0x1008ff02, spawn,          SHCMD ("brightnessctl set +2%")},
-	{ 0,                  0x1008ff03, spawn,          SHCMD ("brightnessctl set 2%-")},
-	{ 0,                  0x1008ff11, spawn,          SHCMD ("pactl set-sink-volume 0 -2%")},
+	{ 0,                  0x1008ff02, spawn,          SHCMD ("brightnessctl set +5%")},
+	{ 0,                  0x1008ff03, spawn,          SHCMD ("brightnessctl set 5%-")},
+	{ 0,                  0x1008ff11, spawn,          SHCMD ("pactl set-sink-volume 0 -5%")},
 	{ 0,                  0x1008ff12, spawn,          SHCMD ("pactl set-sink-mute 0 toggle")},
-	{ 0,                  0x1008ff13, spawn,          SHCMD ("pactl set-sink-volume 0 +2%")},
+	{ 0,                  0x1008ff13, spawn,          SHCMD ("pactl set-sink-volume 0 +5%")},
 	{ 0,                  0x1008FF14, spawn,          SHCMD ("playerctl play-pause")},
 	{ MODKEY,             XK_p,       spawn,          SHCMD ("playerctl play-pause")},
 	{ 0,                  0x1008FF16, spawn,          SHCMD ("playerctl previous")},
@@ -139,14 +106,17 @@ static const Key keys[] = {
 	{ MODKEY,             XK_period,  focusmon,       {.i = +1 } },
 	{ MODKEY|ShiftMask,   XK_comma,   tagmon,         {.i = -1 } },
 	{ MODKEY|ShiftMask,   XK_period,  tagmon,         {.i = +1 } },
-	TAGKEYS(              XK_1,                       0)
-	TAGKEYS(              XK_2,                       1)
-	TAGKEYS(              XK_3,                       2)
-	TAGKEYS(              XK_4,                       3)
-	TAGKEYS(              XK_5,                       4)
-	{ MODKEY|ShiftMask,   XK_q,       quit,           {0} },
+	TAGKEYS(                        XK_1,                      0)
+	TAGKEYS(                        XK_2,                      1)
+	TAGKEYS(                        XK_3,                      2)
+	TAGKEYS(                        XK_4,                      3)
+	TAGKEYS(                        XK_5,                      4)
+	TAGKEYS(                        XK_6,                      5)
+	TAGKEYS(                        XK_7,                      6)
+	TAGKEYS(                        XK_8,                      7)
+	TAGKEYS(                        XK_9,                      8)
+	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 };
-
 
 /* button definitions */
 /* click can be ClkTagBar, ClkLtSymbol, ClkStatusText, ClkWinTitle, ClkClientWin, or ClkRootWin */
