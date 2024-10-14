@@ -97,17 +97,13 @@ sudo cp ~/trentos/start-dwl /usr/local/bin/
 
 sudo systemctl enable --now bluetooth
 
-# make dwl, dwm, and st
+# make dwl and dwm
 cd ~/trentos/dwl
 sudo make install
 sudo make clean
 cd ~/trentos/dwm
 sudo make install
 sudo make clean
-cd ~/trentos/st
-sudo make install
-sudo make clean
-
 
 # Function to present a menu and prompt for user input
 present_menu() {

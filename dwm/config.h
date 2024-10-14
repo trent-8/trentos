@@ -21,7 +21,7 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	 */
 	/* class      instance    title       tags mask     isfloating   monitor */
-	{ "st",  NULL,     NULL,           1,         0,           -1 },
+	{ "Alacritty",  NULL,     NULL,           1,         0,           -1 },
 	{ "firefox",    NULL,     NULL,      1 << 1,         0,           -1 },
 	{ "Thunar",     NULL,     NULL,      1 << 2,         0,           -1 },
 	{ "Code",       NULL,     NULL,      1 << 3,         0,           -1 },
@@ -55,7 +55,7 @@ static const Layout layouts[] = {
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
 static const char *dmenucmd[] = { "rofi", "-show", "drun", "-theme", "android_notification", "-font", "\"Roboto 11\"", "-icon-theme", "Papirus", "-show-icons", NULL };
-static const char *termcmd[]  = { "st", NULL };
+static const char *termcmd[]  = { "Alacritty", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
