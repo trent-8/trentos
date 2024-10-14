@@ -83,13 +83,13 @@ mkdir -p\
 sudo mkdir -p /etc/gtk-2.0 /etc/gtk-3.0
 
 # copy all the theme config files to their global locations
-cp ~/trentos/config/X11/xinitrc ~/.xinitrc
 cd ~/trentos/config/theme
 sudo cp gtkrc /etc/gtk-2.0/
 sudo cp settings.ini /etc/gtk-3.0/
 sudo cp index.theme /usr/share/icons/default/
 sudo cp Xresources /etc/X11/
 # copy my nano config to its global location
+cp ~/trentos/xinitrc ~/.xinitrc
 sudo cp ~/trentos/config/nano/nanorc /etc
 # copy the start-dwl script to a runnable location
 sudo cp ~/trentos/start-dwl /usr/local/bin/
