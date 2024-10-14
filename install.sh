@@ -83,7 +83,7 @@ mkdir -p\
 sudo mkdir -p /etc/gtk-2.0 /etc/gtk-3.0
 
 # copy all the theme config files to their global locations
-cp ~/trentos/config/X11/xinitrc ~/.xintitrc
+cp ~/trentos/config/X11/xinitrc ~/.xinitrc
 cd ~/trentos/config/theme
 sudo cp gtkrc /etc/gtk-2.0/
 sudo cp settings.ini /etc/gtk-3.0/
