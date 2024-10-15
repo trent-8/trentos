@@ -12,7 +12,7 @@ get_status() {
     fi
     printf "   $(date +"%-m/%-d/%Y   %-I:%M %P")"
 }
-
+xrdb -merge /etc/X11/Xresources
 while true; do
     xsetroot -name "$(get_status)"
     sleep 0.05

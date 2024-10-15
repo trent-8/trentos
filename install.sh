@@ -60,6 +60,7 @@ sudo pacman -Syu --noconfirm --needed\
     xorg-server\
     xorg-xinit\
     xorg-xrandr\
+    xorg-xrdb\
     xorg-xsetroot\
     zip\
     zram-generator
@@ -81,7 +82,7 @@ mkdir -p\
     ~/.config/rofi\
     ~/Downloads\
     ~/Pictures
-sudo mkdir -p /etc/gtk-2.0 /etc/gtk-3.0
+sudo mkdir -p /etc/gtk-2.0 /etc/gtk-3.0 /etc/gtk-4.0
 
 # copy all config files to their distinations
 cd trentos
@@ -92,7 +93,8 @@ sudo cp nanorc /etc/
 sudo cp picom.conf /etc/xdg/
 cd theme
 sudo cp gtkrc /etc/gtk-2.0/
-sudo cp settings.ini /etc/gtk-3.0/
+sudo cp settings-gtk3.ini /etc/gtk-3.0/settings.ini
+sudo cp settings-gtk4.ini /etc/gtk-4.0/settings.ini
 sudo cp index.theme /usr/share/icons/default/
 sudo cp Xresources /etc/X11/
 
