@@ -25,7 +25,6 @@ sudo pacman -Syu --noconfirm --needed\
     neofetch\
     noto-fonts\
     ntfs-3g\
-    nwg-look\
     pamixer\
     papirus-icon-theme\
     playerctl\
@@ -88,9 +87,10 @@ sudo mkdir -p /etc/gtk-2.0 /etc/gtk-3.0 /etc/gtk-4.0
 cd trentos
 cp xinitrc ~/.xinitrc
 sudo cp start-dwl /usr/local/bin/
+sudo cp start-dwl /usr/local/bin/sw
+sudo bash -c 'echo "startx" > /usr/local/bin/sx && chmod +x /usr/local/bin/sx'
 cd config
 sudo cp nanorc /etc/
-sudo cp picom.conf /etc/xdg/
 cd theme
 sudo cp gtkrc /etc/gtk-2.0/
 sudo cp settings-gtk3.ini /etc/gtk-3.0/settings.ini

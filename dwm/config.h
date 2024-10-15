@@ -13,7 +13,7 @@ static const char *colors[][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { "1", "2", "3", "4", "5" };
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -64,7 +64,7 @@ static const Key keys[] = {
 	{ MODKEY,             XK_e,       spawn,          SHCMD ("xdg-open .")},
 	{ MODKEY,             XK_n,       spawn,          SHCMD ("alacritty -e bash -c 'python ~/trentos/notes.py'")},
 	{ MODKEY,             XK_z,       spawn,          SHCMD ("alacritty -e bash -c 'bluetuith --adapter-states=\"scan:yes\"'")},
-    { MODKEY|ShiftMask,   XK_s,       spawn,          SHCMD ("flameshot gui -p ~/Pictures/Screenshots/")},
+    { MODKEY|ShiftMask,   XK_s,       spawn,          SHCMD ("flameshot gui -p ~/Pictures/")},
 	{ 0,                  0x1008FF1D, spawn,          SHCMD ("mate-calc")},
 	{ 0,                  0x1008ff02, spawn,          SHCMD ("brightnessctl set +10%")},
 	{ 0,                  0x1008ff03, spawn,          SHCMD ("brightnessctl set 10%-")},
@@ -78,6 +78,8 @@ static const Key keys[] = {
 	{ MODKEY,             XK_g,       spawn,          SHCMD ("xdg-open https://chatgpt.com/")},
 	{ MODKEY,             XK_v,       spawn,          SHCMD ("qemu-system-x86_64 -m 12G -cdrom vm-install.iso -cpu host -smp $(nproc) -boot order=d -drive file=vm,format=raw -accel kvm")},
 	{ MODKEY|ControlMask|ShiftMask, XK_q, spawn,      SHCMD ("shutdown now")},
+	{ MODKEY|ControlMask|ShiftMask, XK_r, spawn,      SHCMD ("reboot")},
+	{ MODKEY|ControlMask|ShiftMask, XK_s, spawn,      SHCMD ("systemctl suspend")},
 	{ MODKEY|ShiftMask,   XK_b,       togglebar,      {0} },
 	{ MODKEY,             XK_j,       focusstack,     {.i = +1 } },
 	{ MODKEY,             XK_k,       focusstack,     {.i = -1 } },

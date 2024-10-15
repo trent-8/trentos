@@ -23,13 +23,7 @@ static uint32_t colors[][3]                = {
 };
 
 /* tagging - TAGCOUNT must be no greater than 31 */
-static char *tags[] = {
-	"1", // terminal
-	"2", // browser
-	"3", // general
-	"4", // code
-	"5", // spotify
-};
+static char *tags[] = {"1", "2", "3", "4", "5"};
 
 /* logging */
 static int log_level = WLR_ERROR;
@@ -38,19 +32,15 @@ static int log_level = WLR_ERROR;
 static const Rule rules[] = {
 	/* app_id             title       tags mask     isfloating   monitor */
 	/* examples: */
-	{ "Alacritty",        NULL,           1,         0,           -1 },
-	{ "firefox",          NULL,      1 << 1,         0,           -1 },
-	{ "Thunar",           NULL,      1 << 2,         0,           -1 },
-	{ "Code",             NULL,      1 << 3,         0,           -1 },
 	{ "Spotify",          NULL,      1 << 4,         0,            1 }
 };
 
 /* layout(s) */
 static const Layout layouts[] = {
 	/* symbol     arrange function */
-	{ "tile",      tile },
-	{ "float",      NULL },    /* no layout function means floating behavior */
-	{ "monocle",      monocle },
+	{ "tiling",   tile },
+	{ "floating", NULL },    /* no layout function means floating behavior */
+	{ "monocle",  monocle },
 };
 
 /* monitors */
@@ -63,7 +53,7 @@ static const MonitorRule monrules[] = {
 	/* name       mfact  nmaster scale layout       rotate/reflect                x    y */
 	{ "eDP-1",    0.5f,  1,      1,    &layouts[0], WL_OUTPUT_TRANSFORM_NORMAL,   320, 1440 },
 	/* defaults */
-	{ NULL,       0.55f, 1,      1,    &layouts[0], WL_OUTPUT_TRANSFORM_NORMAL,   0,  0 }
+	{ NULL,       0.5f, 1,      1,    &layouts[0], WL_OUTPUT_TRANSFORM_NORMAL,   0,  0 }
 };
 
 /* keyboard */
@@ -113,7 +103,7 @@ LIBINPUT_CONFIG_ACCEL_PROFILE_FLAT
 LIBINPUT_CONFIG_ACCEL_PROFILE_ADAPTIVE
 */
 static const enum libinput_config_accel_profile accel_profile = LIBINPUT_CONFIG_ACCEL_PROFILE_ADAPTIVE;
-static const double accel_speed = 0.0;
+static const double accel_speed = 0.1;
 
 /* You can choose between:
 LIBINPUT_CONFIG_TAP_MAP_LRM -- 1/2/3 finger tap maps to left/right/middle
@@ -140,10 +130,10 @@ static const char *menucmd[] = { "wofi", "--show", "drun", "--allow-images", "--
 static const Key keys[] = {
 	/* Note that Shift changes certain key codes: c -> C, 2 -> at, etc. */
 	/* modifier                  key                 function        argument */
-	{ MODKEY,                    XKB_KEY_w,          spawn,          {.v = menucmd} },
+	{ MODKEY,                    XKB_KEY_m,          spawn,          {.v = menucmd} },
 	{ MODKEY,                    XKB_KEY_t,          spawn,          {.v = termcmd} },
-	{ MODKEY,                    XKB_KEY_e,          spawn,          SHCMD ("thunar") },
-	{ MODKEY,                    XKB_KEY_b,          spawn,          SHCMD ("firefox") },
+	{ MODKEY,                    XKB_KEY_e,          spawn,          SHCMD ("xdg-open .") },
+	{ MODKEY,                    XKB_KEY_b,          spawn,          SHCMD ("xdg-open https://") },
 	{ MODKEY,                    XKB_KEY_c,          spawn,          SHCMD ("code") },
 	{ MODKEY,                    XKB_KEY_s,          spawn,          SHCMD ("spotify-launcher") },
 	{ MODKEY,                    XKB_KEY_n,          spawn,          SHCMD ("alacritty -e bash -c 'python ~/trentos/notes.py'") },
@@ -151,15 +141,18 @@ static const Key keys[] = {
 	{ 0,            XKB_KEY_XF86Calculator,          spawn,          SHCMD ("mate-calc") },
     { 0,       XKB_KEY_XF86MonBrightnessUp,          spawn,          SHCMD ("brightnessctl set +5%")},
     { 0,     XKB_KEY_XF86MonBrightnessDown,          spawn,          SHCMD ("brightnessctl set 5%-")},
-    { 0,      XKB_KEY_XF86AudioLowerVolume,          spawn,          SHCMD ("pactl set-sink-volume 0 -5%")},
-    { 0,             XKB_KEY_XF86AudioMute,          spawn,          SHCMD ("pactl set-sink-mute 0 toggle")},
-    { 0,      XKB_KEY_XF86AudioRaiseVolume,          spawn,          SHCMD ("pactl set-sink-volume 0 +5%")},
+    { 0,      XKB_KEY_XF86AudioLowerVolume,          spawn,          SHCMD ("pamixer --decrease 5 --unmute")},
+    { 0,      XKB_KEY_XF86AudioRaiseVolume,          spawn,          SHCMD ("pamixer --increase 5 --unmute")},
+    { 0,             XKB_KEY_XF86AudioMute,          spawn,          SHCMD ("pamixer --toggle-mute")},
     { 0,             XKB_KEY_XF86AudioPlay,          spawn,          SHCMD ("playerctl play-pause")},
     { MODKEY,                    XKB_KEY_p,          spawn,          SHCMD ("playerctl play-pause")},
     { 0,             XKB_KEY_XF86AudioPrev,          spawn,          SHCMD ("playerctl previous")},
     { 0,             XKB_KEY_XF86AudioNext,          spawn,          SHCMD ("playerctl next")},
     { MODKEY,                    XKB_KEY_g,          spawn,          SHCMD ("xdg-open https://chatgpt.com/")},
-    { MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_S,          spawn,          SHCMD ("cd ~/Pictures ; grim")},
+    { MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_S,          spawn,          SHCMD ("flameshot gui -p ~/Pictures/")},
+    { MODKEY|WLR_MODIFIER_CTRL|WLR_MODIFIER_SHIFT, XKB_KEY_S, spawn, SHCMD ("systemctl suspend")},
+    { MODKEY|WLR_MODIFIER_CTRL|WLR_MODIFIER_SHIFT, XKB_KEY_R, spawn, SHCMD ("systemctl reboot")},
+    { MODKEY|WLR_MODIFIER_CTRL|WLR_MODIFIER_SHIFT, XKB_KEY_Q, spawn, SHCMD ("shutdown now")},
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_B,          togglebar,      {0} },
 	{ MODKEY,                    XKB_KEY_j,          focusstack,     {.i = +1} },
 	{ MODKEY,                    XKB_KEY_k,          focusstack,     {.i = -1} },
@@ -170,9 +163,9 @@ static const Key keys[] = {
 	{ MODKEY,                    XKB_KEY_Return,     zoom,           {0} },
 	{ MODKEY,                    XKB_KEY_Tab,        view,           {0} },
 	{ MODKEY,                    XKB_KEY_q,          killclient,     {0} },
-	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_t,          setlayout,      {.v = &layouts[0]} },
+	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_T,          setlayout,      {.v = &layouts[0]} },
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_F,          setlayout,      {.v = &layouts[1]} },
-	{ MODKEY,                    XKB_KEY_m,          setlayout,      {.v = &layouts[2]} },
+	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_M,          setlayout,      {.v = &layouts[2]} },
 	{ MODKEY,                    XKB_KEY_space,      setlayout,      {0} },
 	{ MODKEY|WLR_MODIFIER_SHIFT, XKB_KEY_space,      togglefloating, {0} },
 	{ MODKEY,                    XKB_KEY_f,          togglefullscreen, {0} },
