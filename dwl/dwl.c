@@ -87,7 +87,7 @@
 
 /* enums */
 enum { SchemeNorm, SchemeSel, SchemeUrg, SchemeInfoNorm, SchemeInfoSel }; /* color schemes */
-enum { CurNormal, CurPressed, CurMove, CurResize }; /* cursor */
+enum { CurNormal, CurPressed, CurMove, CurResize, Curmfact }; /* cursor */
 enum { XDGShell, LayerShell, X11 }; /* client types */
 enum { LyrBg, LyrBottom, LyrTile, LyrFloat, LyrTop, LyrFS, LyrOverlay, LyrBlock, NUM_LAYERS }; /* scene layers */
 enum { ClkTagBar, ClkLtSymbol, ClkStatus, ClkTitle, ClkClient, ClkRoot }; /* clicks */
@@ -2146,6 +2146,9 @@ motionnotify(uint32_t time, struct wlr_input_device *device, double dx, double d
 		resize(grabc, (struct wlr_box){.x = grabc->geom.x, .y = grabc->geom.y,
 			.width = (int)round(cursor->x) - grabc->geom.x, .height = (int)round(cursor->y) - grabc->geom.y}, 1);
 		return;
+	} else if (cursor_mode == Curmfact && time) {
+		selmon->mfact = (float) (cursor->x / selmon->m.width);
+		arrange(selmon);
 	}
 
 	/* If there's no client surface under the cursor, set the cursor image to a
@@ -2197,6 +2200,10 @@ moveresize(const Arg *arg)
 				grabc->geom.y + grabc->geom.height);
 		wlr_cursor_set_xcursor(cursor, cursor_mgr, "se-resize");
 		break;
+	case Curmfact:
+		setfloating(grabc, 0);
+		selmon->mfact = (float) (cursor->x / selmon->m.width);
+		arrange(selmon);
 	}
 }
 

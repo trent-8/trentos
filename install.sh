@@ -3,7 +3,6 @@ set -x
 # install all my pacman packages
 sudo pacman -Syu --noconfirm --needed\
     alacritty\
-    arandr\
     bluez-obex\
     brightnessctl\
     dunst\
@@ -38,7 +37,6 @@ sudo pacman -Syu --noconfirm --needed\
     qt6-base\
     qt6-wayland\
     rclone\
-    rofi\
     signal-desktop\
     spotify-launcher\
     thunar\
@@ -56,11 +54,6 @@ sudo pacman -Syu --noconfirm --needed\
     wlroots\
     wofi\
     xorg-xwayland\
-    xorg-server\
-    xorg-xinit\
-    xorg-xrandr\
-    xorg-xrdb\
-    xorg-xsetroot\
     zip\
     zram-generator
     
@@ -78,7 +71,6 @@ yay -S --noconfirm --needed\
 
 # add all config files
 mkdir -p\
-    ~/.config/rofi\
     ~/Downloads\
     ~/Pictures
 sudo mkdir -p /etc/gtk-2.0 /etc/gtk-3.0 /etc/gtk-4.0
@@ -88,7 +80,6 @@ cd trentos
 cp xinitrc ~/.xinitrc
 sudo cp start-dwl /usr/local/bin/
 sudo cp start-dwl /usr/local/bin/sw
-sudo bash -c 'echo "startx" > /usr/local/bin/sx && chmod +x /usr/local/bin/sx'
 cd config
 sudo cp nanorc /etc/
 cd theme
