@@ -9,6 +9,8 @@ sudo pacman -Syu --noconfirm --needed\
     dunst\
     fcft\
     firefox\
+    flameshot\
+    imlib2\
     grim\
     gtk4\
     gvfs\
@@ -29,6 +31,7 @@ sudo pacman -Syu --noconfirm --needed\
     pamixer\
     papirus-icon-theme\
     playerctl\
+    picom\
     python-libevdev\
     python-matplotlib\
     python-pipx\
@@ -78,22 +81,21 @@ yay -S --noconfirm --needed\
 
 # add all config files
 mkdir -p\
-    ~/.config/rofi\
     ~/Downloads\
     ~/Pictures
 sudo mkdir -p /etc/gtk-2.0 /etc/gtk-3.0
 
-# copy all the theme config files to their global locations
-cd ~/trentos/config/theme
+cd trentos
+cp xinitrc ~/.xinitrc
+sudo cp start-dwl /usr/local/bin/
+cd config
+sudo cp picom.conf /etc/xdg/
+sudo cp nanorc /etc/
+cd theme
 sudo cp gtkrc /etc/gtk-2.0/
 sudo cp settings.ini /etc/gtk-3.0/
 sudo cp index.theme /usr/share/icons/default/
 sudo cp Xresources /etc/X11/
-# copy my nano config to its global location
-cp ~/trentos/xinitrc ~/.xinitrc
-sudo cp ~/trentos/config/nano/nanorc /etc
-# copy the start-dwl script to a runnable location
-sudo cp ~/trentos/start-dwl /usr/local/bin/
 
 sudo systemctl enable --now bluetooth
 
@@ -101,7 +103,7 @@ sudo systemctl enable --now bluetooth
 cd ~/trentos/dwl
 sudo make install
 sudo make clean
-cd ~/trentos/dwm
+cd ~/trentos/dwm-titus-main
 sudo make install
 sudo make clean
 
