@@ -9,8 +9,6 @@ sudo pacman -Syu --noconfirm --needed\
     dunst\
     fcft\
     firefox\
-    flameshot\
-    imlib2\
     grim\
     gtk4\
     gvfs\
@@ -31,7 +29,6 @@ sudo pacman -Syu --noconfirm --needed\
     pamixer\
     papirus-icon-theme\
     playerctl\
-    picom\
     python-libevdev\
     python-matplotlib\
     python-pipx\
@@ -81,16 +78,18 @@ yay -S --noconfirm --needed\
 
 # add all config files
 mkdir -p\
+    ~/.config/rofi\
     ~/Downloads\
     ~/Pictures
 sudo mkdir -p /etc/gtk-2.0 /etc/gtk-3.0
 
+# copy all config files to their distinations
 cd trentos
 cp xinitrc ~/.xinitrc
 sudo cp start-dwl /usr/local/bin/
 cd config
-sudo cp picom.conf /etc/xdg/
 sudo cp nanorc /etc/
+sudo cp picom.conf /etc/xdg/
 cd theme
 sudo cp gtkrc /etc/gtk-2.0/
 sudo cp settings.ini /etc/gtk-3.0/
@@ -103,7 +102,7 @@ sudo systemctl enable --now bluetooth
 cd ~/trentos/dwl
 sudo make install
 sudo make clean
-cd ~/trentos/dwm-titus-main
+cd ~/trentos/dwm
 sudo make install
 sudo make clean
 
