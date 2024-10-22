@@ -77,9 +77,7 @@ yay -S --noconfirm --needed\
     xcursor-breeze
 
 # add all config files
-mkdir -p\
-    ~/Downloads\
-    ~/Pictures
+mkdir -p ~/Pictures
 sudo mkdir -p /etc/gtk-2.0 /etc/gtk-3.0 /etc/gtk-4.0
 
 # copy all config files to their distinations
