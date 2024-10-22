@@ -24,11 +24,13 @@ sudo pacman -Syu --noconfirm --needed\
     neofetch\
     noto-fonts\
     ntfs-3g\
+    obs-studio\
     pamixer\
     papirus-icon-theme\
     playerctl\
     python-libevdev\
     python-matplotlib\
+    python-pip\
     python-pipx\
     python-pygame\
     python-scipy\
@@ -38,21 +40,25 @@ sudo pacman -Syu --noconfirm --needed\
     qt6-wayland\
     rclone\
     signal-desktop\
+    speech-dispatcher\
     spotify-launcher\
     thunar\
+    thunar-volman\
+    tk\
     tllist\
+    ttf-aptos\
     ttf-nerd-fonts-symbols-mono\
     ttf-roboto\
     tumbler\
     unzip\
     vlc\
-    xarchiver\
     wayland-protocols\
     wev\
     wget\
     wireshark-qt\
     wlroots\
     wofi\
+    xarchiver\
     xorg-xwayland\
     zip\
     zram-generator
@@ -65,8 +71,9 @@ if [ ! -d yay ]; then
     makepkg -si --noconfirm --needed
 fi
 yay -S --noconfirm --needed\
-    visual-studio-code-bin\
     bluetuith\
+    visual-studio-code-bin\
+    wlrobs-hg\
     xcursor-breeze
 
 # add all config files
@@ -77,7 +84,6 @@ sudo mkdir -p /etc/gtk-2.0 /etc/gtk-3.0 /etc/gtk-4.0
 
 # copy all config files to their distinations
 cd trentos
-cp xinitrc ~/.xinitrc
 sudo cp start-dwl /usr/local/bin/
 sudo cp start-dwl /usr/local/bin/sw
 cd config
@@ -87,15 +93,11 @@ sudo cp gtkrc /etc/gtk-2.0/
 sudo cp settings-gtk3.ini /etc/gtk-3.0/settings.ini
 sudo cp settings-gtk4.ini /etc/gtk-4.0/settings.ini
 sudo cp index.theme /usr/share/icons/default/
-sudo cp Xresources /etc/X11/
 
 sudo systemctl enable --now bluetooth
 
-# make dwl and dwm
+# make dwl
 cd ~/trentos/dwl
-sudo make install
-sudo make clean
-cd ~/trentos/dwm
 sudo make install
 sudo make clean
 

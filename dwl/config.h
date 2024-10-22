@@ -135,6 +135,8 @@ static const Key keys[] = {
 	{ MODKEY,                    XKB_KEY_e,          spawn,          SHCMD ("xdg-open .") },
 	{ MODKEY,                    XKB_KEY_b,          spawn,          SHCMD ("xdg-open https://") },
 	{ MODKEY,                    XKB_KEY_c,          spawn,          SHCMD ("code") },
+	{ MODKEY,                    XKB_KEY_o,          spawn,          SHCMD ("obs") },
+	{ MODKEY,                    XKB_KEY_d,          spawn,          SHCMD ("libreoffice --writer") },
 	{ MODKEY,                    XKB_KEY_s,          spawn,          SHCMD ("spotify-launcher") },
 	{ MODKEY,                    XKB_KEY_w,          spawn,          SHCMD ("wireshark") },
 	{ MODKEY,                    XKB_KEY_n,          spawn,          SHCMD ("alacritty -e bash -c 'python ~/trentos/notes.py'") },

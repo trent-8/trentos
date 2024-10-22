@@ -1,7 +1,5 @@
 import os, sys, time, tkinter, random, pygame, pickle
 from tkinter import filedialog
-from enum import Enum, auto
-from pynput import keyboard
 
 music_directory = ""
 mp3_files = []
