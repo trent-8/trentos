@@ -93,6 +93,7 @@ sudo cp gtkrc /etc/gtk-2.0/
 sudo cp settings-gtk3.ini /etc/gtk-3.0/settings.ini
 sudo cp settings-gtk4.ini /etc/gtk-4.0/settings.ini
 sudo cp index.theme /usr/share/icons/default/
+sudo cp Xresources /etc/X11/
 
 sudo systemctl enable --now bluetooth
 
