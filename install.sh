@@ -45,7 +45,7 @@ sudo pacman -Syu --noconfirm --needed\
     signal-desktop\
     speech-dispatcher\
     spotify-launcher\
-    swayimg\
+    swaybg\
     tk\
     tllist\
     ttf-aptos\
