@@ -21,6 +21,8 @@ sudo pacman -Syu --noconfirm --needed\
     materia-gtk-theme\
     nano\
     nano-syntax-highlighting\
+    nemo\
+    nemo-fileroller\
     neofetch\
     noto-fonts\
     ntfs-3g\
@@ -39,17 +41,16 @@ sudo pacman -Syu --noconfirm --needed\
     qt6-base\
     qt6-wayland\
     rclone\
+    shotwell\
     signal-desktop\
     speech-dispatcher\
     spotify-launcher\
-    thunar\
-    thunar-volman\
+    swayimg\
     tk\
     tllist\
     ttf-aptos\
     ttf-nerd-fonts-symbols-mono\
     ttf-roboto\
-    tumbler\
     unzip\
     vlc\
     wayland-protocols\
@@ -58,7 +59,6 @@ sudo pacman -Syu --noconfirm --needed\
     wireshark-qt\
     wlroots\
     wofi\
-    xarchiver\
     xorg-xwayland\
     zip\
     zram-generator
