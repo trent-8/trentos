@@ -48,7 +48,6 @@ sudo pacman -Syu --noconfirm --needed\
     swaybg\
     tk\
     tllist\
-    ttf-aptos\
     ttf-nerd-fonts-symbols-mono\
     ttf-roboto\
     unzip\
@@ -72,6 +71,7 @@ if [ ! -d yay ]; then
 fi
 yay -S --noconfirm --needed\
     bluetuith\
+    ttf-aptos\
     visual-studio-code-bin\
     wlrobs-hg\
     xcursor-breeze
