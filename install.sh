@@ -4,6 +4,7 @@ set -x
 sudo pacman -Syu --noconfirm --needed\
     alacritty\
     bluez-obex\
+    blueman\
     brightnessctl\
     dunst\
     firefox\
@@ -24,6 +25,7 @@ sudo pacman -Syu --noconfirm --needed\
     nemo\
     nemo-fileroller\
     neofetch\
+    network-manager-applet\
     noto-fonts\
     ntfs-3g\
     obs-studio\
@@ -70,7 +72,6 @@ if [ ! -d yay ]; then
     makepkg -si --noconfirm --needed
 fi
 yay -S --noconfirm --needed\
-    bluetuith\
     ttf-aptos\
     visual-studio-code-bin\
     wlrobs-hg\
