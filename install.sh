@@ -6,12 +6,12 @@ sudo pacman -Syu --noconfirm --needed\
     bluez-obex\
     brightnessctl\
     dunst\
-    fcft\
     firefox\
     grim\
     gtk4\
     gvfs\
     htop\
+    hyprland\
     hunspell-en_us\
     jdk-openjdk\
     less\
@@ -30,6 +30,7 @@ sudo pacman -Syu --noconfirm --needed\
     pamixer\
     papirus-icon-theme\
     playerctl\
+    power-profiles-daemon\
     python-libevdev\
     python-matplotlib\
     python-pip\
@@ -52,11 +53,10 @@ sudo pacman -Syu --noconfirm --needed\
     ttf-roboto\
     unzip\
     vlc\
-    wayland-protocols\
+    waybar\
     wev\
     wget\
     wireshark-qt\
-    wlroots\
     wofi\
     xorg-xwayland\
     zip\
@@ -76,16 +76,13 @@ yay -S --noconfirm --needed\
     wlrobs-hg\
     xcursor-breeze
 
-# add all config files
 mkdir -p ~/Pictures
 sudo mkdir -p /etc/gtk-2.0 /etc/gtk-3.0 /etc/gtk-4.0
 
-# copy all config files to their distinations
-cd trentos
-sudo cp start-dwl /usr/local/bin/
-sudo cp start-dwl /usr/local/bin/sw
 cd config
+cp hyprland.conf ~/.config/hypr/
 sudo cp nanorc /etc/
+sudo cp waybar/config.jsonc /etc/xdg/waybar/
 cd theme
 sudo cp gtkrc /etc/gtk-2.0/
 sudo cp settings-gtk3.ini /etc/gtk-3.0/settings.ini
