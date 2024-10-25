@@ -17,7 +17,6 @@ sudo pacman -Syu --noconfirm --needed\
     less\
     libreoffice-fresh\
     mate-calc\
-    mate-polkit\
     materia-gtk-theme\
     nano\
     nano-syntax-highlighting\
@@ -31,6 +30,7 @@ sudo pacman -Syu --noconfirm --needed\
     pamixer\
     papirus-icon-theme\
     playerctl\
+    polkit-kde-agent\
     power-profiles-daemon\
     python-libevdev\
     python-matplotlib\
