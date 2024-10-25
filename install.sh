@@ -73,7 +73,6 @@ fi
 yay -S --noconfirm --needed\
     bluetuith\
     ttf-aptos\
-    visual-studio-code-bin\
     wlrobs-hg\
     xcursor-breeze
 
