@@ -77,9 +77,9 @@ yay -S --noconfirm --needed\
     xcursor-breeze
 
 mkdir -p ~/Pictures
-sudo mkdir -p /etc/gtk-2.0 /etc/gtk-3.0 /etc/gtk-4.0
+sudo mkdir -p /etc/gtk-2.0 /etc/gtk-3.0 /etc/gtk-4.0 ~/.config/hypr
 
-cd config
+cd ~/trentos/config
 cp hyprland.conf ~/.config/hypr/
 sudo cp nanorc /etc/
 sudo cp waybar/config.jsonc /etc/xdg/waybar/
