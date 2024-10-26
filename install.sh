@@ -47,6 +47,7 @@ sudo pacman -Syu --noconfirm --needed\
     qt6-base\
     qt6-wayland\
     rclone\
+    sddm\
     shotwell\
     signal-desktop\
     speech-dispatcher\
@@ -82,6 +83,7 @@ yay -S --noconfirm --needed\
 cd $script_dir/config
 cp -r hypr/ waybar/ spotify-flags.conf $HOME/.config/
 sudo cp -r nanorc /etc/
+sudo cp -r hypr/ /usr/share/hyprland
 # make a home for background photos
 cd $script_dir
 cp -r Pictures/ $HOME/
@@ -89,3 +91,4 @@ cp -r Pictures/ $HOME/
 sudo cp $script_dir/shl /usr/local/bin/
 
 sudo systemctl enable --now bluetooth
+sudo systemctl enable --now sddm
