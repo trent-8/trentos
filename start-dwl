@@ -1,1 +1,0 @@
-dbus-run-session ~/trentos/get-status | dwl -s ~/trentos/startup.sh
