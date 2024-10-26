@@ -82,7 +82,7 @@ yay -S --noconfirm --needed\
 
 cd $script_dir/config
 cp -r hypr/ waybar/ spotify-flags.conf $HOME/.config/
-sudo cp -r nanorc /etc/
+sudo cp -r nanorc gtk-2.0/ gtk-3.0/ gtk-4.0/ /etc/
 sudo cp -r hypr/ /usr/share/hyprland
 # make a home for background photos
 cd $script_dir
