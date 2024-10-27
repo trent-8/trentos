@@ -80,12 +80,9 @@ yay -S --noconfirm --needed\
     xcursor-breeze\
     visual-studio-code-bin
 
-cd $script_dir/config
-cp -r hypr/ waybar/ nano/ spotify-flags.conf $HOME/.config/
-
-# make a home for background photos
 cd $script_dir
-cp -r Pictures/ $HOME/
+cp -r .config/ Pictures/ scripts/ $HOME/
+
 # make it so "shl" will start hyprland
 sudo cp $script_dir/shl /usr/local/bin/
 
