@@ -81,9 +81,8 @@ yay -S --noconfirm --needed\
     visual-studio-code-bin
 
 cd $script_dir/config
-cp -r hypr/ waybar/ spotify-flags.conf $HOME/.config/
-sudo cp -r nanorc /etc/
-sudo cp -r hypr/ /usr/share/hyprland
+cp -r hypr/ waybar/ nano/ spotify-flags.conf $HOME/.config/
+
 # make a home for background photos
 cd $script_dir
 cp -r Pictures/ $HOME/
