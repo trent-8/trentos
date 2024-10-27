@@ -74,7 +74,7 @@ yay -S --noconfirm --needed\
     visual-studio-code-bin
 
 cd $script_dir
-cp -r .config/ Pictures/ scripts/ .bash_profile $HOME/
+cp -r .config/ Pictures/ .bash_profile $HOME/
 
 # make it so "shl" will start hyprland
 sudo cp $script_dir/shl /usr/local/bin/
