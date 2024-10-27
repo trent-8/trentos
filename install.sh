@@ -32,7 +32,6 @@ sudo pacman -Syu --noconfirm --needed\
     obs-studio\
     otf-font-awesome\
     pamixer\
-    papirus-icon-theme\
     playerctl\
     polkit-kde-agent\
     power-profiles-daemon\

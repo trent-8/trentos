@@ -118,7 +118,7 @@
             "car": "",
             "default": ["", "", ""]
         },
-        "on-click": "alacritty -e bash -c 'bluetuith --adapter-states=\"scan:yes\"'"
+        "on-click": "kitty -e bash -c 'bluetuith --adapter-states=\"scan:yes\"'"
     },
     "custom/power": {
         "format" : "⏻ ",
