@@ -10,13 +10,14 @@ sudo pacman -Syu --noconfirm --needed\
     clapper\
     dunst\
     firefox\
-    grim\
-    gtk4\
     gvfs\
     htop\
+    hypridle\
     hyprland\
+    hyprlock\
     hunspell-en_us\
     jdk-openjdk\
+    kvantum-theme-materia\
     less\
     libreoffice-fresh\
     mate-calc\
@@ -41,25 +42,20 @@ sudo pacman -Syu --noconfirm --needed\
     python-pipx\
     python-pygame\
     python-scipy\
-    qt5-base\
-    qt5-wayland\
-    qt6-base\
-    qt6-wayland\
     rclone\
     shotwell\
     signal-desktop\
     speech-dispatcher\
     swaybg\
     tk\
-    ttf-nerd-fonts-symbols-mono\
     ttf-roboto\
     unzip\
     waybar\
-    wev\
     wget\
     wireshark-qt\
     wofi\
-    xorg-xwayland\
+    xdg-desktop-portal-gtk\
+    xdg-desktop-portal-hyprland\
     zip\
     zram-generator
     
@@ -74,12 +70,11 @@ yay -S --noconfirm --needed\
     bluetuith\
     spotify\
     ttf-aptos\
-    wlrobs-hg\
     xcursor-breeze\
     visual-studio-code-bin
 
 cd $script_dir
-cp -r .config/ Pictures/ scripts/ $HOME/
+cp -r .config/ Pictures/ scripts/ .bash_profile $HOME/
 
 # make it so "shl" will start hyprland
 sudo cp $script_dir/shl /usr/local/bin/
