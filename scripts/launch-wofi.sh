@@ -4,5 +4,5 @@
 if pgrep -x "wofi" > /dev/null; then
     pkill -x "wofi"
 else
-    wofi --show drun --allow-images
+    wofi --show drun --allow-images --normal-window
 fi

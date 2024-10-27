@@ -4,7 +4,7 @@ script_dir=$( cd "$(dirname "${SH_SOURCE[0]}")" ; pwd -P )
 set -x
 # install all my pacman packages
 sudo pacman -Syu --noconfirm --needed\
-    alacritty\
+    kitty\
     bluez-obex\
     brightnessctl\
     clapper\
@@ -47,7 +47,6 @@ sudo pacman -Syu --noconfirm --needed\
     qt6-base\
     qt6-wayland\
     rclone\
-    sddm\
     shotwell\
     signal-desktop\
     speech-dispatcher\
@@ -87,4 +86,3 @@ cp -r .config/ Pictures/ scripts/ $HOME/
 sudo cp $script_dir/shl /usr/local/bin/
 
 sudo systemctl enable --now bluetooth
-sudo systemctl enable --now sddm
