@@ -16,6 +16,7 @@ sudo pacman -Syu --noconfirm --needed\
     hypridle\
     hyprland\
     hyprlock\
+    hyprpolkitagent\
     hunspell-en_us\
     jdk-openjdk\
     kvantum-theme-materia\
@@ -35,7 +36,6 @@ sudo pacman -Syu --noconfirm --needed\
     otf-font-awesome\
     pamixer\
     playerctl\
-    polkit-kde-agent\
     power-profiles-daemon\
     python-libevdev\
     python-matplotlib\
