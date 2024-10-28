@@ -79,3 +79,4 @@ cd $script_dir
 cp -r .config/ Pictures/ .bash_profile $HOME/
 
 sudo systemctl enable --now bluetooth
+sudo usermod -aG input,wireshark,video $USER
