@@ -16,13 +16,13 @@ sudo pacman -Syu --noconfirm --needed\
     hypridle\
     hyprland\
     hyprlock\
-    hyprpolkitagent\
     hunspell-en_us\
     jdk-openjdk\
     kvantum-theme-materia\
     less\
     libreoffice-fresh\
     mate-calc\
+    mate-polkit\
     materia-gtk-theme\
     nano\
     nano-syntax-highlighting\
