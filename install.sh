@@ -10,6 +10,7 @@ sudo pacman -Syu --noconfirm --needed\
     clapper\
     dunst\
     firefox\
+    fprintd\
     gvfs\
     htop\
     hypridle\
@@ -48,6 +49,7 @@ sudo pacman -Syu --noconfirm --needed\
     speech-dispatcher\
     swaybg\
     tk\
+    ttf-nerd-fonts-symbols-mono\
     ttf-roboto\
     unzip\
     waybar\
@@ -75,8 +77,5 @@ yay -S --noconfirm --needed\
 
 cd $script_dir
 cp -r .config/ Pictures/ .bash_profile $HOME/
-
-# make it so "shl" will start hyprland
-sudo cp $script_dir/shl /usr/local/bin/
 
 sudo systemctl enable --now bluetooth
