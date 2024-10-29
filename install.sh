@@ -47,7 +47,6 @@ sudo pacman -Syu --noconfirm --needed\
     shotwell\
     signal-desktop\
     speech-dispatcher\
-    swaybg\
     tk\
     ttf-nerd-fonts-symbols-mono\
     ttf-roboto\
@@ -66,6 +65,12 @@ cd ~
 if [ ! -d yay ]; then
     git clone https://aur.archlinux.org/yay.git
     cd yay
+    makepkg -si --noconfirm --needed
+fi
+cd ~
+if [ ! -d wlrandbg ]; then
+    git clone https://github.com/trent-8/wlrandbg
+    cd wlrandbg
     makepkg -si --noconfirm --needed
 fi
 yay -S --noconfirm --needed\
