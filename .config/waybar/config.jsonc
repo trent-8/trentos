@@ -1,0 +1,81 @@
+{
+    "layer": "top", // Waybar at top layer
+    "position": "bottom", // Waybar at the bottom of your screen
+    "height": 24, // Waybar height
+    // "width": 1366, // Waybar width
+    // Choose the order of the modules
+    "modules-left": ["hyprland/workspaces"],
+    "modules-center": ["hyprland/window"],
+    "modules-right": ["tray", "pulseaudio", "power-profiles-daemon", "battery", "clock"],
+    "hyprland/workspaces": {
+        "spacing": 3
+    },
+    "tray": {
+        // "icon-size": 21,
+        "spacing": 10
+    },
+    "clock": {
+		"tooltip": false,
+        "format": "{:%I:%M}",
+        "format-alt": "{:%m/%d/%Y}"
+    },
+    "battery": {
+        "bat": "BAT0",
+        "states": {
+            // "good": 95,
+            "warning": 30,
+            "critical": 15
+        },
+        "format": "{capacity}% {icon}",
+        // "format-good": "", // An empty format will hide the module
+        // "format-full": "",
+        "format-icons": ["", "", "", "", ""]
+    },
+    "power-profiles-daemon": {
+      "format": "{icon}",
+      "tooltip-format": "Power profile: {profile}\nDriver: {driver}",
+      "tooltip": true,
+      "format-icons": {
+        "default": "",
+        "performance": "",
+        "balanced": "",
+        "power-saver": ""
+      }
+    },
+    "pulseaudio": {
+        "scroll-step": 5, // %, can be a float
+        "format": "{icon} {volume}%",
+        "format-bluetooth": " {icon} {volume}%",
+        "format-bluetooth-muted": "  {icon}",
+        "format-muted": "  {format_source}",
+        // "format-source": " {volume}%",
+        // "format-source-muted": "",
+        "format-icons": {
+           "headphone": "🎧",
+           "hands-free": "",
+           "headset": "",
+           "phone": "",
+           "portable": "",
+           "car": "",
+            "default": ["🔈", "🔉", "🔊"]
+        },
+        "on-click": "pavucontrol",
+        "on-click-right": "foot -a pw-top pw-top"
+    }
+    // "pulseaudio": {
+    //     //"scroll-step": 1,
+    //     "format": "{volume}% {icon}",
+    //     "format-bluetooth": "{volume}% {icon}",
+    //     "format-muted": "🔇",
+    //     "format-icons": {
+    //         "headphones": "",
+    //         "handsfree": "",
+    //         "headset": "",
+    //         "phone": "",
+    //         "portable": "",
+    //         "car": "",
+    //         "default": ["", ""]
+    //     },
+    //     "on-click": "kitty -e bash -c 'bluetuith --adapter-states=\"scan:yes\"'"
+    // }
+}

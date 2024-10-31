@@ -31,6 +31,8 @@ sudo pacman -Syu --noconfirm --needed\
     neofetch\
     network-manager-applet\
     noto-fonts\
+    noto-fonts-cjk\
+    noto-fonts-emoji\
     ntfs-3g\
     obs-studio\
     otf-font-awesome\
@@ -67,16 +69,11 @@ if [ ! -d yay ]; then
     cd yay
     makepkg -si --noconfirm --needed
 fi
-cd ~
-if [ ! -d wlrandbg ]; then
-    git clone https://github.com/trent-8/wlrandbg
-    cd wlrandbg
-    makepkg -si --noconfirm --needed
-fi
 yay -S --noconfirm --needed\
     bluetuith\
     spotify\
     ttf-aptos\
+    ttf-times-new-roman\
     xcursor-breeze\
     visual-studio-code-bin
 
