@@ -17,6 +17,7 @@ sudo pacman -Syu --noconfirm --needed\
     hyprland\
     hyprlock\
     hunspell-en_us\
+    ipscan\
     jdk-openjdk\
     kvantum-theme-materia\
     less\
