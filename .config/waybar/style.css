@@ -5,7 +5,7 @@
 }
 
 window#waybar {
-    background-color: rgba(48, 48, 48, .5);
+    background-color: rgba(40, 40, 40, .7);
     border: none;
     color: #ffffff;
     transition-property: background-color;
@@ -36,7 +36,7 @@ window#waybar.chromium {
 }
 
 button {
-    border-radius: 10px;
+    border-radius: 7px;
     margin: 2px;
     border: none;
 }
@@ -53,6 +53,7 @@ button:hover {
 
 #workspaces button {
     background-color: rgba(55, 55, 55, 0.95);
+    margin-right: 0px;
     color: #ffffff;
 }
 
@@ -91,7 +92,7 @@ button:hover {
 #scratchpad,
 #power-profiles-daemon,
 #mpd {
-    border-radius: 10px;
+    border-radius: 7px;
     margin: 2px;
     padding: 0 10px;
     color: #ffffff;
@@ -103,15 +104,17 @@ button:hover {
 }
 
 #clock {
-    border-radius: 10px;
+    border-radius: 7px;
     margin: 2px;
+    margin-left: 0;
     background-color: rgba(77, 77, 77, 0.5);
     color: #ffffff;
 }
 
 #battery {
-    border-radius: 10px;
+    border-radius: 7px;
     margin: 2px;
+    margin-left: 0;
     background-color: rgba(77, 77, 77, 0.5);
     color: #ffffff;
 }
@@ -140,8 +143,9 @@ button:hover {
 }
 
 #power-profiles-daemon {
-    border-radius: 10px;
+    border-radius: 7px;
     margin: 2px;
+    margin-left: 0;
     background-color: rgba(77, 77, 77, 0.5);
     color: #ffffff;
 }
@@ -151,34 +155,43 @@ label:focus {
 }
 
 #cpu {
-    border-radius: 10px;
+    border-radius: 7px;
     margin: 2px;
-    background-color: #2ecc71;
-    color: #000000;
+    margin-left: 0;
+    background-color: rgba(77, 77, 77, 0.5);
+    color: #ffffff;
 }
 
 #memory {
-    border-radius: 10px;
+    border-radius: 7px;
     margin: 2px;
-    background-color: #9b59b6;
+    margin-left: 0;
+    background-color: rgba(77, 77, 77, 0.5);
+    color: #ffffff;
 }
 
 #disk {
-    border-radius: 10px;
+    border-radius: 7px;
     margin: 2px;
-    background-color: #964B00;
+    margin-left: 0;
+    background-color: rgba(77, 77, 77, 0.5);
+    color: #ffffff;
 }
 
 #backlight {
-    border-radius: 10px;
+    border-radius: 7px;
     margin: 2px;
-    background-color: #90b1b1;
+    margin-left: 0;
+    background-color: rgba(77, 77, 77, 0.5);
+    color: #ffffff;
 }
 
 #network {
-    border-radius: 10px;
+    border-radius: 7px;
     margin: 2px;
-    background-color: #2980b9;
+    margin-left: 0;
+    background-color: rgba(77, 77, 77, 0.5);
+    color: #ffffff;
 }
 
 #network.disconnected {
@@ -186,8 +199,9 @@ label:focus {
 }
 
 #pulseaudio {
-    border-radius: 10px;
+    border-radius: 7px;
     margin: 2px;
+    margin-left: 0;
     background-color: rgba(77, 77, 77, .5);
     color: rgb(255, 255, 255);
 }
@@ -198,8 +212,9 @@ label:focus {
 }
 
 #wireplumber {
-    border-radius: 10px;
+    border-radius: 7px;
     margin: 2px;
+    margin-left: 0;
     background-color: rgba(77, 77, 77, .5);
     color: rgb(255, 255, 255);
 }
@@ -210,8 +225,9 @@ label:focus {
 }
 
 #custom-media {
-    border-radius: 10px;
+    border-radius: 7px;
     margin: 2px;
+    margin-left: 0;
     background-color: #66cc99;
     color: #2a5c45;
     min-width: 100px;
@@ -226,9 +242,11 @@ label:focus {
 }
 
 #temperature {
-    border-radius: 10px;
+    border-radius: 7px;
     margin: 2px;
+    margin-left: 0;
     background-color: rgba(77, 77, 77, 0.5);
+    color: #ffffff;
 }
 
 #temperature.critical {
@@ -236,8 +254,9 @@ label:focus {
 }
 
 #tray {
-    border-radius: 10px;
+    border-radius: 7px;
     margin: 2px;
+    margin-left: 0;
     background-color: rgba(77, 77, 77, 0.5);
 }
 
@@ -247,13 +266,15 @@ label:focus {
 
 #tray > .needs-attention {
     -gtk-icon-effect: highlight;
-    background-color: rgba(235, 78, 75, 0.5);
+    background-color: rgba(77, 77, 77, 0.5);
+    color: #ffffff;
 }
 
 #idle_inhibitor {
-    border-radius: 10px;
+    border-radius: 7px;
     margin: 2px;
-    background-color: #2d3436;
+    background-color: rgba(77, 77, 77, 0.5);
+    color: #ffffff;
 }
 
 #idle_inhibitor.activated {
@@ -262,8 +283,9 @@ label:focus {
 }
 
 #mpd {
-    border-radius: 10px;
+    border-radius: 7px;
     margin: 2px;
+    margin-left: 0;
     background-color: #66cc99;
     color: #2a5c45;
 }
@@ -305,7 +327,7 @@ label:focus {
 }
 
 #scratchpad {
-    border-radius: 10px;
+    border-radius: 7px;
     margin: 2px;
     background: rgba(0, 0, 0, 0.2);
 }
@@ -315,13 +337,13 @@ label:focus {
 }
 
 #privacy {
-    border-radius: 10px;
+    border-radius: 7px;
     margin: 2px;
     padding: 0;
 }
 
 #privacy-item {
-    border-radius: 10px;
+    border-radius: 7px;
     margin: 2px;
     padding: 0 5px;
     color: white;
