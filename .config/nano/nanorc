@@ -227,7 +227,7 @@ set tabstospaces
 # set selectedcolor lightwhite,magenta
 # set stripecolor ,#444
 # set scrollercolor cyan
-# set numbercolor cyan
+set numbercolor #444
 # set keycolor cyan
 # set functioncolor green
 
