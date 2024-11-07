@@ -14,7 +14,6 @@ sudo pacman -Syu --noconfirm --needed\
     gvfs\
     htop\
     hypridle\
-    hyprland\
     hyprlock\
     hunspell-en_us\
     ipscan\
@@ -35,7 +34,6 @@ sudo pacman -Syu --noconfirm --needed\
     noto-fonts-cjk\
     noto-fonts-emoji\
     ntfs-3g\
-    obs-studio\
     otf-font-awesome\
     pamixer\
     playerctl\
@@ -58,8 +56,6 @@ sudo pacman -Syu --noconfirm --needed\
     wget\
     wireshark-qt\
     wofi\
-    xdg-desktop-portal-gtk\
-    xdg-desktop-portal-hyprland\
     zip\
     zram-generator
     
@@ -72,6 +68,8 @@ if [ ! -d yay ]; then
 fi
 yay -S --noconfirm --needed\
     bluetuith\
+    hyprland-git\
+    hyprsunset-git\
     spotify\
     ttf-aptos\
     ttf-times-new-roman\
