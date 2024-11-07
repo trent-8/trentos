@@ -74,7 +74,8 @@ yay -S --noconfirm --needed\
     ttf-aptos\
     ttf-times-new-roman\
     xcursor-breeze\
-    visual-studio-code-bin
+    visual-studio-code-bin\
+    wlrandbg
 
 cd $script_dir
 cp -r .config/ Pictures/ .bash_profile $HOME/
