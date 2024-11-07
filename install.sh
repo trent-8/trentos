@@ -16,7 +16,6 @@ sudo pacman -Syu --noconfirm --needed\
     hypridle\
     hyprlock\
     hunspell-en_us\
-    ipscan\
     jdk-openjdk\
     kvantum-theme-materia\
     less\
@@ -70,6 +69,7 @@ yay -S --noconfirm --needed\
     bluetuith\
     hyprland-git\
     hyprsunset-git\
+    ipscan\
     spotify\
     ttf-aptos\
     ttf-times-new-roman\
