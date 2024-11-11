@@ -1,1 +1,1 @@
-Hyprland
+source ~/.bashrc
