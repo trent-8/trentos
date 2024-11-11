@@ -36,8 +36,7 @@ window#waybar.chromium {
 }
 
 button {
-    border-radius: 7px;
-    margin: 2px;
+    border-radius: 2px;
     border: none;
 }
 
@@ -53,7 +52,7 @@ button:hover {
 
 #workspaces button {
     background-color: rgba(55, 55, 55, 0.95);
-    margin-right: 0px;
+    margin-right: 2px;
     color: #ffffff;
 }
 
@@ -92,8 +91,8 @@ button:hover {
 #scratchpad,
 #power-profiles-daemon,
 #mpd {
-    border-radius: 7px;
-    margin: 2px;
+    border-radius: 2px;
+    margin-right: 2px;
     padding: 0 10px;
     color: #ffffff;
 }
@@ -104,17 +103,15 @@ button:hover {
 }
 
 #clock {
-    border-radius: 7px;
-    margin: 2px;
-    margin-left: 0;
+    border-radius: 2px;
+    margin-left: 2px;
     background-color: rgba(77, 77, 77, 0.5);
     color: #ffffff;
 }
 
 #battery {
-    border-radius: 7px;
-    margin: 2px;
-    margin-left: 0;
+    border-radius: 2px;
+    margin-left: 2px;
     background-color: rgba(77, 77, 77, 0.5);
     color: #ffffff;
 }
@@ -143,9 +140,8 @@ button:hover {
 }
 
 #power-profiles-daemon {
-    border-radius: 7px;
-    margin: 2px;
-    margin-left: 0;
+    border-radius: 2px;
+    margin-left: 2px;
     background-color: rgba(77, 77, 77, 0.5);
     color: #ffffff;
 }
@@ -155,41 +151,36 @@ label:focus {
 }
 
 #cpu {
-    border-radius: 7px;
-    margin: 2px;
-    margin-left: 0;
+    border-radius: 2px;
+    margin-left: 2px;
     background-color: rgba(77, 77, 77, 0.5);
     color: #ffffff;
 }
 
 #memory {
-    border-radius: 7px;
-    margin: 2px;
-    margin-left: 0;
+    border-radius: 2px;
+    margin-left: 2px;
     background-color: rgba(77, 77, 77, 0.5);
     color: #ffffff;
 }
 
 #disk {
-    border-radius: 7px;
-    margin: 2px;
-    margin-left: 0;
+    border-radius: 2px;
+    margin-left: 2px;
     background-color: rgba(77, 77, 77, 0.5);
     color: #ffffff;
 }
 
 #backlight {
-    border-radius: 7px;
-    margin: 2px;
-    margin-left: 0;
+    border-radius: 2px;
+    margin-left: 2px;
     background-color: rgba(77, 77, 77, 0.5);
     color: #ffffff;
 }
 
 #network {
-    border-radius: 7px;
-    margin: 2px;
-    margin-left: 0;
+    border-radius: 2px;
+    margin-left: 2px;
     background-color: rgba(77, 77, 77, 0.5);
     color: #ffffff;
 }
@@ -199,9 +190,8 @@ label:focus {
 }
 
 #pulseaudio {
-    border-radius: 7px;
-    margin: 2px;
-    margin-left: 0;
+    border-radius: 2px;
+    margin-left: 2px;
     background-color: rgba(77, 77, 77, .5);
     color: rgb(255, 255, 255);
 }
@@ -212,9 +202,8 @@ label:focus {
 }
 
 #wireplumber {
-    border-radius: 7px;
-    margin: 2px;
-    margin-left: 0;
+    border-radius: 2px;
+    margin-left: 2px;
     background-color: rgba(77, 77, 77, .5);
     color: rgb(255, 255, 255);
 }
@@ -225,9 +214,8 @@ label:focus {
 }
 
 #custom-media {
-    border-radius: 7px;
-    margin: 2px;
-    margin-left: 0;
+    border-radius: 2px;
+    margin-left: 2px;
     background-color: #66cc99;
     color: #2a5c45;
     min-width: 100px;
@@ -242,9 +230,8 @@ label:focus {
 }
 
 #temperature {
-    border-radius: 7px;
-    margin: 2px;
-    margin-left: 0;
+    border-radius: 2px;
+    margin-left: 2px;
     background-color: rgba(77, 77, 77, 0.5);
     color: #ffffff;
 }
@@ -254,9 +241,8 @@ label:focus {
 }
 
 #tray {
-    border-radius: 7px;
-    margin: 2px;
-    margin-left: 0;
+    border-radius: 2px;
+    margin-left: 2px;
     background-color: rgba(77, 77, 77, 0.5);
 }
 
@@ -271,8 +257,8 @@ label:focus {
 }
 
 #idle_inhibitor {
-    border-radius: 7px;
-    margin: 2px;
+    border-radius: 2px;
+    margin-left: 2px;
     background-color: rgba(77, 77, 77, 0.5);
     color: #ffffff;
 }
@@ -283,9 +269,8 @@ label:focus {
 }
 
 #mpd {
-    border-radius: 7px;
-    margin: 2px;
-    margin-left: 0;
+    border-radius: 2px;
+    margin-left: 2px;
     background-color: #66cc99;
     color: #2a5c45;
 }
@@ -327,8 +312,8 @@ label:focus {
 }
 
 #scratchpad {
-    border-radius: 7px;
-    margin: 2px;
+    border-radius: 2px;
+    margin-right: 2px;
     background: rgba(0, 0, 0, 0.2);
 }
 
@@ -337,14 +322,14 @@ label:focus {
 }
 
 #privacy {
-    border-radius: 7px;
-    margin: 2px;
+    border-radius: 2px;
+    margin-left: 2px;
     padding: 0;
 }
 
 #privacy-item {
-    border-radius: 7px;
-    margin: 2px;
+    border-radius: 2px;
+    margin-left: 2px;
     padding: 0 5px;
     color: white;
 }

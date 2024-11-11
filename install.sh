@@ -13,10 +13,7 @@ sudo pacman -Syu --noconfirm --needed\
     fprintd\
     gvfs\
     htop\
-    hypridle\
-    hyprlock\
     hunspell-en_us\
-    ipscan\
     jdk-openjdk\
     kvantum-theme-materia\
     less\
@@ -68,13 +65,17 @@ if [ ! -d yay ]; then
 fi
 yay -S --noconfirm --needed\
     bluetuith\
+    hypridle-git\
+    hyprlock-git\
     hyprland-git\
     hyprsunset-git\
+    ipscan\
     spotify\
     ttf-aptos\
     ttf-times-new-roman\
     xcursor-breeze\
-    visual-studio-code-bin
+    visual-studio-code-bin\
+    wlrandbg
 
 cd $script_dir
 cp -r .config/ Pictures/ .bash_profile $HOME/
