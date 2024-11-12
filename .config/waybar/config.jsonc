@@ -9,6 +9,7 @@
     "modules-center": ["hyprland/window"],
     "modules-right": ["tray", "pulseaudio", "temperature", "cpu", "memory", "power-profiles-daemon", "battery", "clock"],
     "hyprland/workspaces": {
+        
     },
     "tray": {
         // "icon-size": 21,
