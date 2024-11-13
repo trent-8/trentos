@@ -33,6 +33,7 @@ sudo pacman -Syu --noconfirm --needed\
     noto-fonts-cjk\
     noto-fonts-emoji\
     ntfs-3g\
+    obs-studio\
     otf-font-awesome\
     pamixer\
     playerctl\
