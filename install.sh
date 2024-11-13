@@ -11,6 +11,8 @@ sudo pacman -Syu --noconfirm --needed\
     dunst\
     firefox\
     fprintd\
+    grim\
+    gst-libav\
     gvfs\
     htop\
     hunspell-en_us\
@@ -44,6 +46,7 @@ sudo pacman -Syu --noconfirm --needed\
     rclone\
     shotwell\
     signal-desktop\
+    slurp\
     speech-dispatcher\
     tk\
     ttf-nerd-fonts-symbols-mono\
@@ -53,6 +56,7 @@ sudo pacman -Syu --noconfirm --needed\
     wget\
     wireshark-qt\
     wofi\
+    xdg-desktop-portal-gtk\
     zip\
     zram-generator
     
@@ -75,10 +79,12 @@ yay -S --noconfirm --needed\
     ttf-times-new-roman\
     xcursor-breeze\
     visual-studio-code-bin\
-    wlrandbg
+    wlrandbg\
+    xdg-desktop-portal-hyprland-git
 
 cd $script_dir
-cp -r .config/ Pictures/ .bash_profile $HOME/
+cp -r .config/ Pictures/ $HOME/
+sudo cp Hl.sh /usr/local/bin/Hl
 
 sudo systemctl enable --now bluetooth
 sudo usermod -aG input,wireshark,video $USER
