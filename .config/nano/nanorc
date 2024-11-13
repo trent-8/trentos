@@ -167,7 +167,7 @@ set mouse
 ## will jump to that beginning (either forwards or backwards).  If the
 ## cursor is already at that position, it will jump to the true start
 ## of the line (the left edge).
-# set smarthome
+set smarthome
 
 ## Spread overlong lines over multiple screen lines.
 # set softwrap
@@ -278,8 +278,7 @@ set numbercolor #444
 ## keycode, which is hard-bound to the backspace function.  So, if you
 ## normally use <Backspace> for backspacing and not ^H, you can make
 ## <Ctrl+Backspace> delete the word to the left of the cursor with:
-# bind ^H chopwordleft main
-
+bind ^H chopwordleft main
 ## For a more mnemonic Comment keystroke (overriding Cut-from-cursor):
 # bind M-K comment main
 
@@ -297,7 +296,7 @@ set numbercolor #444
 # bind Sh-M-L "{nextword}{mark}{prevword}{execute}|sed 's/.*/\L&/'{enter}" main
 
 ## For copying a marked region to the system clipboard:
-# bind Sh-M-C "{execute}|xsel -ib{enter}{undo}" main
+bind Sh-M-C "{execute}|xsel -ib{enter}{undo}" main
 
 ## For normalizing Unicode to precomposed characters:
 # bind Sh-M-N "{execute}| uconv -x nfc {enter}" main
@@ -316,8 +315,8 @@ bind ^S savefile main
 bind ^W writeout main
 bind ^O insert main
 set multibuffer
-bind ^H help all
-bind ^H exit help
+# bind ^H help all
+# bind ^H exit help
 bind ^F whereis all
 bind ^G findnext all
 bind ^B wherewas all

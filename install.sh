@@ -1,8 +1,6 @@
 #!/bin/sh
-# get the parent directory of this script
 script_dir=$( cd "$(dirname "${SH_SOURCE[0]}")" ; pwd -P )
 set -x
-# install all my pacman packages
 sudo pacman -Syu --noconfirm --needed\
     kitty\
     bluez-obex\
@@ -60,8 +58,6 @@ sudo pacman -Syu --noconfirm --needed\
     xdg-desktop-portal-gtk\
     zip\
     zram-generator
-    
-# install yay and packages
 cd ~
 if [ ! -d yay ]; then
     git clone https://aur.archlinux.org/yay.git
@@ -82,10 +78,11 @@ yay -S --noconfirm --needed\
     visual-studio-code-bin\
     wlrandbg\
     xdg-desktop-portal-hyprland-git
-
 cd $script_dir
 cp -r .config/ Pictures/ $HOME/
-sudo cp Hl.sh /usr/local/bin/Hl
-
+hlalias="alias hl='dbus-run-session Hyprland'"
+if ! grep -qxF "$hlalias" ~/.bash_profile; then
+    echo "$hlalias" >> ~/.bash_profile
+fi
 sudo systemctl enable --now bluetooth
 sudo usermod -aG input,wireshark,video $USER
