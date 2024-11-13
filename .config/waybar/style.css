@@ -99,8 +99,7 @@ button:hover {
 }
 
 #window {
-    padding: 0 10px;
-    background-color: rgba(77, 77, 77, 0.75);
+    background-color: transparent;
 }
 
 /* If workspaces is the rightmost module, omit right margin */
