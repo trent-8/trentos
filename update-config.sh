@@ -1,10 +1,4 @@
 #!/bin/sh
-script_dir=$( cd "$(dirname "${SH_SOURCE[0]}")" ; pwd -P )
-cd $script_dir
-cp -r .config/ Pictures/ $HOME/
-hlalias="alias hl='dbus-run-session Hyprland'"
-if ! grep -qxF "$hlalias" ~/.bash_profile; then
-    echo "$hlalias" >> ~/.bash_profile
-fi
-pkill waybar
-waybar </dev/null &>/dev/null &
+set -x
+script_dir=$(cd "$(dirname "$0")" && pwd -P)
+cp -r "$script_dir/.config/" "$script_dir/Pictures/" "$script_dir/.bashrc" "$script_dir/.bash_profile" "$HOME/"

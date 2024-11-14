@@ -50,6 +50,7 @@ sudo pacman -Syu --noconfirm --needed\
     tk\
     ttf-nerd-fonts-symbols-mono\
     ttf-roboto\
+    ttf-liberation\
     unzip\
     waybar\
     wget\
@@ -58,10 +59,9 @@ sudo pacman -Syu --noconfirm --needed\
     xdg-desktop-portal-gtk\
     zip\
     zram-generator
-cd ~
-if [ ! -d yay ]; then
+if [ ! -d $HOME/yay ]; then
     git clone https://aur.archlinux.org/yay.git
-    cd yay
+    cd $HOME/yay
     makepkg -si --noconfirm --needed
 fi
 yay -S --noconfirm --needed\
@@ -75,14 +75,11 @@ yay -S --noconfirm --needed\
     ttf-aptos\
     ttf-times-new-roman\
     xcursor-breeze\
+    uwsm\
     visual-studio-code-bin\
     wlrandbg\
     xdg-desktop-portal-hyprland-git
-cd $script_dir
-cp -r .config/ Pictures/ $HOME/
-hlalias="alias hl='dbus-run-session Hyprland'"
-if ! grep -qxF "$hlalias" ~/.bash_profile; then
-    echo "$hlalias" >> ~/.bash_profile
-fi
-sudo systemctl enable --now bluetooth
+$script_dir/update-config.sh
+systemctl --user enable waybar
+sudo systemctl enable bluetooth
 sudo usermod -aG input,wireshark,video $USER

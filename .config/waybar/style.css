@@ -66,7 +66,7 @@ button:hover {
     background: rgba(100, 100, 100, 0.75);
 }
 
-#workspaces button.focused {
+#workspaces button.active {
     color: #00ffff;
 }
 
