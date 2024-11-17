@@ -2,9 +2,10 @@
 script_dir=$( cd "$(dirname "${SH_SOURCE[0]}")" ; pwd -P )
 set -x
 sudo pacman -Syu --noconfirm --needed\
-    kitty\
+    alacritty\
     bluez-obex\
     brightnessctl\
+    btop\
     clapper\
     dunst\
     firefox\
@@ -12,14 +13,12 @@ sudo pacman -Syu --noconfirm --needed\
     grim\
     gst-libav\
     gvfs\
-    htop\
     hunspell-en_us\
     jdk-openjdk\
     kvantum-theme-materia\
     less\
     libreoffice-fresh\
     mate-calc\
-    mate-polkit\
     materia-gtk-theme\
     nano\
     nano-syntax-highlighting\
@@ -60,8 +59,9 @@ sudo pacman -Syu --noconfirm --needed\
     zip\
     zram-generator
 if [ ! -d $HOME/yay ]; then
+    cd $HOME/
     git clone https://aur.archlinux.org/yay.git
-    cd $HOME/yay
+    cd $HOME/yay/
     makepkg -si --noconfirm --needed
 fi
 yay -S --noconfirm --needed\
@@ -69,6 +69,8 @@ yay -S --noconfirm --needed\
     hypridle-git\
     hyprlock-git\
     hyprland-git\
+    hyprpaper-git\
+    hyprpolkitagent-git\
     hyprsunset-git\
     ipscan\
     spotify\
@@ -80,6 +82,7 @@ yay -S --noconfirm --needed\
     wlrandbg\
     xdg-desktop-portal-hyprland-git
 $script_dir/update-config.sh
-systemctl --user enable waybar
-sudo systemctl enable bluetooth
 sudo usermod -aG input,wireshark,video $USER
+systemctl --user enable hyprland@0.service
+sudo systemctl enable --now bluetooth.service
+sudo systemctl enable --now NetworkManager.service

@@ -1,0 +1,59 @@
+#!/bin/sh
+
+# Define the times to turn hyprsunset on and off (24-hour format)
+ON_HOUR=22     # Time to turn on hyprsunset
+ON_MINUTE=45
+OFF_HOUR=6    # Time to turn off hyprsunset
+OFF_MINUTE=0
+
+# Function to convert hours and minutes to total minutes
+time_to_minutes() {
+    hour=$1
+    minute=$2
+    printf $(( 10#$hour * 60 + 10#$minute ))
+}
+
+# Function to find the normalized difference between two times
+get_time_difference() {
+    subtrahend=$1
+    minuend=$2
+    difference=$(( subtrahend - minuend ))
+    if [ $difference -ge "0" ]; then
+        printf $difference
+    else
+        printf $(( difference + 1440 ))
+    fi
+}
+
+# Calculate total minutes for on and off times
+on_time=$(time_to_minutes $ON_HOUR $ON_MINUTE)
+off_time=$(time_to_minutes $OFF_HOUR $OFF_MINUTE)
+on_interval=$(get_time_difference $off_time $on_time)
+printf "On interval: $on_interval\n"
+
+# Variable to track hyprsunset PID
+hyprsunset_pid=""
+
+while true; do
+    current_hour=$(date +%H)
+    current_minute=$(date +%M)
+    current_time=$(time_to_minutes $current_hour $current_minute)
+    time_since_on=$(get_time_difference $current_time)
+    printf "Time difference: $time_since_on\n"
+    if [ $time_since_on -gt $on_interval ]; then
+        # Stop hyprsunset if it's running
+        if [ -n "$hyprsunset_pid" ] && kill -0 "$hyprsunset_pid" 2>/dev/null; then
+            kill $hyprsunset_pid
+            hyprsunset_pid=""
+            printf "hyprsunset stopped\n"
+        fi
+    else
+        # Start hyprsunset if not running
+        if [ -z "$hyprsunset_pid" ] || ! kill -0 "$hyprsunset_pid" 2>/dev/null; then
+            hyprsunset -t 1000 &
+            hyprsunset_pid=$!
+            printf "hyprsunset started with PID $hyprsunset_pid\n"
+        fi
+    fi
+    sleep 1
+done
