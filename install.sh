@@ -57,7 +57,11 @@ sudo pacman -Syu --noconfirm --needed\
     wofi\
     xdg-desktop-portal-gtk\
     zip\
-    zram-generator
+    zram-generator\
+    zsh\
+    zsh-autosuggestions\
+    zsh-history-substring-search\
+    zsh-syntax-highlighting
 if [ ! -d $HOME/yay ]; then
     cd $HOME/
     git clone https://aur.archlinux.org/yay.git
@@ -83,6 +87,6 @@ yay -S --noconfirm --needed\
     xdg-desktop-portal-hyprland-git
 $script_dir/update-config.sh
 sudo usermod -aG input,wireshark,video $USER
-systemctl --user enable hyprland@0.service
 sudo systemctl enable --now bluetooth.service
 sudo systemctl enable --now NetworkManager.service
+chsh -s /usr/bin/zsh
