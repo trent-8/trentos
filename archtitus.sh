@@ -423,7 +423,7 @@ if [[ ! -d "/sys/firmware/efi" ]]; then
 fi
 echo -ne "
 -------------------------------------------------------------------------
-                    Checking for low memory systems <8G
+                    Setting Up Zram Swap
 -------------------------------------------------------------------------
 "
 echo "[zram0]\nzram-size = ram * 2\ncompression-algorithm = zstd" > /mnt/etc/systemd/zram-generator.conf
