@@ -89,4 +89,5 @@ $script_dir/update-config.sh
 sudo usermod -aG input,wireshark,video $USER
 sudo systemctl enable --now bluetooth.service
 sudo systemctl enable --now NetworkManager.service
+sudo chsh -s /usr/bin/zsh
 chsh -s /usr/bin/zsh

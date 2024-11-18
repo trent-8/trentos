@@ -399,7 +399,11 @@ pacstrap /mnt\
     wofi\
     xdg-desktop-portal-gtk\
     zip\
-    zram-generator
+    zram-generator\
+    zsh\
+    zsh-autosuggestions\
+    zsh-history-substring-search\
+    zsh-syntax-highlighting\
     --noconfirm --needed
 echo "keyserver hkp://keyserver.ubuntu.com" >> /mnt/etc/pacman.d/gnupg/gpg.conf
 cp /etc/pacman.d/mirrorlist /mnt/etc/pacman.d/mirrorlist
@@ -422,21 +426,7 @@ echo -ne "
                     Checking for low memory systems <8G
 -------------------------------------------------------------------------
 "
-TOTAL_MEM=$(cat /proc/meminfo | grep -i 'memtotal' | grep -o '[[:digit:]]*')
-if [[  $TOTAL_MEM -lt 8000000 ]]; then
-    # Put swap into the actual system, not into RAM disk, otherwise there is no point in it, it'll cache RAM into RAM. So, /mnt/ everything.
-    mkdir -p /mnt/opt/swap # make a dir that we can apply NOCOW to to make it btrfs-friendly.
-    if findmnt -n -o FSTYPE /mnt | grep -q btrfs; then
-        chattr +C /mnt/opt/swap # apply NOCOW, btrfs needs that.
-    fi
-    dd if=/dev/zero of=/mnt/opt/swap/swapfile bs=1M count=2048 status=progress
-    chmod 600 /mnt/opt/swap/swapfile # set permissions.
-    chown root /mnt/opt/swap/swapfile
-    mkswap /mnt/opt/swap/swapfile
-    swapon /mnt/opt/swap/swapfile
-    # The line below is written to /mnt/ but doesn't contain /mnt/, since it's just / for the system itself.
-    echo "/opt/swap/swapfile    none    swap    sw    0    0" >> /mnt/etc/fstab # Add swap to fstab, so it KEEPS working after installation.
-fi
+echo "[zram0]\nzram-size = ram * 2\ncompression-algorithm = zstd" > /mnt/etc/systemd/zram-generator.conf
 
 gpu_type=$(lspci | grep -E "VGA|3D|Display")
 
@@ -550,14 +540,6 @@ echo "$USERNAME:$PASSWORD" | chpasswd
 echo "$USERNAME password set"
 echo $NAME_OF_MACHINE > /etc/hostname
 
-if [[ ${FS} == "luks" ]]; then
-# Making sure to edit mkinitcpio conf if luks is selected
-# add encrypt in mkinitcpio.conf before filesystems in hooks
-    sed -i 's/filesystems/encrypt filesystems/g' /etc/mkinitcpio.conf
-# making mkinitcpio with linux kernel
-    mkinitcpio -p linux-lts
-fi
-
 echo -ne "
 -------------------------------------------------------------------------
  █████╗ ██████╗  ██████╗██╗  ██╗████████╗██╗████████╗██╗   ██╗███████╗
@@ -580,38 +562,9 @@ fi
 
 echo -ne "
 -------------------------------------------------------------------------
-               Creating (and Theming) Grub Boot Menu
+               Creating Grub Boot Menu
 -------------------------------------------------------------------------
 "
-# set kernel parameter for decrypting the drive
-if [[ "${FS}" == "luks" ]]; then
-sed -i "s%GRUB_CMDLINE_LINUX_DEFAULT=\"%GRUB_CMDLINE_LINUX_DEFAULT=\"cryptdevice=UUID=${ENCRYPTED_PARTITION_UUID}:ROOT root=/dev/mapper/ROOT %g" /etc/default/grub
-fi
-# set kernel parameter for adding splash screen
-sed -i 's/GRUB_CMDLINE_LINUX_DEFAULT="[^"]*/& splash /' /etc/default/grub
-
-echo -e "Installing CyberRe Grub theme..."
-THEME_DIR="/boot/grub/themes/CyberRe"
-echo -e "Creating the theme directory..."
-mkdir -p "${THEME_DIR}"
-
-# Clone the theme
-cd "${THEME_DIR}" || exit
-git init
-git remote add -f origin https://github.com/ChrisTitusTech/Top-5-Bootloader-Themes.git
-git config core.sparseCheckout true
-echo "themes/CyberRe/*" >> .git/info/sparse-checkout
-git pull origin main
-mv themes/CyberRe/* .
-rm -rf themes
-rm -rf .git
-
-echo "CyberRe theme has been cloned to ${THEME_DIR}"
-echo -e "Backing up Grub config..."
-cp -an /etc/default/grub /etc/default/grub.bak
-echo -e "Setting the theme as the default..."
-grep "GRUB_THEME=" /etc/default/grub 2>&1 >/dev/null && sed -i '/GRUB_THEME=/d' /etc/default/grub
-echo "GRUB_THEME=\"${THEME_DIR}/theme.txt\"" >> /etc/default/grub
 echo -e "Updating grub..."
 grub-mkconfig -o /boot/grub/grub.cfg
 echo -e "All set!"
