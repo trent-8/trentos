@@ -1,5 +1,5 @@
 [[ $- != *i* ]] && return
-HISTFILE=/etc/zsh/.histfile
+HISTFILE=~/.zhistfile
 HISTSIE=5000
 SAVEHIST=1000
 setopt autocd extendedglob
@@ -13,3 +13,4 @@ PROMPT='%n@%m %F{166}%~%f%F{15}$%f '
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 source /usr/share/zsh/plugins/zsh-history-substring-search/zsh-history-substring-search.zsh
+eval "$(zoxide init zsh)"

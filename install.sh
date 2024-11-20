@@ -31,7 +31,9 @@ sudo pacman -Syu --noconfirm --needed\
     noto-fonts-emoji\
     ntfs-3g\
     obs-studio\
+    ollama\
     otf-font-awesome\
+    openssh\
     pamixer\
     playerctl\
     power-profiles-daemon\
@@ -41,6 +43,7 @@ sudo pacman -Syu --noconfirm --needed\
     python-pipx\
     python-pygame\
     python-scipy\
+    qemu-desktop\
     rclone\
     shotwell\
     signal-desktop\
@@ -89,5 +92,7 @@ $script_dir/update-config.sh
 sudo usermod -aG input,wireshark,video $USER
 sudo systemctl enable --now bluetooth.service
 sudo systemctl enable --now NetworkManager.service
+sudo systemctl enable --now ollama
+sudo systemctl enable --now sshd
 sudo chsh -s /usr/bin/zsh
 chsh -s /usr/bin/zsh
