@@ -8,13 +8,13 @@ sudo pacman -Syu --noconfirm --needed\
     btop\
     clapper\
     dunst\
-    firefox\
     fprintd\
     grim\
     gst-libav\
     gvfs\
     hunspell-en_us\
     jdk-openjdk\
+    krita\
     kvantum-theme-materia\
     less\
     libreoffice-fresh\
@@ -80,6 +80,7 @@ yay -S --noconfirm --needed\
     hyprpolkitagent-git\
     hyprsunset-git\
     ipscan\
+    microsoft-edge-stable-bin\
     spotify\
     ttf-aptos\
     ttf-times-new-roman\
@@ -94,5 +95,6 @@ sudo systemctl enable --now bluetooth.service
 sudo systemctl enable --now NetworkManager.service
 sudo systemctl enable --now ollama
 sudo systemctl enable --now sshd
+sudo systemctl start systemd-zram-setup@zram0.service
 sudo chsh -s /usr/bin/zsh
 chsh -s /usr/bin/zsh

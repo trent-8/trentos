@@ -426,7 +426,7 @@ echo -ne "
                     Setting Up Zram Swap
 -------------------------------------------------------------------------
 "
-echo "[zram0]\nzram-size = ram * 2\ncompression-algorithm = zstd" > /mnt/etc/systemd/zram-generator.conf
+printf "[zram0]\nzram-size = ram * 2\ncompression-algorithm = zstd\n" > /mnt/etc/systemd/zram-generator.conf
 
 gpu_type=$(lspci | grep -E "VGA|3D|Display")
 
@@ -583,6 +583,7 @@ systemctl stop dhcpcd.service
 echo "  DHCP stopped"
 systemctl enable NetworkManager.service
 echo "  NetworkManager enabled"
+systemctl enable systemd-zram-setup@zram0.service
 
 echo -ne "
 -------------------------------------------------------------------------
