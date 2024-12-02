@@ -59,13 +59,13 @@
         "format-icons": ["", "", ""]
     },
     "pulseaudio": {
-        "scroll-step": 5, // %, can be a float
-        "format": "{icon} {volume}%",
-        "format-bluetooth": " {icon} {volume}%",
+        "scroll-step": 2, // %, can be a float
+        "format": "{icon} {volume}% {format_source}",
+        "format-bluetooth": " {icon} {volume}% {format_source}",
         "format-bluetooth-muted": "  {icon}",
         "format-muted": "  {format_source}",
-        // "format-source": " {volume}%",
-        // "format-source-muted": "",
+        "format-source": " {volume}%",
+        "format-source-muted": "",
         "format-icons": {
            "headphone": "🎧",
            "hands-free": "",
