@@ -64,7 +64,7 @@ sudo pacman -Syu --noconfirm --needed\
     zram-generator\
     zsh\
     zsh-autosuggestions\
-    zsh-history-substring-search\
+    zsh-history-substring-searchd
     zsh-syntax-highlighting
 if [ ! -d $HOME/yay ]; then
     cd $HOME/
@@ -82,7 +82,6 @@ yay -S --noconfirm --needed\
     hyprsunset-git\
     ipscan\
     pwvucontrol\
-    spotify\
     ttf-aptos\
     ttf-times-new-roman\
     uwsm\
