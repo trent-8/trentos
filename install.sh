@@ -8,6 +8,7 @@ sudo pacman -Syu --noconfirm --needed\
     btop\
     clapper\
     dunst\
+    firefox\
     fprintd\
     grim\
     gst-libav\
@@ -80,14 +81,14 @@ yay -S --noconfirm --needed\
     hyprpolkitagent-git\
     hyprsunset-git\
     ipscan\
-    microsoft-edge-stable-bin\
+    pwvucontrol\
     spotify\
     ttf-aptos\
     ttf-times-new-roman\
-    xcursor-breeze\
     uwsm\
     visual-studio-code-bin\
     wlrandbg\
+    xcursor-breeze\
     xdg-desktop-portal-hyprland-git
 $script_dir/update-config.sh
 sudo usermod -aG input,wireshark,video $USER

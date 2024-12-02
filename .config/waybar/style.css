@@ -89,6 +89,7 @@ button:hover {
 #pulseaudio,
 #wireplumber,
 #custom-media,
+#custom-wofi,
 #tray,
 #mode,
 #idle_inhibitor,
@@ -190,8 +191,12 @@ label:focus {
     min-width: 100px;
 }
 
-#custom.app-menu {
+#custom-wofi {
     background-color: rgba(77, 77, 77, 0.75);
+}
+
+#custom-wofi:hover {
+    background-color: rgba(100, 100, 100, 0.75);
 }
 
 #custom-media.custom-spotify {
