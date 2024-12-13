@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Redirect stdout and stderr to archsetup.txt and still output to console
-exec > >(tee -i archsetup.txt)
+exec > >(tee -i installdebug.txt)
 exec 2>&1
 # get the script's directory
 script_dir=$( cd "$(dirname "${SH_SOURCE[0]}")" ; pwd -P )
@@ -473,8 +473,8 @@ echo "$USERNAME:$PASSWORD" | chpasswd
 echo "$USERNAME password set"
 echo $NAME_OF_MACHINE > /etc/hostname
 
-su - $USERNAME -c "git clone https:/github.com/trent-8/trentos"
-su - $USERNAME -c "./trentos/update.sh"
+su - $USERNAME -c "git clone https://github.com/trent-8/trentos"
+su - $USERNAME -c "./trentos/setup.sh"
 
 echo -ne "
 Final Setup and Configurations
