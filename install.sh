@@ -335,8 +335,7 @@ echo -ne "
                     Arch Install on Main Drive
 -------------------------------------------------------------------------
 "
-pacstrap /mnt --noconfirm --needed \
-. $script_dir/.arch-package-list
+pacstrap /mnt --noconfirm --needed - < $script_dir/.arch-package-list
 
 echo "keyserver hkp://keyserver.ubuntu.com" >> /mnt/etc/pacman.d/gnupg/gpg.conf
 cp /etc/pacman.d/mirrorlist /mnt/etc/pacman.d/mirrorlist

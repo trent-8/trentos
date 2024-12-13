@@ -1,78 +1,78 @@
-alacritty \
-base \
-base-devel \
-bluez-obex \
-brightnessctl \
-btop \
-clapper \
-dunst \
-efibootmgr \
-firefox \
-fprintd \
-grim \
-gst-libav \
-gvfs \
-hypridle \
-hyprlock \
-hyprland \
-hyprpaper \
-hyprpolkitagent \
-jdk-openjdk \
-less \
-linux-lts \
-linux-firmware \
-mate-calc \
-materia-gtk-theme \
-nano \
-nano-syntax-highlighting \
-nemo \
-nemo-fileroller \
-neofetch \
-network-manager-applet \
-noto-fonts \
-noto-fonts-cjk \
-noto-fonts-emoji \
-ntfs-3g \
-obs-studio \
-ollama \
-openssh \
-otf-font-awesome \
-pamixer \
-pipewire \
-pipewire-alsa \
-pipewire-jack \
-pipewire-pulse \
-playerctl \
-power-profiles-daemon \
-python-libevdev \
-python-matplotlib \
-python-pip \
-python-pipx \
-python-pygame \
-python-scipy \
-qemu-desktop \
-qt5-wayland \
-rclone \
-rnote \
-shotwell \
-signal-desktop \
-slurp \
-speech-dispatcher \
-texlive \
-tk \
-ttf-nerd-fonts-symbols-mono \
-ttf-roboto \
-ttf-liberation \
-unzip \
-waybar \
-wget \
-wireplumber \
-wofi \
-xdg-desktop-portal-gtk \
-xdg-desktop-portal-hyprland \
-zip \
-zram-generator \
-zsh \
-zsh-autosuggestions \
-zsh-history-substring-search \
-zsh-syntax-highlighting \
+alacritty
+base
+base-devel
+bluez-obex
+brightnessctl
+btop
+clapper
+dunst
+efibootmgr
+firefox
+fprintd
+grim
+gst-libav
+gvfs
+hypridle
+hyprlock
+hyprland
+hyprpaper
+hyprpolkitagent
+jdk-openjdk
+less
+linux-lts
+linux-firmware
+mate-calc
+materia-gtk-theme
+nano
+nano-syntax-highlighting
+nemo
+nemo-fileroller
+neofetch
+network-manager-applet
+noto-fonts
+noto-fonts-cjk
+noto-fonts-emoji
+ntfs-3g
+obs-studio
+ollama
+openssh
+otf-font-awesome
+pamixer
+pipewire
+pipewire-alsa
+pipewire-jack
+pipewire-pulse
+playerctl
+power-profiles-daemon
+python-libevdev
+python-matplotlib
+python-pip
+python-pipx
+python-pygame
+python-scipy
+qemu-desktop
+qt5-wayland
+rclone
+rnote
+shotwell
+signal-desktop
+slurp
+speech-dispatcher
+texlive
+tk
+ttf-nerd-fonts-symbols-mono
+ttf-roboto
+ttf-liberation
+unzip
+waybar
+wget
+wireplumber
+wofi
+xdg-desktop-portal-gtk
+xdg-desktop-portal-hyprland
+zip
+zram-generator
+zsh
+zsh-autosuggestions
+zsh-history-substring-search
+zsh-syntax-highlighting

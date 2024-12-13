@@ -7,9 +7,8 @@ if [ ! -d $HOME/yay ]; then
     cd $HOME/yay/
     makepkg -si --noconfirm --needed
 fi
-yay -Syu --noconfirm --needed\
-source $script_dir/.arch-package-list
-source $script_dir/.aur-package-list
+sudo pacman -Syu --noconfirm --needed - < $script_dir/.arch-package-list
+yay -Syu --noconfirm --needed - < $script_dir/.aur-package-list
 
 cp -r "$script_dir/.config/" "$script_dir/Pictures/" "$script_dir/.zshrc" "$script_dir/.zprofile" "$HOME/"
 sudo cp -r $script_dir/scripts/* /usr/bin/
