@@ -336,7 +336,7 @@ echo -ne "
 -------------------------------------------------------------------------
 "
 pacstrap /mnt --noconfirm --needed \
-source $script_dir/.arch-package-list
+. $script_dir/.arch-package-list
 
 echo "keyserver hkp://keyserver.ubuntu.com" >> /mnt/etc/pacman.d/gnupg/gpg.conf
 cp /etc/pacman.d/mirrorlist /mnt/etc/pacman.d/mirrorlist
