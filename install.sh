@@ -4,7 +4,7 @@
 exec > >(tee -i installdebug.txt)
 exec 2>&1
 # get the script's directory
-script_dir=$( cd "$(dirname "${SH_SOURCE[0]}")" ; pwd -P )
+script_dir=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
 
 select_option() {
     local options=("$@")
