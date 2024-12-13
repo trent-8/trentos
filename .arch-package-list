@@ -42,6 +42,7 @@ pipewire-alsa
 pipewire-jack
 pipewire-pulse
 playerctl
+polkit-kde-agent
 power-profiles-daemon
 python-libevdev
 python-matplotlib
