@@ -14,6 +14,11 @@ sudo pacman -Syu --noconfirm --needed\
     gst-libav\
     gvfs\
     hunspell-en_us\
+    hypridle\
+    hyprlock\
+    hyprland\
+    hyprpaper\
+    hyprpolkitagent\
     jdk-openjdk\
     less\
     mate-calc\
@@ -59,6 +64,7 @@ sudo pacman -Syu --noconfirm --needed\
     wget\
     wofi\
     xdg-desktop-portal-gtk\
+    xdg-desktop-portal-hyprland\
     zip\
     zram-generator\
     zsh\
