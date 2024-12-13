@@ -3,6 +3,8 @@
 # Redirect stdout and stderr to archsetup.txt and still output to console
 exec > >(tee -i archsetup.txt)
 exec 2>&1
+# get the script's directory
+script_dir=$( cd "$(dirname "${SH_SOURCE[0]}")" ; pwd -P )
 
 select_option() {
     local options=("$@")
@@ -333,84 +335,9 @@ echo -ne "
                     Arch Install on Main Drive
 -------------------------------------------------------------------------
 "
-pacstrap /mnt\
-    alacritty\
-    base\
-    base-devel\
-    bluez-obex\
-    brightnessctl\
-    btop\
-    clapper\
-    dunst\
-    efibootmgr\
-    firefox\
-    fprintd\
-    grim\
-    gst-libav\
-    gvfs\
-    hunspell-en_us\
-    hypridle\
-    hyprlock\
-    hyprland\
-    hyprpaper\
-    hyprpolkitagent\
-    jdk-openjdk\
-    kvantum-theme-materia\
-    less\
-    libreoffice-fresh\
-    linux-lts\
-    linux-firmware\
-    mate-calc\
-    materia-gtk-theme\
-    nano\
-    nano-syntax-highlighting\
-    nemo\
-    nemo-fileroller\
-    neofetch\
-    network-manager-applet\
-    noto-fonts\
-    noto-fonts-cjk\
-    noto-fonts-emoji\
-    ntfs-3g\
-    obs-studio\
-    otf-font-awesome\
-    pamixer\
-    pipewire\
-    pipewire-alsa\
-    pipewire-jack\
-    pipewire-pulse\
-    playerctl\
-    power-profiles-daemon\
-    python-libevdev\
-    python-matplotlib\
-    python-pip\
-    python-pipx\
-    python-pygame\
-    python-scipy\
-    qt5-wayland\
-    rclone\
-    shotwell\
-    signal-desktop\
-    slurp\
-    speech-dispatcher\
-    tk\
-    ttf-nerd-fonts-symbols-mono\
-    ttf-roboto\
-    ttf-liberation\
-    unzip\
-    waybar\
-    wget\
-    wireplumber\
-    wofi\
-    xdg-desktop-portal-gtk\
-    xdg-desktop-portal-hyprland\
-    zip\
-    zram-generator\
-    zsh\
-    zsh-autosuggestions\
-    zsh-history-substring-search\
-    zsh-syntax-highlighting\
-    --noconfirm --needed
+pacstrap /mnt --noconfirm --needed \
+source $script_dir/.arch-package-list
+
 echo "keyserver hkp://keyserver.ubuntu.com" >> /mnt/etc/pacman.d/gnupg/gpg.conf
 cp /etc/pacman.d/mirrorlist /mnt/etc/pacman.d/mirrorlist
 
@@ -434,6 +361,19 @@ echo -ne "
 "
 printf "[zram0]\nzram-size = ram * 2\ncompression-algorithm = zstd\n" > /mnt/etc/systemd/zram-generator.conf
 
+echo -ne "
+-------------------------------------------------------------------------
+                    copying trentos configs
+-------------------------------------------------------------------------
+"
+cp $script_dir/.zshrc /mnt/etc/zsh/zshrc
+cp $script_dir/scripts/* /mnt/usr/bin
+
+echo -ne "
+-------------------------------------------------------------------------
+                    Getting gpu type
+-------------------------------------------------------------------------
+"
 gpu_type=$(lspci | grep -E "VGA|3D|Display")
 
 arch-chroot /mnt /bin/bash -c "KEYMAP='${KEYMAP}' /bin/bash" <<EOF
@@ -454,15 +394,6 @@ pacman -S --noconfirm --needed pacman-contrib curl
 pacman -S --noconfirm --needed reflector rsync grub arch-install-scripts git ntp wget
 cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
 
-nc=$(grep -c ^processor /proc/cpuinfo)
-echo -ne "
--------------------------------------------------------------------------
-                    You have " $nc" cores. And
-            changing the makeflags for " $nc" cores. Aswell as
-                changing the compression settings.
--------------------------------------------------------------------------
-"
-TOTAL_MEM=$(cat /proc/meminfo | grep -i 'memtotal' | grep -o '[[:digit:]]*')
 echo -ne "
 -------------------------------------------------------------------------
                     Setup Language to US and set locale
@@ -520,8 +451,8 @@ if echo "${gpu_type}" | grep -E "NVIDIA|GeForce"; then
     echo "Installing NVIDIA drivers: nvidia-lts"
     pacman -S --noconfirm --needed nvidia-lts
 elif echo "${gpu_type}" | grep 'VGA' | grep -E "Radeon|AMD"; then
-    echo "Installing AMD drivers: xf86-video-amdgpu"
-    pacman -S --noconfirm --needed xf86-video-amdgpu
+    echo "Installing AMD drivers: xf86-video-amdgpu and vulkan-radeon"
+    pacman -S --noconfirm --needed xf86-video-amdgpu lib32-vulkan-radion vulkan-radeon
 elif echo "${gpu_type}" | grep -E "Integrated Graphics Controller"; then
     echo "Installing Intel drivers:"
     pacman -S --noconfirm --needed libva-intel-driver libvdpau-va-gl lib32-vulkan-intel vulkan-intel libva-intel-driver libva-utils lib32-mesa
@@ -536,24 +467,16 @@ echo -ne "
 -------------------------------------------------------------------------
 "
 groupadd libvirt
-useradd -m -G wheel,libvirt,video,input,wireshark -s /bin/bash $USERNAME
+useradd -m -G wheel,libvirt,video,input -s /bin/bash $USERNAME
 echo "$USERNAME created, home directory created, added to wheel and libvirt group, default shell set to /bin/bash"
 echo "$USERNAME:$PASSWORD" | chpasswd
 echo "$USERNAME password set"
 echo $NAME_OF_MACHINE > /etc/hostname
 
-echo -ne "
--------------------------------------------------------------------------
- █████╗ ██████╗  ██████╗██╗  ██╗████████╗██╗████████╗██╗   ██╗███████╗
-██╔══██╗██╔══██╗██╔════╝██║  ██║╚══██╔══╝██║╚══██╔══╝██║   ██║██╔════╝
-███████║██████╔╝██║     ███████║   ██║   ██║   ██║   ██║   ██║███████╗
-██╔══██║██╔══██╗██║     ██╔══██║   ██║   ██║   ██║   ██║   ██║╚════██║
-██║  ██║██║  ██║╚██████╗██║  ██║   ██║   ██║   ██║   ╚██████╔╝███████║
-╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝   ╚═╝   ╚═╝   ╚═╝    ╚═════╝ ╚══════╝
--------------------------------------------------------------------------
-                    Automated Arch Linux Installer
--------------------------------------------------------------------------
+su - $USERNAME -c "git clone https:/github.com/trent-8/trentos"
+su - $USERNAME -c "./trentos/update.sh"
 
+echo -ne "
 Final Setup and Configurations
 GRUB EFI Bootloader Install & Check
 "
@@ -585,7 +508,14 @@ systemctl stop dhcpcd.service
 echo "  DHCP stopped"
 systemctl enable NetworkManager.service
 echo "  NetworkManager enabled"
+systemctl enable bluetooth.service
+echo "  bluetooth enabled"
+systemctl enable ollama.service
+echo "  ollama enabled"
+systemctl enable sshd.service
+echo "  SSH daemon enabled"
 systemctl enable systemd-zram-setup@zram0.service
+echo "  ZRAM swap enabled"
 
 echo -ne "
 -------------------------------------------------------------------------
@@ -598,4 +528,5 @@ sed -i 's/^%wheel ALL=(ALL:ALL) NOPASSWD: ALL/# %wheel ALL=(ALL:ALL) NOPASSWD: A
 # Add sudo rights
 sed -i 's/^# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/' /etc/sudoers
 sed -i 's/^# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/' /etc/sudoers
+chsh -s /usr/bin/zsh
 EOF

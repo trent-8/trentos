@@ -1,5 +1,5 @@
 [[ $- != *i* ]] && return
-HISTFILE=~/.zhistfile
+HISTFILE=$HOME/.zhistfile
 HISTSIE=5000
 SAVEHIST=1000
 setopt autocd extendedglob
