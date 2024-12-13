@@ -35,14 +35,11 @@ sudo pacman -Syu --noconfirm --needed\
     pamixer\
     playerctl\
     power-profiles-daemon\
-    pwvucontrol\
     python-libevdev\
-    python-manimgl\
     python-matplotlib\
     python-pip\
     python-pipx\
     python-pygame\
-    python-pyglet
     python-scipy\
     qemu-desktop\
     qt5-wayland\
@@ -76,12 +73,6 @@ if [ ! -d $HOME/yay ]; then
 fi
 yay -S --noconfirm --needed\
     bluetuith\
-    hypridle-git\
-    hyprlock-git\
-    hyprland-git\
-    hyprpaper-git\
-    hyprpolkitagent-git\
-    hyprsunset-git\
     ipscan\
     pwvucontrol\
     ttf-aptos\
@@ -90,7 +81,6 @@ yay -S --noconfirm --needed\
     visual-studio-code-bin\
     wlrandbg\
     xcursor-breeze\
-    xdg-desktop-portal-hyprland-git
 $script_dir/update-config.sh
 sudo usermod -aG input,video $USER
 sudo systemctl enable --now bluetooth.service

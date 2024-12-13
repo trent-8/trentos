@@ -349,6 +349,11 @@ pacstrap /mnt\
     gst-libav\
     gvfs\
     hunspell-en_us\
+    hypridle\
+    hyprlock\
+    hyprland\
+    hyprpaper\
+    hyprpolkitagent\
     jdk-openjdk\
     kvantum-theme-materia\
     less\
@@ -382,6 +387,7 @@ pacstrap /mnt\
     python-pipx\
     python-pygame\
     python-scipy\
+    qt5-wayland\
     rclone\
     shotwell\
     signal-desktop\
@@ -395,9 +401,9 @@ pacstrap /mnt\
     waybar\
     wget\
     wireplumber\
-    wireshark-qt\
     wofi\
     xdg-desktop-portal-gtk\
+    xdg-desktop-portal-hyprland\
     zip\
     zram-generator\
     zsh\
