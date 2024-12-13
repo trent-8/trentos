@@ -15,10 +15,7 @@ sudo pacman -Syu --noconfirm --needed\
     gvfs\
     hunspell-en_us\
     jdk-openjdk\
-    krita\
-    kvantum-theme-materia\
     less\
-    libreoffice-fresh\
     mate-calc\
     materia-gtk-theme\
     nano\
@@ -38,18 +35,24 @@ sudo pacman -Syu --noconfirm --needed\
     pamixer\
     playerctl\
     power-profiles-daemon\
+    pwvucontrol\
     python-libevdev\
+    python-manimgl\
     python-matplotlib\
     python-pip\
     python-pipx\
     python-pygame\
+    python-pyglet
     python-scipy\
     qemu-desktop\
+    qt5-wayland\
     rclone\
+    rnote\
     shotwell\
     signal-desktop\
     slurp\
     speech-dispatcher\
+    texlive\
     tk\
     ttf-nerd-fonts-symbols-mono\
     ttf-roboto\
@@ -57,14 +60,13 @@ sudo pacman -Syu --noconfirm --needed\
     unzip\
     waybar\
     wget\
-    wireshark-qt\
     wofi\
     xdg-desktop-portal-gtk\
     zip\
     zram-generator\
     zsh\
     zsh-autosuggestions\
-    zsh-history-substring-searchd
+    zsh-history-substring-search\
     zsh-syntax-highlighting
 if [ ! -d $HOME/yay ]; then
     cd $HOME/
@@ -90,7 +92,7 @@ yay -S --noconfirm --needed\
     xcursor-breeze\
     xdg-desktop-portal-hyprland-git
 $script_dir/update-config.sh
-sudo usermod -aG input,wireshark,video $USER
+sudo usermod -aG input,video $USER
 sudo systemctl enable --now bluetooth.service
 sudo systemctl enable --now NetworkManager.service
 sudo systemctl enable --now ollama
