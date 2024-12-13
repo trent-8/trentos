@@ -363,14 +363,6 @@ printf "[zram0]\nzram-size = ram * 2\ncompression-algorithm = zstd\n" > /mnt/etc
 
 echo -ne "
 -------------------------------------------------------------------------
-                    copying trentos configs
--------------------------------------------------------------------------
-"
-cp $script_dir/trentos/.zshrc /mnt/etc/zsh/zshrc
-cp $script_dir/trentos/scripts/* /mnt/usr/bin
-
-echo -ne "
--------------------------------------------------------------------------
                     Getting gpu type
 -------------------------------------------------------------------------
 "
