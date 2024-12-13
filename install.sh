@@ -366,8 +366,8 @@ echo -ne "
                     copying trentos configs
 -------------------------------------------------------------------------
 "
-cp $script_dir/.zshrc /mnt/etc/zsh/zshrc
-cp $script_dir/scripts/* /mnt/usr/bin
+cp $script_dir/trentos/.zshrc /mnt/etc/zsh/zshrc
+cp $script_dir/trentos/scripts/* /mnt/usr/bin
 
 echo -ne "
 -------------------------------------------------------------------------
