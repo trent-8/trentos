@@ -313,7 +313,7 @@ echo -ne "
                     Setting up $iso mirrors for faster downloads
 -------------------------------------------------------------------------
 "
-# reflector -a 48 -c "$iso" -f 5 -l 20 --sort rate --save /etc/pacman.d/mirrorlist
+reflector -a 48 -c "$iso" -f 5 -l 20 --sort rate --save /etc/pacman.d/mirrorlist
 if [ ! -d "/mnt" ]; then
     mkdir /mnt
 fi
@@ -427,7 +427,7 @@ echo -ne "
                     Arch Install on Main Drive
 -------------------------------------------------------------------------
 "
-pacstrap /mnt --noconfirm --needed - < $script_dir/minimal-pkg-list
+pacstrap /mnt --noconfirm --needed - < $script_dir/arch-pkg-list
 
 echo "keyserver hkp://keyserver.ubuntu.com" >> /mnt/etc/pacman.d/gnupg/gpg.conf
 cp /etc/pacman.d/mirrorlist /mnt/etc/pacman.d/mirrorlist
