@@ -1,6 +1,8 @@
 alacritty
+arch-install-scripts
 base
 base-devel
+bluez
 bluez-obex
 brightnessctl
 btop
@@ -9,6 +11,7 @@ dunst
 efibootmgr
 firefox
 fprintd
+git
 grim
 gst-libav
 gvfs

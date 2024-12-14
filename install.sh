@@ -1,10 +1,57 @@
 #!/bin/bash
 
-# Redirect stdout and stderr to archsetup.txt and still output to console
+# Redirect stdout and stderr to installdebug.txt and still output to console
 exec > >(tee -i installdebug.txt)
 exec 2>&1
 # get the script's directory
 script_dir=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
+
+echo -ne "
+Checking if arch-install-scripts package is installed
+"
+pacman -Q arch-install-scripts || {
+    echo "Error: missing package: arch-install-scripts" >&2
+    exit 1
+}
+
+root_check() {
+    if [[ "$(id -u)" != "0" ]]; then
+        echo -ne "ERROR! This script must be run under the 'root' user!\n"
+        exit 0
+    fi
+}
+
+docker_check() {
+    if awk -F/ '$2 == "docker"' /proc/self/cgroup | read -r; then
+        echo -ne "ERROR! Docker container is not supported (at the moment)\n"
+        exit 0
+    elif [[ -f /.dockerenv ]]; then
+        echo -ne "ERROR! Docker container is not supported (at the moment)\n"
+        exit 0
+    fi
+}
+
+arch_check() {
+    if [[ ! -e /etc/arch-release ]]; then
+        echo -ne "ERROR! This script must be run in Arch Linux!\n"
+        exit 0
+    fi
+}
+
+pacman_check() {
+    if [[ -f /var/lib/pacman/db.lck ]]; then
+        echo "ERROR! Pacman is blocked."
+        echo -ne "If not running remove /var/lib/pacman/db.lck.\n"
+        exit 0
+    fi
+}
+
+background_checks() {
+    root_check
+    arch_check
+    pacman_check
+    docker_check
+}
 
 select_option() {
     local options=("$@")
@@ -65,13 +112,6 @@ select_option() {
 logo () {
 # This will be shown on every set as user is progressing
 echo -ne "
--------------------------------------------------------------------------
- █████╗ ██████╗  ██████╗██╗  ██╗████████╗██╗████████╗██╗   ██╗███████╗
-██╔══██╗██╔══██╗██╔════╝██║  ██║╚══██╔══╝██║╚══██╔══╝██║   ██║██╔════╝
-███████║██████╔╝██║     ███████║   ██║   ██║   ██║   ██║   ██║███████╗
-██╔══██║██╔══██╗██║     ██╔══██║   ██║   ██║   ██║   ██║   ██║╚════██║
-██║  ██║██║  ██║╚██████╗██║  ██║   ██║   ██║   ██║   ╚██████╔╝███████║
-╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝╚═╝  ╚═╝   ╚═╝   ╚═╝   ╚═╝    ╚═════╝ ╚══════╝
 ------------------------------------------------------------------------
             Please select presetup settings for your system
 ------------------------------------------------------------------------
@@ -79,7 +119,24 @@ echo -ne "
 }
 # @description This function will handle file systems. At this movement we are handling only
 # btrfs and ext4. Others will be added in future.
-export FS=ext4
+filesystem () {
+    echo -ne "
+    Please Select your file system for both boot and root
+    "
+    options=("btrfs" "ext4" "luks" "exit")
+    select_option "${options[@]}"
+
+    case $? in
+    0) export FS=btrfs;;
+    1) export FS=ext4;;
+    2)
+        set_password "LUKS_PASSWORD"
+        export FS=luks
+        ;;
+    3) exit ;;
+    *) echo "Wrong option please select again"; filesystem;;
+    esac
+}
 
 # @description Detects and sets timezone.
 timezone () {
@@ -164,6 +221,20 @@ echo -ne "
 
 # @description Gather username and password to be used for installation.
 userinfo () {
+    while true
+    do
+        read -rs -p "Enter root password: " PASSWORD1
+        echo -ne "\n"
+        read -rs -p "Re-enter root password: " PASSWORD2
+        echo -ne "\n"
+        if [[ "$PASSWORD1" == "$PASSWORD2" ]]; then
+            break
+        else
+            echo -ne "ERROR! Passwords do not match. \n"
+        fi
+    done
+    export ROOT_PASSWORD=$PASSWORD1
+
     # Loop through user input until the user gives a valid username
     while true
     do
@@ -210,6 +281,7 @@ userinfo () {
 }
 
 # Starting functions
+background_checks
 clear
 logo
 userinfo
@@ -218,6 +290,7 @@ logo
 diskpart
 clear
 logo
+filesystem
 clear
 logo
 timezone
@@ -240,7 +313,7 @@ echo -ne "
                     Setting up $iso mirrors for faster downloads
 -------------------------------------------------------------------------
 "
-reflector -a 48 -c "$iso" -f 5 -l 20 --sort rate --save /etc/pacman.d/mirrorlist
+# reflector -a 48 -c "$iso" -f 5 -l 20 --sort rate --save /etc/pacman.d/mirrorlist
 if [ ! -d "/mnt" ]; then
     mkdir /mnt
 fi
@@ -308,9 +381,28 @@ else
     partition3=${DISK}3
 fi
 
-mkfs.vfat -F32 -n "EFIBOOT" "${partition2}"
-mkfs.ext4 "${partition3}"
-mount -t ext4 "${partition3}" /mnt
+if [[ "${FS}" == "btrfs" ]]; then
+    mkfs.vfat -F32 -n "EFIBOOT" "${partition2}"
+    mkfs.btrfs -f "${partition3}"
+    mount -t btrfs "${partition3}" /mnt
+    subvolumesetup
+elif [[ "${FS}" == "ext4" ]]; then
+    mkfs.vfat -F32 -n "EFIBOOT" "${partition2}"
+    mkfs.ext4 "${partition3}"
+    mount -t ext4 "${partition3}" /mnt
+elif [[ "${FS}" == "luks" ]]; then
+    mkfs.vfat -F32 "${partition2}"
+# enter luks password to cryptsetup and format root partition
+    echo -n "${LUKS_PASSWORD}" | cryptsetup -y -v luksFormat "${partition3}" -
+# open luks container and ROOT will be place holder
+    echo -n "${LUKS_PASSWORD}" | cryptsetup open "${partition3}" ROOT -
+# now format that container
+    mkfs.btrfs "${partition3}"
+# create subvolumes for btrfs
+    mount -t btrfs "${partition3}" /mnt
+    subvolumesetup
+    ENCRYPTED_PARTITION_UUID=$(blkid -s UUID -o value "${partition3}")
+fi
 
 BOOT_UUID=$(blkid -s UUID -o value "${partition2}")
 
@@ -335,7 +427,7 @@ echo -ne "
                     Arch Install on Main Drive
 -------------------------------------------------------------------------
 "
-pacstrap /mnt --noconfirm --needed - < $script_dir/.arch-package-list
+pacstrap /mnt --noconfirm --needed - < $script_dir/minimal-pkg-list
 
 echo "keyserver hkp://keyserver.ubuntu.com" >> /mnt/etc/pacman.d/gnupg/gpg.conf
 cp /etc/pacman.d/mirrorlist /mnt/etc/pacman.d/mirrorlist
@@ -362,6 +454,15 @@ printf "[zram0]\nzram-size = ram * 2\ncompression-algorithm = zstd\n" > /mnt/etc
 
 echo -ne "
 -------------------------------------------------------------------------
+                    Copy config files
+-------------------------------------------------------------------------
+"
+cp -r "$script_dir/scripts/*" "/mnt/usr/bin/"
+cp "$script_dir/.zshrc" "/mnt/etc/zsh/zshrc"
+cp -r "$script_dir/" "/mnt/usr/share/"
+
+echo -ne "
+-------------------------------------------------------------------------
                     Getting gpu type
 -------------------------------------------------------------------------
 "
@@ -385,6 +486,17 @@ pacman -S --noconfirm --needed pacman-contrib curl
 pacman -S --noconfirm --needed reflector rsync grub arch-install-scripts git ntp wget
 cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.bak
 
+nc=$(grep -c ^processor /proc/cpuinfo)
+echo -ne "
+-------------------------------------------------------------------------
+                    You have " $nc" cores. And
+            changing the makeflags for " $nc" cores. Aswell as
+                changing the compression settings.
+-------------------------------------------------------------------------
+"
+TOTAL_MEM=$(cat /proc/meminfo | grep -i 'memtotal' | grep -o '[[:digit:]]*')
+sed -i "s/#MAKEFLAGS=\"-j2\"/MAKEFLAGS=\"-j$nc\"/g" /etc/makepkg.conf
+sed -i "s/COMPRESSXZ=(xz -c -z -)/COMPRESSXZ=(xz -c -T $nc -z -)/g" /etc/makepkg.conf
 echo -ne "
 -------------------------------------------------------------------------
                     Setup Language to US and set locale
@@ -459,15 +571,40 @@ echo -ne "
 "
 groupadd libvirt
 useradd -m -G wheel,libvirt,video,input -s /bin/bash $USERNAME
-echo "$USERNAME created, home directory created, added to wheel and libvirt group, default shell set to /bin/bash"
+echo "root:$ROOT_PASSWORD" | chpasswd
+echo "$USERNAME created, home directory created, added to wheel,libvirt,video,input groups, default shell set to /bin/bash"
 echo "$USERNAME:$PASSWORD" | chpasswd
 echo "$USERNAME password set"
 echo $NAME_OF_MACHINE > /etc/hostname
 
-su - $USERNAME -c "git clone https://github.com/trent-8/trentos"
-su - $USERNAME -c "./trentos/setup.sh"
+if [[ ${FS} == "luks" ]]; then
+# Making sure to edit mkinitcpio conf if luks is selected
+# add encrypt in mkinitcpio.conf before filesystems in hooks
+    sed -i 's/filesystems/encrypt filesystems/g' /etc/mkinitcpio.conf
+# making mkinitcpio with linux kernel
+    mkinitcpio -p linux-lts
+fi
 
 echo -ne "
+-------------------------------------------------------------------------
+                    Making AUR Packages
+-------------------------------------------------------------------------
+"
+/usr/share/trentos/install-aur-packages.sh "$USERNAME" "/usr/share/trentos/aur-packages"
+
+echo -ne "
+-------------------------------------------------------------------------
+                    Copying config files
+-------------------------------------------------------------------------
+"
+sudo -u $USERNAME cp -r "/usr/share/trentos/.config/" "/usr/share/trentos/Pictures/" "/usr/share/trentos/.zshrc" "/usr/share/trentos/.zprofile" "/home/$USERNAME/"
+echo "$PASSWORD" | sudo -S -u $USERNAME chsh -s /bin/zsh
+
+echo -ne "
+-------------------------------------------------------------------------
+                    Automated Arch Linux Installer
+-------------------------------------------------------------------------
+
 Final Setup and Configurations
 GRUB EFI Bootloader Install & Check
 "
