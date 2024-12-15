@@ -1,10 +1,9 @@
 #!/bin/bash
 set -x
 USERNAME=$1
-PACKAGE_LIST_FILE=$2
-mapfile -t packages < "$PACKAGE_LIST_FILE"
+shift
 cd "/home/$USERNAME/"
-for package in "${packages[@]}"; do
+for package in "$@"; do
     sudo -u $USERNAME git clone "https://aur.archlinux.org/$package.git"
     cd "/home/$USERNAME/$package"
     sudo -u $USERNAME makepkg -s --noconfirm
