@@ -1,11 +1,13 @@
-#!/bin/sh
-set -x
-
-mkdir -p\
-    ~/school\
-    ~/personal
-git config --global user.email "trenthek@gmail.com"
-git config --global user.name "trent-8"
-git config --global pull.rebase false
-git config --global core.editor "nano"
-git config --global init.defaultBranch main
+#!/bin/bash
+script_dir=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
+pacman -Sy
+pacman -S p7zip
+cd "$script_dir"
+7z x personal-dotfiles.zip
+mkdir personal-dotfiles
+cp dotfiles.zip personal-dotfiles/
+rm -r dotfiles.zip
+cd personal-dotfiles
+7z x dotfiles.zip
+rm -r dotfiles.zip
+cp -r ./ "$HOME/"

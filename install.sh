@@ -7,7 +7,9 @@ exec 2>&1
 script_dir=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
 
 echo -ne "
+-----------------------------------------------------------
 Checking if arch-install-scripts package is installed
+-----------------------------------------------------------
 "
 pacman -Q arch-install-scripts || {
     echo "Error: missing package: arch-install-scripts" >&2
@@ -280,6 +282,26 @@ userinfo () {
     export NAME_OF_MACHINE=$name_of_machine
 }
 
+extract-personal-dotfiles() {
+    echo -ne "Do you want to install Trent's personal config files?\n"
+    while [[ $(select_option Yes No) == 0 ]]; do
+        pacman -Sy
+        pacman -S p7zip
+        cd "$script_dir"
+        if 7z x personal-dotfiles.zip; then
+            mkdir personal-dotfiles
+            cp dotfiles.zip personal-dotfiles/
+            rm dotfiles.zip
+            cd personal-dotfiles
+            7z x dotfiles.zip
+            rm dotfiles.zip
+            break
+        else
+            echo -ne "Try again?\n"
+        fi
+    done
+}
+
 # Starting functions
 background_checks
 clear
@@ -297,6 +319,8 @@ timezone
 clear
 logo
 keymap
+clear
+extract-personal-dotfiles
 
 echo "Setting up mirrors for optimal download"
 iso=$(curl -4 ifconfig.co/country-iso)
@@ -597,7 +621,7 @@ echo -ne "
                     Copying config files
 -------------------------------------------------------------------------
 "
-sudo -u $USERNAME cp -r "/usr/share/trentos/.config/" "/usr/share/trentos/Pictures/" "/usr/share/trentos/.zshrc" "/usr/share/trentos/.zprofile" "/home/$USERNAME/"
+sudo -u $USERNAME cp -r /usr/share/trentos/user-home/ /usr/share/trentos/personal-dotfiles/ "/home/$USERNAME/"
 echo "$PASSWORD" | sudo -S -u $USERNAME chsh -s /bin/zsh
 
 echo -ne "
