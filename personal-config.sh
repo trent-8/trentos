@@ -6,8 +6,8 @@ cd "$script_dir"
 7z x personal-dotfiles.zip
 mkdir personal-dotfiles
 cp dotfiles.zip personal-dotfiles/
-rm -r dotfiles.zip
+rm dotfiles.zip
 cd personal-dotfiles
 7z x dotfiles.zip
-rm -r dotfiles.zip
+rm dotfiles.zip
 cp -r ./ "$HOME/"
