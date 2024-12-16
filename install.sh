@@ -288,15 +288,14 @@ extract-personal-dotfiles() {
         pacman -Sy
         pacman -S p7zip
         cd "$script_dir"
-        if 7z x personal-dotfiles.zip; then
-            mkdir personal-dotfiles
-            cp dotfiles.zip personal-dotfiles/
-            rm dotfiles.zip
-            cd personal-dotfiles
-            7z x dotfiles.zip
-            rm dotfiles.zip
+        mkdir personal-dotfiles
+        cp encrypted-dotfiles.7z personal-dotfiles/
+        cd personal-dotfiles
+        if 7z x encrypted-dotfiles.7z; then
+            rm encrypted-dotfiles.7z
             break
         else
+            clear
             echo -ne "Try again?\n"
         fi
     done
