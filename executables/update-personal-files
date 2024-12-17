@@ -1,4 +1,0 @@
-#!/bin/bash
-cd "$HOME/trentos/personal-dotfiles"
-tar -czvhf "$HOME/trentos/personal-dotfiles.tar.gz" ./
-rustcrypt "$HOME/trentos/personal-dotfiles.tar.gz" "$HOME/trentos/personal-dotfiles.tar.gz"

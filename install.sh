@@ -282,25 +282,6 @@ userinfo () {
     export NAME_OF_MACHINE=$name_of_machine
 }
 
-extract-personal-dotfiles() {
-    echo -ne "Do you want to install Trent's personal config files?\n"
-    while [[ $(select_option Yes No) == 0 ]]; do
-        pacman -Sy
-        pacman -S p7zip
-        cd "$script_dir"
-        mkdir personal-dotfiles
-        cp encrypted-dotfiles.7z personal-dotfiles/
-        cd personal-dotfiles
-        if 7z x encrypted-dotfiles.7z; then
-            rm encrypted-dotfiles.7z
-            break
-        else
-            clear
-            echo -ne "Try again?\n"
-        fi
-    done
-}
-
 # Starting functions
 background_checks
 clear
@@ -319,7 +300,6 @@ clear
 logo
 keymap
 clear
-extract-personal-dotfiles
 
 echo "Setting up mirrors for optimal download"
 iso=$(curl -4 ifconfig.co/country-iso)
@@ -619,7 +599,7 @@ echo -ne "
                     Copying config files
 -------------------------------------------------------------------------
 "
-sudo -u $USERNAME cp -r /usr/share/trentos/user-home/ /usr/share/trentos/personal-dotfiles/ "/home/$USERNAME/"
+sudo -u $USERNAME cp -r /usr/share/trentos/user-home/ "/home/$USERNAME/"
 echo "$PASSWORD" | sudo -S -u $USERNAME chsh -s /bin/zsh
 
 echo -ne "
