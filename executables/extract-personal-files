@@ -1,0 +1,5 @@
+#!/bin/bash
+rustcrypt "$HOME/trentos/personal-dotfiles.tar.gz" "$HOME/trentos/personal-dotfiles-decrypted.tar.gz"
+cd "$HOME/trentos/personal-dotfiles"
+tar -czvhf "$HOME/trentos/personal-dotfiles-decrypted.tar.gz" ./
+rm "$HOME/trentos/personal-dotfiles-decrypted.tar.gz"

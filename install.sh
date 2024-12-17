@@ -480,8 +480,7 @@ echo -ne "
                     Copy config files
 -------------------------------------------------------------------------
 "
-cp -r "$script_dir/scripts/*" "/mnt/usr/bin/"
-cp "$script_dir/.zshrc" "/mnt/etc/zsh/zshrc"
+cp -r "$script_dir/executables/*" "/mnt/usr/bin/"
 cp -r "$script_dir/" "/mnt/usr/share/"
 
 echo -ne "
