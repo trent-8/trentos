@@ -1,24 +1,23 @@
 #!/bin/bash
-
+set -x
 # Configurations
-USB_UUID="<your-usb-uuid>"
-MOUNT_POINT="/mnt/backup"
-SOURCE_DIRS="/home /etc /var"  # Directories to back up
-BACKUP_DIR="$MOUNT_POINT/backups"
-LOG_FILE="$MOUNT_POINT/backup.log"
+USB_UUID="46550268-28b7-4e6e-a88a-06531a81e080"
+MOUNT_POINT="/mnt/backup-drive"
+BACKUP_DIR="$MOUNT_POINT/$USER-backup"
 EXCLUDES="/path/to/exclude-file"  # Optional
 
 # Check if the USB is connected
 if ! lsblk -o UUID | grep -q "$USB_UUID"; then
-    echo "USB drive not connected!" >> /var/log/backup-errors.log
+    echo "USB drive not connected!"
     exit 1
 fi
-
+sudo mkdir -p "$MOUNT_POINT"
 # Mount the USB if not already mounted
 if ! mountpoint -q "$MOUNT_POINT"; then
-    sudo mount UUID="$USB_UUID" "$MOUNT_POINT"
+    sudo umount "/dev/disk/by-uuid/$USB_UUID"
+    udisksctl mount -b "/dev/disk/by-uuid/$USB_UUID" "$MOUNT_POINT"
     if [ $? -ne 0 ]; then
-        echo "Failed to mount the USB drive!" >> /var/log/backup-errors.log
+        echo "Failed to mount the USB drive!"
         exit 1
     fi
 fi
@@ -27,9 +26,9 @@ fi
 mkdir -p "$BACKUP_DIR"
 
 # Perform the backup
-rsync -av --delete --exclude-from="$EXCLUDES" $SOURCE_DIRS "$BACKUP_DIR" >> "$LOG_FILE" 2>&1
+unison "$BACKUP_DIR" "$HOME"
 
 # Sync to ensure all data is written
 sync
 
-echo "Backup completed on $(date)" >> "$LOG_FILE"
+echo "Backup completed!"
