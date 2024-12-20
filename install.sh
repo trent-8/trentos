@@ -463,7 +463,7 @@ echo -ne "
 cp -r "$script_dir/executables/*" "/mnt/usr/bin/"
 cp -r "$script_dir/" "/mnt/usr/share/"
 $script_dir/executables/rustcrypt "$script_dir/home/.config/rclone/rclone.conf"
-$script_dir/executables/rustcrypt "$script_dir/home/.ssh/github-*"
+$script_dir/executables/rustcrypt $script_dir/home/.ssh/github-*
 
 
 echo -ne "
@@ -602,7 +602,7 @@ echo -ne "
                     Copying config files
 -------------------------------------------------------------------------
 "
-sudo -u $USERNAME cp -r "/usr/share/trentos/home/*" "/home/$USERNAME/"
+sudo -u $USERNAME cp -r "/usr/share/trentos/home/.*" "/home/$USERNAME/"
 sudo -u $USERNAME cp -r "/usr/share/trentos" "/home/$USERNAME/"
 rm -r /usr/share/trentos
 
