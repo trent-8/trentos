@@ -77,7 +77,3 @@ xdg-desktop-portal-gtk
 xdg-desktop-portal-hyprland
 zip
 zram-generator
-zsh
-zsh-autosuggestions
-zsh-history-substring-search
-zsh-syntax-highlighting

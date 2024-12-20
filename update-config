@@ -1,4 +1,0 @@
-#!/bin/bash
-script_dir=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
-cp -r $script_dir/home/.* "$HOME/"
-sudo cp -r $script_dir/executables/* "/usr/bin/"
