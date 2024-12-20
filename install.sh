@@ -600,9 +600,7 @@ echo -ne "
                     Copying config files
 -------------------------------------------------------------------------
 "
-sudo -u $USERNAME cp -r "/usr/share/trentos/.config" "/home/$USERNAME/"
-sudo -u $USERNAME cp -r "/usr/share/trentos/Pictures" "/home/$USERNAME/"
-sudo -u $USERNAME cp -r "/usr/share/trentos/.bash_profile" "/home/$USERNAME/"
+sudo -u $USERNAME cp -r "/usr/share/trentos/home/*" "/home/$USERNAME/"
 
 echo -ne "
 -------------------------------------------------------------------------
