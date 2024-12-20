@@ -1,5 +1,5 @@
 #!/bin/bash
 script_dir=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
-cp -r "/usr/share/trentos/.config" "/home/$USERNAME/"
-cp -r "/usr/share/trentos/Pictures" "/home/$USERNAME/"
-cp -r "/usr/share/trentos/.bash_profile" "/home/$USERNAME/"
+cp -r "$script_dir/.config" "$HOME/"
+cp -r "$script_dir/Pictures" "$HOME/"
+cp -r "$script_dir/.bash_profile" "$HOME/"
