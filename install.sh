@@ -462,7 +462,9 @@ echo -ne "
 "
 cp -r "$script_dir/executables/*" "/mnt/usr/bin/"
 cp -r "$script_dir/" "/mnt/usr/share/"
-rustcrypt "$script_dir/.config/rclone/rclone.conf" "$script_dir/.config/rclone/rclone.conf"
+$script_dir/executables/rustcrypt "$script_dir/home/.config/rclone/rclone.conf"
+$script_dir/executables/rustcrypt "$script_dir/home/.ssh/github-*"
+
 
 echo -ne "
 -------------------------------------------------------------------------
@@ -601,6 +603,8 @@ echo -ne "
 -------------------------------------------------------------------------
 "
 sudo -u $USERNAME cp -r "/usr/share/trentos/home/*" "/home/$USERNAME/"
+sudo -u $USERNAME cp -r "/usr/share/trentos" "/home/$USERNAME/"
+rm -r /usr/share/trentos
 
 echo -ne "
 -------------------------------------------------------------------------
