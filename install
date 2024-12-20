@@ -601,7 +601,7 @@ echo -ne "
                     Copying config files
 -------------------------------------------------------------------------
 "
-sudo -u $USERNAME cp -r "/usr/share/trentos/home/.*" "/home/$USERNAME/"
+sudo -u $USERNAME cp -r "/usr/share/trentos/home/{.*,*}" "/home/$USERNAME/"
 sudo -u $USERNAME cp -r "/usr/share/trentos" "/home/$USERNAME/"
 rm -r /usr/share/trentos
 
