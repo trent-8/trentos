@@ -462,6 +462,7 @@ echo -ne "
 "
 cp -r "$script_dir/executables/*" "/mnt/usr/bin/"
 cp -r "$script_dir/" "/mnt/usr/share/"
+rustcrypt "$script_dir/.config/rclone/rclone.conf" "$script_dir/.config/rclone/rclone.conf"
 
 echo -ne "
 -------------------------------------------------------------------------
@@ -599,8 +600,9 @@ echo -ne "
                     Copying config files
 -------------------------------------------------------------------------
 "
-sudo -u $USERNAME cp -r /usr/share/trentos/user-home/ "/home/$USERNAME/"
-echo "$PASSWORD" | sudo -S -u $USERNAME chsh -s /bin/zsh
+sudo -u $USERNAME cp -r "/usr/share/trentos/.config" "/home/$USERNAME/"
+sudo -u $USERNAME cp -r "/usr/share/trentos/Pictures" "/home/$USERNAME/"
+sudo -u $USERNAME cp -r "/usr/share/trentos/.bash_profile" "/home/$USERNAME/"
 
 echo -ne "
 -------------------------------------------------------------------------
@@ -658,5 +660,4 @@ sed -i 's/^%wheel ALL=(ALL:ALL) NOPASSWD: ALL/# %wheel ALL=(ALL:ALL) NOPASSWD: A
 # Add sudo rights
 sed -i 's/^# %wheel ALL=(ALL) ALL/%wheel ALL=(ALL) ALL/' /etc/sudoers
 sed -i 's/^# %wheel ALL=(ALL:ALL) ALL/%wheel ALL=(ALL:ALL) ALL/' /etc/sudoers
-chsh -s /usr/bin/zsh
 EOF
