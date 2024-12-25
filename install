@@ -460,8 +460,8 @@ echo -ne "
                     Copy config files
 -------------------------------------------------------------------------
 "
-cp -r "$script_dir/executables/*" "/mnt/usr/bin/"
-cp -r "$script_dir/" "/mnt/usr/share/"
+rsync -a "$script_dir/executables/" "/mnt/usr/bin/"
+rsync -a "$script_dir" "/mnt/usr/share/"
 
 echo -ne "
 -------------------------------------------------------------------------
@@ -599,8 +599,8 @@ echo -ne "
                     Copying config files
 -------------------------------------------------------------------------
 "
-sudo -u $USERNAME cp -r "/usr/share/trentos/home/{.*,*}" "/home/$USERNAME/"
-sudo -u $USERNAME cp -r "/usr/share/trentos" "/home/$USERNAME/"
+sudo -u $USERNAME rsync -a "/usr/share/trentos/home/" "/home/$USERNAME/"
+sudo -u $USERNAME rsync -a "/usr/share/trentos" "/home/$USERNAME/"
 rm -r /usr/share/trentos
 
 echo -ne "
