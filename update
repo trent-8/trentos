@@ -1,9 +1,7 @@
 #!/bin/bash
 script_dir=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
-rustcrypt $script_dir/home/.config/rclone/rclone.conf $script_dir/home/.ssh/github-*
 cp -r $script_dir/home/{.*,*} "$HOME/"
 sudo cp -r $script_dir/executables/* "/usr/bin/"
-rustcrypt $script_dir/home/.config/rclone/rclone.conf $script_dir/home/.ssh/github-*
 sudo pacman -Sy
 sudo pacman -S --noconfirm --needed - < $script_dir/arch-pkg-list
 aur-pkg-installer < $script_dir/aur-pkg-list
