@@ -592,7 +592,7 @@ echo -ne "
                     Making AUR Packages
 -------------------------------------------------------------------------
 "
-/usr/share/trentos/aur-pkg-installer.sh "$USERNAME" < "/usr/share/trentos/aur-pkg-list"
+/usr/share/trentos/executables/aur-pkg-installer "$USERNAME" < "/usr/share/trentos/aur-pkg-list"
 
 echo -ne "
 -------------------------------------------------------------------------
