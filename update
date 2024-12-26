@@ -4,4 +4,4 @@ rsync -a "$script_dir/home/" "$HOME/"
 sudo rsync -a "$script_dir/executables/" "/usr/bin/"
 sudo pacman -Sy
 sudo pacman -S --noconfirm --needed - < $script_dir/arch-pkg-list
-yay -S --noconfirm --needed - < $script_dir/arch-pkg-list
+yay -S --noconfirm --needed - < $script_dir/aur-pkg-list
