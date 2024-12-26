@@ -75,7 +75,7 @@
            "car": "",
             "default": ["🔈", "🔉", "🔊"]
         },
-        "on-click": "kitty -e bash -c 'bluetuith --adapter-states=\"scan:yes\"'",
+        "on-click": "uwsm app -- pwvucontrol",
         "on-click-right": "foot -a pw-top pw-top"
     },
     "custom/wofi": {
