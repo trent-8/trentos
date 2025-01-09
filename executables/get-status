@@ -1,0 +1,27 @@
+#!/bin/sh
+get_volume() {
+    echo -ne "Volume $(pamixer --get-volume)"
+    if [ $(pamixer --get-mute) = true ]; then
+        echo -ne 🔇
+    fi
+}
+
+get_battery() {
+    if [ -f /sys/class/power_supply/BAT0/capacity ]; then
+        BAT0_status=$(cat /sys/class/power_supply/BAT0/status)
+        echo -ne "   Battery $(cat /sys/class/power_supply/BAT0/capacity)"
+        if [ "$BAT0_status" = "Charging" -o "$BAT0_status" = "Not charging" -o  "$BAT0_status" = "Full" ]; then
+            printf 🔌
+        fi
+    fi
+}
+
+get_date_time() {
+    echo -ne "   $(date +"%-m/%-d/%Y   %-I:%M %P")"
+}
+
+while true; do
+    status_text="%{r}$(get_volume)$(get_battery) %{c}$(get_date_time)"
+    echo -ne "$status_text\n"
+    sleep 0.1
+done

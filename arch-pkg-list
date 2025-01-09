@@ -6,6 +6,7 @@ bluez
 bluez-obex
 brightnessctl
 btop
+bspwm
 dunst
 efibootmgr
 file-roller
@@ -45,9 +46,12 @@ playerctl
 polkit-kde-agent
 power-profiles-daemon
 qt5-wayland
+rclone
+rofi
 rsync
 slurp
 speech-dispatcher
+sxhkd
 thunar
 thunar-archive-plugin
 tk
@@ -61,5 +65,7 @@ wireplumber
 wofi
 xdg-desktop-portal-gtk
 xdg-desktop-portal-hyprland
+xorg-xrandr
+xorg-xsetroot
 zip
 zram-generator
