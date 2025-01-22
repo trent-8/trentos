@@ -641,8 +641,6 @@ systemctl enable NetworkManager.service
 echo "  NetworkManager enabled"
 systemctl enable bluetooth.service
 echo "  bluetooth enabled"
-systemctl enable ollama.service
-echo "  ollama enabled"
 systemctl enable sshd.service
 echo "  SSH daemon enabled"
 systemctl enable systemd-zram-setup@zram0.service

@@ -1,12 +1,14 @@
 #!/bin/bash
+set -x
 script_dir=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
 rsync -a "$script_dir/home/" "$HOME/"
 sudo rsync -a "$script_dir/executables/" "/usr/bin/"
-sudo pacman -Sy
+sudo pacman -Syu --noconfirm
 sudo pacman -S --noconfirm --needed - < $script_dir/arch-pkg-list
 yay -S --noconfirm --needed - < $script_dir/aur-pkg-list
 systemctl --user restart waybar
 sudo systemctl enable NetworkManager.service
 sudo systemctl enable bluetooth.service
-sudo systemctl enable ollama.service
 sudo systemctl enable sshd.service
+chsh -s /bin/zsh
+sudo chsh -s /bin/zsh

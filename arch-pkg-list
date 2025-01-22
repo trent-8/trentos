@@ -12,6 +12,7 @@ efibootmgr
 file-roller
 firefox
 fprintd
+fzf
 git
 grim
 gst-libav
@@ -34,10 +35,10 @@ noto-fonts
 noto-fonts-cjk
 noto-fonts-emoji
 ntfs-3g
-ollama
 openssh
 otf-font-awesome
 pamixer
+papirus-icon-theme
 pipewire
 pipewire-alsa
 pipewire-jack
@@ -55,6 +56,7 @@ sxhkd
 thunar
 thunar-archive-plugin
 tk
+ttf-font-awesome
 ttf-nerd-fonts-symbols-mono
 ttf-roboto
 ttf-liberation
@@ -63,9 +65,17 @@ waybar
 wget
 wireplumber
 wofi
+wl-clipboard
 xdg-desktop-portal-gtk
 xdg-desktop-portal-hyprland
+xorg-server
+xorg-xinit
 xorg-xrandr
 xorg-xsetroot
+zsh
+zsh-autosuggestions
+zsh-completions
+zsh-syntax-highlighting
 zip
+zoxide
 zram-generator
