@@ -18,7 +18,6 @@ grim
 gst-libav
 gvfs
 hypridle
-hyprlock
 hyprland
 hyprpaper
 jdk-openjdk
@@ -52,6 +51,7 @@ rofi
 rsync
 slurp
 speech-dispatcher
+stow
 sxhkd
 thunar
 thunar-archive-plugin
