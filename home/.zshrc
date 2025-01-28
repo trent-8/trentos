@@ -69,7 +69,7 @@ alias startwl="uwsm start -S -- hyprland.desktop"
 
 
 # Shell integrations
-eval "$(fzf --zsh)"
+# eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 
 autoload -Uz up-line-or-beginning-search down-line-or-beginning-search

@@ -8,7 +8,7 @@
 }
 
 window#waybar {
-    background-color: rgba(10, 10, 10, 0.8);
+    background-color: rgba(33, 33, 33, 0.95);
     transition-property: background-color;
     transition-duration: .5s;
     font-weight: bold;
@@ -39,7 +39,7 @@ window#waybar.chromium {
 
 button {
     border: none;
-    background-color: rgba(77, 77, 77, 0.75);
+    background-color: rgba(77, 77, 77, 0.95);
 }
 
 /* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
@@ -49,7 +49,7 @@ button:hover {
 
 /* you can set a style on hover for any module like this */
 #pulseaudio:hover {
-    background-color: rgba(100, 100, 100, 0.75);
+    background-color: rgba(100, 100, 100, 0.95);
 }
 
 #workspaces {
@@ -57,11 +57,11 @@ button:hover {
 }
 
 #workspaces button {
-    background-color: rgba(77, 77, 77, 0.75);
+    background-color: rgba(77, 77, 77, 0.95);
 }
 
 #workspaces button:hover {
-    background: rgba(100, 100, 100, 0.75);
+    background: rgba(100, 100, 100, 0.95);
 }
 
 #workspaces button.active {
@@ -103,16 +103,16 @@ button:hover {
 }
 
 #clock {
-    background-color: rgba(77, 77, 77, 0.75);
+    background-color: rgba(77, 77, 77, 0.95);
     margin-right: 0;
 }
 
 #battery {
-    background-color: rgba(77, 77, 77, 0.75);
+    background-color: rgba(77, 77, 77, 0.95);
 }
 
 #battery.charging, #battery.plugged {
-    background-color: rgba(77, 77, 77, 0.75);
+    background-color: rgba(77, 77, 77, 0.95);
 }
 
 @keyframes blink {
@@ -133,7 +133,7 @@ button:hover {
 }
 
 #power-profiles-daemon {
-    background-color: rgba(77, 77, 77, 0.75);
+    background-color: rgba(77, 77, 77, 0.95);
 }
 
 label:focus {
@@ -141,23 +141,23 @@ label:focus {
 }
 
 #cpu {
-    background-color: rgba(77, 77, 77, 0.75);
+    background-color: rgba(77, 77, 77, 0.95);
 }
 
 #memory {
-    background-color: rgba(77, 77, 77, 0.75);
+    background-color: rgba(77, 77, 77, 0.95);
 }
 
 #disk {
-    background-color: rgba(77, 77, 77, 0.75);
+    background-color: rgba(77, 77, 77, 0.95);
 }
 
 #backlight {
-    background-color: rgba(77, 77, 77, 0.75);
+    background-color: rgba(77, 77, 77, 0.95);
 }
 
 #network {
-    background-color: rgba(77, 77, 77, 0.75);
+    background-color: rgba(77, 77, 77, 0.95);
 }
 
 #network.disconnected {
@@ -165,19 +165,19 @@ label:focus {
 }
 
 #pulseaudio {
-    background-color: rgba(77, 77, 77, .75);
+    background-color: rgba(77, 77, 77, 0.95);
 }
 
 #pulseaudio.muted {
-    background-color: rgba(77, 77, 77, .75);
+    background-color: rgba(77, 77, 77, 0.95);
 }
 
 #wireplumber {
-    background-color: rgba(77, 77, 77, .75);
+    background-color: rgba(77, 77, 77, 0.95);
 }
 
 #wireplumber.muted {
-    background-color: rgba(77, 77, 77, .75);
+    background-color: rgba(77, 77, 77, 0.95);
 }
 
 #custom-media {
@@ -187,11 +187,11 @@ label:focus {
 }
 
 #custom-wofi {
-    background-color: rgba(77, 77, 77, 0.75);
+    background-color: rgba(77, 77, 77, 0.95);
 }
 
 #custom-wofi:hover {
-    background-color: rgba(100, 100, 100, 0.75);
+    background-color: rgba(100, 100, 100, 0.95);
 }
 
 #custom-media.custom-spotify {
@@ -203,15 +203,15 @@ label:focus {
 }
 
 #temperature {
-    background-color: rgba(77, 77, 77, 0.75);
+    background-color: rgba(77, 77, 77, 0.95);
 }
 
 #temperature.critical {
-    background-color: rgba(77, 77, 77, 0.75);
+    background-color: rgba(77, 77, 77, 0.95);
 }
 
 #tray {
-    background-color: rgba(77, 77, 77, 0.75);
+    background-color: rgba(77, 77, 77, 0.95);
 }
 
 #tray > .passive {
@@ -220,11 +220,11 @@ label:focus {
 
 #tray > .needs-attention {
     -gtk-icon-effect: highlight;
-    background-color: rgba(77, 77, 77, 0.75);
+    background-color: rgba(77, 77, 77, 0.95);
 }
 
 #idle_inhibitor {
-    background-color: rgba(77, 77, 77, 0.75);
+    background-color: rgba(77, 77, 77, 0.95);
 }
 
 #idle_inhibitor.activated {
