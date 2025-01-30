@@ -6,7 +6,6 @@ bluez
 bluez-obex
 brightnessctl
 btop
-bspwm
 dunst
 efibootmgr
 file-roller
@@ -19,6 +18,7 @@ gst-libav
 gvfs
 hypridle
 hyprland
+hyprpaper
 jdk-openjdk
 less
 linux-lts
@@ -33,6 +33,7 @@ noto-fonts
 noto-fonts-cjk
 noto-fonts-emoji
 ntfs-3g
+nwg-look
 openssh
 otf-font-awesome
 pamixer
@@ -44,14 +45,14 @@ pipewire-pulse
 playerctl
 polkit-kde-agent
 power-profiles-daemon
+python-matplotlib
+python-numpy
 qt5-wayland
 rclone
-rofi
 rsync
 slurp
 speech-dispatcher
 stow
-sxhkd
 thunar
 thunar-archive-plugin
 tk

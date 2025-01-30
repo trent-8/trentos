@@ -3,5 +3,12 @@ set -x
 script_dir=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
 stow --adopt --target="$HOME" home
 sudo stow --adopt --target="/usr/bin" executables
+sudo pacman -Syu --noconfirm
+sudo pacman -S --noconfirm --needed - < $script_dir/arch-pkg-list
+yay -S --noconfirm --needed - < $script_dir/aur-pkg-list
+systemctl --user restart waybar
+sudo systemctl enable NetworkManager.service
+sudo systemctl enable bluetooth.service
+sudo systemctl enable sshd.service
 chsh -s /bin/zsh
 sudo chsh -s /bin/zsh

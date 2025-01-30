@@ -67,8 +67,8 @@
            "car": "",
             "default": ["🔈", "🔉", "🔊"]
         },
-        "on-click": "pavucontrol",
-        "on-click-right": "pavucontrol"
+        "on-click": "uwsm app -- pwvucontrol",
+        "on-click-right": "uwsm app -- alacritty -e bash -c 'bluetuith --adapter-states=\"scan:yes\"'"
     },
     "custom/wofi": {
         "tooltip-format": "application menu",
