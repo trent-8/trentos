@@ -10,5 +10,6 @@ systemctl --user restart waybar
 sudo systemctl enable NetworkManager.service
 sudo systemctl enable bluetooth.service
 sudo systemctl enable sshd.service
+sudo usermod -aG uucp,audio,video,input $USER
 chsh -s /bin/zsh
 sudo chsh -s /bin/zsh

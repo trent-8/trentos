@@ -65,7 +65,7 @@ export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias c='clear'
-alias startwl="uwsm start -S -- hyprland.desktop"
+alias startwl="hyprland"
 
 
 # Shell integrations
