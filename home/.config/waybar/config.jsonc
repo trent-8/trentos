@@ -9,7 +9,9 @@
     "modules-center": ["hyprland/window"],
     "modules-right": ["tray", "pulseaudio", "power-profiles-daemon", "idle_inhibitor", "battery", "clock"],
     "hyprland/workspaces": {
-        
+        "persistent-workspaces": {
+            "*": 5
+        }
     },
     "tray": {
         // "icon-size": 21,
