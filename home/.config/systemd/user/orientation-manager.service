@@ -1,0 +1,14 @@
+[Unit]
+Description=Screen Orientation Manager Daemon
+After=graphical-session.target
+
+[Service]
+ExecStart=/usr/bin/orientation-manager
+Restart=always
+# Environment=DISPLAY=:0
+# Environment=XDG_RUNTIME_DIR=%t/runtime-user
+StandardOutput=append:/tmp/orientation-manager-daemon.log
+StandardError=append:/tmp/orientation-manager-daemon.log
+
+[Install]
+WantedBy=default.target

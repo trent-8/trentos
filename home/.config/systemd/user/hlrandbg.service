@@ -1,0 +1,15 @@
+[Unit]
+Description=Wallpaper Daemon
+After=graphical-session.target
+
+[Service]
+ExecStart=/bin/bash -c "/usr/bin/hlrandbg ~/Pictures/Backgrounds -r"
+Restart=always
+# WorkingDirectory=~
+# Environment=DISPLAY=:0
+# Environment=XDG_RUNTIME_DIR=%t/runtime-user
+StandardOutput=append:/tmp/wallpaper-daemon.log
+StandardError=append:/tmp/wallpaper-daemon.log
+
+[Install]
+WantedBy=default.target
