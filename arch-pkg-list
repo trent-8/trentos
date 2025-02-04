@@ -23,7 +23,7 @@ hyprlock
 hyprpaper
 jdk-openjdk
 less
-linux-lts
+linux
 linux-firmware
 mate-calc
 materia-gtk-theme
@@ -81,4 +81,3 @@ zsh-completions
 zsh-syntax-highlighting
 zip
 zoxide
-zram-generator

@@ -1,7 +1,7 @@
 #!/bin/bash
 set -x
 script_dir=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
-./force-stow.sh home "$HOME"
+cp -r home/{*,.*} $HOME/
 sudo cp -r etc/* "/etc/"
 sudo cp executables/* "/usr/bin/"
 sudo pacman -Syu --noconfirm
