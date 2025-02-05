@@ -22,6 +22,7 @@ hyprland
 hyprlock
 hyprpaper
 jdk-openjdk
+lan-mouse
 less
 linux
 linux-firmware
@@ -52,11 +53,9 @@ python-matplotlib
 python-numpy
 qt5-wayland
 rclone
-rsync
 signal-desktop
 slurp
 speech-dispatcher
-stow
 thunar
 thunar-archive-plugin
 tk
