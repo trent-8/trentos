@@ -7,10 +7,10 @@ bluez-obex
 brightnessctl
 btop
 dhclient
+discord
 dunst
 efibootmgr
 file-roller
-firefox
 fprintd
 fzf
 git
@@ -53,6 +53,7 @@ python-numpy
 qt5-wayland
 rclone
 rsync
+signal-desktop
 slurp
 speech-dispatcher
 stow
@@ -64,6 +65,7 @@ ttf-nerd-fonts-symbols-mono
 ttf-roboto
 ttf-liberation
 unzip
+usbutils
 waybar
 wget
 wireplumber
