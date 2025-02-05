@@ -22,6 +22,6 @@ hostname = "minipc"
 # activate this client immediately when lan-mouse is started
 activate_on_startup = true
 # ips for ethernet and wifi
-ips = ["110.193.7.29", "10.0.27.31"]
+ips = ["110.193.7.29", "10.0.27.31", "192.168.215.44"]
 # optional port
 port = 4242
