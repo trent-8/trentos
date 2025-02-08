@@ -163,6 +163,7 @@
       usbutils
       vscode
       wget
+      wl-clipboard
       wofi
       xfce.thunar
       xfce.thunar-volman
