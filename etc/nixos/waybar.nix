@@ -1,3 +1,7 @@
+{
+  programs.waybar = {
+    enable = true;
+    style = ''
 * {
     /* `otf-font-awesome` is required to be installed for icons */
     font-family: FontAwesome, Roboto;
@@ -102,7 +106,7 @@ button:hover {
 #scratchpad,
 #power-profiles-daemon,
 #mpd {
-    padding: 0 10px;
+    padding: 0 12px 0 10px ;
 }
 
 #window {
@@ -113,10 +117,12 @@ button:hover {
 #clock {
     background-color: rgba(77, 77, 77, 0.95);
     margin-right: 0;
+    padding: 0 7px;
 }
 
 #battery {
     background-color: rgba(77, 77, 77, 0.95);
+    padding: 0 7px;
 }
 
 #battery.charging, #battery.plugged {
@@ -142,6 +148,7 @@ button:hover {
 
 #power-profiles-daemon {
     background-color: rgba(77, 77, 77, 0.95);
+    padding: 0 15px 0 8px;
 }
 
 label:focus {
@@ -174,6 +181,7 @@ label:focus {
 
 #pulseaudio {
     background-color: rgba(77, 77, 77, 0.95);
+    padding: 0 8px;
 }
 
 #pulseaudio.muted {
@@ -182,6 +190,7 @@ label:focus {
 
 #wireplumber {
     background-color: rgba(77, 77, 77, 0.95);
+    padding: 0 8px;
 }
 
 #wireplumber.muted {
@@ -196,6 +205,7 @@ label:focus {
 
 #custom-wofi {
     background-color: rgba(77, 77, 77, 0.95);
+    padding: 0 15px 0 10px ;
 }
 
 #custom-wofi:hover {
@@ -220,6 +230,7 @@ label:focus {
 
 #tray {
     background-color: rgba(77, 77, 77, 0.95);
+    padding: 0 10px;
 }
 
 #tray > .passive {
@@ -233,6 +244,7 @@ label:focus {
 
 #idle_inhibitor {
     background-color: rgba(77, 77, 77, 0.95);
+    padding: 0 15px 0 7px ;
 }
 
 #idle_inhibitor.activated {
@@ -284,7 +296,7 @@ label:focus {
 }
 
 #scratchpad.empty {
-	background-color: transparent;
+  background-color: transparent;
 }
 
 #privacy {
@@ -305,4 +317,96 @@ label:focus {
 
 #privacy-item.audio-out {
     background-color: #0069d4;
+}
+    '';
+    settings = [{
+      layer = "top";
+      position = "bottom";
+      spacing = 1;
+      modules-left = ["custom/wofi" "hyprland/workspaces"];
+      modules-center = ["hyprland/window"];
+      modules-right = ["tray" "pulseaudio" "power-profiles-daemon" "idle_inhibitor" "battery" "clock"];
+      tray = {
+        icon-size = 21;
+        spacing = 10;
+      };
+      clock = {
+        tooltip = false;
+        format = "{:%I:%M}";
+        format-alt = "{:%m/%d/%Y}";
+      };
+      battery = {
+        bat = "BAT0";
+        states = {
+          good = 95;
+          warning = 30;
+          critical = 15;
+        };
+        format = "{icon} {capacity}";
+        format-full = "{icon} full";
+        format-charging = " {capacity} ";
+        format-icons = ["" "" "" "" ""];
+      };
+      idle_inhibitor = {
+        format = "{icon}";
+        format-icons = {
+          activated = "";
+          deactivated = "";
+        };
+      };
+      power-profiles-daemon = {
+        format = "{icon}";
+        tooltip-format = "Power profile: {profile}\nDriver: {driver}";
+        tooltip = true;
+        format-icons = {
+          default = "";
+          performance = "";
+          balanced = "";
+          power-saver = "";
+        };
+      };
+      pulseaudio = {
+        scroll-step = 2;
+        format = "{icon} {volume}  {format_source}";
+        format-muted = "🔇  {format_source}";
+        format-source = " {volume}";
+        format-source-muted = "";
+        format-icons = {
+          headphone = "🎧";
+          hands-free = "";
+          headset = "🎧";
+          phone = "";
+          portable = "";
+          car = "";
+          default = ["🔈" "🔉" "🔊"];
+        };
+        on-click = "pwvucontrol";
+        on-click-right = "alacritty -e bash -c 'bluetuith --adapter-states=\"scan:yes\"'";
+      };
+      "custom/wofi" = {
+        tooltip-format = "application menu";
+        format = "";
+        tooltip = true;
+        on-click = "pidof wofi && pkill wofi || wofi --show drun --allow-images --normal-window";
+      };
+    }];
+  };
+  programs.hyprlock = {
+    enable = true;
+    extraConfig = ''
+      general {
+        enable_fingerprint = true
+      }
+
+      input-field {
+        monitor =
+        fade_on_empty = false
+        rounding = 12
+      }
+
+      background {
+        color = rgb(23, 39, 41)
+      }
+    '';
+  };
 }

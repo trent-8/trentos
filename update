@@ -1,18 +1,7 @@
-#!/bin/bash
+cp -r /home/$USER/trentos/wallpapers /home/trent/.wallpapers
+sudo cp -r /home/$USER/trentos/etc/* "/etc/"
+sudo cp /home/$USER/trentos/executables/* "/usr/bin/"
 set -x
-script_dir=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
-cp -r home/{*,.*} $HOME/
-sudo cp -r etc/* "/etc/"
-sudo cp executables/* "/usr/bin/"
-sudo pacman -Syu --noconfirm
-sudo pacman -S --noconfirm --needed - < $script_dir/arch-pkg-list
-yay -S --noconfirm --needed - < $script_dir/aur-pkg-list
-systemctl --user restart waybar
-sudo systemctl enable ntpd.service
-sudo systemctl enable NetworkManager.service
-sudo systemctl enable bluetooth.service
-sudo systemctl enable sshd.service
-sudo systemctl enable zram.service
-sudo usermod -aG uucp,audio,video,input $USER
-chsh -s /bin/zsh
-sudo chsh -s /bin/zsh
+sudo nix-channel --add https://github.com/nix-community/home-manager/archive/release-24.11.tar.gz home-manager
+sudo nix-channel --update
+sudo nixos-rebuild switch
