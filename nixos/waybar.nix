@@ -3,8 +3,7 @@
     enable = true;
     style = ''
 * {
-    /* `otf-font-awesome` is required to be installed for icons */
-    font-family: FontAwesome, Roboto;
+    font-family: Roboto;
     font-size: 16px;
     border-radius: 7px;
     border: none;
@@ -106,7 +105,7 @@ button:hover {
 #scratchpad,
 #power-profiles-daemon,
 #mpd {
-    padding: 0 12px 0 10px ;
+    padding: 0 10px;
 }
 
 #window {
@@ -117,12 +116,12 @@ button:hover {
 #clock {
     background-color: rgba(77, 77, 77, 0.95);
     margin-right: 0;
-    padding: 0 7px;
+    padding: 0 10px;
 }
 
 #battery {
     background-color: rgba(77, 77, 77, 0.95);
-    padding: 0 7px;
+    padding: 0 10px;
 }
 
 #battery.charging, #battery.plugged {
@@ -148,7 +147,7 @@ button:hover {
 
 #power-profiles-daemon {
     background-color: rgba(77, 77, 77, 0.95);
-    padding: 0 15px 0 8px;
+    padding: 0 8px;
 }
 
 label:focus {
@@ -190,7 +189,7 @@ label:focus {
 
 #wireplumber {
     background-color: rgba(77, 77, 77, 0.95);
-    padding: 0 8px;
+    padding: 0 10px;
 }
 
 #wireplumber.muted {
@@ -205,7 +204,7 @@ label:focus {
 
 #custom-wofi {
     background-color: rgba(77, 77, 77, 0.95);
-    padding: 0 15px 0 10px ;
+    padding: 0 10px;
 }
 
 #custom-wofi:hover {
@@ -325,7 +324,7 @@ label:focus {
       spacing = 1;
       modules-left = ["custom/wofi" "hyprland/workspaces"];
       modules-center = ["hyprland/window"];
-      modules-right = ["tray" "pulseaudio" "power-profiles-daemon" "idle_inhibitor" "battery" "clock"];
+      modules-right = ["tray" "power-profiles-daemon" "temperature" "cpu" "memory" "pulseaudio" "battery" "clock"];
       tray = {
         icon-size = 21;
         spacing = 10;
@@ -336,7 +335,7 @@ label:focus {
         format-alt = "{:%m/%d/%Y}";
       };
       battery = {
-        bat = "BAT0";
+        # bat = "BAT0";
         states = {
           good = 95;
           warning = 30;
@@ -344,48 +343,39 @@ label:focus {
         };
         format = "{icon} {capacity}";
         format-full = "{icon} full";
-        format-charging = " {capacity} ";
-        format-icons = ["" "" "" "" ""];
+        format-charging = "🔌 {icon} {capacity}";
+        format-icons = ["▁" "▂" "▃" "▄" "▅" "▆" "▇" "█"];
       };
-      idle_inhibitor = {
-        format = "{icon}";
-        format-icons = {
-          activated = "";
-          deactivated = "";
-        };
+      memory = {
+        format = "{used:0.1f}GB";
+        tooltip = false;
       };
       power-profiles-daemon = {
         format = "{icon}";
         tooltip-format = "Power profile: {profile}\nDriver: {driver}";
         tooltip = true;
         format-icons = {
-          default = "";
-          performance = "";
-          balanced = "";
-          power-saver = "";
+          default = "performance";
+          performance = "performance";
+          balanced = "balanced";
+          power-saver = "power-saver";
         };
       };
       pulseaudio = {
         scroll-step = 2;
-        format = "{icon} {volume}  {format_source}";
-        format-muted = "🔇  {format_source}";
-        format-source = " {volume}";
-        format-source-muted = "";
+        format = "{icon}{volume} {format_source}";
+        format-muted = "🔇 {format_source}";
+        format-source = "🎙{volume}";
+        format-source-muted = "🎙m";
         format-icons = {
-          headphone = "🎧";
-          hands-free = "";
-          headset = "🎧";
-          phone = "";
-          portable = "";
-          car = "";
           default = ["🔈" "🔉" "🔊"];
         };
-        on-click = "pwvucontrol";
-        on-click-right = "alacritty -e bash -c 'bluetuith --adapter-states=\"scan:yes\"'";
+        on-click = "uwsm-app pwvucontrol";
+        on-click-right = "uwsm-app -- alacritty -e bash -c 'bluetuith --adapter-states=\"scan:yes\"'";
       };
       "custom/wofi" = {
         tooltip-format = "application menu";
-        format = "";
+        format = "≡";
         tooltip = true;
         on-click = "pidof wofi && pkill wofi || wofi --show drun --allow-images --normal-window";
       };

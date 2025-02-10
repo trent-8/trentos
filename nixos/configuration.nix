@@ -52,7 +52,7 @@
 
   home-manager.backupFileExtension = "bak";
   home-manager.users.trent = {
-    imports = [ ./hypridle.nix ./hyprland.nix ./theme.nix ./waybar.nix ];
+    imports = [ ./hypridle.nix ./hyprland.nix ./theme.nix ./waybar.nix ./vim.nix ];
     programs.git = {
       enable = true;
       userName  = "trent-8";
@@ -61,13 +61,7 @@
     programs.alacritty.settings = {
       window.padding = { x = 7; y = 7; };
     };
-    services.hyprpaper = {
-      enable = true;
-      settings = {
-        preload = [ "/home/trent/Pictures/Backgrounds/Hawaii-Sunset.jpg" ];
-        wallpaper = [ ", /home/trent/Pictures/Backgrounds/Hawaii-Sunset.jpg" ];
-      };
-    };
+    services.hyprpaper.enable = true;
     home.stateVersion = "24.11";
   };
   nixpkgs.config.allowUnfree = true;
@@ -112,6 +106,7 @@
     syntaxHighlighting.enable = true;
     autosuggestions.enable = true;
   };
+
   programs.dconf.enable = true;
   programs.firefox.enable = true;
   programs.uwsm.enable = true;
@@ -122,7 +117,7 @@
       binPath = "/home/trent/.nix-profile/bin/Hyprland";
     };
   };
-  
+
   environment = {
     systemPackages = with pkgs; [ 
       alacritty
@@ -144,6 +139,7 @@
       networkmanagerapplet
       ntfs3g
       ntp
+      obs-studio
       papirus-icon-theme
       p7zip
       pamixer
@@ -165,6 +161,8 @@
       wget
       wl-clipboard
       wofi
+      xdg-desktop-portal-gtk
+      xdg-desktop-portal-hyprland
       xfce.thunar
       xfce.thunar-volman
       xfce.thunar-archive-plugin
@@ -172,18 +170,26 @@
       zoxide
     ];
   };
-  fonts.packages = with pkgs; [
-    font-awesome
-    liberation_ttf
-    nerdfonts
-    noto-fonts
-    noto-fonts-cjk-sans
-    noto-fonts-cjk-serif
-    noto-fonts-emoji
-    noto-fonts-monochrome-emoji
-    roboto
-    source-code-pro
-  ];
+  fonts = {
+    enableDefaultPackages = true;
+    packages = with pkgs; [
+      font-awesome
+      liberation_ttf
+      nerdfonts
+      noto-fonts
+      noto-fonts-cjk-sans
+      noto-fonts-cjk-serif
+      noto-fonts-emoji
+      noto-fonts-monochrome-emoji
+      roboto
+      source-code-pro
+    ];
+    fontconfig = {
+      defaultFonts = {
+        monospace = [ "Source Code Pro" ];
+      };
+    };
+  };
 
   # programs.mtr.enable = true;
   # programs.gnupg.agent = {

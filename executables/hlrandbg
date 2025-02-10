@@ -11,7 +11,6 @@ def set_wallpaper(image_path):
 def cycle_wallpapers(directory, cycle_time, randomized):
     displayed_images = []
     while True:
-        time.sleep(cycle_time)
         images = list(Path(directory).glob("*.jpg")) + \
                 list(Path(directory).glob("*.jpeg")) + \
                 list(Path(directory).glob("*.png"))
@@ -28,10 +27,11 @@ def cycle_wallpapers(directory, cycle_time, randomized):
         else:
             displayed_images.append(images[0])
         set_wallpaper(displayed_images[-1])
+        time.sleep(cycle_time)
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="wallpaper setter for hyprland with folder cycling")
     parser.add_argument("path", help="path to an image or directory of images")
-    parser.add_argument("-c", "--cycle-time", type=int, default=300, help="how fast in seconds to cycle through wallpapers when the path is a folder [default: 300]")
+    parser.add_argument("-c", "--cycle-time", type=int, default=120, help="how fast in seconds to cycle through wallpapers when the path is a folder [default: 300]")
     parser.add_argument("-r", "--randomized", action="store_true", help="cycles through images randomly when path is a folder")
     args = parser.parse_args()
     if not args.path and not args.cycle_time and not args.randomized:

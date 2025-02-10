@@ -3,7 +3,7 @@
     enable = true;
     wantedBy = ["graphical-session.target"];
     serviceConfig = {
-      ExecStart = "/usr/bin/hlrandbg /home/trent/.wallpapers -r";
+      ExecStart = "/usr/bin/hlrandbg /home/trent/wallpapers -r";
       Restart = "always";
       RestartSec = 10;
     };

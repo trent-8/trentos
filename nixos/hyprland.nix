@@ -26,96 +26,96 @@
       exec-once = uwsm app -- dunst
       exec-once = uwsm app -- nm-applet
       exec-once = systemctl --user start plasma-polkit-agent
+      exec-once = systemctl --user enable --now waybar
 
       general {
-          gaps_in = 1
-          gaps_out = -2,1,2,1 
-          border_size = 2
-          col.active_border = rgba(33ccffee) rgba(00ff99ee) 45deg
-          col.inactive_border = rgba(595959cc)
-          resize_on_border = true
-          allow_tearing = false
-          layout = dwindle
+        gaps_in = 1
+        gaps_out = -2,1,2,1 
+        border_size = 2
+        col.active_border = rgba(33ccffee) rgba(00ff99ee) 45deg
+        col.inactive_border = rgba(595959cc)
+        resize_on_border = true
+        allow_tearing = false
+        layout = dwindle
       }
 
       decoration {
-          rounding = 1
-          active_opacity = 0.99
-          inactive_opacity = 0.95
-          blur {
-              enabled = false
-          }
-          shadow {
-              enabled = false
-          }
+        rounding = 1
+        active_opacity = 0.99
+        inactive_opacity = 0.95
+        blur {
+          enabled = false
+        }
+        shadow {
+          enabled = false
+        }
       }
 
       animations {
-          bezier = smooth, 0.5, 0, 0.5, 1
-          bezier = windows_in, 1, 0, 0.875, 1
-          animation = windowsIn, 1, 2, windows_in, popin 50%
-          animation = windowsOut, 1, 0.5, smooth, popin 50%
-          animation = windowsMove, 1, 2, smooth
-          animation = border, 1, 2, smooth
-          animation = borderangle, 0
-          animation = layers, 1, 2, windows_in, popin 50%
-          animation = layersOut, 1, 1, windows_in, fadeOut
-          animation = fade, 1, 2, smooth
-          animation = fadeIn, 1, 2, windows_in
-          animation = fadeOut, 1, 0.5, smooth
-          animation = fadeLayers, 1, 8, smooth
-          animation = workspaces, 1, 2, smooth
+        bezier = smooth, 0.5, 0, 0.5, 1
+        bezier = windows_in, 1, 0, 0.875, 1
+        animation = windowsIn, 1, 2, windows_in, popin 50%
+        animation = windowsOut, 1, 0.5, smooth, popin 50%
+        animation = windowsMove, 1, 2, smooth
+        animation = border, 1, 2, smooth
+        animation = borderangle, 0
+        animation = layers, 1, 2, smooth, fade
+        animation = fade, 1, 2, smooth
+        animation = fadeIn, 1, 2, windows_in
+        animation = fadeOut, 1, 0.5, smooth
+        animation = fadeLayers, 1, 8, smooth
+        animation = workspaces, 1, 2, smooth
       }
 
       dwindle {
-          pseudotile = true
-          preserve_split = true
+        pseudotile = true
+        preserve_split = true
       }
 
       master {
-          new_status = master
+        new_status = master
       }
 
       misc {
-          force_default_wallpaper = 0
-          disable_hyprland_logo = true
-          enable_swallow = true
-          swallow_regex = ^(Alacritty)$
-          swallow_exception_regex = ^(wev)$
+        force_default_wallpaper = 0
+        disable_hyprland_logo = true
+        enable_swallow = true
+        swallow_regex = ^(Alacritty)$
+        swallow_exception_regex = ^(wev)$
       }
 
       input {
-          kb_layout = us
-          kb_variant =
-          kb_model =
-          kb_options =
-          kb_rules =
-          follow_mouse = 1
-          touchpad {
-              natural_scroll = false
-          }
-          touchdevice {
-              output = eDP-1
-          }
-          tablet {
-              output = eDP-1
-          }
+        kb_layout = us
+        kb_variant =
+        kb_model =
+        kb_options =
+        kb_rules =
+        follow_mouse = 1
+        touchpad {
+          natural_scroll = false
+        }
+        touchdevice {
+          output = eDP-1
+        }
+        tablet {
+          output = eDP-1
+        }
       }
 
       gestures {
-          workspace_swipe = false
-          workspace_swipe_touch = true
+        workspace_swipe = false
+        workspace_swipe_touch = true
       }
 
       group {
-          col.border_active = rgba(33ccffee) rgba(00ff99ee) 45deg
-          col.border_inactive = rgba(595959aa)
-          drag_into_group = 2
-          groupbar {
-              font_size = 10
-              col.active = rgba(757575ff)
-              col.inactive = rgba(323232ff)
-          }
+        col.border_active = rgba(33ccffee) rgba(00ff99ee) 45deg
+        col.border_inactive = rgba(595959aa)
+        drag_into_group = 2
+        groupbar {
+          font_size = 10
+          col.active = rgba(757575ff)
+          col.inactive = rgba(323232ff)
+        }
       }
 
       bind = SUPER, A, exec, pidof wofi & pkill wofi || uwsm app -- wofi --show drun --allow-images --normal-window
@@ -144,33 +144,43 @@
       bind = SUPER, right, movefocus, r
       bind = SUPER, up, movefocus, u
       bind = SUPER, down, movefocus, d
-      bind = SUPER CTRL, left, workspace, r-1
-      bind = SUPER CTRL, right, workspace, r+1
-      bind = SUPER SHIFT, left, movetoworkspacesilent, r-1
-      bind = SUPER SHIFT, right, movetoworkspacesilent, r+1
-      bind = SUPER CTRL SHIFT, left, movetoworkspace, r-1
-      bind = SUPER CTRL SHIFT, right, movetoworkspace, r+1
+      bind = SUPER CTRL, left, workspace, -1
+      bind = SUPER CTRL, right, workspace, +1
+      bind = SUPER SHIFT, left, movetoworkspacesilent, -1
+      bind = SUPER SHIFT, right, movetoworkspacesilent, +1
+      bind = SUPER CTRL SHIFT, left, movetoworkspace, -1
+      bind = SUPER CTRL SHIFT, right, movetoworkspace, +1
 
-      bind = SUPER, 1, workspace, 1
-      bind = SUPER, 2, workspace, 2
-      bind = SUPER, 3, workspace, 3
-      bind = SUPER, 4, workspace, 4
-      bind = SUPER, 5, workspace, 5
-      bind = SUPER, 6, workspace, 6
-      bind = SUPER, 7, workspace, 7
-      bind = SUPER, 8, workspace, 8
-      bind = SUPER, 9, workspace, 9
-      bind = SUPER, 0, workspace, 10
-      bind = SUPER SHIFT, 1, movetoworkspace, 1
-      bind = SUPER SHIFT, 2, movetoworkspace, 2
-      bind = SUPER SHIFT, 3, movetoworkspace, 3
-      bind = SUPER SHIFT, 4, movetoworkspace, 4
-      bind = SUPER SHIFT, 5, movetoworkspace, 5
-      bind = SUPER SHIFT, 6, movetoworkspace, 6
-      bind = SUPER SHIFT, 7, movetoworkspace, 7
-      bind = SUPER SHIFT, 8, movetoworkspace, 8
-      bind = SUPER SHIFT, 9, movetoworkspace, 9
-      bind = SUPER SHIFT, 0, movetoworkspace, 10
+      bind = SUPER CTRL, 1, workspace, 1
+      bind = SUPER CTRL, 2, workspace, 2
+      bind = SUPER CTRL, 3, workspace, 3
+      bind = SUPER CTRL, 4, workspace, 4
+      bind = SUPER CTRL, 5, workspace, 5
+      bind = SUPER CTRL, 6, workspace, 6
+      bind = SUPER CTRL, 7, workspace, 7
+      bind = SUPER CTRL, 8, workspace, 8
+      bind = SUPER CTRL, 9, workspace, 9
+      bind = SUPER CTRL, 0, workspace, 10
+      bind = SUPER SHIFT, 1, movetoworkspacesilent, 1
+      bind = SUPER SHIFT, 2, movetoworkspacesilent, 2
+      bind = SUPER SHIFT, 3, movetoworkspacesilent, 3
+      bind = SUPER SHIFT, 4, movetoworkspacesilent, 4
+      bind = SUPER SHIFT, 5, movetoworkspacesilent, 5
+      bind = SUPER SHIFT, 6, movetoworkspacesilent, 6
+      bind = SUPER SHIFT, 7, movetoworkspacesilent, 7
+      bind = SUPER SHIFT, 8, movetoworkspacesilent, 8
+      bind = SUPER SHIFT, 9, movetoworkspacesilent, 9
+      bind = SUPER SHIFT, 0, movetoworkspacesilent, 10
+      bind = SUPER CTRL SHIFT, 1, movetoworkspace, 1
+      bind = SUPER CTRL SHIFT, 2, movetoworkspace, 2
+      bind = SUPER CTRL SHIFT, 3, movetoworkspace, 3
+      bind = SUPER CTRL SHIFT, 4, movetoworkspace, 4
+      bind = SUPER CTRL SHIFT, 5, movetoworkspace, 5
+      bind = SUPER CTRL SHIFT, 6, movetoworkspace, 6
+      bind = SUPER CTRL SHIFT, 7, movetoworkspace, 7
+      bind = SUPER CTRL SHIFT, 8, movetoworkspace, 8
+      bind = SUPER CTRL SHIFT, 9, movetoworkspace, 9
+      bind = SUPER CTRL SHIFT, 0, movetoworkspace, 10
 
       bind = SUPER, mouse_down, workspace, m+1
       bind = SUPER, mouse_up, workspace, m-1
