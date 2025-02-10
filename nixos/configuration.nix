@@ -46,7 +46,7 @@
 
   users.users.trent = {
     isNormalUser = true;
-    extraGroups = [ "wheel" ];
+    extraGroups = [ "wheel" "input" "video" "audio" ];
   };
   users.defaultUserShell = pkgs.zsh;
 
@@ -199,6 +199,8 @@
   
   services.openssh.enable = true;
   services.power-profiles-daemon.enable = true;
+  services.gvfs.enable = true;
+  services.udisks2.enable = true;
   # services.libinput.enable = true;
 
   # Open ports in the firewall.

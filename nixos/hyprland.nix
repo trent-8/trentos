@@ -200,6 +200,8 @@
       bindl = , XF86AudioPlay, exec, playerctl play-pause
       bindl = , XF86AudioPrev, exec, playerctl previous
 
+      layerrule = noanim, hyprpicker
+      layerrule = noanim, selection
 
       windowrulev2 = tile, title:^(QEMU)$
 
