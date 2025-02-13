@@ -1,11 +1,12 @@
 {
   programs.waybar = {
     enable = true;
+    systemd.enable = true;
     style = ''
 * {
     font-family: Roboto;
     font-size: 16px;
-    border-radius: 7px;
+    border-radius: 4px;
     border: none;
 }
 
@@ -21,15 +22,6 @@ window#waybar {
 window#waybar.hidden {
     opacity: 0.2;
 }
-
-/*
-window#waybar.empty {
-    background-color: transparent;
-}
-window#waybar.solo {
-    background-color: #FFFFFF;
-}
-*/
 
 window#waybar.termite {
     background-color: #3F3F3F;
@@ -121,7 +113,7 @@ button:hover {
 
 #battery {
     background-color: rgba(77, 77, 77, 0.95);
-    padding: 0 10px;
+    padding: 4px 4px;
 }
 
 #battery.charging, #battery.plugged {
@@ -342,9 +334,10 @@ label:focus {
           critical = 15;
         };
         format = "{icon} {capacity}";
-        format-full = "{icon} full";
+        # format-full = "{icon} full";
         format-charging = "🔌 {icon} {capacity}";
-        format-icons = ["▁" "▂" "▃" "▄" "▅" "▆" "▇" "█"];
+        format-icons = ["▏  " "▎  " "▍  " "▌  " "▋  " "▊  " "▉  " "█  " "█▏ " "█▎ " "█▍ " "█▌ " "█▋ " "█▊ " "█▉ " "██ " "██▎" "██▍" "██▌" "██▋" "██▊" "██▉" "███"];
+        
       };
       memory = {
         format = "{used:0.1f}GB";
@@ -355,10 +348,10 @@ label:focus {
         tooltip-format = "Power profile: {profile}\nDriver: {driver}";
         tooltip = true;
         format-icons = {
-          default = "performance";
-          performance = "performance";
-          balanced = "balanced";
-          power-saver = "power-saver";
+          default = "perf.";
+          performance = "perf.";
+          balanced = "bal.";
+          power-saver = "power save";
         };
       };
       pulseaudio = {
@@ -380,23 +373,5 @@ label:focus {
         on-click = "pidof wofi && pkill wofi || wofi --show drun --allow-images --normal-window";
       };
     }];
-  };
-  programs.hyprlock = {
-    enable = true;
-    extraConfig = ''
-      general {
-        enable_fingerprint = true
-      }
-
-      input-field {
-        monitor =
-        fade_on_empty = false
-        rounding = 12
-      }
-
-      background {
-        color = rgb(23, 39, 41)
-      }
-    '';
   };
 }

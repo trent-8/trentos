@@ -1,9 +1,14 @@
+{ config, lib, pkgs, ... }:
 {
   systemd.user.services.hlrandbg = {
     enable = true;
+    requires = [ "hyprpaper.service" ];
     wantedBy = ["graphical-session.target"];
     serviceConfig = {
-      ExecStart = "/usr/bin/hlrandbg /home/trent/wallpapers -r";
+      ExecStart = let
+        python = pkgs.python3.withPackages (ps: with ps; [ requests ]);
+      in
+        "${python.interpreter} ${./executables/hlrandbg} ${./wallpapers} -r";
       Restart = "always";
       RestartSec = 10;
     };

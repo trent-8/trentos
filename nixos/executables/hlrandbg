@@ -6,7 +6,7 @@ import random
 import argparse
 from pathlib import Path
 def set_wallpaper(image_path):
-    os.system("hyprctl hyprpaper reload , " + str(image_path))
+    os.system("$HOME/.nix-profile/bin/hyprctl hyprpaper reload , " + str(image_path))
     print(f"Wallpaper set to {image_path}")
 def cycle_wallpapers(directory, cycle_time, randomized):
     displayed_images = []
@@ -18,7 +18,8 @@ def cycle_wallpapers(directory, cycle_time, randomized):
             print("No image files found in the specified directory.")
             sys.exit(1)
         for image in displayed_images:
-            images.remove(image)
+            if image in images:
+                images.remove(image)
         if not images:
             displayed_images.clear()
             continue
@@ -37,15 +38,12 @@ if __name__ == "__main__":
     if not args.path and not args.cycle_time and not args.randomized:
         sys.exit(0)
     else:
-        try:
-            if os.path.isfile(args.path):
-                set_wallpaper(args.path)
-            elif os.path.isdir(args.path):
-                cycle_wallpapers(args.path, args.cycle_time, args.randomized)
-                print(args.path, args.cycle_time, args.randomized)
-            else:
-                print("Error: Specified path is neither a file nor a directory.")
-                sys.exit(1)
-        except KeyboardInterrupt:
-            print("\nInterrupted by user. Exiting...")
-            sys.exit(0)
+        if os.path.isfile(args.path):
+            set_wallpaper(args.path)
+        elif os.path.isdir(args.path):
+            time.sleep(3)
+            cycle_wallpapers(args.path, args.cycle_time, args.randomized)
+            print(args.path, args.cycle_time, args.randomized)
+        else:
+            print("Error: Specified path is neither a file nor a directory.")
+            sys.exit(1)

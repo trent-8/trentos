@@ -52,17 +52,34 @@
 
   home-manager.backupFileExtension = "bak";
   home-manager.users.trent = {
-    imports = [ ./hypridle.nix ./hyprland.nix ./theme.nix ./waybar.nix ./vim.nix ];
+    imports = [ ./hypridle.nix ./hyprlock.nix ./hyprland.nix ./theme.nix ./waybar.nix ./vim.nix ];
     programs.git = {
       enable = true;
       userName  = "trent-8";
       userEmail = "trenthek@gmail.com";
     };
-    programs.alacritty.settings = {
-      window.padding = { x = 7; y = 7; };
+    programs.alacritty = {
+      enable = true;
+      settings = {
+        window.padding = { x = 7; y = 7; };
+      };
     };
-    services.hyprpaper.enable = true;
-    home.stateVersion = "24.11";
+    services.hyprpaper = {
+      enable = true;
+      settings = {
+        ipc = "on";
+        # preload = [ "${./wallpapers/Hawaii-Sunset.jpg}" ];
+        # wallpaper = [ ", ${./wallpapers/Hawaii-Sunset.jpg}" ];
+      };
+    };
+    xdg.portal = {
+      enable = true;
+      extraPortals = [
+        pkgs.xdg-desktop-portal-gtk
+        pkgs.xdg-desktop-portal-hyprland
+      ];
+    };
+    home.stateVersion = "25.05";
   };
   nixpkgs.config.allowUnfree = true;
   programs.zsh = {
@@ -71,7 +88,7 @@
     shellAliases = {
       ls = "ls --color=auto";
       update = "sudo nixos-rebuild switch";
-      startwl = "uwsm start -S hyprland-systemd.desktop";
+      startwl = "uwsm start -S hyprland-uwsm.desktop";
     };
     shellInit = ''
       bindkey '^[[H' beginning-of-line # home
@@ -109,6 +126,7 @@
 
   programs.dconf.enable = true;
   programs.firefox.enable = true;
+  programs.tmux.enable = true;
   programs.uwsm.enable = true;
   programs.uwsm.waylandCompositors = {
     hyprland = {
@@ -120,7 +138,6 @@
 
   environment = {
     systemPackages = with pkgs; [ 
-      alacritty
       bluetuith
       brightnessctl
       btop
@@ -144,9 +161,7 @@
       p7zip
       pamixer
       playerctl
-      python312Packages.matplotlib
-      python312Packages.numpy
-      python314
+      python3Full
       pwvucontrol
       rclone
       rnote
@@ -161,8 +176,6 @@
       wget
       wl-clipboard
       wofi
-      xdg-desktop-portal-gtk
-      xdg-desktop-portal-hyprland
       xfce.thunar
       xfce.thunar-volman
       xfce.thunar-archive-plugin
@@ -175,7 +188,7 @@
     packages = with pkgs; [
       font-awesome
       liberation_ttf
-      nerdfonts
+      nerd-fonts.roboto-mono
       noto-fonts
       noto-fonts-cjk-sans
       noto-fonts-cjk-serif
@@ -186,7 +199,7 @@
     ];
     fontconfig = {
       defaultFonts = {
-        monospace = [ "Source Code Pro" ];
+        monospace = [ "RobotoMono Nerd Font" ];
       };
     };
   };

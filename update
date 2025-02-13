@@ -1,7 +1,5 @@
-cp -r $HOME/trentos/wallpapers $HOME/
 sudo cp -r /home/$USER/trentos/nixos/* "/etc/nixos/"
-sudo cp /home/$USER/trentos/executables/* "/usr/bin/"
 set -x
-sudo nix-channel --add https://github.com/nix-community/home-manager/archive/release-24.11.tar.gz home-manager
+sudo nix-channel --add https://github.com/nix-community/home-manager/archive/master.tar.gz home-manager
 sudo nix-channel --update
 sudo nixos-rebuild switch

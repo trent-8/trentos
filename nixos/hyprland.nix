@@ -26,7 +26,6 @@
       exec-once = uwsm app -- dunst
       exec-once = uwsm app -- nm-applet
       exec-once = systemctl --user start plasma-polkit-agent
-      exec-once = systemctl --user enable --now waybar
 
       general {
         gaps_in = 1
