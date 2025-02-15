@@ -163,9 +163,16 @@
       p7zip
       pamixer
       playerctl
-      python3Full
+      (pkgs.python3.withPackages(pypkgs: [
+        pypkgs.matplotlib
+        pypkgs.numpy
+        pypkgs.pandas
+        pypkgs.scipy
+        pypkgs.statistics
+      ]))
       pwvucontrol
       qemu_full
+      R
       rclone
       rnote
       signal-desktop
@@ -185,6 +192,14 @@
       zip
       zoxide
     ];
+    variables = {
+      EDITOR = "nvim";
+      VISUAL = "nvim";
+      LD_LIBRARY_PATH = pkgs.lib.makeLibraryPath [
+        pkgs.stdenv.cc.cc.lib
+        pkgs.libz
+      ];
+    };
   };
   fonts = {
     enableDefaultPackages = true;
@@ -216,7 +231,19 @@
   services.power-profiles-daemon.enable = true;
   services.gvfs.enable = true;
   services.udisks2.enable = true;
-  # services.libinput.enable = true;
+  services.netdata.python = {
+    extraPackages = [
+      (pkgs.python3.withPackages(pypkgs: [
+        pypkgs.matplotlib
+        pypkgs.numpy
+        pypkgs.pandas
+        pypkgs.scipy
+        pypkgs.statistics
+      ]))
+    ];
+    recommendedPythonPackages = true;
+  };
+  services.libinput.enable = true;
 
   # Open ports in the firewall.
   # networking.firewall.allowedTCPPorts = [ ... ];
