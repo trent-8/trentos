@@ -57,6 +57,7 @@
       enable = true;
       userName  = "trent-8";
       userEmail = "trenthek@gmail.com";
+      signing.format = "ssh";
     };
     programs.alacritty = {
       enable = true;
@@ -125,6 +126,7 @@
   };
 
   programs.dconf.enable = true;
+  programs.file-roller.enable = true;
   programs.firefox.enable = true;
   programs.tmux.enable = true;
   programs.uwsm.enable = true;
@@ -163,6 +165,7 @@
       playerctl
       python3Full
       pwvucontrol
+      qemu_full
       rclone
       rnote
       signal-desktop
@@ -199,7 +202,7 @@
     ];
     fontconfig = {
       defaultFonts = {
-        monospace = [ "RobotoMono Nerd Font" ];
+        monospace = [ "Source Code Pro" ];
       };
     };
   };

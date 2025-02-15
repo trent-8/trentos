@@ -4,120 +4,54 @@
     systemd.enable = true;
     style = ''
 * {
-    font-family: Roboto;
+    font-family: Source Code Pro;
     font-size: 16px;
     border-radius: 4px;
-    border: none;
 }
 
 window#waybar {
     color: #ffffff;
-    background-color: rgba(33, 33, 33, 0.95);
-    transition-property: background-color;
-    transition-duration: .5s;
+    background-color: rgba(33, 33, 33, 0.9);
     font-weight: bold;
     border-radius: 0;
+    border: none;
 }
 
 window#waybar.hidden {
     opacity: 0.2;
 }
 
-window#waybar.termite {
-    background-color: #3F3F3F;
-}
-
-window#waybar.chromium {
-    background-color: #000000;
-    border: none;
-}
-
 button {
     color: #ffffff;
     border: none;
-    background-color: rgba(77, 77, 77, 0.95);
+    background-color: rgba(55, 55, 55, 0.9);
 }
 
-/* https://github.com/Alexays/Waybar/wiki/FAQ#the-workspace-buttons-have-a-strange-hover-effect */
-button:hover {
-    background-color: rgba(100, 100, 100, 0.95);
+button:hover, #pulseaudio:hover, #workspaces button:hover, #workspaces button.visible, #custom-wofi:hover {
+    background-color: rgba(88, 88, 88, 0.9);
 }
 
-/* you can set a style on hover for any module like this */
-#pulseaudio:hover {
-    background-color: rgba(100, 100, 100, 0.95);
-}
-
-#workspaces {
-    background-color: rgba(33, 33, 33, 0.95);
+#workspaces, #window {
+    background-color: transparent;
+    border: none;
 }
 
 #workspaces button {
-    color: #ffffff;
-    background-color: rgba(77, 77, 77, 0.95);
     margin-right: 1px;
 }
 
-#workspaces button:hover {
-    background: rgba(100, 100, 100, 0.95);
-}
-
 #workspaces button.active {
-    color: rgba(14, 255, 195, 0.95);
-}
-
-#workspaces button.visible {
-    color: rgba(14, 255, 195, 0.95);
-    background: rgba(100, 100, 100, 0.95);
+    color: rgba(14, 255, 195, 0.9);
 }
 
 #workspaces button.urgent {
     background-color: #eb4d4b;
 }
 
-#mode {
-    background-color: #64727D;
-}
-
-#clock,
-#battery,
-#cpu,
-#memory,
-#disk,
-#temperature,
-#backlight,
-#network,
-#pulseaudio,
-#wireplumber,
-#custom-media,
-#custom-wofi,
-#tray,
-#mode,
-#idle_inhibitor,
-#scratchpad,
-#power-profiles-daemon,
-#mpd {
-    padding: 0 10px;
-}
-
-#window {
-    background-color: transparent;
-    margin-right: 0;
-}
-
-#clock {
-    background-color: rgba(77, 77, 77, 0.95);
-    margin-right: 0;
-    padding: 0 10px;
-}
-
-#battery {
-    background-color: rgba(77, 77, 77, 0.95);
-    padding: 4px 4px;
-}
-
-#battery.charging, #battery.plugged {
-    background-color: rgba(77, 77, 77, 0.95);
+#clock, #battery, #power-profiles-daemon, #cpu, #memory, #disk, #backlight, #network, #pulseaudio, #wireplumber, #custom-wofi, #temperature, #tray, #workspaces button {
+    background-color: rgba(55, 55, 55, 0.9);
+    padding: 2px 7px;
+    border: 1px solid rgba(88, 88, 88, 0.9);
 }
 
 @keyframes blink {
@@ -137,91 +71,16 @@ button:hover {
     animation-direction: alternate;
 }
 
-#power-profiles-daemon {
-    background-color: rgba(77, 77, 77, 0.95);
-    padding: 0 8px;
-}
-
-label:focus {
-    background-color: #000000;
-}
-
-#cpu {
-    background-color: rgba(77, 77, 77, 0.95);
-}
-
-#memory {
-    background-color: rgba(77, 77, 77, 0.95);
-}
-
-#disk {
-    background-color: rgba(77, 77, 77, 0.95);
-}
-
-#backlight {
-    background-color: rgba(77, 77, 77, 0.95);
-}
-
-#network {
-    background-color: rgba(77, 77, 77, 0.95);
-}
-
 #network.disconnected {
     background-color: #f53c3c;
 }
 
-#pulseaudio {
-    background-color: rgba(77, 77, 77, 0.95);
-    padding: 0 8px;
-}
-
 #pulseaudio.muted {
-    background-color: rgba(77, 77, 77, 0.95);
-}
-
-#wireplumber {
-    background-color: rgba(77, 77, 77, 0.95);
-    padding: 0 10px;
+    background-color: rgba(55, 55, 55, 0.9);
 }
 
 #wireplumber.muted {
-    background-color: rgba(77, 77, 77, 0.95);
-}
-
-#custom-media {
-    background-color: #66cc99;
-    color: #2a5c45;
-    min-width: 100px;
-}
-
-#custom-wofi {
-    background-color: rgba(77, 77, 77, 0.95);
-    padding: 0 10px;
-}
-
-#custom-wofi:hover {
-    background-color: rgba(100, 100, 100, 0.95);
-}
-
-#custom-media.custom-spotify {
-    background-color: #66cc99;
-}
-
-#custom-media.custom-vlc {
-    background-color: #ffa000;
-}
-
-#temperature {
-    background-color: rgba(77, 77, 77, 0.95);
-}
-
-#temperature.critical {
-    background-color: rgba(77, 77, 77, 0.95);
-}
-
-#tray {
-    background-color: rgba(77, 77, 77, 0.95);
-    padding: 0 10px;
+    background-color: rgba(55, 55, 55, 0.9);
 }
 
 #tray > .passive {
@@ -230,84 +89,7 @@ label:focus {
 
 #tray > .needs-attention {
     -gtk-icon-effect: highlight;
-    background-color: rgba(77, 77, 77, 0.95);
-}
-
-#idle_inhibitor {
-    background-color: rgba(77, 77, 77, 0.95);
-    padding: 0 15px 0 7px ;
-}
-
-#idle_inhibitor.activated {
-    background-color: #ecf0f1;
-    color: #2d3436;
-}
-
-#mpd {
-    background-color: #66cc99;
-    color: #2a5c45;
-}
-
-#mpd.disconnected {
-    background-color: #f53c3c;
-}
-
-#mpd.stopped {
-    background-color: #90b1b1;
-}
-
-#mpd.paused {
-    background-color: #51a37a;
-}
-
-#language {
-    background: #00b093;
-    color: #740864;
-    padding: 0 5px;
-    min-width: 16px;
-}
-
-#keyboard-state {
-    background: #97e1ad;
-    color: #000000;
-    padding: 0 0px;
-    min-width: 16px;
-}
-
-#keyboard-state > label {
-    padding: 0 5px;
-}
-
-#keyboard-state > label.locked {
-    background: rgba(0, 0, 0, 0.2);
-}
-
-#scratchpad {
-    background: rgba(0, 0, 0, 0.2);
-}
-
-#scratchpad.empty {
-  background-color: transparent;
-}
-
-#privacy {
-    padding: 0;
-}
-
-#privacy-item {
-    padding: 0 5px;
-}
-
-#privacy-item.screenshare {
-    background-color: #cf5700;
-}
-
-#privacy-item.audio-in {
-    background-color: #1ca000;
-}
-
-#privacy-item.audio-out {
-    background-color: #0069d4;
+    background-color: rgba(55, 55, 55, 0.9);
 }
     '';
     settings = [{
@@ -371,6 +153,9 @@ label:focus {
         format = "≡";
         tooltip = true;
         on-click = "pidof wofi && pkill wofi || wofi --show drun --allow-images --normal-window";
+      };
+      temperature = {
+        format = "{temperatureF}°F";
       };
     }];
   };

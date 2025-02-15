@@ -28,8 +28,8 @@
       exec-once = systemctl --user start plasma-polkit-agent
 
       general {
-        gaps_in = 1
-        gaps_out = -2,1,2,1 
+        gaps_in = 2
+        gaps_out = 3
         border_size = 2
         col.active_border = rgba(33ccffee) rgba(00ff99ee) 45deg
         col.inactive_border = rgba(595959cc)
@@ -41,9 +41,10 @@
       decoration {
         rounding = 1
         active_opacity = 0.99
-        inactive_opacity = 0.95
+        inactive_opacity = 0.90
         blur {
-          enabled = false
+          enabled = true
+          size = 4
         }
         shadow {
           enabled = false
