@@ -3,12 +3,6 @@
     enable = true;
     systemd.enable = true;
     style = ''
-* {
-    font-family: Source Code Pro;
-    font-size: 16px;
-    border-radius: 4px;
-}
-
 window#waybar {
     color: #ffffff;
     background-color: rgba(33, 33, 33, 0.9);
@@ -34,6 +28,9 @@ button:hover, #pulseaudio:hover, #workspaces button:hover, #workspaces button.vi
 #workspaces, #window {
     background-color: transparent;
     border: none;
+    font-family: Roboto;
+    font-size: 16px;
+    border-radius: 4px;
 }
 
 #workspaces button {
@@ -48,31 +45,22 @@ button:hover, #pulseaudio:hover, #workspaces button:hover, #workspaces button.vi
     background-color: #eb4d4b;
 }
 
-#clock, #battery, #power-profiles-daemon, #cpu, #memory, #disk, #backlight, #network, #pulseaudio, #wireplumber, #custom-wofi, #temperature, #tray, #workspaces button {
+#clock, #power-profiles-daemon, #cpu, #memory, #disk, #backlight, #network, #pulseaudio, #wireplumber, #custom-wofi, #temperature, #tray, #workspaces button {
     background-color: rgba(55, 55, 55, 0.9);
     padding: 2px 7px;
     border: 1px solid rgba(88, 88, 88, 0.9);
+    font-family: Roboto;
+    font-size: 16px;
+    border-radius: 4px;
 }
 
-@keyframes blink {
-    to {
-        background-color: #ffffff;
-        color: #000000;
-    }
-}
-
-/* Using steps() instead of linear as a timing function to limit cpu usage */
-#battery.critical:not(.charging) {
-    background-color: #f53c3c;
-    animation-name: blink;
-    animation-duration: 0.5s;
-    animation-timing-function: steps(12);
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-}
-
-#network.disconnected {
-    background-color: #f53c3c;
+#battery {
+    background-color: rgba(55, 55, 55, 0.9);
+    padding: 2px 7px;
+    border: 1px solid rgba(88, 88, 88, 0.9);
+    font-family: Source Code Pro;
+    font-size: 16px;
+    border-radius: 4px;
 }
 
 #pulseaudio.muted {
