@@ -12,6 +12,7 @@
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.kernelPackages = pkgs.linuxPackages_latest;
 
   networking.hostName = "minipc";
   networking.networkmanager.enable = true;
@@ -167,6 +168,7 @@
         pypkgs.matplotlib
         pypkgs.numpy
         pypkgs.pandas
+        pypkgs.pygame
         pypkgs.scipy
         pypkgs.statistics
       ]))
@@ -237,6 +239,7 @@
         pypkgs.matplotlib
         pypkgs.numpy
         pypkgs.pandas
+        pypkgs.pygame
         pypkgs.scipy
         pypkgs.statistics
       ]))
