@@ -15,7 +15,10 @@
   boot.kernelPackages = pkgs.linuxPackages_latest;
 
   networking.hostName = "minipc";
-  networking.networkmanager.enable = true;
+  networking.networkmanager =  {
+    enable = true;
+    wifi.scanRandMacAddress = false;
+  };
 
   time.timeZone = "US/Central";
 
@@ -228,7 +231,7 @@
   #   enable = true;
   #   enableSSHSupport = true;
   # };
-  
+  services.ollama.enable = true;
   services.openssh.enable = true;
   services.power-profiles-daemon.enable = true;
   services.gvfs.enable = true;
@@ -252,7 +255,7 @@
   # networking.firewall.allowedTCPPorts = [ ... ];
   # networking.firewall.allowedUDPPorts = [ ... ];
   # Or disable the firewall altogether.
-  # networking.firewall.enable = false;
+  networking.firewall.enable = false;
 
   system.stateVersion = "24.11"; # Did you read the comment?
 
