@@ -10,14 +10,36 @@
       <home-manager/nixos>
     ];
 
+  # boot.extraModprobeConfig = ''
+  #   options mt7921e disable_aspm=1
+  #   options mt7921e ieee80211_regdom="US"
+  # '';
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelParams = [ "quiet" "splash" ];
 
-  networking.hostName = "minipc";
-  networking.networkmanager =  {
-    enable = true;
-    wifi.scanRandMacAddress = false;
+  networking = {
+    hostName = "minipc";
+    wireless = {
+      # interfaces = [ "wlan0" ];
+      iwd = {
+        enable = true;
+        settings = {
+          Rank = {
+            BandModifier2_4GHz = 0.0;
+            BandModifier5GHz = 1.0;
+            BandModifier6GHz = 1.0;
+          };
+          General = {
+            AddressRandomization = "disabled";
+            EnableNetworkConfiguration = true;
+            UseDefaultInterface = true;
+          };
+        };
+      };
+    };
+    interfaces.wlan0.useDHCP = true;
   };
 
   time.timeZone = "US/Central";
@@ -36,6 +58,10 @@
     pulse.enable = true;
   };
   hardware.bluetooth.enable = true;
+  hardware.wirelessRegulatoryDatabase = true;
+  hardware.logitech.wireless.enable = true;
+  hardware.logitech.wireless.enableGraphical = true;
+  hardware.enableRedistributableFirmware = true;
 
   
   system.userActivationScripts = {
@@ -50,7 +76,7 @@
 
   users.users.trent = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "input" "video" "audio" ];
+    extraGroups = [ "wheel" "input" "video" "audio" "networkmanager" ];
   };
   users.defaultUserShell = pkgs.zsh;
 
@@ -154,12 +180,12 @@
       gvfs
       gzip
       hyprpolkitagent
+      iw
       kdePackages.breeze
       mate.mate-calc
       nano
       nanorc
       neofetch
-      networkmanagerapplet
       ntfs3g
       ntp
       obs-studio
@@ -188,6 +214,7 @@
       unzip
       usbutils
       vscode
+      wavemon
       wget
       wl-clipboard
       wofi

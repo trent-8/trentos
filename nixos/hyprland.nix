@@ -24,7 +24,6 @@
       exec-once = uwsm app -- rclone mount --daemon school: $HOME/school
       exec-once = uwsm app -- rclone mount --daemon personal: $HOME/personal
       exec-once = uwsm app -- dunst
-      exec-once = uwsm app -- nm-applet
       exec-once = systemctl --user start plasma-polkit-agent
 
       general {
@@ -100,6 +99,7 @@
         tablet {
           output = eDP-1
         }
+        accel_profile = custom 1 0 0.5
       }
 
       gestures {
