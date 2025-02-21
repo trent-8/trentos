@@ -99,8 +99,6 @@
       enable = true;
       settings = {
         ipc = "on";
-        # preload = [ "${./wallpapers/Hawaii-Sunset.jpg}" ];
-        # wallpaper = [ ", ${./wallpapers/Hawaii-Sunset.jpg}" ];
       };
     };
     xdg.portal = {

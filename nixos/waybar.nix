@@ -95,7 +95,7 @@ button:hover, #pulseaudio:hover, #workspaces button:hover, #workspaces button.vi
       spacing = 1;
       modules-left = ["custom/wofi" "hyprland/workspaces"];
       modules-center = ["hyprland/window"];
-      modules-right = ["tray" "power-profiles-daemon" "temperature" "cpu" "memory" "network" "pulseaudio" "battery" "clock"];
+      modules-right = ["tray" "power-profiles-daemon" "network" "pulseaudio" "battery" "clock"];
       tray = {
         icon-size = 21;
         spacing = 10;
@@ -127,10 +127,10 @@ button:hover, #pulseaudio:hover, #workspaces button:hover, #workspaces button.vi
         tooltip-format = "Power profile: {profile}\nDriver: {driver}";
         tooltip = true;
         format-icons = {
-          default = "perf.";
-          performance = "perf.";
-          balanced = "bal.";
-          power-saver = "power save";
+          default = "performance";
+          performance = "performance";
+          balanced = "balanced";
+          power-saver = "power-saver";
         };
       };
       pulseaudio = {
