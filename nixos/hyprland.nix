@@ -39,7 +39,7 @@
 
       decoration {
         rounding = 1
-        active_opacity = 0.99
+        active_opacity = 1
         inactive_opacity = 0.90
         blur {
           enabled = true
