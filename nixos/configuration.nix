@@ -16,7 +16,7 @@
   # '';
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
-  boot.kernelPackages = pkgs.linuxPackages_latest;
+  boot.kernelPackages = pkgs.linuxPackages-rt_latest;
   boot.kernelParams = [ "quiet" "splash" ];
 
   networking = {
@@ -27,7 +27,7 @@
         enable = true;
         settings = {
           Rank = {
-            BandModifier2_4GHz = 0.0;
+            BandModifier2_4GHz = 1.0;
             BandModifier5GHz = 1.0;
             BandModifier6GHz = 1.0;
           };
