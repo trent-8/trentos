@@ -9,11 +9,6 @@
       ./user-units.nix
       <home-manager/nixos>
     ];
-
-  # boot.extraModprobeConfig = ''
-  #   options mt7921e disable_aspm=1
-  #   options mt7921e ieee80211_regdom="US"
-  # '';
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
   boot.kernelPackages = pkgs.linuxPackages-rt_latest;
