@@ -180,6 +180,7 @@
       hyprpolkitagent
       iw
       kdePackages.breeze
+      libreoffice-fresh
       mate.mate-calc
       nano
       nanorc
