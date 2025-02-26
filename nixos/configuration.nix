@@ -232,6 +232,8 @@
   fonts = {
     enableDefaultPackages = true;
     packages = with pkgs; [
+      corefonts
+      vistafonts
       font-awesome
       liberation_ttf
       noto-fonts
@@ -257,6 +259,7 @@
   services.ollama.enable = true;
   services.openssh.enable = true;
   services.power-profiles-daemon.enable = true;
+  services.fprintd.enable = true;
   services.gvfs.enable = true;
   services.udisks2.enable = true;
   services.netdata.python = {
