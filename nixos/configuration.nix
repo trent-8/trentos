@@ -112,7 +112,6 @@
     shellAliases = {
       ls = "ls --color=auto";
       update = "sudo nixos-rebuild switch";
-      startwl = "uwsm start -S hyprland-uwsm.desktop";
     };
     shellInit = ''
       bindkey '^[[H' beginning-of-line # home
@@ -175,6 +174,7 @@
       hunspell
       hunspellDicts.en_US
       hyprpolkitagent
+      hyprsunset
       iw
       kdePackages.breeze
       libreoffice-fresh
@@ -274,6 +274,17 @@
       ]))
     ];
     recommendedPythonPackages = true;
+  };
+  services.displayManager.sddm = {
+    enable = true;
+    wayland.enable = true;
+    settings = {
+      Autologin = {
+        Session = "hyprland-uwsm.desktop";
+        User = "trent";
+      };
+    };
+    theme = "emacs-adwaita-dark-theme";
   };
   services.libinput.enable = true;
 

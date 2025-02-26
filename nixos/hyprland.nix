@@ -4,6 +4,8 @@
     xwayland.enable = true;
     systemd.enable = true;
     extraConfig = ''
+      $ua = uwsm app --
+
       monitor = eDP-1, 1920x1200x60hz, auto, 1
       monitor = , 2560x1440@75hz, auto, 1
 
@@ -16,14 +18,13 @@
       env = XCURSOR_SIZE,24
       env = HYPRCURSOR_SIZE,24
       env = XCURSOR_THEME,Breeze_Light
-      env = VISUAL,nano
-      env = EDITOR,nano
 
       #exec-once = dbus-update-activation-environment --systemd --all
       exec-once = uwsm finalize QT_QPA_PLATFORM QT_WAYLAND_DISABLE_WINDOWDECORATION QT_AUTO_SCREEN_SCALE_FACTOR GDK_BACKEND GTK_THEME ELECTRON_OZONE_PLATFORM_HINT XCURSOR_SIZE HYPRCURSOR_SIZE XCURSOR_THEME VISUAL EDITOR
-      exec-once = uwsm app -- rclone mount --vfs-cache-mode full --daemon school: $HOME/school
-      exec-once = uwsm app -- rclone mount --vfs-cache-mode full --daemon personal: $HOME/personal
-      exec-once = uwsm app -- dunst
+      exec-once = $ua rclone mount --vfs-cache-mode full --daemon school: $HOME/school
+      exec-once = $ua rclone mount --vfs-cache-mode full --daemon personal: $HOME/personal
+      exec-once = $ua dunst
+      exec-once = $ua solaar -w hide
       exec-once = systemctl --user start plasma-polkit-agent
 
       general {
@@ -118,22 +119,22 @@
         }
       }
 
-      bind = SUPER, A, exec, pidof wofi & pkill wofi || uwsm app -- wofi --show drun --allow-images --normal-window
-      bind = SUPER, X, exec, uwsm app -- alacritty
-      bind = SUPER, E, exec, uwsm app -- thunar
-      bind = SUPER, C, exec, uwsm app -- code
-      bind = SUPER, B, exec, uwsm app -- firefox
-      bind = SUPER, R, exec, uwsm app -- rnote
-      bind = SUPER, S, exec, uwsm app -- spotify
-      bind = SUPER, Z, exec, uwsm app -- alacritty -e bash -c 'bluetuith --adapter-states="scan:yes"'
-      bind = SUPER, W, exec, uwsm app -- qemu-system-x86_64 -cdrom win10.iso -m 6G -cpu host -smp 4 -drive file=win10.qcow2,format=qcow2 -accel kvm -device virtio-vga-gl -display sdl,gl=on -usb -device usb-host,hostbus=1,hostport=1
-      bind = SUPER, T, exec, uwsm app -- alacritty -e btop
-      bind = SUPER SHIFT, S, exec, bash -c 'cd $HOME/Pictures ; grim -g "$(slurp -d)" - | wl-copy'
-      bind = SUPER SHIFT, Q, exec, loginctl terminate-user ""
+      bind = SUPER, A, exec, pidof wofi & pkill wofi || $ua wofi -t=alacritty -S drun -I -n -W 700 -H 700 -w 2
+      bind = SUPER, X, exec, $ua alacritty
+      bind = SUPER, E, exec, $ua thunar
+      bind = SUPER, C, exec, $ua code
+      bind = SUPER, B, exec, $ua firefox
+      bind = SUPER, R, exec, $ua rnote
+      bind = SUPER, S, exec, $ua spotify
+      bind = SUPER, Z, exec, $ua alacritty -e bash -c 'bluetuith --adapter-states="scan:yes"'
+      bind = SUPER, W, exec, $ua qemu-system-x86_64 -cdrom win10.iso -m 6G -cpu host -smp 4 -drive file=win10.qcow2,format=qcow2 -accel kvm -device virtio-vga-gl -display sdl,gl=on -usb -device usb-host,hostbus=1,hostport=1
+      bind = SUPER, T, exec, $ua alacritty -e btop
+      bind = SUPER SHIFT, S, exec, bash -c 'cd $HOME/Pictures ; grim -g "$(slurp -d)" - | wl-copy' image.png
+      bind = SUPER SHIFT, Q, exit
       bindl = SUPER SHIFT, R, exec, systemctl reboot
       bindl = SUPER CTRL SHIFT, S, exec, systemctl suspend
       bindl = SUPER CTRL SHIFT, Q, exec, systemctl poweroff
-      bind = SUPER, L, exec, uwsm app hyprlock
+      bind = SUPER, L, exec, $ua hyprlock
       bind = SUPER, Q, killactive
       bind = SUPER, V, togglefloating
       bind = SUPER, F, fullscreen
