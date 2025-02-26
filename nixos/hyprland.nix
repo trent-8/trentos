@@ -21,8 +21,8 @@
 
       #exec-once = dbus-update-activation-environment --systemd --all
       exec-once = uwsm finalize QT_QPA_PLATFORM QT_WAYLAND_DISABLE_WINDOWDECORATION QT_AUTO_SCREEN_SCALE_FACTOR GDK_BACKEND GTK_THEME ELECTRON_OZONE_PLATFORM_HINT XCURSOR_SIZE HYPRCURSOR_SIZE XCURSOR_THEME VISUAL EDITOR
-      exec-once = uwsm app -- rclone mount --daemon school: $HOME/school
-      exec-once = uwsm app -- rclone mount --daemon personal: $HOME/personal
+      exec-once = uwsm app -- rclone mount --vfs-cache-mode full --daemon school: $HOME/school
+      exec-once = uwsm app -- rclone mount --vfs-cache-mode full --daemon personal: $HOME/personal
       exec-once = uwsm app -- dunst
       exec-once = systemctl --user start plasma-polkit-agent
 
