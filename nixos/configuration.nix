@@ -172,6 +172,8 @@
       grim
       gvfs
       gzip
+      hunspell
+      hunspellDicts.en_US
       hyprpolkitagent
       iw
       kdePackages.breeze
