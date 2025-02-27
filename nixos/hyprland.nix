@@ -130,7 +130,7 @@
       bind = SUPER, W, exec, $ua qemu-system-x86_64 -cdrom win10.iso -m 6G -cpu host -smp 4 -drive file=win10.qcow2,format=qcow2 -accel kvm -device virtio-vga-gl -display sdl,gl=on -usb -device usb-host,hostbus=1,hostport=1
       bind = SUPER, T, exec, $ua alacritty -e btop
       bind = SUPER SHIFT, S, exec, bash -c 'cd $HOME/Pictures ; grim -g "$(slurp -d)" - | wl-copy' image.png
-      bind = SUPER SHIFT, Q, exit
+      bind = SUPER SHIFT, Q, exec, loginctl terminate-user ""
       bindl = SUPER SHIFT, R, exec, systemctl reboot
       bindl = SUPER CTRL SHIFT, S, exec, systemctl suspend
       bindl = SUPER CTRL SHIFT, Q, exec, systemctl poweroff

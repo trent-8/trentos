@@ -162,6 +162,7 @@
 
   environment = {
     systemPackages = with pkgs; [ 
+      greetd.tuigreet
       bluetuith
       brightnessctl
       btop
@@ -275,16 +276,18 @@
     ];
     recommendedPythonPackages = true;
   };
-  services.displayManager.sddm = {
+  services.greetd = {
     enable = true;
-    wayland.enable = true;
     settings = {
-      Autologin = {
-        Session = "hyprland-uwsm.desktop";
-        User = "trent";
+      default_session = {
+        command = "tuigreet --cmd 'uwsm start hyprland-uwsm.desktop'";
+        user = "trent";
+      };
+      initial_session = {
+        command = "uwsm start hyprland-uwsm.desktop";
+        user = "trent";
       };
     };
-    theme = "emacs-adwaita-dark-theme";
   };
   services.libinput.enable = true;
 
