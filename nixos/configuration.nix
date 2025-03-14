@@ -150,6 +150,7 @@
   programs.dconf.enable = true;
   programs.file-roller.enable = true;
   programs.firefox.enable = true;
+  programs.thunar = { enable = true; plugins = [ pkgs.xfce.thunar-archive-plugin pkgs.xfce.thunar-volman ]; };
   programs.tmux.enable = true;
   programs.uwsm.enable = true;
   programs.uwsm.waylandCompositors = {
@@ -192,8 +193,10 @@
       playerctl
       (pkgs.python3.withPackages(pypkgs: [
         pypkgs.matplotlib
+        pypkgs.mpmath
         pypkgs.numpy
         pypkgs.pandas
+        pypkgs.pillow
         pypkgs.pygame
         pypkgs.scipy
         pypkgs.statistics
@@ -215,9 +218,6 @@
       wget
       wl-clipboard
       wofi
-      xfce.thunar
-      xfce.thunar-volman
-      xfce.thunar-archive-plugin
       zip
       zoxide
     ];
@@ -267,8 +267,10 @@
     extraPackages = [
       (pkgs.python3.withPackages(pypkgs: [
         pypkgs.matplotlib
+        pypkgs.mpmath
         pypkgs.numpy
         pypkgs.pandas
+        pypkgs.pillow
         pypkgs.pygame
         pypkgs.scipy
         pypkgs.statistics
