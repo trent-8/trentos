@@ -3,7 +3,6 @@ set -x
 script_dir=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
 cp -r home/{*,.*} $HOME/
 sudo cp -r etc/* "/etc/"
-sudo cp executables/* "/usr/bin/"
 sudo pacman -Syu --noconfirm
 sudo pacman -S --noconfirm --needed - < $script_dir/arch-pkg-list
 yay -S --noconfirm --needed - < $script_dir/aur-pkg-list
