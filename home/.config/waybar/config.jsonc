@@ -1,10 +1,8 @@
 {
     "layer": "top",
-    "position": "bottom",
-    "spacing": 1,
-    "modules-left": ["custom/wofi", "hyprland/workspaces"],
-    "modules-center": ["hyprland/window"],
-    "modules-right": ["tray", "power-profiles-daemon", "network", "pulseaudio", "battery", "clock"],
+    "modules-left": ["hyprland/workspaces"],
+    "modules-center": ["custom/wofi"],
+    "modules-right": ["tray", "temperature", "power-profiles-daemon", "network", "pulseaudio", "battery", "clock"],
     "tray": {
         "icon-size": 21,
         "spacing": 10
@@ -20,8 +18,7 @@
             "warning": 30,
             "critical": 15
         },
-        "format": "{icon}{capacity}",
-        "format-charging": "🔌 {icon} {capacity}",
+        "format": "{icon}",
         "format-icons": [
             "▏     ",
             "▎     ",
@@ -88,13 +85,10 @@
     },
     "pulseaudio": {
         "scroll-step": 2,
-        "format": "{icon}{volume} {format_source}",
-        "format-muted": "🔇 {format_source}",
-        "format-source": "🎙{volume}",
-        "format-source-muted": "🎙m",
-        "format-icons": {
-            "default": ["🔈", "🔉", "🔊"]
-        },
+        "format": "vol:{volume} {format_source}",
+        "format-muted": "muted {format_source}",
+        "format-source": "mic:{volume}",
+        "format-source-muted": "mic:muted",
         "on-click": "pwvucontrol",
         "on-click-right": "alacritty -e bash -c 'bluetuith --adapter-states=\"scan:yes\"'"
     },
@@ -104,10 +98,10 @@
         "tooltip": true,
         "on-click": "pidof wofi && pkill wofi || wofi -t=alacritty -S drun -I -n -W 300 -H 700"
     },
-        "temperature": {
+    "temperature": {
         "format": "{temperatureF}°F"
     },
-        "network": {
+    "network": {
         "format": "{ipaddr} {ifname}",
         "format-wifi": "{ifname} {essid} {frequency}GHz"
     }

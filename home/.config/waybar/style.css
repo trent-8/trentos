@@ -1,10 +1,14 @@
+* {
+    font-size: 16px;
+    border-radius:0;
+}
+
 window#waybar {
     color: #ffffff;
-    background-color: rgba(33, 33, 33, 0.9);
+    background-color: rgb(22, 22, 22);
     font-weight: bold;
-    border-radius: 0;
-    border: none;
-    font-size: 16px;
+    border: solid rgb(77, 77, 77);
+    border-width: 0 0 2px 0;
 }
 
 window#waybar.hidden {
@@ -13,30 +17,25 @@ window#waybar.hidden {
 
 button {
     color: #ffffff;
-    border: none;
-    background-color: rgba(55, 55, 55, 0.9);
-    font-size: 16px;
+    border: solid rgb(77, 77, 77);
+    border-width: 0 1px 2px 1px;
+    background-color: rgb(33, 33, 33);
+    padding: 2px 12px 0 12px;
 }
 
-button:hover, #pulseaudio:hover, #workspaces button:hover, #workspaces button.visible, #custom-wofi:hover {
-    background-color: rgba(88, 88, 88, 0.9);
+button:hover, #pulseaudio:hover, #workspaces button:hover, #custom-wofi:hover {
+    background-color: rgb(77, 77, 77);
 }
 
-#workspaces, #window {
+#workspaces {
     background-color: transparent;
     border: none;
     font-family: sans-serif;
-    font-size: 16px;
-    border-radius: 4px;
 }
 
-#workspaces button {
-    margin-right: 1px;
-    font-size: 12px;
-}
-
-#workspaces button.active {
-    color: rgba(14, 255, 195, 0.9);
+#workspaces button.visible {
+    color: rgb(14, 200, 200);
+    background-color: rgb(55, 55, 55);
     font-size: 16px;
 }
 
@@ -44,39 +43,37 @@ button:hover, #pulseaudio:hover, #workspaces button:hover, #workspaces button.vi
     background-color: #eb4d4b;
 }
 
-#clock, #power-profiles-daemon, #cpu, #memory, #disk, #backlight, #network, #pulseaudio, #wireplumber, #custom-wofi, #temperature, #tray, #workspaces button {
-    background-color: rgba(55, 55, 55, 0.9);
-    padding: 2px 7px;
-    border: 1px solid rgba(88, 88, 88, 0.9);
+#power-profiles-daemon, #cpu, #memory, #disk, #backlight, #network, #pulseaudio, #temperature, #tray {
+    background-color: rgb(33, 33, 33);
+    padding: 2px 7px 0 7px;
+    border: solid rgb(77, 77, 77);
+    border-width: 0 1px 2px 1px;
     font-family: sans-serif;
-    font-size: 16px;
-    border-radius: 4px;
+}
+
+#custom-wofi, #clock {
+    background-color: rgb(33, 33, 33);
+    padding: 2px 16px 0 16px;
+    border: solid rgb(77, 77, 77);
+    border-width: 0 1px 2px 1px;
+    font-family: sans-serif;
 }
 
 #battery {
     color: rgba(68, 167, 7, 0.9);
-    background-color: rgba(55, 55, 55, 0.9);
-    padding: 2px 7px;
-    border: 1px solid rgba(88, 88, 88, 0.9);
+    background-color: rgb(33, 33, 33);
+    padding: 2px 7px 0 7px;
+    border: solid rgb(77, 77, 77);
+    border-width: 0 1px 2px 1px;
     font-family: monospace;
-    font-size: 16px;
-    border-radius: 4px;
 }
 
 #battery.warning {
-    color: rgba(167, 116, 7, 0.9);
+    color: rgb(167, 116, 7);
 }
 
 #battery.critical {
-    color: rgba(209, 24, 7, 0.9);
-}
-
-#pulseaudio.muted {
-    background-color: rgba(55, 55, 55, 0.9);
-}
-
-#wireplumber.muted {
-    background-color: rgba(55, 55, 55, 0.9);
+    color: rgb(209, 24, 7);
 }
 
 #tray > .passive {
@@ -85,5 +82,5 @@ button:hover, #pulseaudio:hover, #workspaces button:hover, #workspaces button.vi
 
 #tray > .needs-attention {
     -gtk-icon-effect: highlight;
-    background-color: rgba(55, 55, 55, 0.9);
+    background-color: rgb(77, 77, 77);
 }
