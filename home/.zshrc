@@ -67,7 +67,7 @@ alias grep='grep --color=auto'
 alias c='clear'
 alias startwl="hyprland"
 alias vi='nvim'
-alias vim='nvmim'
+alias vim='nvim'
 
 
 # Shell integrations
