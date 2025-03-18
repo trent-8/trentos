@@ -22,6 +22,7 @@ hyprpaper
 hyprpolkitagent
 less
 neofetch
+neovim
 networkmanager
 noto-fonts-emoji
 ntfs-3g
@@ -37,6 +38,7 @@ playerctl
 power-profiles-daemon
 python
 python-matplotlib
+python-neovim
 python-numpy
 rclone
 signal-desktop
