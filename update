@@ -3,7 +3,7 @@ set -x
 script_dir=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
 cp -r home/{*,.*} $HOME/
 sudo cp -r etc/* "/etc/"
-if [ ! -d "$HOME/yay" ]; then
+if [ ! pacman -Qi ya ]; then
     git clone https://aur.archlinux.org/yay.git
     cd yay
     makepkg -si --noconfirm
