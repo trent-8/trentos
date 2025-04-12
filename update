@@ -10,6 +10,9 @@ if [ ! pacman -Qi ya ]; then
     cd ..
     rm -rf yay
 fi
+cd dwm
+make clean
+sudo make install
 sudo pacman -Syu --noconfirm
 sudo pacman -S --noconfirm --needed - < $script_dir/arch-pkg-list
 yay -S --noconfirm --needed - < $script_dir/aur-pkg-list

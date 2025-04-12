@@ -1,5 +1,6 @@
 alacritty
 amberol
+arandr
 arch-install-scripts
 base
 base-devel
@@ -24,11 +25,15 @@ hyprlock
 hyprpaper
 hyprpolkitagent
 less
+libx11
+libxft
+libxinerama
 libreoffice-still
+lxappearance
+mate-calc
 neofetch
 neovim
 networkmanager
-noto-fonts-emoji
 npm
 ntfs-3g
 openssh
@@ -48,6 +53,7 @@ python-pygame
 python-pynvim
 rclone
 rnote
+rofi
 signal-desktop
 slurp
 solaar
@@ -57,7 +63,6 @@ thunar-archive-plugin
 tk
 tmux
 ttf-roboto
-ttf-sourcecodepro-nerd
 unzip
 waybar
 wireplumber
@@ -65,6 +70,9 @@ wl-clipboard
 wofi
 xdg-desktop-portal-gtk
 xdg-desktop-portal-hyprland
+xorg-server
+xorg-xinit
+xorg-xsetroot
 zip
 zoxide
 zsh
