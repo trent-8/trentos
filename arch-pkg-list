@@ -1,3 +1,4 @@
+adobe-source-code-pro-fonts
 alacritty
 amberol
 arandr
@@ -8,10 +9,10 @@ bluez
 bluez-obex
 brightnessctl
 btop
+deno
 dunst
 efibootmgr
 file-roller
-firefox
 fprintd
 fzf
 git
@@ -25,15 +26,17 @@ hyprlock
 hyprpaper
 hyprpolkitagent
 less
+libreoffice-still
 libx11
 libxft
 libxinerama
-libreoffice-still
-lxappearance
 mate-calc
 neofetch
 neovim
 networkmanager
+noto-fonts
+noto-fonts-cjk
+noto-fonts-emoji
 npm
 ntfs-3g
 openssh
@@ -58,6 +61,8 @@ signal-desktop
 slurp
 solaar
 speech-dispatcher
+spotify-launcher
+sudo
 thunar
 thunar-archive-plugin
 tk
