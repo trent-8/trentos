@@ -3,19 +3,19 @@ set -x
 script_dir=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
 cp -r home/{*,.*} $HOME/
 sudo cp -r etc/* "/etc/"
-if [ ! pacman -Qi ya ]; then
+pacman -Qi yay || {
     git clone https://aur.archlinux.org/yay.git
     cd yay
     makepkg -si --noconfirm
     cd ..
     rm -rf yay
-fi
-cd dwm
-make clean
-sudo make install
+}
 sudo pacman -Syu --noconfirm
 sudo pacman -S --noconfirm --needed - < $script_dir/arch-pkg-list
 yay -S --noconfirm --needed - < $script_dir/aur-pkg-list
+cd dwm
+make clean
+sudo make install
 sudo systemctl enable NetworkManager.service
 sudo systemctl enable bluetooth.service
 sudo systemctl enable sshd.service
@@ -23,3 +23,7 @@ sudo systemctl enable zram.service
 sudo usermod -aG uucp,audio,video,input $USER
 chsh -s /bin/zsh
 sudo chsh -s /bin/zsh
+
+# enable user configuration of fonts
+cd /etc/fonts/conf.d
+sudo ln -s /usr/share/fontconfig/conf.avail/50-user.conf

@@ -3,3 +3,7 @@ set -x
 script_dir=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
 cp -r home/{*,.*} $HOME/
 sudo cp -r etc/* "/etc/"
+
+# enable user configuration of fonts
+cd /etc/fonts/conf.d
+sudo ln -s /usr/share/fontconfig/conf.avail/50-user.conf
