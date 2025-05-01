@@ -1,4 +1,5 @@
 adobe-source-code-pro-fonts
+adw-gtk-theme
 alacritty
 amberol
 arandr
@@ -17,6 +18,7 @@ fprintd
 fzf
 git
 grim
+grub
 gst-libav
 gthumb
 gvfs
@@ -31,6 +33,7 @@ libx11
 libxft
 libxinerama
 mate-calc
+microsoft-edge-stable-bin
 neofetch
 neovim
 networkmanager
@@ -39,7 +42,9 @@ noto-fonts-cjk
 noto-fonts-emoji
 npm
 ntfs-3g
+ollama
 openssh
+os-prober
 otf-font-awesome
 pamixer
 papirus-icon-theme
@@ -52,8 +57,10 @@ power-profiles-daemon
 python
 python-matplotlib
 python-numpy
+python-pandas
 python-pygame
 python-pynvim
+r
 rclone
 rnote
 rofi
