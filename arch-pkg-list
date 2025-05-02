@@ -1,7 +1,4 @@
-adobe-source-code-pro-fonts
-adw-gtk-theme
 alacritty
-amberol
 arandr
 arch-install-scripts
 base
@@ -28,12 +25,10 @@ hyprlock
 hyprpaper
 hyprpolkitagent
 less
-libreoffice-still
 libx11
 libxft
 libxinerama
 mate-calc
-microsoft-edge-stable-bin
 neofetch
 neovim
 networkmanager
@@ -75,6 +70,7 @@ thunar-archive-plugin
 tk
 tmux
 ttf-roboto
+ttf-sourcecodepro-nerd
 unzip
 waybar
 wireplumber
