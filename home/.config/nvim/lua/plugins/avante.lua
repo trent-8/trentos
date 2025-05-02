@@ -6,7 +6,7 @@ return {
     opts = {
       provider = "ollama",
       ollama = {
-        model = "codellama:7b",
+        model = "llama3.2",
       },
     },
     -- if you want to build from source then do `make BUILD_FROM_SOURCE=true`
