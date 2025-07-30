@@ -17,6 +17,7 @@ get_status() {
 dunst &
 feh --bg-fill ${HOME}/.config/hypr/wallpapers/Mandelbrot_Set1.png &
 solaar -w hide &
+systemctl --user start xsettingsd.service &
 
 while true; do
     xsetroot -name "$(get_status)"
