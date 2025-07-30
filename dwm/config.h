@@ -62,7 +62,7 @@ static const Key keys[] = {
 	/* modifier                     key        function        argument */
 	{ MODKEY,                       XK_a,      spawn,          {.v = dmenucmd } },
 	{ MODKEY,                       XK_x,      spawn,          {.v = termcmd } },
-	{ MODKEY,                       XK_b,      spawn,          SHCMD("firefox") },
+	{ MODKEY,                       XK_b,      spawn,          SHCMD("librewolf") },
 	{ MODKEY,                       XK_c,      spawn,          SHCMD("code") },
 	{ MODKEY,                       XK_n,      spawn,          SHCMD("rnote") },
 	{ MODKEY,                       XK_e,      spawn,          SHCMD("thunar") },

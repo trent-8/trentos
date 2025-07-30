@@ -1,9 +1,6 @@
 #!/usr/bin/sh
 get_status() {
-    printf "Volume $(pamixer --get-volume)"
-    if [ $(pamixer --get-mute) = true ]; then
-        printf 🔇
-    fi
+    printf "Volume $(pamixer --get-volume-human)"
     if [ -f /sys/class/power_supply/BAT0/capacity ]; then
         BAT0_status=$(cat /sys/class/power_supply/BAT0/status)
         printf "   Battery $(cat /sys/class/power_supply/BAT0/capacity)"
