@@ -1,13 +1,13 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -x
-script_dir=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
-cp -r home/{*,.*} $HOME/
-sudo cp -r etc/* "/etc/"
-
-cd dwm
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+cp -r ${SCRIPT_DIR}/home ${SCRIPT_DIR}/${USER}
+cp -r ${SCRIPT_DIR}/${USER} /home/
+rm -r ${SCRIPT_DIR}/${USER}
+sudo cp -r ${SCRIPT_DIR}/etc ${SCRIPT_DIR}/usr /
+cd ${SCRIPT_DIR}/dwm
 make clean
 sudo make install
-
 # enable user configuration of fonts
 cd /etc/fonts/conf.d
 sudo ln -s /usr/share/fontconfig/conf.avail/50-user.conf

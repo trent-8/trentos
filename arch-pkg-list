@@ -10,7 +10,9 @@ btop
 deno
 dunst
 efibootmgr
+feh
 file-roller
+firefox
 fprintd
 fzf
 git
@@ -29,7 +31,6 @@ libx11
 libxft
 libxinerama
 mate-calc
-neofetch
 neovim
 networkmanager
 noto-fonts

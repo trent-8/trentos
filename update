@@ -1,8 +1,10 @@
 #!/bin/bash
 set -x
-script_dir=$( cd "$(dirname "${BASH_SOURCE[0]}")" ; pwd -P )
-cp -r home/{*,.*} $HOME/
-sudo cp -r etc/* "/etc/"
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+cp -r ${SCRIPT_DIR}/home ${SCRIPT_DIR}/${USER}
+cp -r ${SCRIPT_DIR}/${USER} /home/
+rm -r ${SCRIPT_DIR}/${USER}
+sudo cp -r ${SCRIPT_DIR}/etc ${SCRIPT_DIR}/usr /
 pacman -Qi yay || {
     git clone https://aur.archlinux.org/yay.git
     cd yay
@@ -11,16 +13,16 @@ pacman -Qi yay || {
     rm -rf yay
 }
 sudo pacman -Syu --noconfirm
-sudo pacman -S --noconfirm --needed - < $script_dir/arch-pkg-list
-yay -S --noconfirm --needed - < $script_dir/aur-pkg-list
-cd dwm
+sudo pacman -S --noconfirm --needed - < ${SCRIPT_DIR}/arch-pkg-list
+yay -S --noconfirm --needed - < ${SCRIPT_DIR}/aur-pkg-list
+cd ${SCRIPT_DIR}/dwm
 make clean
 sudo make install
 sudo systemctl enable NetworkManager.service
 sudo systemctl enable bluetooth.service
 sudo systemctl enable sshd.service
 sudo systemctl enable zram.service
-sudo usermod -aG uucp,audio,video,input $USER
+sudo usermod -aG uucp,audio,video,input ${USER}
 chsh -s /bin/zsh
 sudo chsh -s /bin/zsh
 
