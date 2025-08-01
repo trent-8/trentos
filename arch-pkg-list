@@ -83,7 +83,6 @@ xdg-desktop-portal-hyprland
 xorg-server
 xorg-xinit
 xorg-xsetroot
-xsettingsd
 zip
 zoxide
 zsh

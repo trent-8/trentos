@@ -5,6 +5,10 @@ cp -r ${SCRIPT_DIR}/home ${SCRIPT_DIR}/${USER}
 cp -r ${SCRIPT_DIR}/${USER} /home/
 rm -r ${SCRIPT_DIR}/${USER}
 sudo cp -r ${SCRIPT_DIR}/etc ${SCRIPT_DIR}/usr /
+gsettings set org.gnome.desktop.interface gtk-theme "Materia-dark-compact"
+gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
+gsettings set org.gnome.desktop.interface cursor-theme "Breeze_Light"
+gsettings set org.gnome.desktop.interface cursor-size 24
 pacman -Qi yay || {
     git clone https://aur.archlinux.org/yay.git
     cd yay
