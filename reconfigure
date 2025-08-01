@@ -7,8 +7,14 @@ rm -r ${SCRIPT_DIR}/${USER}
 sudo cp -r ${SCRIPT_DIR}/etc ${SCRIPT_DIR}/usr /
 gsettings set org.gnome.desktop.interface gtk-theme "Materia-dark-compact"
 gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
+gsettings set org.gnome.desktop.interface icon-theme "Papirus_Dark"
 gsettings set org.gnome.desktop.interface cursor-theme "Breeze_Light"
 gsettings set org.gnome.desktop.interface cursor-size 24
+gsettings set org.gnome.desktop.interface font-antialiasing 'rgba'
+gsettings set org.gnome.desktop.interface font-name 'Noto Sans Medium 11'
+gsettings set org.gnome.desktop.interface font-hinting 'medium'
+gsettings set org.gnome.desktop.interface font-rgba-order 'rgb'
+gsettings set org.gnome.desktop.interface font-rgba-order 'rgb'
 cd ${SCRIPT_DIR}/dwm
 sudo make install
 sudo make clean
