@@ -69,10 +69,12 @@ spotify-launcher
 sudo
 thunar
 thunar-archive-plugin
+thunar-volman
 tk
 tmux
 ttf-roboto
 ttf-sourcecodepro-nerd
+tumbler
 unzip
 waybar
 wireplumber
