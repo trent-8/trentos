@@ -22,7 +22,7 @@ def get_0_to_tau(a: float):
 
 def set_display_orientation(orientation: int):
     print("Setting orientation to", orientation)
-    os.system(f"hyprctl keyword monitor eDP-1, highres@highrr, 560x0, 1, transform, {orientation}")
+    os.system(f"hyprctl keyword monitor eDP-1, 1920x1200x60, auto-center-down, 1.25, transform, {orientation}")
     os.system(f"hyprctl -r keyword input:touchdevice:transform {orientation}")
     os.system(f"hyprctl -r keyword input:tablet:transform {orientation}")
 

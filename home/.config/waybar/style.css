@@ -1,14 +1,12 @@
 * {
-    font-size: 16px;
-    border-radius:0;
+    border-radius: 0;
 }
 
 window#waybar {
     color: #ffffff;
-    background-color: rgb(22, 22, 22);
-    font-weight: bold;
-    border: solid rgb(77, 77, 77);
-    border-width: 0 0 2px 0;
+    background-color: rgba(22, 22, 22, 0.8);
+    border: solid rgba(77, 77, 77, 0.8);
+    border-width: 0 0 1px 0;
 }
 
 window#waybar.hidden {
@@ -16,56 +14,58 @@ window#waybar.hidden {
 }
 
 button {
-    color: #ffffff;
-    border: solid rgb(77, 77, 77);
-    border-width: 0 1px 2px 1px;
-    background-color: rgb(33, 33, 33);
-    padding: 2px 12px 0 12px;
+    color: rgb(112, 112, 112);
+    border: none;
+    background-color: transparent;
+    padding: 2px 4px 2px 4px;
+    font-size: 17px;
+    font-family: "SauceCodePro NF";
 }
 
-button:hover, #pulseaudio:hover, #workspaces button:hover, #custom-wofi:hover {
-    background-color: rgb(77, 77, 77);
+button:hover, #workspaces button:hover {
+    /* background-color: rgba(125, 125, 125, 0.2); */
+    color: rgb(156, 156, 156);
+    font-size: 20px;
+}
+
+#pulseaudio:hover, #temperature:hover, #custom-power:hover {
+    background-color: rgba(125, 125, 125, 0.2);
 }
 
 #workspaces {
     background-color: transparent;
     border: none;
-    font-family: sans-serif;
+    padding: 0;
+    margin: 0;
 }
 
 #workspaces button.visible {
-    color: rgb(14, 200, 200);
-    background-color: rgb(55, 55, 55);
-    font-size: 16px;
+    color: rgb(188, 188, 188);
+    font-size: 20px;
+    font-weight: bold;
 }
 
 #workspaces button.urgent {
-    background-color: #eb4d4b;
+    color: #c97b37;
 }
 
-#power-profiles-daemon, #cpu, #memory, #disk, #backlight, #network, #pulseaudio, #temperature, #tray {
-    background-color: rgb(33, 33, 33);
-    padding: 2px 7px 0 7px;
-    border: solid rgb(77, 77, 77);
-    border-width: 0 1px 2px 1px;
-    font-family: sans-serif;
+#backlight, #cpu, #memory, #disk, #pulseaudio, #temperature, #tray, #battery, #custom-power {
+    color: rgb(200, 200, 200);
+    background-color: transparent;
+    padding: 2px 7px;
+    border: solid rgba(77, 77, 77, 0.8);
+    border-width: 0 1px;
+    font-family: "SauceCodePro NF";
+    font-size: 20px;
 }
 
-#custom-wofi, #clock {
-    background-color: rgb(33, 33, 33);
-    padding: 2px 16px 0 16px;
-    border: solid rgb(77, 77, 77);
-    border-width: 0 1px 2px 1px;
-    font-family: sans-serif;
-}
-
-#battery {
-    color: rgba(68, 167, 7, 0.9);
-    background-color: rgb(33, 33, 33);
-    padding: 2px 7px 0 7px;
-    border: solid rgb(77, 77, 77);
-    border-width: 0 1px 2px 1px;
-    font-family: monospace;
+#custom-wofi, #custom-clock {
+    color: rgb(200, 200, 200);
+    background-color: transparent;
+    padding: 2px 15px;
+    border: none;
+    font-family: "SauceCodePro NF";
+    font-size: 20px;
 }
 
 #battery.warning {

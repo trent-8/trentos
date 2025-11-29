@@ -5,16 +5,6 @@ cp -r ${SCRIPT_DIR}/home ${SCRIPT_DIR}/${USER}
 cp -r ${SCRIPT_DIR}/${USER} /home/
 rm -r ${SCRIPT_DIR}/${USER}
 sudo cp -r ${SCRIPT_DIR}/etc ${SCRIPT_DIR}/usr /
-gsettings set org.gnome.desktop.interface gtk-theme "Materia-dark-compact"
-gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
-gsettings set org.gnome.desktop.interface icon-theme "Papirus_Dark"
-gsettings set org.gnome.desktop.interface cursor-theme "Breeze_Light"
-gsettings set org.gnome.desktop.interface cursor-size 24
-gsettings set org.gnome.desktop.interface font-rendering 'manual'
-gsettings set org.gnome.desktop.interface font-antialiasing 'rgba'
-gsettings set org.gnome.desktop.interface font-name "Noto Sans Medium 13"
-gsettings set org.gnome.desktop.interface font-hinting 'medium'
-gsettings set org.gnome.desktop.interface font-rgba-order 'rgb'
 pacman -Qi yay || {
     git clone https://aur.archlinux.org/yay.git
     cd yay
@@ -25,6 +15,16 @@ pacman -Qi yay || {
 sudo pacman -Syu --noconfirm
 sudo pacman -S --noconfirm --needed - < ${SCRIPT_DIR}/arch-pkg-list
 yay -S --noconfirm --needed - < ${SCRIPT_DIR}/aur-pkg-list
+gsettings set org.gnome.desktop.interface gtk-theme "Materia-dark-compact"
+gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
+gsettings set org.gnome.desktop.interface icon-theme "Papirus-Dark"
+gsettings set org.gnome.desktop.interface cursor-theme "Breeze_Light"
+gsettings set org.gnome.desktop.interface cursor-size 24
+gsettings set org.gnome.desktop.interface font-rendering 'manual'
+gsettings set org.gnome.desktop.interface font-antialiasing 'rgba'
+gsettings set org.gnome.desktop.interface font-name "Noto Sans Medium 13"
+gsettings set org.gnome.desktop.interface font-hinting 'medium'
+gsettings set org.gnome.desktop.interface font-rgba-order 'rgb'
 cd ${SCRIPT_DIR}/dwm
 make clean
 sudo make install
@@ -32,7 +32,8 @@ sudo systemctl enable NetworkManager.service
 sudo systemctl enable bluetooth.service
 sudo systemctl enable sshd.service
 sudo systemctl enable zram.service
-sudo usermod -aG uucp,audio,video,input ${USER}
+sudo systemctl enable sddm.service
+sudo usermod -aG uucp,audio,video,input,optical,docker,storage ${USER}
 chsh -s /bin/zsh
 sudo chsh -s /bin/zsh
 

@@ -1,0 +1,10 @@
+#!/usr/bin/env zsh
+while true; do
+    if [ $(cat /sys/class/power_supply/BAT0/energy_now) -lt 2850000 ]; then
+        systemctl suspend
+    fi
+    if [ $(cat /sys/class/power_supply/BAT0/energy_now) -lt 5700000 ]; then
+       notify-send "⚠<fe0f> Low Battery" "Battery is less than 10%"
+    fi
+    sleep 10
+done

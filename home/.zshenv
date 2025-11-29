@@ -1,0 +1,2 @@
+export EDITOR=nvim
+export VISUAL=/usr/bin/nvim
