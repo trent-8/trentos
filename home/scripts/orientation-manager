@@ -22,14 +22,23 @@ def get_0_to_tau(a: float):
 
 def set_display_orientation(orientation: int):
     print("Setting orientation to", orientation)
-    os.system(f"hyprctl keyword monitor eDP-1, 1920x1200x60, 0x0, 1.25, transform, {orientation}")
-    os.system(f"hyprctl -r keyword input:touchdevice:transform {orientation}")
+    os.system(f"hyprctl keyword monitor eDP-1, transform, {orientation}")
+    os.system(f"hyprctl keyword input:touchdevice:transform {orientation}")
     os.system(f"hyprctl -r keyword input:tablet:transform {orientation}")
 
 if __name__ == "__main__":
     orientation = 0
-    set_display_orientation(orientation)
+    last_lid_state = "state:      open"
+    os.system(f"hyprctl keyword monitor eDP-1, preferred, 0x0, 1.25")
     while True:
+        lid_state = open('/proc/acpi/button/lid/LID0/state', 'r').read().strip()
+        if lid_state != last_lid_state:
+            print(lid_state)
+            if lid_state == "state:      open":
+                os.system(f"hyprctl keyword monitor eDP-1, preferred, 0x0, 1.25")
+            else:
+                os.system(f"hyprctl keyword monitor eDP-1, disable")
+            last_lid_state = lid_state
         accel = get_accel()
         if abs(accel) > 2:
             new_orientation = int(2*(get_0_to_tau(phase(accel)+cmath.pi/4))/cmath.pi)
