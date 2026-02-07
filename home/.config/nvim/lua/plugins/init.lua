@@ -8,6 +8,7 @@ return {
   -- These are some examples, uncomment them if you want to see them work!
   {
     "neovim/nvim-lspconfig",
+    opts = "configs.lspconfig-opts",
     config = function()
       require "configs.lspconfig"
     end,
@@ -15,16 +16,7 @@ return {
 
   {
     "williamboman/mason.nvim",
-    opts = {
-      ensure_installed = {
-        "black",
-        "clangd",
-        "rust-analyzer",
-        "python-lsp-server",
-        "mypy",
-        "isort"
-      }
-    }
+    opts = require "configs.mason"
   },
 
   -- test new blink
@@ -32,13 +24,6 @@ return {
 
   {
   	"nvim-treesitter/nvim-treesitter",
-  	opts = {
-  		ensure_installed = {
-  			"vim", "lua", "vimdoc",
-       "html", "css", "c", "cpp", "cmake",
-       "rust", "toml", "yaml", "bash",
-       "c_sharp", "python", "rasi"
-  		},
-  	},
+  	opts = require "configs.treesitter"
   },
 }

@@ -11,5 +11,14 @@ return {
     },
   },
 
+  ensure_installed = {
+    "black",
+    "clangd",
+    "rust-analyzer",
+    "python-lsp-server",
+    "mypy",
+    "isort"
+  },
+
   max_concurrent_installers = 10,
 }
