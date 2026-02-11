@@ -9,6 +9,7 @@ btop
 deno
 dunst
 exfatprogs
+fastfetch
 feh
 file-roller
 firefox
@@ -27,7 +28,6 @@ libnotify
 libx11
 libxft
 libxinerama
-sddm
 mate-calc
 materia-gtk-theme
 mpv
@@ -41,10 +41,10 @@ npm
 ntfs-3g
 ntp
 openssh
-obs-studio
 otf-font-awesome
 pamixer
 papirus-icon-theme
+pavucontrol
 pipewire
 pipewire-alsa
 pipewire-jack
@@ -60,18 +60,15 @@ python-pynvim
 qt5-tools
 qt5-wayland
 r
-rnote
 rofi
-signal-desktop
+sddm
 slurp
-solaar
 speech-dispatcher
-sudo
 thunar
 thunar-archive-plugin
 thunar-volman
+thunderbird
 tk
-tmux
 ttf-roboto
 ttf-sourcecodepro-nerd
 tumbler
@@ -87,6 +84,8 @@ xfce4-settings
 xorg-server
 xorg-xinit
 xorg-xsetroot
+xournalpp
+yasm
 zip
 zoxide
 zsh

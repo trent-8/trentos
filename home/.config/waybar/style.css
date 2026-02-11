@@ -6,7 +6,7 @@ window#waybar {
     color: #ffffff;
     background-color: rgba(22, 22, 22, 0.8);
     border: solid rgba(77, 77, 77, 0.8);
-    border-width: 0 0 1px 0;
+    border-width: 1px 0 0 0;
 }
 
 window#waybar.hidden {
