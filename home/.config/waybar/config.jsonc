@@ -13,8 +13,8 @@
         "sort-by-number": true
     },
     "tray": {
-        "icon-size": 21,
-        "spacing": 10
+        "icon-size": 24,
+        "spacing": 2
     },
     "custom/clock": {
         "exec": "date +'%-m/%-d/%Y   %-I:%M %P'",
@@ -56,7 +56,7 @@
         "on-click": "pidof wofi && pkill wofi || wofi -t=alacritty -S drun -I -n -W 300 -H 700"
     },
     "custom/power": {
-        "format" : " 󰗽 ",
+        "format" : "󰗽",
 		"tooltip": false,
 		"menu": "on-click",
 		"menu-file": "$HOME/.config/waybar/power_menu.xml", // Menu file in resources folder

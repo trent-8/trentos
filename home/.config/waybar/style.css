@@ -1,35 +1,11 @@
-* {
-    border-radius: 0;
-}
-
 window#waybar {
     color: #ffffff;
-    background-color: rgba(22, 22, 22, 0.8);
-    border: solid rgba(77, 77, 77, 0.8);
-    border-width: 1px 0 0 0;
+    background-color: transparent;
+    border: none;
 }
 
 window#waybar.hidden {
     opacity: 0.2;
-}
-
-button {
-    color: rgb(112, 112, 112);
-    border: none;
-    background-color: transparent;
-    padding: 2px 4px 2px 4px;
-    font-size: 17px;
-    font-family: "SauceCodePro NF";
-}
-
-button:hover, #workspaces button:hover {
-    /* background-color: rgba(125, 125, 125, 0.2); */
-    color: rgb(156, 156, 156);
-    font-size: 20px;
-}
-
-#pulseaudio:hover, #temperature:hover, #custom-power:hover {
-    background-color: rgba(125, 125, 125, 0.2);
 }
 
 #workspaces {
@@ -39,9 +15,11 @@ button:hover, #workspaces button:hover {
     margin: 0;
 }
 
+#workspaces button {
+    font-family: 'Noto Sans';
+}
+
 #workspaces button.visible {
-    color: rgb(188, 188, 188);
-    font-size: 20px;
     font-weight: bold;
 }
 
@@ -49,23 +27,82 @@ button:hover, #workspaces button:hover {
     color: #c97b37;
 }
 
-#backlight, #cpu, #memory, #disk, #pulseaudio, #temperature, #tray, #battery, #custom-power {
-    color: rgb(200, 200, 200);
-    background-color: transparent;
-    padding: 2px 7px;
-    border: solid rgba(77, 77, 77, 0.8);
-    border-width: 0 1px;
+#backlight, #cpu, #memory, #disk, #pulseaudio, #temperature, #battery {
+    color: rgb(255, 255, 255);
+    background-color: rgba(50,50,50,0.5);
+    padding: 2px 8px;
+    margin: 0px 2px;
+    border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 7px;
     font-family: "SauceCodePro NF";
     font-size: 20px;
 }
 
-#custom-wofi, #custom-clock {
-    color: rgb(200, 200, 200);
-    background-color: transparent;
-    padding: 2px 15px;
-    border: none;
+#custom-clock {
+    color: rgb(255, 255, 255);
+    background-color: rgba(50,50,50,0.5);
+    padding: 0px 8px;
+    margin: 0;
+    border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 7px;
+    font-family: "Noto Sans";
+    font-size: 20px;
+}
+
+#tray {
+    color: rgb(255, 255, 255);
+    background-color: rgba(50,50,50,0.5);
+    padding: 2px 2px;
+    margin: 0px 2px;
+    border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 7px;
+    font-size: 20px;
+}
+
+button {
+    color: rgb(255, 255, 255);
+    background-color: rgba(50,50,50,0.5);
+    padding: 0px 7px;
+    margin: 0px 2px;
+    border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 15px;
     font-family: "SauceCodePro NF";
     font-size: 20px;
+}
+
+#custom-power {
+    color: rgb(255, 255, 255);
+    background-color: rgba(50,50,50,0.5);
+    padding: 2px 12px 2px 8px;
+    margin: 0px 4px 0px 2px;
+    border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 7px;
+    font-family: "SauceCodePro NF";
+    font-size: 20px;
+}
+
+#custom-wofi {
+    color: rgb(255, 255, 255);
+    background-color: rgba(50,50,50,0.5);
+    padding: 2px 10px 2px 8px;
+    margin: 0px 2px 0px 4px;
+    border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 7px;
+    font-family: "SauceCodePro NF";
+    font-size: 20px;
+}
+
+button:hover, #workspaces button:hover, #workspaces button.visible, #pulseaudio:hover, #temperature:hover, #custom-power:hover, #custom-wofi:hover {
+    background-color: rgba(100, 100, 100, 0.5);
+}
+
+#tray widget {
+    border-radius: 4px;
+    padding: 0px 2px;
+}
+
+#tray widget:hover {
+    background-color: rgba(150, 150, 150, 0.5);
 }
 
 #battery.warning {

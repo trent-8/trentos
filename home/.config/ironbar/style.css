@@ -1,0 +1,125 @@
+#bar {
+  color: #ffffff;
+  background-color: transparent;
+  border: none;
+}
+
+.background {
+  background-color: transparent;
+}
+
+button:hover, .workspaces .item:hover, .workspaces .item.visible, .tray .item:hover, .volume:hover, #session-opts-btn:hover, .menu:hover {
+    background-color: rgba(150, 150, 150, 0.5);
+}
+
+.workspaces {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+.workspaces .item {
+    color: rgb(255, 255, 255);
+    background-color: rgba(50,50,50,0.5);
+    padding: 0px;
+    margin: 0px 2px;
+    border: 1px solid rgba(255,255,255,0.5);
+    border-radius: 15px;
+    font-family: "Noto Sans";
+    font-size: 20px;
+}
+
+.workspaces .item.visible {
+    font-weight: bold;
+}
+
+.workspaces .item.urgent {
+    color: #c97b37;
+}
+
+.tray {
+  color: rgb(255, 255, 255);
+  background-color: rgba(100,100,100,0.3);
+  padding: 2px;
+  margin: 0px 2px;
+  border: 1px solid rgba(255,255,255,0.2);
+  border-radius: 7px;
+}
+
+.tray .item {
+    background-color: transparent;
+    padding: 0px 5px;
+    margin: 0px;
+    border: none;
+    border-radius: 4px;
+    box-shadow: none;
+}
+
+#session-opts-btn, .menu, .volume, .battery {
+    color: rgb(255, 255, 255);
+    background-color: rgba(100,100,100,0.3);
+    padding: 0px 8px;
+    margin: 0px 2px;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 7px;
+    font-family: "SauceCodePro NF";
+    font-size: 20px;
+}
+
+.clock {
+    color: rgb(255, 255, 255);
+    background-color: transparent;
+    padding: 0px 8px;
+    margin: 0px 2px;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 7px;
+    font-family: "Noto Sans";
+    font-size: 20px;
+    text-shadow: rgba(0,0,0,0.8);
+}
+
+.shutdown {
+    color: rgb(255, 255, 255);
+    background-color: rgba(100,100,100,0.3);
+    padding: 4px;
+    margin: 2px;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 7px;
+    font-family: "SauceCodePro NF";
+    font-size: 20px;
+}
+
+.logout {
+    color: rgb(255, 255, 255);
+    background-color: rgba(100,100,100,0.3);
+    padding: 4px;
+    margin: 2px;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 7px;
+    font-family: "SauceCodePro NF";
+    font-size: 20px;
+}
+
+.reboot {
+    color: rgb(255, 255, 255);
+    background-color: rgba(100,100,100,0.3);
+    padding: 4px;
+    margin: 2px;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 7px;
+    font-family: "SauceCodePro NF";
+    font-size: 20px;
+}
+
+.battery.warning {
+    color: rgb(167, 116, 7);
+}
+
+.battery.critical {
+    color: rgb(209, 24, 7);
+}
+
+.tray .item.urgent {
+    background-color: rgb(255, 136, 0);
+}

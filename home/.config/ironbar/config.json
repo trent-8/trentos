@@ -1,0 +1,97 @@
+{
+  "position": "bottom",
+  "height": 30,
+  "start": [
+    {
+      "type": "menu",
+      "icon": "󰀻"
+    },
+    {
+      "type": "workspaces"
+    }
+  ],
+  "center": [
+    {
+      "type": "clock",
+      "format": "%-m/%-d/%Y   %-I:%M %P"
+    }
+  ],
+  "end": [
+    {
+      "type": "tray",
+      "on_click_left": "default",
+      "on_click_right": "menu"
+    },
+    {
+      "type": "volume",
+      "format": "{icon}  {percentage}",
+      "sink_slider_orientation": "horizontal",
+      "source_slider_orientation": "horizontal",
+      "max-volume": 100,
+      "truncate": "middle",
+      "icons": {
+        "volume_high": " ",
+        "volume_medium": " ",
+        "volume_low": " ",
+        "muted": " "
+      }
+    },
+    {
+      "type": "battery"
+    },
+    {
+      "bar": [
+        {
+          "label": "󰗽",
+          "name": "session-opts-btn",
+          "on_click": "popup:toggle",
+          "type": "button"
+        }
+      ],
+      "class": "session-menu",
+      "popup": [
+        {
+          "orientation": "vertical",
+          "type": "box",
+          "widgets": [
+            {
+              "label": "Session Options",
+              "name": "header",
+              "type": "label"
+            },
+            {
+              "type": "box",
+              "widgets": [
+                {
+                  "class": "shutdown",
+                  "label": "<span></span>",
+                  "on_click": "!shutdown now",
+                  "type": "button"
+                },
+                {
+                  "class": "reboot",
+                  "label": "<span></span>",
+                  "on_click": "!reboot",
+                  "type": "button"
+                },
+                {
+                  "class": "logout",
+                  "label": "<span>󰗽</span>",
+                  "on_click": "!hyprctl dispatch exit",
+                  "type": "button"
+                }
+              ]
+            },
+            {
+              "label": "Uptime: {{30000:uptime -p | cut -d ' ' -f2-}}",
+              "name": "uptime",
+              "type": "label"
+            }
+          ]
+        }
+      ],
+      "tooltip": "Up: {{30000:uptime -p | cut -d ' ' -f2-}}",
+      "type": "custom"
+    }
+  ]
+}
