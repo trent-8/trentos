@@ -59,6 +59,8 @@ python-pygame
 python-pynvim
 qt5-tools
 qt5-wayland
+qt6-svg
+qt6-wayland
 r
 rofi
 sddm
