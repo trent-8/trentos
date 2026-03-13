@@ -25,4 +25,4 @@ sudo make install
 sudo make clean
 # enable user configuration of fonts
 cd /etc/fonts/conf.d
-sudo ln -s /usr/share/fontconfig/conf.avail/50-user.conf
+sudo ln -sf /usr/share/fontconfig/conf.avail/50-user.conf
