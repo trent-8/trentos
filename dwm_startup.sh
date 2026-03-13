@@ -12,7 +12,7 @@ get_status() {
 }
 
 dunst &
-feh --bg-fill /usr/share/wallpapers/Mandelbrot_Set1.png &
+feh --bg-fill "/usr/share/wallpapers/Hawaii Cliffside.jpg" &
 solaar -w hide &
 nm-applet &
 
