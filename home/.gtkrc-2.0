@@ -1,7 +1,7 @@
 gtk-theme-name="Materia-dark-compact"
 gtk-icon-theme-name="Papirus-Dark"
-gtk-cursor-theme-name="Breeze5_Snow"
-gtk-cursor-theme-size=24
+gtk-cursor-theme-name="macos-tahoe-cursor"
+gtk-cursor-theme-size=32
 gtk-font-name="Noto Sans Medium 12"
 gtk-enable-event-sounds=0
 gtk-enable-input-feedback-sounds=0
