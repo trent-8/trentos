@@ -1,0 +1,31 @@
+#!/bin/bash
+set -x
+SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
+# check if yay is installed otherwise install it
+pacman -Q yay || {
+    git clone https://aur.archlinux.org/yay.git
+    cd yay
+    makepkg -si --noconfirm
+    cd ..
+    rm -rf yay
+}
+# install package lists
+sudo pacman -Syu --noconfirm
+sudo pacman -S --noconfirm --needed - < ${SCRIPT_DIR}/arch-pkg-list
+yay -S --noconfirm --needed - < ${SCRIPT_DIR}/aur-pkg-list
+# ensure MEGA desktop app is installed
+pacman -Q megasync thunar-megasync || {
+    wget https://mega.nz/linux/repo/Arch_Extra/x86_64/megasync-x86_64.pkg.tar.zst && sudo pacman -U "$PWD/megasync-x86_64.pkg.tar.zst"
+    rm megasync-x86_64.pkg.tar.zst
+    sudo pacman -Syu
+    sudo pacman -S thunar-megasync 
+}
+# recompile DWM
+cd ${SCRIPT_DIR}/dwm
+sudo make install
+make clean
+# enable installed services
+sudo systemctl enable NetworkManager.service
+sudo systemctl enable bluetooth.service
+sudo systemctl enable sshd.service
+sudo systemctl enable sddm.service
