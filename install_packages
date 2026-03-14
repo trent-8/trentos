@@ -20,10 +20,14 @@ pacman -Q megasync thunar-megasync || {
     sudo pacman -Syu
     sudo pacman -S thunar-megasync 
 }
-# recompile DWM
+# compile DWM
 cd ${SCRIPT_DIR}/dwm
 sudo make install
 make clean
+# compile st
+cd ${SCRIPT_DIR}/st
+sudo make install
+sudo make clean
 # enable installed services
 sudo systemctl enable NetworkManager.service
 sudo systemctl enable bluetooth.service

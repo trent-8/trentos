@@ -24,6 +24,10 @@ gsettings set org.gnome.desktop.interface font-rgba-order 'rgb'
 cd ${SCRIPT_DIR}/dwm
 sudo make install
 sudo make clean
+# recompile st
+cd ${SCRIPT_DIR}/st
+sudo make install
+sudo make clean
 # enable configured zram
 sudo systemctl enable zram.service
 # give the user lots of permissions
@@ -32,5 +36,11 @@ sudo usermod -aG uucp,audio,video,input,optical,docker,storage ${USER}
 cd /etc/fonts/conf.d
 sudo ln -sf /usr/share/fontconfig/conf.avail/50-user.conf
 # switch shell to zsh
-chsh -s /bin/zsh
-sudo chsh -s /bin/zsh
+IFS=":" read -ra split_array <<< "$(grep ${USER} /etc/passwd)"
+if [ "${split_array[6]}" != "/bin/zsh" ]; then
+    chsh -s /bin/zsh
+fi
+IFS=":" read -ra split_array <<< "$(grep root /etc/passwd)"
+if [ "${split_array[6]}" != "/bin/zsh" ]; then
+    sudo chsh -s /bin/zsh
+fi
