@@ -2,9 +2,7 @@
 set -x
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 # copy config files
-cp -r ${SCRIPT_DIR}/home ${SCRIPT_DIR}/${USER}
-cp -r ${SCRIPT_DIR}/${USER} /home/
-rm -r ${SCRIPT_DIR}/${USER}
+cp -r ${SCRIPT_DIR}/home/. /home/${USER}
 sudo cp -r ${SCRIPT_DIR}/etc ${SCRIPT_DIR}/usr ${SCRIPT_DIR}/bin /
 # set up zram
 ZRAM_SIZE="$(expr $(grep MemTotal /proc/meminfo | awk '{print $2}') \* 3 \/ 2)K"
