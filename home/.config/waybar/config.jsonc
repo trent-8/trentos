@@ -13,7 +13,7 @@
         "sort-by-number": true
     },
     "tray": {
-        "icon-size": 24,
+        "icon-size": 20,
         "spacing": 2
     },
     "custom/clock": {
@@ -32,7 +32,10 @@
             "critical": 10
         },
         "format": "{icon} {capacity}%",
-        "format-icons": ["󰁺","󰁻","󰁼","󰁽","󰁾","󰁿","󰂀","󰂁","󰁹"],
+        "format-icons": {
+            "default": ["󰁺","󰁻","󰁼","󰁽","󰁾","󰁿","󰂀","󰂁", "󰂂","󰁹"],
+            "charging": ["󰢜","󰂆","󰂇","󰂈","󰢝","󰂉","󰢞","󰂊","󰂋","󰂅"]
+        },
         "format-critical": "󰂃 {capacity}%"
     },
     "memory": {

@@ -4,9 +4,6 @@ SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 # copy config files
 cp -r ${SCRIPT_DIR}/home/. /home/${USER}
 sudo cp -r ${SCRIPT_DIR}/etc ${SCRIPT_DIR}/usr ${SCRIPT_DIR}/bin /
-# set up zram
-ZRAM_SIZE="$(expr $(grep MemTotal /proc/meminfo | awk '{print $2}') \* 3 \/ 2)K"
-echo "ACTION==\"add\", KERNEL==\"zram0\", ATTR{initstate}==\"0\", ATTR{comp_algorithm}=\"zstd\", ATTR{disksize}=\"$ZRAM_SIZE\", RUN=\"/usr/bin/mkswap -U clear %N\", TAG+=\"systemd\"" | sudo tee /etc/udev/rules.d/99-zram.rules
 # apply Gtk4 settings
 gsettings set org.gnome.desktop.interface gtk-theme "Materia-dark-compact"
 gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
@@ -26,8 +23,6 @@ sudo make clean
 cd ${SCRIPT_DIR}/st
 sudo make install
 sudo make clean
-# enable configured zram
-sudo systemctl enable zram.service
 # give the user lots of permissions
 sudo usermod -aG uucp,audio,video,input,optical,docker,storage ${USER}
 # enable user configuration of fonts

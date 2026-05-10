@@ -12,9 +12,9 @@ get_status() {
 }
 
 dunst &
-feh --bg-fill "/usr/share/wallpapers/Hawaii Cliffside.jpg" &
-solaar -w hide &
-nm-applet &
+# feh --bg-fill "/usr/share/wallpapers/Moonshadow.jpg" &
+# nm-applet &
+megasync &
 
 while true; do
     xsetroot -name "$(get_status)"
