@@ -50,7 +50,7 @@
         "format-source-muted": " 󰍭",
         "format-icons": ["","",""],
         "on-click": "pavucontrol",
-        "on-click-right": "st -e bluetuith --adapter-states=\"scan:yes\""
+        "on-click-right": "alacritty -e bluetuith --adapter-states=\"scan:yes\""
     },
     "custom/wofi": {
         "tooltip-format": "application menu",

@@ -5,8 +5,8 @@ SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 cp -r ${SCRIPT_DIR}/home/. /home/${USER}
 sudo cp -r ${SCRIPT_DIR}/etc ${SCRIPT_DIR}/usr ${SCRIPT_DIR}/bin /
 # apply Gtk4 settings
-gsettings set org.gnome.desktop.interface gtk-theme "Materia-dark-compact"
-gsettings set org.gnome.desktop.interface color-scheme "prefer-dark"
+gsettings set org.gnome.desktop.interface gtk-theme 'Materia-dark-compact'
+gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
 gsettings set org.gnome.desktop.interface icon-theme "Papirus-Dark"
 gsettings set org.gnome.desktop.interface cursor-theme "macos-tahoe-cursor"
 gsettings set org.gnome.desktop.interface cursor-size 32

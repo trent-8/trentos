@@ -11,9 +11,11 @@ get_status() {
     printf "   $(date +"%-m/%-d/%Y   %-I:%M %P")"
 }
 
+dbus-update-activation-environment --systemd --all &
+
 dunst &
-# feh --bg-fill "/usr/share/wallpapers/Moonshadow.jpg" &
-# nm-applet &
+feh --bg-fill "/usr/share/wallpapers/Moonshadow.jpg" &
+nm-applet &
 megasync &
 
 while true; do

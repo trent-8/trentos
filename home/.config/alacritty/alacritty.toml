@@ -1,0 +1,15 @@
+[window]
+  padding = { x = 5, y = 5 }
+
+[font]
+  normal = { family = "SauceCodePro NF", style = "Regular" }
+  bold = { family = "SauceCodePro NF", style = "Bold" }
+  italic = { family = "SauceCodePro NF", style = "Italic" }
+  bold_italic = { family = "SauceCodePro NF", style = "Bold Italic" }
+  size = 16
+
+[env]
+  WINIT_X11_SCALE_FACTOR = "1.0"
+
+[scrolling]
+  multiplier = 3

@@ -57,7 +57,7 @@ zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 zstyle :compinstall filename '/home/trent/.zshrc'
 zstyle ':vcs_info:git:*' formats '(%b) '
 # Add Git branch info to your prompt
-PROMPT='%F{yellow}${vcs_info_msg_0_}%F{white}%n@%m%F{#888888}: %F{green}%~ %F{yellow}%(#.#.$) '
+PROMPT='%F{yellow}${vcs_info_msg_0_}%f%n@%m: %F{green}%~ %F{yellow}%(#.#.$) '
 export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
 
 # Aliases
