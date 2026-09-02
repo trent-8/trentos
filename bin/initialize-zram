@@ -1,2 +1,0 @@
-#!/bin/env sh
-/usr/bin/printf $(expr $(/usr/bin/grep MemTotal /proc/meminfo | /usr/bin/awk '{print $2}') \* 3 \/ 2)K

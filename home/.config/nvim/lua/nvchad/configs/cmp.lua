@@ -47,6 +47,7 @@ local options = {
 
   sources = {
     { name = "nvim_lsp" },
+    { name = "vimtex" },
     { name = "luasnip" },
     { name = "buffer" },
     { name = "nvim_lua" },

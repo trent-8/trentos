@@ -18,7 +18,9 @@ options.ensure_installed = {
   "bash",
   "c_sharp",
   "python",
-  "rasi"
+  "latex",
+  "bibtex",
+  "rasi",
 }
 
 return options

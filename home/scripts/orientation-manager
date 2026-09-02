@@ -2,19 +2,22 @@
 import os
 import time
 
+ENABLE_LAPTOP_MONITOR = 'hyprctl eval \'hl.monitor({ output = "eDP-1", mode = "1920x1200@60", position = "0x0", scale = 1.5, disabled = false })\''
+DISABLE_LAPTOP_MONITOR = 'hyprctl eval \'hl.monitor({ output = "eDP-1", disabled = true })\''
+
 if __name__ == "__main__":
     orientation = 0
     last_lid_state = "state:      open"
-    os.system(f"hyprctl keyword monitor eDP-1, 1920x1200@60, 0x0, 1.25")
+    os.system(ENABLE_LAPTOP_MONITOR)
     while True:
         lid_state = open('/proc/acpi/button/lid/LID0/state', 'r').read().strip()
         if lid_state == "state:      open":
             # only turn on monitor once to allow override
             if lid_state != last_lid_state:
-                os.system(f"hyprctl keyword monitor eDP-1, 1920x1200@60, 0x0, 1.25")
+                os.system(ENABLE_LAPTOP_MONITOR)
                 last_lid_state = lid_state
         else:
-            os.system(f"hyprctl keyword monitor eDP-1, disable")
+            os.system(DISABLE_LAPTOP_MONITOR)
             if lid_state != last_lid_state:
                 last_lid_state = lid_state
         time.sleep(1)
