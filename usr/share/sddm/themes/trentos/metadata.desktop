@@ -1,0 +1,11 @@
+[SddmGreeterTheme]
+Name=TrentOS
+Description=Translucent superellipse login theme matching the TrentOS Quickshell bar
+Author=Trent Hekman
+License=Unlicense
+Type=sddm-theme
+Version=1.0
+MainScript=Main.qml
+ConfigFile=theme.conf
+Theme-Id=trentos
+Theme-API=2.0
