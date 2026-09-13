@@ -3,7 +3,7 @@ set -x
 SCRIPT_DIR=$( cd -- "$( dirname -- "${BASH_SOURCE[0]}" )" &> /dev/null && pwd )
 # copy config files
 cp -r ${SCRIPT_DIR}/home/. /home/${USER}
-sudo cp -r ${SCRIPT_DIR}/etc ${SCRIPT_DIR}/usr ${SCRIPT_DIR}/bin /
+sudo cp -r ${SCRIPT_DIR}/etc ${SCRIPT_DIR}/usr /
 # apply Gtk4 settings
 gsettings set org.gnome.desktop.interface gtk-theme 'Materia-dark-compact'
 gsettings set org.gnome.desktop.interface color-scheme 'prefer-dark'
