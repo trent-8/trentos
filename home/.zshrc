@@ -77,19 +77,32 @@ eval "$(zoxide init --cmd cd zsh)"
 autoload -Uz up-line-or-beginning-search down-line-or-beginning-search
 # setup key accordingly
 bindkey -e
+
+# Treat / as a word boundary only for these deletion shortcuts.
+backward-delete-path-word() {
+  local WORDCHARS=${WORDCHARS:s#/#}
+  zle .backward-delete-word
+}
+delete-path-word() {
+  local WORDCHARS=${WORDCHARS:s#/#}
+  zle .delete-word
+}
+zle -N backward-delete-path-word
+zle -N delete-path-word
+
 bindkey '^[[H' beginning-of-line # home
 bindkey '^[[F' end-of-line # end
 bindkey "^[[2~" overwrite-mode # insert
 bindkey '^?' backward-delete-char # backspace
-bindkey '^H' backward-delete-word # ctrl+backspace
+bindkey '^H' backward-delete-path-word # ctrl+backspace
 bindkey '^[[3~' delete-char # delete
-bindkey '^[[3;5~' delete-word # ctrl+delete
+bindkey '^[[3;5~' delete-path-word # ctrl+delete
 bindkey '^[[1;5A' history-search-backward # up
 bindkey '^[[1;5B' history-search-forward # down
 bindkey '^[[D' backward-char
 bindkey '^[[C' forward-char
 bindkey '^[[1;5D' backward-word
-bindkey '^[[1;5C' forward-word
+bindkey '^[[1;5C' emacs-forward-word
 bindkey '^[[5~' beginning-of-buffer-or-history
 bindkey '^[[6~' end-of-buffer-or-history
 bindkey '^[[Z' reverse-menu-complete # shift+tab
