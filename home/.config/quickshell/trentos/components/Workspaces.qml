@@ -6,26 +6,29 @@ Item {
     id: root
 
     property int minimumVerticalPadding: 3
+    property bool backgroundVisible: true
+    property int iconSpacing: 4
 
     implicitWidth: workspacePanel.implicitWidth
     implicitHeight: workspaceRow.implicitHeight + minimumVerticalPadding * 2
 
     SquirclePanel {
         id: workspacePanel
+        backgroundVisible: root.backgroundVisible
         anchors.centerIn: parent
         implicitWidth: workspaceRow.implicitWidth + horizontalPadding * 2
         implicitHeight: workspaceRow.implicitHeight + root.minimumVerticalPadding * 2
         width: implicitWidth
         height: root.height
-        horizontalPadding: Math.max(0, (height - workspaceRow.implicitHeight) / 2)
-        verticalPadding: horizontalPadding
+        horizontalPadding: 0
+        verticalPadding: 0
         radius: 11
         power: 4.6
 
         RowLayout {
             id: workspaceRow
-            anchors.centerIn: parent
-            spacing: 2
+            anchors.fill: parent
+            spacing: 0
 
             Repeater {
                 model: Hyprland.workspaces
@@ -37,13 +40,18 @@ Item {
 
                     readonly property int pillHeight: Math.ceil(workspaceLabel.implicitHeight) + 6
                     readonly property int pillRadius: Math.ceil(pillHeight / 2)
+                    readonly property int pillWidth: Math.max(pillHeight, Math.ceil(workspaceLabel.implicitWidth + 12))
 
                     visible: modelData.id > 0
-                    width: visible ? Math.max(height, Math.ceil(workspaceLabel.implicitWidth + 12)) : 0
-                    height: pillHeight
+                    // Visual gaps belong to the adjacent full-height click targets.
+                    implicitWidth: pillWidth + root.iconSpacing
+                    implicitHeight: pillHeight
+                    Layout.fillHeight: true
 
                     Rectangle {
-                        anchors.fill: parent
+                        anchors.centerIn: parent
+                        width: workspace.pillWidth
+                        height: workspace.pillHeight
                         radius: workspace.pillRadius
                         color: modelData.focused ? "#ccffffff" : modelData.toplevels.values.length > 0 ? "#66323232" : "#33222222"
                         border.color: modelData.focused ? "#ffffffff" : "#55ffffff"
@@ -68,11 +76,12 @@ Item {
                             font.weight: Font.DemiBold
                         }
 
-                        MouseArea {
-                            anchors.fill: parent
-                            cursorShape: Qt.PointingHandCursor
-                            onClicked: workspace.modelData.activate()
-                        }
+                    }
+
+                    MouseArea {
+                        anchors.fill: parent
+                        cursorShape: Qt.PointingHandCursor
+                        onClicked: workspace.modelData.activate()
                     }
                 }
             }

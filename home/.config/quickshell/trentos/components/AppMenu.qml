@@ -4,6 +4,7 @@ import Quickshell.Io
 
 SquirclePanel {
     id: root
+    readonly property bool hovered: menuMouse.containsMouse
     implicitWidth: Math.max(iconMetrics.tightBoundingRect.width + horizontalPadding * 2, 34)
     implicitHeight: iconMetrics.tightBoundingRect.height + verticalPadding * 2
     width: implicitWidth
@@ -31,6 +32,8 @@ SquirclePanel {
     }
 
     MouseArea {
+        id: menuMouse
+        parent: root
         anchors.fill: parent
         hoverEnabled: true
         cursorShape: Qt.PointingHandCursor

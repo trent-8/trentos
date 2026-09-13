@@ -6,6 +6,7 @@ Item {
     default property alias content: contentHost.data
 
     property color fillColor: "#80303030"
+    property bool backgroundVisible: true
     property color borderColor: "#80505050"
     property color highlightColor: "#80505050"
     property real borderWidth: 0
@@ -22,6 +23,7 @@ Item {
 
     Canvas {
         id: canvas
+        visible: root.backgroundVisible
         anchors.fill: parent
         antialiasing: true
 

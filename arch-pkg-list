@@ -6,6 +6,7 @@ biber
 bluez
 bluez-obex
 brightnessctl
+ddcutil
 btop
 cups
 cups-pdf
@@ -33,6 +34,7 @@ gvfs
 hyprland
 hyprpaper
 hyprpolkitagent
+jq
 less
 libdvdcss
 libnotify

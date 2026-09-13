@@ -6,10 +6,12 @@ import Quickshell.Wayland
 PanelWindow {
     id: root
 
-    property int topEmptySpace: 3
-    property int rightEmptySpace: 3
+    required property var brightnessService
+
+    property int topEmptySpace: 0
+    property int rightEmptySpace: 1
     property int bottomEmptySpace: 0
-    property int leftEmptySpace: 3
+    property int leftEmptySpace: 0
 
     readonly property int sectionHeight: Math.max(
         appMenu.implicitHeight,
@@ -30,6 +32,12 @@ PanelWindow {
         top: true
     }
 
+    Rectangle {
+        anchors.fill: parent
+        color: "#80303030"
+
+    }
+
     Item {
         anchors.fill: parent
         anchors.topMargin: root.topEmptySpace
@@ -40,16 +48,18 @@ PanelWindow {
         RowLayout {
             anchors.left: parent.left
             anchors.verticalCenter: parent.verticalCenter
-            spacing: 2
+            spacing: 0
 
             AppMenu {
                 id: appMenu
+                backgroundVisible: false
                 height: root.sectionHeight
                 Layout.preferredHeight: root.sectionHeight
             }
 
             Workspaces {
                 id: workspaces
+                backgroundVisible: false
                 height: root.sectionHeight
                 Layout.preferredHeight: root.sectionHeight
             }
@@ -57,6 +67,7 @@ PanelWindow {
 
         Clock {
             id: clock
+            backgroundVisible: false
             anchors.centerIn: parent
             height: root.sectionHeight
         }
@@ -68,14 +79,18 @@ PanelWindow {
 
             Tray {
                 id: tray
+                backgroundVisible: false
                 height: root.sectionHeight
                 Layout.preferredHeight: root.sectionHeight
             }
 
             SystemInfo {
                 id: systemInfo
+                backgroundVisible: false
                 height: root.sectionHeight
                 Layout.preferredHeight: root.sectionHeight
+                brightnessService: root.brightnessService
+                outputName: root.screen ? root.screen.name : ""
             }
         }
     }

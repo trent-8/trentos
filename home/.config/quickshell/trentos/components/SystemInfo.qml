@@ -1,6 +1,5 @@
 import QtQuick
 import QtQuick.Layouts
-import Quickshell.Io
 import Quickshell.Services.Pipewire
 import Quickshell.Services.UPower
 
@@ -12,7 +11,25 @@ SquirclePanel {
     radius: 13
     power: 4.6
 
-    property int brightnessPercent: -1
+    required property var brightnessService
+    required property string outputName
+
+    readonly property bool laptopOutput:
+        outputName === brightnessService.laptopOutputName
+    readonly property bool lgOutput:
+        outputName === brightnessService.lgOutputName
+    readonly property bool brightnessSupported:
+        brightnessService.supportsOutput(outputName)
+    readonly property bool brightnessAvailable: laptopOutput
+        ? brightnessService.laptopPercent >= 0
+        : lgOutput && brightnessService.lgAvailable
+    readonly property int brightnessPercent: laptopOutput
+        ? brightnessService.laptopPercent
+        : lgOutput ? brightnessService.lgPercent : -1
+    readonly property string brightnessIcon: laptopOutput ? "󰌢" : "󰍹"
+    readonly property string brightnessTitle: laptopOutput
+        ? "Laptop brightness" : "LG HDR QHD brightness"
+    readonly property color brightnessColor: laptopOutput ? "#e3b341" : "#77bdfb"
 
     readonly property var audioSink: Pipewire.defaultAudioSink
     readonly property var sinkAudio: audioSink ? audioSink.audio : null
@@ -27,24 +44,14 @@ SquirclePanel {
     readonly property bool batteryFullPlugged: batteryAvailable
         && !UPower.onBattery
         && batteryDevice.state === UPowerDeviceState.FullyCharged
+    readonly property bool batteryDischarging: batteryAvailable
+        && UPower.onBattery
+        && !batteryCharging
     readonly property real batteryTimeToEmpty: batteryAvailable ? batteryDevice.timeToEmpty : 0
     readonly property real batteryTimeToFull: batteryAvailable ? batteryDevice.timeToFull : 0
 
-    property int pendingBrightness: brightnessPercent
-
-    function parseBrightness(text) {
-        const parts = text.trim().split(",");
-        if (parts.length >= 4) {
-            const percent = parts[3].replace("%", "").trim();
-            if (percent.length > 0) {
-                root.brightnessPercent = Math.round(Number(percent));
-                return;
-            }
-        }
-
-        const numeric = Number(text.trim());
-        root.brightnessPercent = Number.isFinite(numeric) ? Math.round(numeric) : -1;
-    }
+    property bool lowBatteryDismissed: false
+    property bool criticalBatteryDismissed: false
 
     function volumeIcon() {
         if (root.volumeMuted || root.volumePercent === 0)
@@ -66,10 +73,43 @@ SquirclePanel {
     }
 
     function togglePopup(popup) {
+        if (batteryWarningPopup.visible)
+            return;
+
         const shouldOpen = !popup.visible;
         root.closeOtherPopups(popup);
         popup.visible = shouldOpen;
     }
+
+    function updateBatteryWarning() {
+        if (!root.batteryDischarging) {
+            batteryWarningPopup.visible = false;
+            root.lowBatteryDismissed = false;
+            root.criticalBatteryDismissed = false;
+            return;
+        }
+
+        if (root.batteryPercent > 10) {
+            batteryWarningPopup.visible = false;
+            root.lowBatteryDismissed = false;
+            root.criticalBatteryDismissed = false;
+            return;
+        }
+
+        if (root.batteryPercent > 5) {
+            root.criticalBatteryDismissed = false;
+            batteryWarningPopup.isCritical = false;
+            batteryWarningPopup.visible = !root.lowBatteryDismissed;
+            return;
+        }
+
+        batteryWarningPopup.isCritical = true;
+        batteryWarningPopup.visible = !root.criticalBatteryDismissed;
+    }
+
+    onBatteryPercentChanged: Qt.callLater(root.updateBatteryWarning)
+    onBatteryDischargingChanged: Qt.callLater(root.updateBatteryWarning)
+    Component.onCompleted: Qt.callLater(root.updateBatteryWarning)
 
     PwObjectTracker {
         objects: [root.audioSink]
@@ -92,10 +132,12 @@ SquirclePanel {
         LevelBar {
             id: brightnessBar
 
-            value: root.brightnessPercent
-            icon: ""
-            label: root.brightnessPercent >= 0 ? `${root.brightnessPercent}%` : "--"
-            fillColor: "#90e3b341"
+            visible: root.brightnessSupported
+            implicitWidth: 78
+            value: root.brightnessAvailable ? root.brightnessPercent : 0
+            icon: root.brightnessIcon
+            label: root.brightnessAvailable ? `${root.brightnessPercent}%` : "--"
+            fillColor: root.laptopOutput ? "#90e3b341" : "#9077bdfb"
             onClicked: root.togglePopup(brightnessPopup)
         }
 
@@ -130,14 +172,15 @@ SquirclePanel {
         id: brightnessPopup
 
         anchorItem: brightnessBar
-        title: "Brightness"
-        icon: ""
-        value: root.brightnessPercent
-        accentColor: "#e3b341"
+        title: root.brightnessTitle
+        icon: root.brightnessIcon
+        value: root.brightnessAvailable ? root.brightnessPercent : 0
+        accentColor: root.brightnessColor
+        onValueMoved: value => root.brightnessService.setOutput(root.outputName, value)
 
-        onValueMoved: value => {
-            root.pendingBrightness = Math.round(value);
-            brightnessSetTimer.restart();
+        onVisibleChanged: {
+            if (visible)
+                root.brightnessService.queryOutput(root.outputName);
         }
     }
 
@@ -153,35 +196,25 @@ SquirclePanel {
         timeToFull: root.batteryTimeToFull
     }
 
-    Timer {
-        running: true
-        repeat: true
-        interval: 2000
-        triggeredOnStart: true
-        onTriggered: {
-            brightnessProc.exec(["brightnessctl", "-m"]);
+    BatteryWarningPopup {
+        id: batteryWarningPopup
+
+        anchorItem: batteryBar
+        batteryPercent: root.batteryPercent
+
+        onVisibleChanged: {
+            if (visible)
+                root.closeOtherPopups(null);
+        }
+
+        onDismissed: {
+            if (isCritical)
+                root.criticalBatteryDismissed = true;
+            else
+                root.lowBatteryDismissed = true;
+
+            visible = false;
         }
     }
 
-    Timer {
-        id: brightnessSetTimer
-        interval: 80
-        onTriggered: brightnessSetProc.exec([
-            "brightnessctl",
-            "set",
-            `${root.pendingBrightness}%`
-        ])
-    }
-
-    Process {
-        id: brightnessProc
-        stdout: StdioCollector {
-            onStreamFinished: root.parseBrightness(this.text)
-        }
-    }
-
-    Process {
-        id: brightnessSetProc
-        onExited: brightnessProc.exec(["brightnessctl", "-m"])
-    }
 }
