@@ -125,6 +125,34 @@ return {
         config = function(_, opts)
           require("nvim-autopairs").setup(opts)
 
+          -- Inline TeX math: insert a closing dollar and skip over it when typed.
+          local Rule = require "nvim-autopairs.rule"
+          local cond = require "nvim-autopairs.conds"
+          -- Leave the TeX display-math opener to the snippet, not bracket pairing.
+          for _, rule in ipairs(require("nvim-autopairs").get_rules("[")) do
+            rule:with_pair(function(context)
+              local ft = vim.bo[context.bufnr].filetype
+              if (ft == "tex" or ft == "plaintex")
+                and context.line:sub(context.col - 1, context.col - 1) == "\\"
+              then
+                return false
+              end
+            end, 1)
+          end
+          require("nvim-autopairs").add_rules {
+            Rule("$", "$", { "tex", "plaintex" })
+              :with_pair(function(context)
+                local before = context.line:sub(1, context.col - 1)
+                local slashes = before:match("(\\+)$") or ""
+                if #slashes % 2 == 1 then
+                  return false
+                end
+              end)
+              :with_pair(cond.not_after_text("$"))
+              :with_move(cond.done())
+              :with_cr(cond.none()),
+          }
+
           -- setup cmp for autopairs
           local cmp_autopairs = require "nvim-autopairs.completion.cmp"
           require("cmp").event:on("confirm_done", cmp_autopairs.on_confirm_done())
