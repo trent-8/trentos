@@ -7,3 +7,5 @@ local o = vim.o
 o.relativenumber = true
 o.wrap = true
 o.linebreak = true
+o.splitkeep = "cursor"
+o.mousescroll = "ver:1,hor:6"
