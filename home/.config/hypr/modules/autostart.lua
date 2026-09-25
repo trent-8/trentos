@@ -13,7 +13,6 @@ hl.on("hyprland.start", function ()
   hl.exec_cmd("/usr/lib/hyprpolkitagent/hyprpolkitagent")
   hl.exec_cmd("/usr/bin/kdeconnectd")
   hl.exec_cmd("thunar --daemon")
-  hl.exec_cmd("twingate service-start")
   hl.exec_cmd("twingate desktop-start")
 end)
 
