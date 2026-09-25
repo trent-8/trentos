@@ -7,6 +7,21 @@
 
 -- Example window rules that are useful
 
+-- Shared terminal classification for universal clipboard shortcuts.
+hl.window_rule({
+    name = "tag-terminal-windows",
+    match = { class = [[(Alacritty|kitty|com\.mitchellh\.ghostty|foot|org\.codeberg\.dnkl\.foot|wezterm|org\.wezfurlong\.wezterm)]] },
+    tag = "+terminal",
+})
+
+-- Double the global mouse (0.5) and touchpad (0.07) scroll factors in Alacritty.
+hl.window_rule({
+    name = "alacritty-scroll-speed",
+    match = { class = "Alacritty" },
+    scroll_mouse = 1.0,
+    scroll_touchpad = 0.14,
+})
+
 local suppressMaximizeRule = hl.window_rule({
     -- Ignore maximize requests from all apps. You'll probably like this.
     name  = "suppress-maximize-events",

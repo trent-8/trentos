@@ -1,6 +1,9 @@
 [window]
   padding = { x = 5, y = 5 }
 
+[colors.primary]
+  background = "#1E1E1E"
+
 [font]
   normal = { family = "SauceCodePro NF", style = "Regular" }
   bold = { family = "SauceCodePro NF", style = "Bold" }
@@ -13,3 +16,10 @@
 
 [scrolling]
   multiplier = 3
+
+# Handle Hyprland's universal clipboard shortcuts in the terminal itself.
+[keyboard]
+  bindings = [
+    { key = "Insert", mods = "Control", action = "Copy" },
+    { key = "Insert", mods = "Shift", action = "Paste" },
+  ]

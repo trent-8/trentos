@@ -17,6 +17,36 @@ local browser     = "firefox"
 
 local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 
+-- Omarchy-style clipboard translation; target the focused surface.
+local function sendShortcutOnce(mods, key)
+    return function()
+        hl.dispatch(hl.dsp.send_key_state({ mods = mods, key = key, state = "down" }))
+        hl.timer(function()
+            hl.dispatch(hl.dsp.send_key_state({ mods = mods, key = key, state = "up" }))
+        end, { timeout = 50, type = "oneshot" })
+    end
+end
+
+local function universalClipboardShortcut(defaultMods, defaultKey, terminalMods, terminalKey)
+    return function()
+        local window = hl.get_active_window()
+        for _, tag in ipairs(window and window.tags or {}) do
+            if tag:gsub("%*$", "") == "terminal" then
+                sendShortcutOnce(terminalMods, terminalKey)()
+                return
+            end
+        end
+        sendShortcutOnce(defaultMods, defaultKey)()
+    end
+end
+
+hl.bind(mainMod .. " + C", universalClipboardShortcut("CTRL", "C", "CTRL", "Insert"),
+    { description = "Universal copy" })
+hl.bind(mainMod .. " + V", universalClipboardShortcut("CTRL", "V", "SHIFT", "Insert"),
+    { description = "Universal paste" })
+hl.bind(mainMod .. " + X", sendShortcutOnce("CTRL", "X"), { description = "Universal cut" })
+
+
 -- Pass shortcuts through to the focused app until the same chord is pressed again.
 local shortcutToggle = mainMod .. " + SHIFT + F12"
 hl.bind(shortcutToggle, hl.dsp.submap("shortcuts-disabled"), {
@@ -32,9 +62,9 @@ end)
 
 -- Example binds, see https://wiki.hypr.land/Configuring/Basics/Binds/ for more
 hl.bind(mainMod .. " + space", hl.dsp.exec_cmd(menu))
-hl.bind(mainMod .. " + X", hl.dsp.exec_cmd(terminal))
+hl.bind(mainMod .. " + Return", hl.dsp.exec_cmd(terminal))
 hl.bind(mainMod .. " + E", hl.dsp.exec_cmd(fileManager))
-hl.bind(mainMod .. " + C", hl.dsp.exec_cmd(code))
+hl.bind(mainMod .. " + SHIFT + C", hl.dsp.exec_cmd(code))
 hl.bind(mainMod .. " + A", hl.dsp.exec_cmd("codex-desktop"))
 hl.bind(mainMod .. " + B", hl.dsp.exec_cmd(browser))
 hl.bind(mainMod .. " + I", function()
@@ -58,7 +88,7 @@ hl.bind(mainMod .. " + ALT + L", hl.dsp.exec_cmd("command -v hyprshutdown >/dev/
 hl.bind(mainMod .. " + ALT + R", hl.dsp.exec_cmd("systemctl reboot"), { locked = true })
 hl.bind(mainMod .. " + ALT + S", hl.dsp.exec_cmd("systemctl sleep"), { locked = true })
 hl.bind(mainMod .. " + ALT + P", hl.dsp.exec_cmd("systemctl poweroff"))
-hl.bind(mainMod .. " + V", hl.dsp.window.float({ action = "toggle" }))
+hl.bind(mainMod .. " + SHIFT + V", hl.dsp.window.float({ action = "toggle" }))
 hl.bind(mainMod .. " + F", hl.dsp.window.fullscreen())
 hl.bind(mainMod .. " + P", hl.dsp.window.pseudo())
 hl.bind(mainMod .. " + J", hl.dsp.layout("togglesplit"))    -- dwindle only
@@ -74,21 +104,26 @@ hl.bind(mainMod .. " + right", hl.dsp.focus({ direction = "right" }))
 hl.bind(mainMod .. " + up",    hl.dsp.focus({ direction = "up" }))
 hl.bind(mainMod .. " + down",  hl.dsp.focus({ direction = "down" }))
 
--- Move workspaces with arrow keys
+-- Move the focused window in the layout with Super + Shift + arrows.
+hl.bind(mainMod .. " + SHIFT + left",  hl.dsp.window.move({ direction = "left" }))
+hl.bind(mainMod .. " + SHIFT + right", hl.dsp.window.move({ direction = "right" }))
+hl.bind(mainMod .. " + SHIFT + up",    hl.dsp.window.move({ direction = "up" }))
+hl.bind(mainMod .. " + SHIFT + down",  hl.dsp.window.move({ direction = "down" }))
+
+-- Workspace navigation: Alt views, Ctrl moves a window, Ctrl+Alt moves and follows.
 hl.bind(mainMod .. " + ALT + left",  hl.dsp.focus({ workspace = "-1" }))
 hl.bind(mainMod .. " + ALT + right", hl.dsp.focus({ workspace = "+1" }))
-hl.bind(mainMod .. " + SHIFT + left",  hl.dsp.window.move({ workspace = "-1", follow = false }))
-hl.bind(mainMod .. " + SHIFT + right", hl.dsp.window.move({ workspace = "+1", follow = false }))
-hl.bind(mainMod .. " + ALT + SHIFT + left",  hl.dsp.window.move({ workspace = "-1", follow = true }))
-hl.bind(mainMod .. " + ALT + SHIFT + right", hl.dsp.window.move({ workspace = "+1", follow = true }))
+hl.bind(mainMod .. " + CTRL + left",  hl.dsp.window.move({ workspace = "-1", follow = false }))
+hl.bind(mainMod .. " + CTRL + right", hl.dsp.window.move({ workspace = "+1", follow = false }))
+hl.bind(mainMod .. " + CTRL + ALT + left",  hl.dsp.window.move({ workspace = "-1", follow = true }))
+hl.bind(mainMod .. " + CTRL + ALT + right", hl.dsp.window.move({ workspace = "+1", follow = true }))
 
--- Switch workspaces with mainMod + [0-9]
--- Move active window to a workspace with mainMod + SHIFT + [0-9]
+-- Use the same workspace modifiers with number keys (0 selects workspace 10).
 for i = 1, 10 do
     local key = i % 10 -- 10 maps to key 0
     hl.bind(mainMod .. " + ALT + " .. key,             hl.dsp.focus({ workspace = i}))
-    hl.bind(mainMod .. " + SHIFT + " .. key,     hl.dsp.window.move({ workspace = i, follow = false }))
-    hl.bind(mainMod .. " + ALT + SHIFT + " .. key,     hl.dsp.window.move({ workspace = i, follow = true }))
+    hl.bind(mainMod .. " + CTRL + " .. key,     hl.dsp.window.move({ workspace = i, follow = false }))
+    hl.bind(mainMod .. " + CTRL + ALT + " .. key,     hl.dsp.window.move({ workspace = i, follow = true }))
 end
 
 -- Move/resize windows with mainMod + LMB/RMB and dragging
