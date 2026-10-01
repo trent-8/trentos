@@ -78,8 +78,8 @@ hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("grim -g \"$(slurp -d)\" - | 
 
 -- Forward OBS recording hotkeys globally to its native Wayland window.
 local obsWindow = [[class:^(com\.obsproject\.Studio)$]]
-hl.bind("CTRL + ALT + SHIFT + R", hl.dsp.pass({ window = obsWindow }))
-hl.bind("CTRL + ALT + SHIFT + P", hl.dsp.pass({ window = obsWindow }))
+hl.bind("CTRL + ALT + SHIFT + Z", hl.dsp.pass({ window = obsWindow }))
+hl.bind("CTRL + ALT + SHIFT + X", hl.dsp.pass({ window = obsWindow }))
 
 
 local closeWindowBind = hl.bind(mainMod .. " + Q", hl.dsp.window.close())
