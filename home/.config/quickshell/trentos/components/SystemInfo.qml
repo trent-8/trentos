@@ -36,7 +36,9 @@ SquirclePanel {
     readonly property int volumePercent: sinkAudio ? Math.round(sinkAudio.volume * 100) : -1
     readonly property bool volumeMuted: sinkAudio ? sinkAudio.muted : false
     readonly property var batteryDevice: UPower.displayDevice
-    readonly property bool batteryAvailable: batteryDevice && batteryDevice.ready
+    readonly property bool batteryAvailable: batteryDevice
+        && batteryDevice.ready
+        && batteryDevice.isPresent
     readonly property int batteryPercent: batteryAvailable ? Math.round(batteryDevice.percentage * 100) : -1
     readonly property bool batteryCharging: batteryAvailable
         && (batteryDevice.state === UPowerDeviceState.Charging
@@ -144,6 +146,7 @@ SquirclePanel {
         BatteryIndicator {
             id: batteryBar
 
+            visible: root.batteryAvailable
             value: root.batteryPercent
             charging: root.batteryCharging
             fullPlugged: root.batteryFullPlugged
