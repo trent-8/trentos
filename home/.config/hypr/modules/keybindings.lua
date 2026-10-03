@@ -8,7 +8,7 @@ local terminal    = "alacritty"
 local fileManager = "thunar"
 local menu        = "pidof wofi & pkill wofi || wofi -t=st -S drun -I -n -W 300 -H 700"
 local code        = "~/wpilib/2026/vscode/VSCode-linux-x64/code"
-local notes       = "xournalpp"
+local notes       = "gtk-launch workflowy"
 local browser     = "firefox"
 
 ---------------------
@@ -73,7 +73,7 @@ hl.bind(mainMod .. " + I", function()
 end)
 hl.bind(mainMod .. " + N", hl.dsp.exec_cmd(notes))
 hl.bind(mainMod .. " + Z", hl.dsp.exec_cmd(terminal .. " -e bluetuith --adapter-states=\"scan:yes\""))
-hl.bind(mainMod .. " + T", hl.dsp.exec_cmd(terminal .. " -e btop"))
+hl.bind(mainMod .. " + T", hl.dsp.exec_cmd(terminal .. " -o 'font.size=12' -e btop"))
 hl.bind(mainMod .. " + SHIFT + S", hl.dsp.exec_cmd("grim -g \"$(slurp -d)\" - | tee ~/MEGA/Pictures/$(date +\"%Y%m%d_%Hh%Mm%Ss\")_grim.png | wl-copy"))
 
 -- Forward OBS recording hotkeys globally to its native Wayland window.
