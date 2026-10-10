@@ -7,7 +7,7 @@ local monitors = require("modules.monitors")
 local terminal    = "alacritty"
 local fileManager = "thunar"
 local menu        = "pidof wofi & pkill wofi || wofi -t=st -S drun -I -n -W 300 -H 700"
-local code        = "~/wpilib/2026/vscode/VSCode-linux-x64/code"
+local code        = "code || ~/wpilib/2026/vscode/VSCode-linux-x64/code"
 local notes       = "gtk-launch workflowy"
 local browser     = "firefox"
 
