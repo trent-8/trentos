@@ -1,0 +1,15 @@
+[Default Applications]
+x-scheme-handler/codex=chatgpt.desktop
+text/html=firefox.desktop
+x-scheme-handler/http=firefox.desktop
+x-scheme-handler/https=firefox.desktop
+x-scheme-handler/about=firefox.desktop
+x-scheme-handler/unknown=firefox.desktop
+application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoffice-writer.desktop
+text/plain=nvim.desktop
+text/markdown=nvim.desktop
+
+[Added Associations]
+application/vnd.openxmlformats-officedocument.wordprocessingml.document=libreoffice-writer.desktop;
+text/plain=nvim.desktop;
+text/markdown=nvim.desktop;
